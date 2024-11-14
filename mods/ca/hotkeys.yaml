@@ -38,7 +38,12 @@ PowerDown: X
 	Types: OrderGenerator
 	Contexts: Player
 
-Upgrade: V
+Upgrade: U
 	Description: Upgrade mode
 	Types: OrderGenerator
+	Contexts: Player
+
+ToggleVariant: V
+	Description: Rotate Building
+	Types: Production
 	Contexts: Player

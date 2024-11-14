@@ -1,0 +1,177 @@
+Flamer:
+	ReloadDelay: 55
+	Range: 2c512
+	Report: flamer2.aud
+	ValidTargets: GroundActor, WaterActor, Trees
+	InvalidTargets: Wall, FireImmune
+	Projectile: Bullet
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 4000
+		ValidTargets: GroundActor, WaterActor, Trees
+		InvalidTargets: Wall, FireImmune
+        Versus:
+            None: 87
+            Wood: 100
+            Light: 68
+            Heavy: 25
+            Concrete: 50
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall
+
+BigFlamer:
+	ReloadDelay: 65
+	Range: 2c512
+	Report: flamer2.aud
+	Burst: 2
+	BurstDelays: 8
+	ValidTargets: GroundActor, WaterActor, Trees
+	InvalidTargets: Wall, FireImmune
+	Projectile: Bullet
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 8000
+		ValidTargets: GroundActor, WaterActor, Trees
+		InvalidTargets: Wall, FireImmune
+        Versus:
+            None: 87
+            Wood: 100
+            Light: 68
+            Heavy: 25
+            Concrete: 50
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall
+
+ChemSpray:
+	ReloadDelay: 55
+	Range: 2c512
+	Report: flamer2.aud
+	ValidTargets: GroundActor, WaterActor
+	InvalidTargets: Wall, ChemImmune
+	Projectile: Bullet
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 8000
+		ValidTargets: GroundActor, WaterActor
+		InvalidTargets: Wall, ChemImmune
+        Versus:
+            None: 88
+            Wood: 75
+            Light: 56
+            Heavy: 25
+            Concrete: 100
+		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall
+
+ChemSprayUpg:
+    Inherits: ChemSpray
+	Warhead@3Chem: GrantExternalCondition
+		Range: 0c256
+		Duration: 45
+		Condition: chem-condition
+		ValidTargets: ChemApplicable
+        InvalidTargets: Invulnerable
+
+BigChemSpray:
+	ReloadDelay: 65
+	Range: 2c512
+	Report: flamer2.aud
+	Burst: 2
+	BurstDelays: 8
+	ValidTargets: GroundActor, WaterActor
+	InvalidTargets: Wall, ChemImmune
+	Projectile: Bullet
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 12000
+		ValidTargets: GroundActor, WaterActor
+		InvalidTargets: Wall, ChemImmune
+        Versus:
+            None: 88
+            Wood: 75
+            Light: 56
+            Heavy: 25
+            Concrete: 100
+		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall
+	Warhead@3Chem: GrantExternalCondition
+		Range: 0c256
+		Duration: 45
+		Condition: chem-condition
+		ValidTargets: ChemApplicable
+        InvalidTargets: Invulnerable
+
+ChemBomb:
+	ValidTargets: GroundActor, WaterActor
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c768
+		Damage: 10000
+		Falloff: 1000, 368, 135, 50
+		AffectsParent: true
+		ValidTargets: GroundActor, WaterActor
+        Versus:
+            None: 88
+            Wood: 75
+            Light: 56
+            Heavy: 25
+            Concrete: 100
+		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: big_chem
+		ImpactSounds: flamer2.aud, chembomb.aud
+	Warhead@3Chem: GrantExternalCondition
+		Range: 1c768
+		Duration: 45
+		Condition: chem-condition
+		ValidTargets: ChemApplicable
+        InvalidTargets: Invulnerable
+	Warhead@4Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall
+		Size: 1
+		Delay: 5
+    Warhead@5Res: CreateResource
+        AddsResourceType: Tiberium
+        Size: 1,0
+        Delay: 3
+
+NapalmBombs:
+	ReloadDelay: 4
+	Range: 2c0
+	Burst: 2
+	BurstDelays: 2
+	ValidTargets: Ground, GroundActor, Water, WaterActor, Trees
+	Report: flamer2.aud
+	Projectile: GravityBomb
+		Image: BOMBLET
+		Shadow: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 341
+		Damage: 3000
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		ValidTargets: GroundActor, WaterActor, Trees
+        Versus:
+            None: 87
+            Wood: 100
+            Light: 68
+            Heavy: 25
+            Concrete: 50
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall
+	Warhead@3Eff: CreateEffect
+		Explosions: med_napalm
+		ImpactActors: false

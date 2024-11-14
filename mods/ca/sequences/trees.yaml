@@ -1,0 +1,249 @@
+split2:
+	Defaults:
+		Filename: split2.tem
+		Offset: 11, -15
+	make:
+		Length: 30
+		Tick: 120
+	active:
+		Start: 30
+		Length: 24
+	idle:
+		Start: 54
+
+split3:
+	Defaults:
+        Filename: split3.tem
+		Offset: 7, -13
+	make:
+		Length: 30
+		Tick: 120
+	active:
+		Start: 30
+		Length: 24
+	idle:
+		Start: 54
+
+tc04:
+	Defaults:
+		Filename: tc04.tem
+	idle:
+	damaged-idle:
+		Start: 1
+
+tc04.husk:
+	Defaults:
+		Filename: tc04.tem
+	idle:
+		Start: 2
+
+tc05:
+	Defaults:
+		Filename: tc05.tem
+	idle:
+	damaged-idle:
+		Start: 1
+
+tc05.husk:
+	Defaults:
+		Filename: tc05.tem
+	idle:
+		Start: 2
+
+tc03:
+	Defaults:
+		Filename: tc03.tem
+	idle:
+
+tc03.husk:
+	Defaults:
+		Filename: tc03.tem
+	idle:
+		Start: 1
+
+tc02:
+	Defaults:
+		Filename: tc02.tem
+	idle:
+
+tc02.husk:
+	Defaults:
+		Filename: tc02.tem
+	idle:
+		Start: 1
+
+tc01:
+	Defaults:
+		Filename: tc01.tem
+	idle:
+
+tc01.husk:
+	Defaults:
+		Filename: tc01.tem
+	idle:
+		Start: 1
+
+t17:
+	Defaults:
+		Filename: t17.tem
+	idle:
+
+t17.husk:
+	Defaults:
+		Filename: t17.tem
+	idle:
+		Start: 1
+
+t16:
+	Defaults:
+		Filename: t16.tem
+	idle:
+
+t16.husk:
+	Defaults:
+		Filename: t16.tem
+	idle:
+		Start: 1
+
+t15:
+	Defaults:
+		Filename: t15.tem
+	idle:
+
+t15.husk:
+	Defaults:
+		Filename: t15.tem
+	idle:
+		Start: 1
+
+t14:
+	Defaults:
+		Filename: t14.tem
+	idle:
+
+t14.husk:
+	Defaults:
+		Filename: t14.tem
+	idle:
+		Start: 1
+
+t13:
+	Defaults:
+		Filename: t13.tem
+	idle:
+
+t13.husk:
+	Defaults:
+		Filename: t13.tem
+	idle:
+		Start: 1
+
+t12:
+	Defaults:
+		Filename: t12.tem
+	idle:
+
+t12.husk:
+	Defaults:
+		Filename: t12.tem
+	idle:
+		Start: 1
+
+t11:
+	Defaults:
+		Filename: t11.tem
+	idle:
+
+t11.husk:
+	Defaults:
+		Filename: t11.tem
+	idle:
+		Start: 1
+
+t10:
+	Defaults:
+		Filename: t10.tem
+	idle:
+
+t10.husk:
+	Defaults:
+		Filename: t10.tem
+	idle:
+		Start: 1
+
+t08:
+	Defaults:
+        Filename: t08.tem
+	idle:
+
+t08.husk:
+	Defaults:
+        Filename: t08.tem
+	idle:
+		Start: 1
+
+t07:
+	Defaults:
+		Filename: t07.tem
+	idle:
+
+t07.husk:
+	Defaults:
+		Filename: t07.tem
+	idle:
+		Start: 1
+
+t06:
+	Defaults:
+		Filename: t06.tem
+	idle:
+
+t06.husk:
+	Defaults:
+		Filename: t06.tem
+	idle:
+		Start: 1
+
+t05:
+	Defaults:
+		Filename: t05.tem
+	idle:
+
+t05.husk:
+	Defaults:
+		Filename: t05.tem
+	idle:
+		Start: 1
+
+t03:
+	Defaults:
+		Filename: t03.tem
+	idle:
+
+t03.husk:
+	Defaults:
+		Filename: t03.tem
+	idle:
+		Start: 1
+
+t02:
+	Defaults:
+		Filename: t02.tem
+	idle:
+
+t02.husk:
+	Defaults:
+		Filename: t02.tem
+	idle:
+		Start: 1
+
+t01:
+	Defaults:
+		Filename: t01.tem
+	idle:
+
+t01.husk:
+	Defaults:
+		Filename: t01.tem
+	idle:
+		Start: 1

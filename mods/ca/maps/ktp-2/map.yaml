@@ -1,0 +1,111 @@
+MapFormat: 12
+
+RequiresMod: ca
+
+Title: King takes Pawn II
+
+Author: shahmatt
+
+Tileset: TEMPERAT
+
+MapSize: 82,82
+
+Bounds: 1,1,80,80
+
+Visibility: Lobby
+
+Categories: Conquest
+
+Players:
+	PlayerReference@Neutral:
+		Name: Neutral
+		OwnsWorld: True
+		NonCombatant: True
+		Faction: Random
+	PlayerReference@Creeps:
+		Name: Creeps
+		NonCombatant: True
+		Faction: Random
+		Enemies: Multi0, Multi1, Multi2, Multi3
+	PlayerReference@Multi0:
+		Name: Multi0
+		Playable: True
+		Faction: Random
+		Enemies: Creeps
+	PlayerReference@Multi1:
+		Name: Multi1
+		Playable: True
+		Faction: Random
+		Enemies: Creeps
+	PlayerReference@Multi2:
+		Name: Multi2
+		Playable: True
+		Faction: Random
+		Enemies: Creeps
+	PlayerReference@Multi3:
+		Name: Multi3
+		Playable: True
+		Faction: Random
+		Enemies: Creeps
+
+Actors:
+	Actor4: t03.transformable
+		Owner: Neutral
+		Location: 30,14
+	Actor5: t03.transformable
+		Owner: Neutral
+		Location: 51,14
+	Actor6: t03.transformable
+		Owner: Neutral
+		Location: 15,29
+	Actor8: t03.transformable
+		Owner: Neutral
+		Location: 66,29
+	Actor9: t03.transformable
+		Owner: Neutral
+		Location: 39,38
+	Actor10: t03.transformable
+		Owner: Neutral
+		Location: 42,38
+	Actor11: t03.transformable
+		Owner: Neutral
+		Location: 39,41
+	Actor12: t03.transformable
+		Owner: Neutral
+		Location: 42,41
+	Actor13: t03.transformable
+		Owner: Neutral
+		Location: 15,50
+	Actor14: t03.transformable
+		Owner: Neutral
+		Location: 66,50
+	Actor15: t03.transformable
+		Owner: Neutral
+		Location: 30,65
+	Actor16: t03.transformable
+		Owner: Neutral
+		Location: 51,65
+	Actor17: t03.transformable
+		Owner: Neutral
+		Location: 6,5
+	Actor18: t03.transformable
+		Owner: Neutral
+		Location: 6,74
+	Actor19: t03.transformable
+		Owner: Neutral
+		Location: 75,74
+	Actor20: t03.transformable
+		Owner: Neutral
+		Location: 75,5
+	Actor21: mpspawn
+		Owner: Neutral
+		Location: 22,22
+	Actor22: mpspawn
+		Owner: Neutral
+		Location: 59,22
+	Actor23: mpspawn
+		Owner: Neutral
+		Location: 59,59
+	Actor24: mpspawn
+		Owner: Neutral
+		Location: 22,59

@@ -1,0 +1,263 @@
+
+explosion:
+	Defaults:
+		Length: *
+		ZOffset: 2047
+	nuke_explosion:
+		Filename: atomsfx.shp
+	piff:
+		Filename: piff.shp
+	piffs:
+		Filename: piffpiff.shp
+    water_piff:
+        Filename: wpiff.shp
+	water_piffs:
+        Filename: wpiffpiff.shp
+	sml_splash:
+        Filename: h2o_exp3.shp
+		Offset: 0, -1
+	med_splash:
+        Filename: h2o_exp2.shp
+		Offset: 0, -2
+	big_splash:
+        Filename: h2o_exp1.shp
+		Offset: 0, -3
+	sml_poof:
+		Filename: art-expsml.shp
+	poof:
+		Filename: art-exp1.shp
+	sml_frag:
+		Filename: fragsml.shp
+    med_frag:
+		Filename: frag1.shp
+    big_frag:
+		Filename: frag3.shp
+	sml_chem:
+        Filename: chemexp1.shp
+		Offset: 0, -2
+	med_chem:
+        Filename: chemexp2.shp
+		Offset: 0, -4
+	big_chem:
+        Filename: chemexp3.shp
+		Offset: 0, -6
+	building: 
+        Filename: fball1.shp
+	sml_building:
+        Filename: fbalsml.shp
+	sml_napalm:
+		Filename: napalm1.shp
+	med_napalm:
+		Filename: napalm2.shp
+	big_napalm:
+		Filename: napalm3.shp
+    building_napalm:
+        Filename: napalm2.shp
+		FlipX: true
+	sml_flak:
+		Filename: flak.shp
+		ZOffset: 511
+	corpse:
+        Filename: squish.shp
+		ZOffset: -512
+		Tick: 1600
+
+ionsfx:
+	idle:
+		Filename: ionsfx.shp
+		Length: *
+		Offset: 0, -78
+		ZOffset: 1023
+
+fb1:
+	idle:
+        Filename: fb1.shp
+		Length: *
+		ZOffset: 1023
+
+fb2:
+	idle:
+        Filename: fb2.shp
+        Length: *
+		ZOffset: 1023
+
+fb3:
+	idle:
+        Filename: fb3.shp
+		Facings: 32
+		ZOffset: 1023
+
+fb4:
+	idle:
+		Filename: fb4.shp
+		Length: 4
+		ZOffset: 1023
+
+fire:
+	1:
+		Filename: fire1.shp
+		Length: *
+		Offset: 0,-3
+		ZOffset: 1023
+	2:
+		Filename: fire2.shp
+		Length: *
+		Offset: 0,-3
+		ZOffset: 1023
+	3:
+		Filename: fire3.shp
+		Length: *
+		Offset: 0,-3
+		ZOffset: 1023
+	4:
+		Filename: fire4.shp
+		Length: *
+		Offset: 0,-3
+		ZOffset: 1023
+
+burn-l:
+	Defaults:
+		Filename: burn-l.shp
+	idle:
+		Length: *
+		ZOffset: 512
+	loop:
+		Start: 16
+		Length: 44
+		ZOffset: 512
+	end:
+		Start: 60
+		Length: 6
+		ZOffset: 512
+
+burn-m:
+	Defaults:
+		Filename: burn-m.shp
+	idle:
+		Length: *
+		ZOffset: 512
+	loop:
+		Start: 16
+		Length: 44
+		ZOffset: 512
+	end:
+		Start: 60
+		Length: 6
+		ZOffset: 512
+
+burn-s:
+	Defaults:
+		Filename: burn-s.shp
+	idle:
+		Length: *
+		ZOffset: 512
+	loop:
+		Start: 12
+		Length: 46
+		ZOffset: 512
+	end:
+		Start: 59
+		Length: 5
+		ZOffset: 512
+
+smoke_m:
+	Defaults:
+		Filename: smoke_m.shp
+	idle:
+		Length: *
+		Offset: 2, -5
+		ZOffset: 512
+	loop:
+		Start: 49
+		Length: 42
+		Offset: 2, -5
+		ZOffset: 512
+	end:
+		Frames: 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0
+		Offset: 2, -5
+		ZOffset: 512
+
+smokey:
+	idle:
+		Filename: smokey.shp
+		Length: *
+		ZOffset: 1023
+
+50cal:
+	idle:
+		Filename: 50cal.shp
+		ZOffset: 1023
+
+120mm:
+	idle:
+		Filename: 120mm.shp
+		ZOffset: 1023
+
+rocket:
+	idle:
+		Filename: rocket.shp
+		Facings: 32
+		ZOffset: 1023
+
+missile:
+	idle:
+		Filename: missile.shp
+		Facings: 32
+		ZOffset: 1023
+
+darkmis:
+	idle:
+		Filename: darkmis.shp
+		Facings: 32
+		ZOffset: 1023
+
+hjm:
+	idle:
+        Filename: hjm.shp
+		Facings: 32
+		ZOffset: 1023
+
+hjmb:
+	idle:
+        Filename: hjmb.shp
+		Facings: 32
+		ZOffset: 1023
+
+bomb:
+	idle:
+		Filename: bomb.shp
+		Length: *
+		ZOffset: 1023
+
+bomblet:
+	idle:
+        Filename: bomblet.shp
+		Length: *
+		ZOffset: 1023
+
+laserfire:
+	idle:
+		Filename: fragsml.shp
+		Length: *
+		ZOffset: 511
+
+atomic:
+	Defaults:
+		Length: *
+		ZOffset: 1023
+	up:
+		Filename: atomicup.shp
+	down:
+		Filename: atomicdn.shp
+
+ionsfx:
+	idle:
+		Filename: ionsfx.shp
+		Length: *
+		Offset: 0, -78
+		ZOffset: 1023
+
+mine:
+	idle:
+		Filename: mine.shp
+		ZOffset: -512

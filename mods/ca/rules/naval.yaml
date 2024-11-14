@@ -1,0 +1,137 @@
+LST:
+	Inherits: ^Ship
+    Inherits@selection: ^SelectableSupportUnit
+	HitShape:
+		Type: Circle
+			Radius: 576
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Landing Craft
+	TooltipExtras:
+		Weaknesses: Unarmed
+        Attributes: Carries one Vehicle\nor up to 5 Infantry
+	Buildable:
+        BuildDuration: 700
+        BuildDurationModifier: 100
+        BuildPaletteOrder: 10
+		Queue: ShipSQ, ShipMQ
+		Prerequisites: ~syrd, ~techlevel.minimum
+		Description: Transports ground units across water.
+	Mobile:
+		Locomotor: landingcraft
+		InitialFacing: 0
+		TurnSpeed: 12
+		Speed: 90
+        PauseOnCondition: notmobile
+	Health:
+		HP: 40000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 3c512
+	Selectable:
+		Bounds: 2048, 2048
+	WithCargo:
+		DisplayTypes: Infantry, Vehicle
+		LocalOffset: 390,-256,0, 390,256,0, 0,0,0, -390,-256,0, -390,256,0
+	Cargo:
+		Types: Infantry, Vehicle
+		MaxWeight: 5
+		PassengerFacing: 0
+		UnloadVoice: Unload
+		LoadingCondition: notmobile
+        #   LoadedCondition: loaded
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		CustomPipSequences:
+			gray: pip-gray
+            green: pip-green
+			yellow: pip-yellow
+			red: pip-red
+            blue: pip-blue
+
+GBT:
+	Inherits: ^Ship
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@experience: ^GainsExperience
+    Inherits@expupgrade: ^AffectedBySpecialTraining
+	Buildable:
+        BuildDuration: 700
+        BuildDurationModifier: 100
+		Queue: ShipSQ, ShipMQ
+		BuildPaletteOrder: 20
+		Prerequisites: ~syrd, ~ships.gdi, ~techlevel.low
+		Description: Light scout & support ship.
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Gunboat
+	TooltipExtras:
+		Strengths: Strong vs Buildings, Defenses
+		Weaknesses: Weak vs Infantry, Vehicles
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 20000
+	Armor:
+		Type: Heavy
+	Mobile:
+		TurnSpeed: 16
+		Speed: 120
+	RevealsShroud:
+		Range: 4c512
+	Turreted:
+		TurnSpeed: 16
+		Offset: 512,0,0
+	Armament:
+		Weapon: BoatMissile
+		LocalOffset: 85,-85,0, 85,85,0
+	AttackTurreted:
+	WithSpriteTurret:
+	Selectable:
+		DecorationBounds: 1536, 1536
+
+PBT:
+	Inherits: ^Ship
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@experience: ^GainsExperience
+    Inherits@expupgrade: ^AffectedBySpecialTraining
+	Buildable:
+        BuildDuration: 600
+        BuildDurationModifier: 100
+		Queue: ShipSQ, ShipMQ
+		BuildPaletteOrder: 20
+		Prerequisites: ~syrd, ~ships.nod, ~techlevel.low
+		Description: Light scout & support ship.
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Patrol Boat
+	TooltipExtras:
+		Strengths: Strong vs Buildings, Defenses
+		Weaknesses: Weak vs Infantry, Vehicles
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 15000
+	Armor:
+		Type: Heavy
+	Mobile:
+		TurnSpeed: 16
+		Speed: 120
+	RevealsShroud:
+		Range: 4c512
+	Turreted:
+		TurnSpeed: 16
+	Armament:
+		Weapon: 2InchGun
+		LocalOffset: 174,0,160
+		MuzzleSequence: muzzle
+	AttackTurreted:
+	WithSpriteTurret:
+	WithMuzzleOverlay:
+	Selectable:
+		DecorationBounds: 1536, 1536

@@ -3,20 +3,111 @@
 	Shroud:
 	PlayerResources:
 		ResourceValues:
-			Ore: 25
-			Gems: 38
-			Tiberium: 25
-			BlueTiberium: 38
+			Tiberium: 30
+			BlueTiberium: 60
+            RedTiberium: 90
 
 EditorPlayer:
 	Inherits: ^BasePlayer
 
 Player:
 	Inherits: ^BasePlayer
-	Inherits@HeroesOfTheUnion: ^HeroesOfTheUnionPower
-	Inherits@TankDrop: ^TankDropPower
-	Inherits@KillZone: ^KillZonePower
+	PlaceBuilding:
+		NewOptionsNotification: NewOptions
+		CannotPlaceNotification: BuildingCannotPlaceAudio
+		NewOptionsTextNotification: New construction options.
+		CannotPlaceTextNotification: Cannot deploy here.
+        ToggleVariantKey: ToggleVariant
 	TechTree:
+	SupportPowerManager:
+	ScriptTriggers:
+	MissionObjectives:
+		WinNotification: Win
+		LoseNotification: Lose
+		LeaveNotification: Leave
+	ConquestVictoryConditions:
+	PowerManager:
+		SpeechNotification: LowPower
+		TextNotification: Low power.
+        AdviceInterval: 20000
+	AllyRepair:
+	PlayerResources:
+        InsufficientFundsNotificationInterval: 60000
+        InsufficientFundsNotification: InsufficientFunds
+		CashTickUpNotification: CashTickUp
+		CashTickDownNotification: CashTickDown
+		SelectableCash: 5000, 10000, 20000, 50000
+		DefaultCash: 10000
+	ResourceStorageWarning:
+		TextNotification: Silos needed.
+        AdviceInterval: 40000
+	DeveloperMode:
+		CheckboxDisplayOrder: 9
+	BaseAttackNotifier:
+		TextNotification: Base under attack.
+		AllyTextNotification: Our ally is under attack.
+	Shroud:
+		FogCheckboxDisplayOrder: 3
+	PlayerStatistics:
+	FrozenActorLayer:
+	PlaceBeacon:
+	ProvidesTechPrerequisite@0:
+		Name: options-tech-level.minimum
+		Prerequisites: techlevel.minimum
+		Id: min
+	ProvidesTechPrerequisite@1:
+		Name: options-tech-level.low
+		Prerequisites: techlevel.minimum, techlevel.low
+		Id: low
+	ProvidesTechPrerequisite@2:
+		Name: options-tech-level.medium
+		Prerequisites: techlevel.minimum, techlevel.low, techlevel.medium
+		Id: medium
+	ProvidesTechPrerequisite@3:
+		Name: options-tech-level.high
+		Prerequisites: techlevel.minimum, techlevel.low, techlevel.medium, techlevel.high
+		Id: high
+	ProvidesTechPrerequisite@4:
+		Name: options-tech-level.maximum
+		Prerequisites: techlevel.minimum, techlevel.low, techlevel.medium, techlevel.high, techlevel.maximum
+		Id: max
+	GrantConditionOnPrerequisiteManager:
+	ProductionIconOverlayManager:
+		Type: Veterancy
+		Image: iconchevrons
+		Sequence: veteran
+	PlayerExperience:
+	PlayerExperienceLevels:
+		Factions: gdi, nod
+		LevelXpRequirements: 75, 250, 450
+		LevelPrerequisites: player.level1, player.level2, player.level3
+		LevelUpTextNotification: You have gained a rank! You are now rank {0}.
+		LevelUpNotification: Promoted
+		LevelUpSound: RankUp
+		DummyActor: QueueUpdaterDummy
+	GameSaveViewportManager:
+	PlayerRadarTerrain:
+	LobbyPrerequisiteCheckbox@PRODUCTIONBOOSTER:
+		ID: productionbooster
+		Label: checkbox-production-booster.label
+		Description: checkbox-production-booster.description
+		Enabled: True
+		DisplayOrder: 10
+		Prerequisites: global-boosteron
+	LobbyPrerequisiteCheckbox@MULTIQUEUE:
+		ID: multiqueue
+		Label: checkbox-multi-queue.label
+		Description: checkbox-multi-queue.description
+		Enabled: True
+		DisplayOrder: 11
+		Prerequisites: global.multiqueue
+	LobbyPrerequisiteCheckbox@KILLBOUNTY:
+		ID: bounty
+		Label: checkbox-kill-bounties.label
+		Description: checkbox-kill-bounties.description
+		Enabled: False
+		DisplayOrder: 12
+		Prerequisites: global-bounty
 	ClassicProductionQueue@Building:
 		Type: BuildingSQ
 		Group: Building
@@ -32,7 +123,7 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 100, 75, 60, 50
+		BuildTimeSpeedReduction: 100, 90, 80, 70, 60, 50
 	ClassicProductionQueue@Defense:
 		Type: DefenseSQ
 		Group: Defense
@@ -48,23 +139,8 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 100, 75, 60, 50
-	ClassicProductionQueueCA@Vehicle:
-		Type: VehicleSQ
-		Group: Vehicle
-		DisplayOrder: 3
-		LowPowerModifier: 250
-		ReadyAudio: UnitReady
-		BlockedAudio: NoBuild
-		BlockedTextNotification: Unable to build more.
-		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
-		QueuedAudio: Building
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
-		SpeedUp: True
-		BuildTimeSpeedReduction: 100, 75, 60, 50
-	ClassicProductionQueueCA@Infantry:
+		BuildTimeSpeedReduction: 100, 90, 80, 70, 60, 50
+	ClassicProductionQueue@Infantry:
 		Type: InfantrySQ
 		Group: Infantry
 		DisplayOrder: 2
@@ -78,7 +154,37 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 100, 80, 67, 57, 50
+		BuildTimeSpeedReduction: 100, 90, 80, 70, 60, 50
+	ClassicProductionQueue@Vehicle:
+		Type: VehicleSQ
+		Group: Vehicle
+		DisplayOrder: 3
+		LowPowerModifier: 250
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		BlockedTextNotification: Unable to build more.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		SpeedUp: True
+		BuildTimeSpeedReduction: 100, 90, 80, 70, 60, 50
+	ClassicProductionQueue@Aircraft:
+		Type: AircraftSQ
+		Group: Aircraft
+		DisplayOrder: 4
+		LowPowerModifier: 250
+		ReadyAudio: UnitReady
+		BlockedAudio: NoBuild
+		BlockedTextNotification: Unable to build more.
+		LimitedAudio: BuildingInProgress
+		LimitedTextNotification: Unable to comply. Building in progress.
+		QueuedAudio: Building
+		OnHoldAudio: OnHold
+		CancelledAudio: Cancelled
+		SpeedUp: True
+		BuildTimeSpeedReduction: 100, 90, 80, 70, 60, 50
 	ClassicProductionQueue@Ship:
 		Type: ShipSQ
 		Group: Ship
@@ -93,23 +199,8 @@ Player:
 		OnHoldAudio: OnHold
 		CancelledAudio: Cancelled
 		SpeedUp: True
-		BuildTimeSpeedReduction: 100, 75, 60, 50
-	ClassicProductionQueueCA@Aircraft:
-		Type: AircraftSQ
-		Group: Aircraft
-		DisplayOrder: 4
-		LowPowerModifier: 250
-		ReadyAudio: UnitReady
-		BlockedAudio: NoBuild
-		BlockedTextNotification: Unable to build more.
-		LimitedAudio: BuildingInProgress
-		LimitedTextNotification: Unable to comply. Building in progress.
-		QueuedAudio: Building
-		OnHoldAudio: OnHold
-		CancelledAudio: Cancelled
-		SpeedUp: True
-		BuildTimeSpeedReduction: 100, 80, 67, 57, 50
-		CombinedBuildSpeedReduction: true
+		BuildTimeSpeedReduction: 100, 90, 80, 70, 60, 50
+	UpgradesManager:
 	ClassicProductionQueue@Upgrade:
 		Type: Upgrade
 		Group: Upgrade
@@ -128,251 +219,16 @@ Player:
 	Production@Upgrade:
 		Produces: Upgrade
 		RequiresCondition: upgrades-available
-	GrantConditionOnPrerequisite@AllegiancesAvailable:
-		Prerequisites: scrin.allegiances.available
+	GrantConditionOnPrerequisite@UpgradesAvailable:
+		Prerequisites: upgrades.producer
 		Condition: upgrades-available
 	GrantConditionOnPrerequisite@DoctrinesAvailable:
 		Prerequisites: player.level1
 		Condition: upgrades-available
-	GrantConditionOnPrerequisite@UpgradesAvailable:
-		Prerequisites: upgrades.producer
-		Condition: upgrades-available
-	PlaceBuilding:
-		NewOptionsNotification: NewOptions
-		CannotPlaceNotification: BuildingCannotPlaceAudio
-		NewOptionsTextNotification: New construction options.
-		CannotPlaceTextNotification: Cannot deploy here.
-	SupportPowerManager:
-	ScriptTriggers:
-	MissionObjectives:
-		WinNotification: Win
-		LoseNotification: Lose
-		LeaveNotification: Leave
-	ConquestVictoryConditions:
-	PowerManager:
-		SpeechNotification: LowPower
-		TextNotification: Low power.
-		AdviceInterval: 15000
-	AllyRepair:
-	PlayerResources:
-		InsufficientFundsNotification: InsufficientFunds
-		InsufficientFundsTextNotification: Insufficient funds.
-		CashTickUpNotification: CashTickUp
-		CashTickDownNotification: CashTickDown
-		SelectableCash: 2500, 5000, 6000, 8000, 10000, 20000
-		DefaultCash: 6000
-		DefaultCashDropdownDisplayOrder: 1
-	DeveloperMode:
-		CheckboxDisplayOrder: 14
-	Shroud:
-		FogCheckboxEnabled: True
-		FogCheckboxLocked: False
-		FogCheckboxDisplayOrder: 3
-		ExploredMapCheckboxEnabled: True
-	LobbyPrerequisiteCheckbox@GLOBALBOUNTY:
-		ID: bounty
-		Label: checkbox-kill-bounties.label
-		Description: checkbox-kill-bounties.description
-		Enabled: True
-		DisplayOrder: 2
-		Prerequisites: global-bounty
-	LobbyPrerequisiteCheckbox@GLOBALFACTUNDEPLOY:
-		ID: factundeploy
-		Label: checkbox-redeployable-mcvs.label
-		Description: checkbox-redeployable-mcvs.description
-		Enabled: True
-		DisplayOrder: 7
-		Prerequisites: global-factundeploy
-	LobbyPrerequisiteCheckbox@FORCESHIELD:
-		ID: forceshield
-		Label: checkbox-force-shield.label
-		Description: checkbox-force-shield.description
-		Enabled: True
-		DisplayOrder: 10
-		Prerequisites: forceshield.enabled
-	LobbyPrerequisiteCheckbox@NAVY:
-		ID: navy
-		Label: checkbox-naval-units.label
-		Description: checkbox-naval-units.description
-		Enabled: True
-		DisplayOrder: 13
-		Prerequisites: techlevel.navy
-	LobbyPrerequisiteCheckbox@REVEALONFIRE:
-		ID: revealonfire
-		Label: checkbox-reveal-on-fire.label
-		Description: checkbox-reveal-on-fire.description
-		Enabled: False
-		DisplayOrder: 11
-		Prerequisites: global.revealonfire
-	LobbyPrerequisiteCheckbox@BALANCEDHARVESTING:
-		ID: balancedharvesting
-		Label: checkbox-balanced-harvesting.label
-		Description: checkbox-balanced-harvesting.description
-		Enabled: True
-		DisplayOrder: 4
-		Prerequisites: global.balancedharvesting
-	LobbyPrerequisiteCheckbox@FASTREGROWTH:
-		ID: fastregrowth
-		Label: checkbox-fast-regrowth.label
-		Description: checkbox-fast-regrowth.description
-		Enabled: False
-		DisplayOrder: 8
-		Prerequisites: global.fastregrowth
-	LobbyPrerequisiteDropdown@QUEUETYPE:
-		ID: queuetype
-		Label: dropdown-queuetype.label
-		Description: dropdown-queuetype.description
-		DisplayOrder: 3
-		Default: global.singlequeue
-		Values:
-			global.singlequeue: options-queuetype.singlequeue
-			global.multiqueuefull: options-queuetype.multiqueuefull
-			global.multiqueuescaled: options-queuetype.multiqueuescaled
-	FrozenActorLayer:
-	BaseAttackNotifier:
-		TextNotification: Base under attack.
-		AllyTextNotification: Our ally is under attack.
-	HarvesterAttackNotifier:
-		TextNotification: Harvester under attack.
-	PlayerStatistics:
-	PlaceBeacon:
-	ProvidesTechPrerequisite@infonly:
-		Name: options-tech-level.infantry-only
-		Prerequisites: techlevel.infonly
-		Id: infantryonly
-	ProvidesTechPrerequisite@low:
-		Name: options-tech-level.low
-		Prerequisites: techlevel.infonly, techlevel.low
-		Id: low
-	ProvidesTechPrerequisite@medium:
-		Name: options-tech-level.medium
-		Prerequisites: techlevel.infonly, techlevel.low, techlevel.medium
-		Id: medium
-	ProvidesTechPrerequisite@high:
-		Name: options-tech-level.high
-		Prerequisites: techlevel.infonly, techlevel.low, techlevel.medium, techlevel.high
-		Id: high
-	ProvidesTechPrerequisite@unrestricted:
-		Name: options-tech-level.unrestricted
-		Prerequisites: techlevel.infonly, techlevel.low, techlevel.medium, techlevel.high, techlevel.unrestricted
-		Id: unrestricted
-	ProvidesPrerequisite@allies:
-		Prerequisite: player.allies
-		Factions: allies, england, france, germany, usa
-	ProvidesPrerequisite@england:
-		Prerequisite: player.england
-		Factions: england
-	ProvidesPrerequisite@france:
-		Prerequisite: player.france
-		Factions: france
-	ProvidesPrerequisite@germany:
-		Prerequisite: player.germany
-		Factions: germany
-	ProvidesPrerequisite@usa:
-		Prerequisite: player.usa
-		Factions: usa
-	ProvidesPrerequisite@soviet:
-		Prerequisite: player.soviet
-		Factions: soviet, russia, ukraine, iraq, yuri
-	ProvidesPrerequisite@russia:
-		Prerequisite: player.russia
-		Factions: russia
-	ProvidesPrerequisite@ukraine:
-		Prerequisite: player.ukraine
-		Factions: ukraine
-	ProvidesPrerequisite@iraq:
-		Prerequisite: player.iraq
-		Factions: iraq
-	ProvidesPrerequisite@yuri:
-		Prerequisite: player.yuri
-		Factions: yuri
+	BuildOrderTracker:
 	ProvidesPrerequisite@gdi:
 		Prerequisite: player.gdi
-		Factions: gdi, talon, zocom, eagle, arc
-	ProvidesPrerequisite@talon:
-		Prerequisite: player.talon
-		Factions: talon
-	ProvidesPrerequisite@zocom:
-		Prerequisite: player.zocom
-		Factions: zocom
-	ProvidesPrerequisite@eagle:
-		Prerequisite: player.eagle
-		Factions: eagle
-	ProvidesPrerequisite@arc:
-		Prerequisite: player.arc
-		Factions: arc
+		Factions: gdi
 	ProvidesPrerequisite@nod:
 		Prerequisite: player.nod
-		Factions: nod, blackh, marked, legion, shadow
-	ProvidesPrerequisite@blackh:
-		Prerequisite: player.blackh
-		Factions: blackh
-	ProvidesPrerequisite@marked:
-		Prerequisite: player.marked
-		Factions: marked
-	ProvidesPrerequisite@legion:
-		Prerequisite: player.legion
-		Factions: legion
-	ProvidesPrerequisite@shadow:
-		Prerequisite: player.shadow
-		Factions: shadow
-	ProvidesPrerequisite@scrin:
-		Prerequisite: player.scrin
-		Factions: scrin, reaper, traveler, harbinger, collector
-	ProvidesPrerequisite@reaper:
-		Prerequisite: player.reaper
-		Factions: reaper
-	ProvidesPrerequisite@traveler:
-		Prerequisite: player.traveler
-		Factions: traveler
-	ProvidesPrerequisite@harbinger:
-		Prerequisite: player.harbinger
-		Factions: harbinger
-	ProvidesPrerequisite@collector:
-		Prerequisite: player.collector
-		Factions: collector
-	ProvidesPrerequisite@BotPlayer:
-		Prerequisite: botplayer
-		RequiresCondition: botplayer
-	GrantConditionOnBotOwner@BotPlayer:
-		Condition: botplayer
-		Bots: brutal, vhard, hard, normal, easy, naval, campaign
-	GrantConditionOnPrerequisiteManager:
-	GrantConditionOnPrerequisiteManagerCA:
-	EnemyWatcher:
-	ProductionIconOverlayManager:
-		Type: Veterancy
-		Image: iconchevrons
-		Sequence: veteran
-	ResourceStorageWarning:
-		TextNotification: Silos needed.
-		AdviceInterval: 40000
-	PlayerExperience:
-	PlayerExperienceLevels:
-		Factions: soviet, russia, ukraine, iraq, yuri
-		LevelXpRequirements: 75, 250, 450
-		LevelPrerequisites: player.level1, player.level2, player.level3
-		LevelUpTextNotification: You have gained a rank! You are now rank {0}.
-		LevelUpNotification: Promoted
-		LevelUpSound: PlayerRankUp
-		DummyActor: QueueUpdaterDummy
-	GameSaveViewportManager:
-	PlayerRadarTerrain:
-	GpsRadarWatcher:
-	TeleportNetworkManager:
-		Type: Wormhole
-		RandomExit: true
-	AutoDeployManager:
-	CapturedFactionsManager:
-	UpgradesManager:
-	BuildOrderTracker:
-	ProvidesPrerequisiteOnCounts@ScrinAllegiances:
-		Factions: scrin, reaper, traveler, harbinger, collector
-		Prerequisite: scrin.allegiances.available
-		RequiredCounts:
-			Refineries: 4
-		RequiredCountReachedNotification: AllegianceDeclarationAvailable
-		RequiredCountReachedTextNotification: Allegiance declaration available.
-		DummyActor: QueueUpdaterDummy
-		IncrementSound: PlayerRankUp
-		PermanentAfterUpgrades: loyalist.allegiance, rebel.allegiance, malefic.allegiance
+		Factions: nod

@@ -1,98 +1,545 @@
 C1:
-	Inherits@1: ^ArmedCivilian
-	Inherits@CREW: ^CanCaptureDriverlessVehicles
-	Valued:
-		Cost: 50
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
 
 C2:
-	Inherits@1: C1
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
 
 C3:
-	Inherits@1: C1
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
 	Voiced:
 		VoiceSet: CivilianFemaleVoice
 
 C4:
-	Inherits@1: C1
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
+	Voiced:
+		VoiceSet: CivilianFemaleVoice
 
 C5:
-	Inherits@1: C1
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
+	Voiced:
+		VoiceSet: CivilianFemaleVoice
 
 C6:
-	Inherits@1: C1
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
 
 C7:
-	Inherits@1: C1
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
 
 C8:
-	Inherits@1: C1
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
 
 C9:
-	Inherits@1: C1
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
 
 C10:
-	Inherits@1: C1
+	Inherits: ^CivInfantry
+	Inherits@armed: ^ArmedCivilian
 
-#For RA map compatibility
-TECN:
-	Inherits@1: C1
-	RenderSprites:
-		Image: c1
+CHAN:
+    Inherits: ^CivInfantry
 	Tooltip:
-		Name: Technician
+		Name: Dr. Chan
 
-FCOM:
-	Inherits: ^TechBuilding
-	Inherits@2: ^Cloakable
-	Inherits@shape: ^2x2Shape
-	Selectable:
-		Bounds: 2048, 2048
-	OwnerLostAction:
-		Action: ChangeOwner
-	Building:
-		Footprint: xx xx ==
-		Dimensions: 2,3
-		LocalCenterOffset: 0,-512,0
+MOBI:
+    Inherits: ^CivInfantry
+	Voiced:
+		VoiceSet: MoebiusVoice
+	Tooltip:
+		Name: Dr. Moebius
+
+CAR:
+	Inherits: ^Vehicle
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Car
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+    	BuildDuration: 300
+        BuildDurationModifier: 100
+		BuildPaletteOrder: 900
+		Prerequisites: ~disabled
+		Queue: VehicleSQ, VehicleMQ
+		Description: A civilian vehicle.
+	Mobile:
+		TurnSpeed: 20
+		Speed: 120
 	Health:
-		HP: 80000
+		HP: 10000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 3c0
+
+CAR1:
+    Inherits: CAR
+	Tooltip:
+		Name: Teal Car
+	Buildable:
+		BuildPaletteOrder: 910
+    RenderSprites:
+        Image: car
+        Palette: teal
+
+CAR2:
+    Inherits: CAR
+	Tooltip:
+		Name: Orange Car
+	Buildable:
+		BuildPaletteOrder: 920
+    RenderSprites:
+        Image: car
+        Palette: orange
+
+CAR3:
+    Inherits: CAR
+	Tooltip:
+		Name: Green Car
+	Buildable:
+		BuildPaletteOrder: 920
+    RenderSprites:
+        Image: car
+        Palette: green
+
+CAR4:
+    Inherits: CAR
+	Tooltip:
+		Name: Grey Car
+	Buildable:
+		BuildPaletteOrder: 930
+    RenderSprites:
+        Image: car
+        Palette: grey
+
+CAR5:
+    Inherits: CAR
+	Tooltip:
+		Name: Yellow Car
+	Buildable:
+		BuildPaletteOrder: 940
+    RenderSprites:
+        Image: car
+        Palette: yellow
+
+CAR6:
+    Inherits: CAR
+	Tooltip:
+		Name: Red Car
+	Buildable:
+		BuildPaletteOrder: 950
+    RenderSprites:
+        Image: car
+        Palette: red
+
+CAR7:
+    Inherits: CAR
+	Tooltip:
+		Name: Blue Car
+	Buildable:
+		BuildPaletteOrder: 960
+    RenderSprites:
+        Image: car
+        Palette: blue
+
+CAR8:
+    Inherits: CAR
+	Tooltip:
+		Name: Brown Car
+	Buildable:
+		BuildPaletteOrder: 970
+    RenderSprites:
+        Image: car
+        Palette: brown
+
+V01:
+	Inherits: ^CivBuilding
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: -490,-384,0, 0,0,0, 0,470,0
+		Type: Rectangle
+			TopLeft: -768, -597
+			BottomRight: 896, 683
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Tooltip:
+		Name: Church
+	SpawnActorOnDeath:
+		Actor: V01.Husk
+
+V01.Husk:
+	Inherits: ^CivBuildingHusk
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Tooltip:
+		Name: Church (Destroyed)
+
+V02:
+	Inherits: ^CivBuilding
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: -490,-512,0, 0,0,0, 0,512,0
+		Type: Rectangle
+			TopLeft: -1024, -512
+			BottomRight: 1024, 597
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	SpawnActorOnDeath:
+		Actor: V02.Husk
+	Tooltip:
+		Name: Han's and Gretel's
+
+V02.Husk:
+	Inherits: ^CivBuildingHusk
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Tooltip:
+		Name: Han's and Gretel's (Destroyed)
+
+V03:
+	Inherits: ^CivBuilding
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: -490,-512,0, 0,0,0, 421,512,0, -210,512,0
+		Type: Rectangle
+			TopLeft: -1024, -597
+			BottomRight: 1024, 597
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	SpawnActorOnDeath:
+		Actor: V03.Husk
+	Tooltip:
+		Name: Hewitt's House
+
+V03.Husk:
+	Inherits: ^CivBuildingHusk
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Tooltip:
+		Name: Hewitt's House (Destroyed)
+
+V04:
+	Inherits: ^CivBuilding
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, -421,-256,0, -421,256,0
+		Type: Rectangle
+			TopLeft: -683, -432
+			BottomRight: 683, 683
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	SpawnActorOnDeath:
+		Actor: V04.Husk
+	Tooltip:
+		Name: Ricktor's House
+
+V04.Husk:
+	Inherits: ^CivBuildingHusk
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Tooltip:
+		Name: Ricktor's House (Destroyed)
+
+V05:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^2x1Shape
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	SpawnActorOnDeath:
+		Actor: V05.Husk
+	Tooltip:
+		Name: Gretchkin's house
+
+V05.Husk:
+	Inherits: ^CivBuildingHusk
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	Tooltip:
+		Name: Gretchkin's house (Destroyed)
+
+V06:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^2x1Shape
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	SpawnActorOnDeath:
+		Actor: V06.Husk
+	Tooltip:
+		Name: The Barn
+
+V06.Husk:
+	Inherits: ^CivBuildingHusk
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	Tooltip:
+		Name: The Barn (Destroyed)
+
+V07:
+	Inherits: ^CivBuilding
+	Inherits@shape: ^2x1Shape
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	SpawnActorOnDeath:
+		Actor: V07.Husk
+	Tooltip:
+		Name: Damon's Pub
+
+V07.Husk:
+	Inherits: ^CivBuildingHusk
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	Tooltip:
+		Name: Damon's Pub (Destroyed)
+
+V08:
+	Inherits: ^CivBuilding
+	SpawnActorOnDeath:
+		Actor: V08.Husk
+	Tooltip:
+		Name: Fran's House
+
+V08.Husk:
+	Inherits: ^CivBuildingHusk
+	Tooltip:
+		Name: Fran's House (Destroyed)
+
+V09:
+	Inherits: ^CivBuilding
+	SpawnActorOnDeath:
+		Actor: V09.Husk
+	Tooltip:
+		Name: Music Factory
+
+V09.Husk:
+	Inherits: ^CivBuildingHusk
+	Tooltip:
+		Name: Music Factory (Destroyed)
+
+V10:
+	Inherits: ^CivBuilding
+	MapEditorData:
+		ExcludeTilesets: DESERT
+	Tooltip:
+		Name: Toymaker's
+
+V10.Husk:
+	Inherits: ^CivBuildingHusk
+	Tooltip:
+		Name: Toymaker's (Destroyed)
+
+V11:
+	Inherits: ^CivBuilding
+	SpawnActorOnDeath:
+		Actor: V11.Husk
+	Tooltip:
+		Name: Ludwig's House
+
+V11.Husk:
+	Inherits: ^CivBuildingHusk
+	Tooltip:
+		Name: Ludwig's House (Destroyed)
+
+V12:
+	Inherits: ^CivField
+	Tooltip:
+		Name: Haystacks
+	SpawnActorOnDeath:
+		Actor: V12.Husk
+
+V12.Husk:
+	Inherits: ^CivFieldHusk
+	Tooltip:
+		Name: Haystacks (Destroyed)
+
+V13:
+	Inherits: ^CivField
+	Tooltip:
+		Name: Haystack
+	SpawnActorOnDeath:
+		Actor: V13.Husk
+
+V13.Husk:
+	Inherits: ^CivFieldHusk
+	Tooltip:
+		Name: Haystack (Destroyed)
+
+V14:
+	Inherits: ^CivField
+	SpawnActorOnDeath:
+		Actor: V14.Husk
+	Tooltip:
+		Name: Wheat Field
+
+V14.Husk:
+	Inherits: ^CivFieldHusk
+	Tooltip:
+		Name: Wheat Field (Destroyed)
+
+V15:
+	Inherits: ^CivField
+	SpawnActorOnDeath:
+		Actor: V15.Husk
+	Tooltip:
+		Name: Fallow Field
+
+V15.Husk:
+	Inherits: ^CivFieldHusk
+	Tooltip:
+		Name: Fallow Field (Destroyed)
+
+V16:
+	Inherits: ^CivField
+	SpawnActorOnDeath:
+		Actor: V16.Husk
+	Tooltip:
+		Name: Corn Field
+
+V16.Husk:
+	Inherits: ^CivFieldHusk
+	Tooltip:
+		Name: Corn Field (Destroyed)
+
+V17:
+	Inherits: ^CivField
+	SpawnActorOnDeath:
+		Actor: V17.Husk
+	Tooltip:
+		Name: Celery Field
+
+V17.Husk:
+	Inherits: ^CivFieldHusk
+	Tooltip:
+		Name: Celery Field (Destroyed)
+
+V18:
+	Inherits: ^CivField
+	SpawnActorOnDeath:
+		Actor: V18.Husk
+	Tooltip:
+		Name: Potato Field
+
+V18.Husk:
+	Inherits: ^CivFieldHusk
+	Tooltip:
+		Name: Potato Field (Destroyed)
+
+V19:
+	Inherits: ^TechBuilding
+	Selectable:
+		Bounds: 1024, 1024
+    Valued:
+    	Cost: 500
+	CashTrickler:
+		Interval: 200
+		Amount: 120
+		RequiresCondition: enabled
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Health:
+		HP: 40000
+	Tooltip:
+		Name: Oil Derrick
+	TooltipDescription@ally:
+		Description: Provides additional funds.
+		ValidRelationships: Ally
+	TooltipDescription@other:
+		Description: Capture to receive additional funds.
+		ValidRelationships: Neutral, Enemy
+    TooltipExtras:
+        Strengths: Periodically generates resources
+        Weaknesses: Explodes violently on destruction
+	SpawnActorOnDeath:
+		Actor: V19.Husk
+	UpdatesDerrickCount:
+	GrantConditionOnCombatantOwner:
+		Condition: enabled
+	WithSpriteBody:
+        PauseOnCondition: !enabled
+	Explodes:
+		Weapon: BarrelExplode
+
+V19.Husk:
+	Inherits: ^TechBuildingHusk
+	Interactable:
+		Bounds: 1024, 1024
+	WithSpriteBody:
+	WithIdleOverlay:
+		StartSequence: fire-start
+		Sequence: fire-loop
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Tooltip:
+		Name: Oil Derrick (Destroyed)
+	TransformOnCapture:
+		ForceHealthPercentage: 15
+		IntoActor: v19
+
+WOOD:
+	Inherits: ^Wall
 	Armor:
 		Type: Wood
 	Tooltip:
-		Name: Forward Command
-	TooltipDescription@ally:
-		Description: Provides buildable area.
-		ValidRelationships: Ally
-	TooltipDescription@other:
-		Description: Capture to give buildable area.
-		ValidRelationships: Neutral, Enemy
-	RevealsShroud:
-		Range: 5c0
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 4c0
-	WithBuildingBib:
-	CaptureManager:
-	Capturable:
-		Types: building
-	CapturableProgressBar:
-	CapturableProgressBlink:
-	GivesBuildableArea:
-		AreaTypes: building
-	BaseProvider:
-		Range: 8c0
-	InstantlyRepairable:
-	Power:
-		Amount: 0
-	ProvidesPrerequisite@buildingname:
-	SpawnActorOnDeath:
-		Actor: FCOM.Husk
-		OwnerType: InternalName
-	-Explodes:
-	AppearsOnMapPreview:
+		Name: Wooden Fence
+	LineBuild:
+		NodeTypes: wood
+	LineBuildNode:
+		Types: wood
+	WithWallSpriteBody:
+		Type: wood
+
+BARB:
+	Inherits: ^Wall
+	Armor:
+		Type: Light
+	Tooltip:
+		Name: Barbwire Fence
+	LineBuild:
+		NodeTypes: barb
+	LineBuildNode:
+		Types: barb
+	WithWallSpriteBody:
+		Type: barb
+
+CYCL:
+	Inherits: ^Wall
+	Armor:
+		Type: Light
+	Tooltip:
+		Name: Chainlink Fence
+	LineBuild:
+		NodeTypes: cycl
+	LineBuildNode:
+		Types: cycl
+	WithWallSpriteBody:
+		Type: cycl
 
 HOSP:
 	Inherits: ^TechBuilding
-	Inherits@2: ^Cloakable
 	Inherits@shape: ^2x2Shape
 	OwnerLostAction:
 		Action: ChangeOwner
@@ -112,764 +559,232 @@ HOSP:
 	InstantlyRepairable:
 	Tooltip:
 		Name: Hospital
-	TooltipExtras:
-		Description: When controlled, heals nearby infantry and trains\n  a Medic or Rejuvenator unit every two minutes.
+	TooltipDescription@ally:
+		Description: Provides infantry with self-healing.
+		ValidRelationships: Ally
+	TooltipDescription@other:
+		Description: Capture to enable self-healing for infantry.
+		ValidRelationships: Neutral, Enemy
+    TooltipExtras:
+        Strengths: Provides infantry with self-healing
 	RevealsShroud:
 		Range: 4c0
 	WithBuildingBib:
 		HasMinibib: true
-	WithDeathAnimation:
-		DeathSequence: dead
-		UseDeathTypeSuffix: false
+	ProvidesPrerequisite@buildingname:
+	AppearsOnMapPreview:
 	SpawnActorOnDeath:
 		Actor: HOSP.Husk
-		OwnerType: InternalName
-	-Explodes:
-	AppearsOnMapPreview:
-	ProximityExternalCondition@HOSPITAL:
-		Condition: hospitalheal
-		Range: 9c0
-	WithRangeCircle@HOSPITAL:
-		Type: HospitalHeal
-		Range: 9c0
-		Color: 00FF0080
-	RallyPoint:
-	PeriodicProducerCA@MEDIC:
-		Type: Hospital
-		ChargeDuration: 3000
-		Actors: medi
-		ShowSelectionBar: true
-		RequiresCondition: !is-neutral && !scrinplayer
-		ResetTraitOnOwnerChange: true
-		Immediate: true
-		ReadyAudio: UnitReady
-		ChargeColor: ffffff
-	PeriodicProducerCA@REJUVENATOR:
-		Type: Hospital
-		ChargeDuration: 3000
-		Actors: smedi
-		ShowSelectionBar: true
-		RequiresCondition: !is-neutral && scrinplayer
-		ResetTraitOnOwnerChange: true
-		Immediate: true
-		ReadyAudio: UnitReady
-		ChargeColor: ffffff
-	Exit@1:
-		SpawnOffset: -190,880,0
-		ExitCell: 1,2
-		ProductionTypes: Hospital
-	Exit@2:
-		SpawnOffset: 190,-400,0
-		ExitCell: 1,-1
-		ProductionTypes: Hospital
-	Production:
-		Produces: Hospital
-	GrantConditionIfOwnerIsNeutral:
-		Condition: is-neutral
-	GrantConditionOnPrerequisite@SCRIN:
-		Condition: scrinplayer
-		Prerequisites: player.scrin
+        OwnerType: InternalName
 
-MACS:
-	Inherits: ^TechBuilding
-	Inherits@2: ^Cloakable
-	Inherits@shape: ^2x2Shape
-	OwnerLostAction:
-		Action: ChangeOwner
-	Selectable:
-		Priority: 0
+HOSP.Husk:
+	Inherits: ^TechBuildingHusk
+	Interactable:
 		Bounds: 2048, 2048
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
-	Health:
-		HP: 80000
-	CaptureManager:
-	Capturable:
-		Types: building
-	CapturableProgressBar:
-	CapturableProgressBlink:
-	InstantlyRepairable:
 	Tooltip:
-		Name: Machine Shop
-	TooltipExtras:
-		Description: When controlled, repairs nearby vehicles and trains\n  a Mechanic or Artificer unit every three minutes.
-	RevealsShroud:
-		Range: 4c0
+		Name: Hospital (Destroyed)
 	WithBuildingBib:
 		HasMinibib: true
-	WithDeathAnimation:
-		DeathSequence: dead
-		UseDeathTypeSuffix: false
-	SpawnActorOnDeath:
-		Actor: MACS.Husk
-		OwnerType: InternalName
-	-Explodes:
-	AppearsOnMapPreview:
-	ProximityExternalCondition@MACS:
-		Condition: macsrepair
-		Range: 9c0
-	WithRangeCircle@MACS:
-		Type: macsrepair
-		Range: 9c0
-		Color: 00FF0080
-	RallyPoint:
-	PeriodicProducerCA@MECHANIC:
-		Type: Macs
-		ChargeDuration: 4500
-		Actors: mech
-		ShowSelectionBar: true
-		RequiresCondition: !is-neutral && !scrinplayer
-		ResetTraitOnOwnerChange: true
-		Immediate: true
-		ReadyAudio: UnitReady
-		ChargeColor: ffffff
-	PeriodicProducerCA@ARTIFICER:
-		Type: Macs
-		ChargeDuration: 4500
-		Actors: arti
-		ShowSelectionBar: true
-		RequiresCondition: !is-neutral && scrinplayer
-		ResetTraitOnOwnerChange: true
-		Immediate: true
-		ReadyAudio: UnitReady
-		ChargeColor: ffffff
-	Exit@1:
-		SpawnOffset: -190,880,0
-		ExitCell: 1,2
-		ProductionTypes: Macs
-	Exit@2:
-		SpawnOffset: 190,-400,0
-		ExitCell: 1,-1
-		ProductionTypes: Macs
-	Production:
-		Produces: Macs
-	GrantConditionIfOwnerIsNeutral:
-		Condition: is-neutral
-	GrantConditionOnPrerequisite@SCRIN:
-		Condition: scrinplayer
-		Prerequisites: player.scrin
+	TransformOnCapture:
+		ForceHealthPercentage: 15
+		IntoActor: hosp
 
-V01:
-	Inherits: ^CivBuilding
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	Tooltip:
-		Name: Church
-	RevealsShroud:
-		Range: 10c0
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: -490,-384,0, 0,0,0, 0,470,0
-		Type: Rectangle
-			TopLeft: -768, -597
-			BottomRight: 896, 683
-
-V02:
-	Inherits: ^CivBuilding
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: -490,-512,0, 0,0,0, 0,512,0
-		Type: Rectangle
-			TopLeft: -1024, -512
-			BottomRight: 1024, 597
-
-V03:
-	Inherits: ^CivBuilding
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: -490,-512,0, 0,0,0, 421,512,0, -210,512,0
-		Type: Rectangle
-			TopLeft: -1024, -597
-			BottomRight: 1024, 597
-
-V04:
-	Inherits: ^CivBuilding
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, -421,-256,0, -421,256,0
-		Type: Rectangle
-			TopLeft: -683, -432
-			BottomRight: 683, 683
-
-V05:
-	Inherits: ^CivBuilding
-	Inherits@shape: ^2x1Shape
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-V06:
-	Inherits: ^CivBuilding
-	Inherits@shape: ^2x1Shape
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-	MapEditorData:
-		ExcludeTilesets: DESERT, INTERIOR
-
-V07:
-	Inherits: ^CivBuilding
-	Inherits@shape: ^2x1Shape
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-	MapEditorData:
-		ExcludeTilesets: INTERIOR
-
-V08:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		ExcludeTilesets: INTERIOR
-	MirageTarget:
-
-V09:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		ExcludeTilesets: INTERIOR
-	MirageTarget:
-
-V10:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		ExcludeTilesets: INTERIOR
-	MirageTarget:
-
-V11:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		ExcludeTilesets: INTERIOR
-	MirageTarget:
-
-V12:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		ExcludeTilesets: INTERIOR
-	MirageTarget:
-
-V13:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		ExcludeTilesets: INTERIOR
-	MirageTarget:
-
-V14:
-	Inherits: ^CivField
-	MapEditorData:
-		ExcludeTilesets: INTERIOR
-	MirageTarget:
-
-V15:
-	Inherits: ^CivField
-	MapEditorData:
-		ExcludeTilesets: INTERIOR
-	MirageTarget:
-
-V16:
-	Inherits: ^CivField
-	MapEditorData:
-		ExcludeTilesets: INTERIOR
-	MirageTarget:
-
-V17:
-	Inherits: ^CivField
-	MapEditorData:
-		ExcludeTilesets: INTERIOR
-	MirageTarget:
-
-V18:
-	Inherits: ^CivField
-	MapEditorData:
-		ExcludeTilesets: INTERIOR
-	MirageTarget:
-
-V19:
-	Inherits: ^CivBuilding
-	RenderSprites:
-		Palette: player
-	Tooltip:
-		Name: Oil Pump
-	SpawnActorOnDeath:
-		Actor: V19.Husk
-	Targetable:
-		TargetTypes: Ground, Structure, NoAutoTarget
-
-V19.Husk:
-	Inherits: ^CivBuilding
-	RenderSprites:
-		Palette: player
-	Tooltip:
-		Name: Husk (Oil Pump)
-	WithSpriteBody:
-	WithIdleOverlay:
-		StartSequence: fire-start
-		Sequence: fire-loop
-	-Selectable:
-	-Targetable:
-	-Targetable@C4Plantable:
-	-Targetable@TNTPlantable:
-	-Explodes:
-	-Explodes@CIVPANIC:
-	Interactable:
-
-BARL:
-	Inherits: ^Barrel
-
-BRL3:
-	Inherits: ^Barrel
-
-AMMOBOX1:
-	Inherits: ^AmmoBox
-
-AMMOBOX2:
-	Inherits: ^AmmoBox
-
-AMMOBOX3:
-	Inherits: ^AmmoBox
-
-MISS:
+APRT:
 	Inherits: ^TechBuilding
-	Inherits@2: ^Cloakable
 	Inherits@shape: ^3x2Shape
+	AppearsOnMapPreview:
 	HitShape:
 		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, 840,0,0, 840,-1024,0, 420,768,0, -840,0,0, -840,-1024,0, -840,1024,0
+		TargetableOffsets: 0,0,0, 420,0,0, 420,-1024,0, 420,1024,0, -777,0,0, -777,-1024,0, -777,1024,0
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Tooltip:
+		Name: Airport
+	TooltipDescription@ally:
+		Description: Grants the usage of Paratroopers.
+		ValidRelationships: Ally
+	TooltipDescription@other:
+		Description: Capture to obtain Paratroopers.
+		ValidRelationships: Neutral, Enemy
+    TooltipExtras:
+        Strengths: Provides Paratroopers support
 	Selectable:
-		Priority: 0
 		Bounds: 3072, 2048
-	OwnerLostAction:
-		Action: ChangeOwner
-	Building:
-		Footprint: xxx xxx ===
-		Dimensions: 3,3
-		LocalCenterOffset: 0,-512,0
-	Health:
-		HP: 60000
-	RevealsShroud:
-		Range: 10c0
-		RevealGeneratedShroud: False
-	RevealsShroud@GAPGEN:
-		Range: 6c0
-	Armor:
-		Type: Wood
-	Tooltip:
-		Name: Communications Center
-	TooltipDescription@ally:
-		Description: Provides range of vision.
-		ValidRelationships: Ally
-	TooltipDescription@other:
-		Description: Capture to give visual range.
-		ValidRelationships: Neutral, Enemy
-	WithBuildingBib:
-	CaptureManager:
-	Capturable:
-		Types: building
-	CapturableProgressBar:
-	CapturableProgressBlink:
-	InstantlyRepairable:
-	WithDeathAnimation:
-		DeathSequence: dead
-		UseDeathTypeSuffix: false
-	ProvidesPrerequisite@buildingname:
-	SpawnActorOnDeath:
-		Actor: MISS.Husk
-		OwnerType: InternalName
-	-Explodes:
-
-BIO:
-	Inherits: ^TechBuilding
-	Inherits@2: ^Cloakable
-	Inherits@shape: ^2x2Shape
-	Selectable:
-		Bounds: 2048, 2048
-	OwnerLostAction:
-		Action: ChangeOwner
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	RevealsShroud:
-		Range: 4c0
-	CaptureManager:
-	CapturableProgressBlink:
-	Capturable:
-		Types: building
-	CapturableProgressBar:
-	InstantlyRepairable:
-	Tooltip:
-		Name: Biological Lab
-	TooltipDescription@ally:
-		Description: Provides prerequisite for Bio-Lab units.
-		ValidRelationships: Ally
-	TooltipDescription@other:
-		Description: Capture to produce Bio-Lab units.
-		ValidRelationships: Neutral, Enemy
-	WithDeathAnimation:
-		DeathSequence: dead
-		UseDeathTypeSuffix: false
-	ProvidesPrerequisite@buildingname:
-	SpawnActorOnDeath:
-		Actor: BIO.Husk
-		OwnerType: InternalName
-	-Explodes:
-	AppearsOnMapPreview:
-	ProvidesPrerequisite@mortar:
-		Prerequisite: stolentech.hand
-	ProvidesPrerequisite@toxintruck:
-		Prerequisite: vehicles.ttrk
-
-OILB:
-	Inherits: ^TechBuilding
-	Inherits@2: ^Cloakable
-	Inherits@shape: ^2x2Shape
-	Selectable:
-		Priority: 0
-		Bounds: 2048, 2048
-	OwnerLostAction:
-		Action: ChangeOwner
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
 	Health:
 		HP: 80000
+	Armor:
+		Type: Heavy
 	RevealsShroud:
-		Range: 4c0
-	CaptureManager:
-	Capturable:
-		Types: building
-	CapturableProgressBar:
-	CapturableProgressBlink:
-	InstantlyRepairable:
-	CashTrickler:
-		Interval: 375
-		Amount: 100
-		RequiresCondition: enabled
-	Tooltip:
-		Name: Oil Derrick
-	TooltipDescription@ally:
-		Description: Provides additional funds.
-		ValidRelationships: Ally
-	TooltipDescription@other:
-		Description: Capture to receive additional funds.
-		ValidRelationships: Neutral, Enemy
-	Explodes:
-		Weapon: BarrelExplode
+		Range: 3c0
+	GrantConditionOnPowerState@LOWPOWER:
+		Condition: lowpower
+		ValidPowerStates: Low, Critical
+	ParatroopersPower@Paratroopers:
+        PauseOnCondition: lowpower || !enabled
+		OrderName: Paratroopers
+		Icon: parainf
+		ChargeInterval: 6750
+		UnitType: pdp
+		Name: Paratroopers
+		Description: A Paradrop Plane drops a squad of infantry\nanywhere on the map.
+		DropItems: E1,E3,E1,E3,E1
+		AllowImpassableCells: false
+		QuantizedFacings: 8
+		CameraActor: camera.small
+		DisplayBeacon: true
+		BeaconPoster: parainf
+		BeaconPosterPalette: effect
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: paradirection
+        SupportPowerPaletteOrder: 60
+        Cursor: ability
+		ReinforcementsArrivedSpeechNotification: Reinforce
+        ReinforcementsArrivedTextNotification: Reinforcements arrived.
+		SelectTargetSpeechNotification: SelectTarget
+        SelectTargetTextNotification: Select target.
+		EndChargeSpeechNotification: ReinforceAvailable
+        EndChargeTextNotification: Reinforcements available.
+        LaunchSpeechNotification: ReinforceEnroute
+        LaunchTextNotification: Reinforcements on the way.
+        AllowMultiple: false
+	SupportPowerChargeBar:
+    WithBuildingBib:
+    ProvidesPrerequisite@buildingname:
 	SpawnActorOnDeath:
-		Actor: OILB.Husk
-		OwnerType: InternalName
-	-Explodes:
-	UpdatesDerrickCount:
-	AppearsOnMapPreview:
+		Actor: APRT.Husk
+        OwnerType: InternalName
+	CommandBarBlacklist:
+		DisableStop: false
+	ProvidesPrerequisite@buildingname:
 	GrantConditionOnCombatantOwner:
 		Condition: enabled
-	GrantConditionOnDamageState:
-		Condition: damaged
-	WithIdleOverlay@flare:
-		Sequence: flare
-		Offset: 2078,-480,0
-		Palette: effect
-		RequiresCondition: !damaged
-	WithIdleOverlay@damaged-flare:
-		Sequence: damaged-flare
-		Offset: 2500,250,0
-		Palette: effect
-		RequiresCondition: damaged
-	GrantConditionIfOwnerIsNeutral:
-		Condition: is-neutral
-	GivesCashOnCapture@defloration:
-		Amount: 300
-		RequiresCondition: !has-been-captured
-	GivesCashOnCapture@subsequent:
-		Amount: 100
-		RequiresCondition: has-been-captured
-	GrantDelayedCondition:
-		Delay: 1
-		Condition: has-been-captured
-		RequiresCondition: !is-neutral
 
-OILR:
-	Inherits: ^TechBuilding
-	Inherits@2: ^Cloakable
-	Inherits@shape: ^3x2Shape
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, 840,0,0, 840,-1024,0, 420,768,0, -840,0,0, -840,-1024,0, -840,1024,0
-	Selectable:
-		Priority: 0
+APRT.Husk:
+	Inherits: ^TechBuildingHusk
+	Interactable:
 		Bounds: 3072, 2048
-	OwnerLostAction:
-		Action: ChangeOwner
 	Building:
-		Footprint: xxx xxx ===
-		Dimensions: 3,3
-		LocalCenterOffset: 0,-512,0
-	Health:
-		HP: 80000
-	RevealsShroud:
-		Range: 4c0
-	CaptureManager:
-	Capturable:
-		Types: building
-	CapturableProgressBar:
-	CapturableProgressBlink:
-	InstantlyRepairable:
+		Footprint: xxx xxx
+		Dimensions: 3,2
 	Tooltip:
-		Name: Oil Refinery
+		Name: Airport (Destroyed)
+	TransformOnCapture:
+		ForceHealthPercentage: 15
+		IntoActor: aprt
+
+WIND:
+	Inherits: ^TechBuilding
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -512, -512
+			BottomRight: 512, 512
+	Selectable:
+		Bounds: 1024, 3072, 0, -1024
+        DecorationBounds: 1024, 3072, 0, -1024
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Health:
+		HP: 20000
+	RevealsShroud:
+		Range: 3c0
+	Tooltip:
+		Name: Windmill Plant
 	TooltipDescription@ally:
-		Description: Provides 10% unit discount.
+		Description: Provides a meagre amount of Power.
 		ValidRelationships: Ally
 	TooltipDescription@other:
-		Description: Capture to receive a 10% production discount.
+		Description: Capture to obtain a little Power.
 		ValidRelationships: Neutral, Enemy
-	Explodes:
-		Weapon: BarrelExplode
-	ProvidesPrerequisite@buildingname:
+    TooltipExtras:
+        Strengths: + 30 Power
 	SpawnActorOnDeath:
-		Actor: OILR.Husk
-		OwnerType: InternalName
-	-Explodes:
-	AppearsOnMapPreview:
-	GrantConditionOnDamageState:
-		Condition: damaged
-	WithIdleOverlay@flare:
-		Sequence: flare
-		Offset: 2500,-390,0
-		Palette: effect
-		RequiresCondition: !damaged
-	WithIdleOverlay@damaged-flare:
-		Sequence: damaged-flare
-		Offset: 2600,180,0
-		Palette: effect
-		RequiresCondition: damaged
-	GrantConditionIfOwnerIsNeutral:
-		Condition: is-neutral
-	GivesCashOnCapture@defloration:
-		Amount: 300
-		RequiresCondition: !has-been-captured
-	GivesCashOnCapture@subsequent:
-		Amount: 100
-		RequiresCondition: has-been-captured
-	GrantDelayedCondition:
-		Delay: 1
-		Condition: has-been-captured
-		RequiresCondition: !is-neutral
+        Actor: WIND.Husk
+        OwnerType: InternalName
+	Power:
+		Amount: 30
+		RequiresCondition: owner.is.player
+    GrantConditionOnCombatantOwner:
+        Condition: owner.is.player
+	WithBuildingBib:
+		HasMinibib: true
 
-V20:
-	Inherits: ^DesertCivBuilding
+WIND.Husk:
+	Inherits: ^TechBuildingHusk
+	Interactable:
+		Bounds: 1024, 1024
 	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: -840,-512,0, 0,0,0, -840,512,0
-		Type: Rectangle
-			TopLeft: -1024, -512
-			BottomRight: 1024, 896
-
-V21:
-	Inherits: ^DesertCivBuilding
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 840,-512,0, 420,0,0, 840,512,0
-		Type: Rectangle
-			TopLeft: -1024, -1024
-			BottomRight: 1024, 0
-	HitShape@WELL:
-		TargetableOffsets: -770,512,0
-		Type: Rectangle
-			TopLeft: 0, 0
-			BottomRight: 1024, 598
-
-V22:
-	Inherits: ^DesertCivBuilding
-	Inherits@shape: ^2x1Shape
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-
-V23:
-	Inherits: ^DesertCivBuilding
-
-V24:
-	Inherits: ^DesertCivBuilding
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: -630,-512,0, 0,0,0, -630,256,0, 420,-512,0
-		Type: Rectangle
-			TopLeft: -1024, -683
-			BottomRight: 640, 853
-
-V25:
-	Inherits: ^DesertCivBuilding
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
+		Footprint: x
+		Dimensions: 1,1
 	Tooltip:
-		Name: Church
+		Name: Windmill Plant (Destroyed)
+	TransformOnCapture:
+		ForceHealthPercentage: 15
+		IntoActor: wind
+
+OUTP:
+	Inherits: ^TechBuilding
+	HitShape:
+		UseTargetableCellsOffsets: true
+		Type: Rectangle
+			TopLeft: -512, -512
+			BottomRight: 512, 512
+	Selectable:
+		Bounds: 1024, 1536
+		DecorationBounds: 938, 2048, 0, -512
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Health:
+		HP: 20000
 	RevealsShroud:
-		Range: 10c0
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,-128,0, 420,512,0
-		Type: Rectangle
-			TopLeft: -683, -683
-			BottomRight: 1024, 512
+		Range: 4c0
+	Tooltip:
+		Name: Outpost
+	TooltipDescription@ally:
+		Description: Provides buildable area.
+		ValidRelationships: Ally
+	TooltipDescription@other:
+		Description: Capture to obtain buildable area.
+		ValidRelationships: Neutral, Enemy
+    TooltipExtras:
+        Strengths: Provides buildable area
+	SpawnActorOnDeath:
+        Actor: OUTP.Husk
+        OwnerType: InternalName
+	CaptureManager:
+		BeingCapturedCondition: being-captured
+	GivesBuildableArea:
+		AreaTypes: building
+	BaseProvider:
+		PauseOnCondition: being-captured
+		Range: 8c0
+	WithBuildingBib:
+		HasMinibib: true
 
-V26:
-	Inherits: ^DesertCivBuilding
-	Inherits@shape: ^2x1Shape
+OUTP.Husk:
+	Inherits: ^TechBuildingHusk
+	Interactable:
+		Bounds: 1024, 1024
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
-
-V27:
-	Inherits: ^DesertCivBuilding
-
-V28:
-	Inherits: ^DesertCivBuilding
-
-V29:
-	Inherits: ^DesertCivBuilding
-
-V30:
-	Inherits: ^DesertCivBuilding
-	Inherits@shape: ^2x1Shape
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-
-V31:
-	Inherits: ^DesertCivBuilding
-	Inherits@shape: ^2x1Shape
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-
-V32:
-	Inherits: ^DesertCivBuilding
-	Inherits@shape: ^2x1Shape
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-
-V33:
-	Inherits: ^DesertCivBuilding
-	Inherits@shape: ^2x1Shape
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-
-V34:
-	Inherits: ^DesertCivBuilding
-
-V35:
-	Inherits: ^DesertCivBuilding
-
-V36:
-	Inherits: ^DesertCivBuilding
-
-V37:
-	Inherits: ^DesertCivBuilding
-	Building:
-		Footprint: __xx_ ___xx
-		Dimensions: 5,2
-	HitShape:
-		UseTargetableCellsOffsets: false
-		TargetableOffsets: 0,0,0, 0,1024,0
-		Type: Rectangle
-			TopLeft: -512, -597
-			BottomRight: 1536, 597
-
-RICE:
-	Inherits: ^CivField
-	MapEditorData:
-		RequireTilesets: TEMPERAT
-
-RUSHOUSE:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		RequireTilesets: TEMPERAT
-	Building:
-		Footprint: x x
-		Dimensions: 1,2
-	HitShape:
-		UseTargetableCellsOffsets: false
-
-RUSHOUSE2:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		RequireTilesets: TEMPERAT, WINTER, BARREN
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	HitShape:
-		UseTargetableCellsOffsets: false
-
-RUSHOUSE3:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		RequireTilesets: TEMPERAT, WINTER, BARREN
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	HitShape:
-		UseTargetableCellsOffsets: false
-
-RUSHOUSE4:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		RequireTilesets: TEMPERAT, WINTER, BARREN
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	HitShape:
-		UseTargetableCellsOffsets: false
-
-ASIANHUT:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		RequireTilesets: TEMPERAT
-
-SNOWHUT:
-	Inherits: ^CivBuilding
-	MapEditorData:
-		RequireTilesets: SNOW
-	Building:
-		Footprint: x x
-		Dimensions: 1,2
-	RenderSprites:
-	HitShape:
-		UseTargetableCellsOffsets: false
+		Footprint: x
+		Dimensions: 1,1
+	Tooltip:
+		Name: Outpost (Destroyed)
+	TransformOnCapture:
+		ForceHealthPercentage: 15
+		IntoActor: outp
 
 LHUS:
 	Inherits: ^CivBuilding
-	MapEditorData:
-		RequireTilesets: TEMPERAT
 	Selectable:
 		Bounds: 1024, 2048, 0, -682
 	Tooltip:
@@ -878,27 +793,37 @@ LHUS:
 		Footprint: x
 		Dimensions: 1,1
 
-WINDMILL:
+MILL:
 	Inherits: ^CivBuilding
-	MapEditorData:
-		RequireTilesets: TEMPERAT
 	Selectable:
 		Bounds: 1024, 1024, 0, -597
 		DecorationBounds: 1536, 1536, 0, -597
-	SelectionDecorations:
 	Tooltip:
 		Name: Windmill
 	Building:
 		Footprint: x
 		Dimensions: 1,1
 
-ARCO:
+MONA:
 	Inherits: ^CivBuilding
-	RenderSprites:
-		Palette: temptd
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: -490,-384,0, 0,0,0, 0,470,0
+		Type: Rectangle
+			TopLeft: -768, -597
+			BottomRight: 896, 683
 	Building:
-		Footprint: xx
-		Dimensions: 2,1
+		Footprint: xx xx
+		Dimensions: 2,2
 	Tooltip:
-		Name: Oil Pump
-		ShowOwnerRow: True
+		Name: Monastery
+	SpawnActorOnDeath:
+		Actor: Mona.Husk
+
+MONA.Husk:
+	Inherits: ^CivBuildingHusk
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Tooltip:
+		Name: Monastery (Destroyed)

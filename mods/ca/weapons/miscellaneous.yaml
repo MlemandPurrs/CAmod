@@ -1,0 +1,109 @@
+Heal:
+	ReloadDelay: 80
+	Range: 3c512
+	Report: heal2.aud
+	ValidTargets: Heal
+	Projectile: Bullet
+		Speed: 1c682
+	Warhead@1Dam: SpreadDamage
+		Spread: 213
+		Damage: -5000
+		ValidRelationships: Ally
+		ValidTargets: Heal
+		DebugOverlayColor: 00FF00
+
+HealUpg:
+    Inherits: Heal
+	Warhead@2Vac: GrantExternalCondition
+		Range: 0c511
+		Duration: 300
+		Condition: vaccinated
+		ValidTargets: VaccApplicable
+		ValidRelationships: Ally
+
+Repair:
+    Inherits: Heal
+	Report: fixit1.aud
+    ValidTargets: Repair
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Repair
+
+DemoTruckTargeting:
+	ValidTargets: DetonateAttack
+	Range: 2c0
+	Projectile: InstantHit
+	Warhead@1Dam: TargetDamage
+		ValidTargets: DetonateAttack
+
+TargeterforMLRS:
+	ReloadDelay: 3
+	Range: 10c256
+    MinRange: 3c128
+    ValidTargets: Ground, GroundActor, Water, WaterActor
+	Projectile: InstantHit
+        Blockable: false
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+        ValidTargets: Ground, GroundActor, Water, WaterActor
+
+TargeterforSSML:
+	ReloadDelay: 3
+	Range: 10c256
+    MinRange: 3c128
+    ValidTargets: Ground, GroundActor, Water, WaterActor, Trees
+	Projectile: InstantHit
+        Blockable: false
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+        ValidTargets: Ground, GroundActor, Water, WaterActor, Trees
+
+TargeterforWTNK:
+	ReloadDelay: 3
+	Range: 5c768
+    ValidTargets: GroundActor, WaterActor, Trees
+	Projectile: InstantHit
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+        ValidTargets: GroundActor, WaterActor, Trees
+
+Hack:
+	Range: 11c0
+	ReloadDelay: 50
+	ValidTargets: Hackable
+	TargetActorCenter: true
+	Report: hackpuls.aud
+	Projectile: ArcLaserZap
+		Color: 1ce31270
+		Angle: 60
+		Width: 86
+		Duration: 20
+		HitAnim: empty
+	Warhead@1Dam: TargetDamage
+		ValidRelationships: Enemy, Neutral
+	Warhead@CAMERA: SpawnActor
+		Actors: camera.hacker
+		Range: 1
+		ImpactActors: false
+	Warhead@green: GrantExternalConditionCA
+		Range: 0c511
+		Duration: 2
+		Condition: greenhighlight
+		ValidTargets: Structure, Vehicle
+		ValidRelationships: Neutral, Enemy
+
+PrepareHack:
+	Inherits: Hack
+	-Report:
+	-Projectile:
+	Projectile: InstantHit
+	-Warhead@green:
+
+Commandeer:
+	ReloadDelay: 5
+	Range: 1c0
+	ValidTargets: NoCrew
+	Projectile: InstantHit
+	Warhead@1Change: ChangeOwner
+		Range: 0c511
+		ValidRelationships: Neutral
+		ValidTargets: NoCrew

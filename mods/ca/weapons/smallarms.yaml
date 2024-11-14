@@ -1,0 +1,263 @@
+^Gun:
+	ReloadDelay: 10
+	Range: 1c0
+	ValidTargets: Ground, Water, GroundActor, WaterActor
+	Projectile: InstantHit
+		Blockable: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 1000
+		ValidTargets: GroundActor, WaterActor
+        Versus:
+            None: 100
+            Wood: 50
+            Light: 60
+            Heavy: 25
+            Concrete: 10
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+	Warhead@2Eff: CreateEffect
+		Explosions: piff
+		ImpactActors: false
+		ValidTargets: Ground, GroundActor, WaterActor, Trees
+	Warhead@3EffWater: CreateEffect
+		ValidTargets: Water
+		InvalidTargets: Bridge
+		Explosions: water_piff
+
+M16Rifle:
+    Inherits: ^Gun
+	ReloadDelay: 20
+	Range: 3c0
+	Report: mgun2.aud
+	InvalidTargets: Wall
+	Warhead@1Dam: SpreadDamage
+		InvalidTargets: Wall
+	Warhead@2Eff: CreateEffect
+		Inaccuracy: 176
+	Warhead@2Eff2: CreateEffect
+		Delay: 2
+		Explosions: piff
+		Inaccuracy: 176
+	Warhead@2Eff3: CreateEffect
+		Delay: 4
+		Explosions: piff
+		Inaccuracy: 176
+	Warhead@3EffWater: CreateEffect
+		Inaccuracy: 176
+	Warhead@3EffWater2: CreateEffect
+		Delay: 2
+		ValidTargets: Water
+		InvalidTargets: Bridge
+		Explosions: water_piff
+		Inaccuracy: 176
+	Warhead@3EffWater3: CreateEffect
+		Delay: 4
+		ValidTargets: Water
+		InvalidTargets: Bridge
+		Explosions: water_piff
+		Inaccuracy: 176
+
+Pistol:
+    Inherits: ^Gun
+    ReloadDelay: 12
+	Range: 3c0
+	Report: gun18.aud
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 500
+
+Sniper:
+    Inherits: ^Gun
+	ReloadDelay: 45
+    Range: 6c0
+    Report: snipes.aud
+    ValidTargets: Infantry
+	InvalidTargets: Vehicle, Water, Structure, Wall, Husk, Creep
+	Warhead@1Dam: SpreadDamage
+		Spread: 48
+		Damage: 10000
+		ValidTargets: Infantry
+
+DriverKill:
+    Inherits: Sniper
+	Report: snipe.aud
+    ValidTargets: Vehicle
+    InvalidTargets: Infantry, Water, Structure, Wall, Husk, Creep
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Vehicle
+        Versus:
+            None: 25
+            Wood: 75
+            Light: 75
+            Heavy: 100
+            Concrete: 50
+	Warhead@DriverKill: ChangeOwnerToNeutral
+		ValidTargets: DriverKill
+		InvalidTargets: Infantry, Ship, Structure, Wall, Husk, Air, AirSmall
+		ValidRelationships: Enemy
+		CargoEffect: Block
+		Range: 0c511
+	Warhead@highlight: GrantExternalConditionCA
+		Range: 0c511
+		Duration: 2
+		Condition: highlight
+		ValidTargets: DriverKill
+
+^MachineGun:
+    Inherits: ^Gun
+    Burst: 2
+	Warhead@1Dam: SpreadDamage
+		Damage: 1500
+	Warhead@2Eff: CreateEffect
+		Explosions: piffs
+	Warhead@3EffWater: CreateEffect
+		Explosions: water_piffs
+
+50CalibreMG:
+    Inherits: ^MachineGun
+	Range: 4c0
+    ReloadDelay: 25
+	StartBurstReport: mgun11.aud
+	InvalidTargets: Wall
+	Warhead@1Dam: SpreadDamage
+		InvalidTargets: Wall
+
+Pintle50CalMG:
+    Inherits: 50CalibreMG
+	Range: 4c768
+    ValidTargets: Ground, Infantry
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: Ground, Infantry
+
+Heli50CalMG:
+    Inherits: 50CalibreMG
+	Range: 6c0
+	MinRange: 0c768
+	Projectile: InstantHit
+		Blockable: false
+
+20mmCannon:
+    Inherits: Heli50CalMG
+	ReloadDelay: 18
+    -StartBurstReport:
+	Report: autocannon.aud
+    -Projectile:
+	Projectile: Bullet
+		Speed: 860
+        Image: 50CAL
+		Shadow: true
+		Blockable: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 826
+		Damage: 1500
+        Versus:
+            None: 25
+            Wood: 75
+            Light: 75
+            Heavy: 100
+            Concrete: 50
+		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+
+ChainGun:
+    Inherits: ^MachineGun
+    ReloadDelay: 50
+    Range: 5c0
+    MinRange: 0c768
+    Burst: 1
+	Report: gun8.aud
+	InvalidTargets: Wall
+	Projectile: InstantHit
+		Blockable: false
+	Warhead@1Dam: SpreadDamage
+		Spread: 688
+		Damage: 2500
+        Versus:
+            None: 88
+            Wood: 75
+            Light: 56
+            Heavy: 25
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, RippedApartDeath
+		InvalidTargets: Wall
+	Warhead@2Eff: CreateEffect
+        Inaccuracy: 216
+    Warhead@3EffWater: CreateEffect
+		Inaccuracy: 216
+
+ChainGunAG:
+    Inherits: ^MachineGun
+	ReloadDelay: 11
+    Burst: 2
+    BurstDelays: 0
+	Range: 5c0
+	MinRange: 0c768
+	Report: gun5.aud
+	Projectile: InstantHit
+		Blockable: false
+	Warhead@1Dam: SpreadDamage
+		Damage: 2500
+        Versus:
+            None: 88
+            Wood: 75
+            Light: 56
+            Heavy: 25
+            Concrete: 100
+        DamageTypes: Prone50Percent, TriggerProne, RippedApartDeath
+
+ChainGunAA:
+    Inherits: ChainGunAG
+	ValidTargets: AirborneActor
+	Warhead@1Dam: SpreadDamage
+        ValidTargets: AirborneActor
+
+GattlingGun:
+    Inherits: ^MachineGun
+    ReloadDelay: 9
+	Range: 7c512
+    MinRange: 0c768
+    Burst: 5
+	ValidTargets: AirborneActor
+	Report: minigun.aud
+	Projectile: InstantHit
+		Blockable: false
+		Inaccuracy: 1c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+		Damage: 1750
+        ValidTargets: AirborneActor
+	Warhead@2Eff: CreateEffect
+        Explosions: sml_poof
+		ImpactActors: false
+		ValidTargets: AirborneActor
+	Warhead@3Eff: CreateEffect
+		Explosions: sml_flak
+        ValidTargets: Air, Ground, Water, Trees
+
+MiniGun:
+    Inherits: M16Rifle
+	ReloadDelay: 30
+    Burst: 6
+    BurstDelays: 3
+	Range: 5c0
+	-Report:
+	StartBurstReport: xogun1.aud, xogun2.aud
+
+VulcanGun:
+	Inherits: ^MachineGun
+    ReloadDelay: 25
+	Range: 8c0
+	Burst: 9
+	BurstDelays: 2
+	FirstBurstTargetOffset: -2984,0,0
+	FollowingBurstTargetOffset: 746,0,0
+	ReloadDelay: 125
+	Report: gun5.aud
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+		Damage: 8000
+        Versus:
+            None: 25
+            Wood: 75
+            Light: 75
+            Heavy: 100
+            Concrete: 50

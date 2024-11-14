@@ -1,2228 +1,475 @@
-^AntiGroundMissile:
-	ReloadDelay: 50
+^Rocket:
+	ReloadDelay: 10
+	Range: 5c0
+	ValidTargets: Ground, GroundActor, Water, WaterActor
+	Projectile: Missile
+		Arm: 0
+		Blockable: true
+		Inaccuracy: 128
+		Image: ROCKET
+		Shadow: true
+		HorizontalRateOfTurn: 60
+		TrailImage: smokey
+		ContrailLength: 12
+        ContrailStartWidth: 16
+        ContrailEndWidth: 16
+		Speed: 298
+		RangeLimit: 6c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 1000
+		ValidTargets: GroundActor, WaterActor
+        Versus:
+            None: 88
+            Wood: 75
+            Light: 56
+            Heavy: 25
+            Concrete: 100
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+        ValidTargets: Ground, Infantry
+	Warhead@3Eff: CreateEffect
+		Explosions: sml_frag
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Ground, GroundActor, WaterActor, Trees
+	Warhead@4EffWater: CreateEffect
+		Explosions: sml_splash
+		ImpactSounds: splash9.aud
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+
+Bazooka:
+    Inherits: ^Rocket
+	ReloadDelay: 40
 	Range: 5c0
 	MinRange: 0c512
-	Report: missile6.aud
-	Projectile: MissileCA
-		Speed: 213
-		Arm: 2
+	Report: bazook1.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 3000
+
+RocketPod:
+    Inherits: ^Rocket
+    ReloadDelay: 90
+	Range: 4c768
+	MinRange: 0c0
+	Report: bazook1.aud
+    ValidTargets: Ground, Vehicle
+    Warhead@1Dam: SpreadDamage
+        ValidTargets: Ground, Vehicle
+
+^RocketAA:
+    Inherits: ^Rocket
+	Range: 7c0
+	ValidTargets: AirborneActor
+	Projectile: Missile
+		Speed: 341
+		Arm: 0
 		Blockable: false
-		Inaccuracy: 128
-		Image: DRAGON
-		TrailImage: smokey
-		Shadow: True
-		HorizontalRateOfTurn: 20
-		RangeLimit: 7c0
-		PointDefenseType: Missile
-	Warhead@1Dam: SpreadDamage
-		Spread: 128
-		Damage: 5000
-		ValidTargets: Ground, Water, Air
-		Versus:
-			None: 10
-			Wood: 74
-			Light: 34
-			Heavy: 100
-			Concrete: 75
-			Brick: 75
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: Crater
-		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees
-	Warhead@3Eff: CreateEffect
-		Explosions: med_explosion
-		ImpactSounds: kaboom25.aud
-		ValidTargets: Ground, Air, Ship, Trees
-	Warhead@4EffWater: CreateEffect
-		Explosions: med_splash
-		ImpactSounds: splash9.aud
-		ValidTargets: Water, Underwater
-		InvalidTargets: Ship, Structure, Bridge
-
-^AirToGroundMissile:
-	Inherits: ^AntiGroundMissile
-	Projectile: MissileCA
-	Warhead@1Dam: SpreadDamage
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, TankBuster, AirToGround
-
-^AntiAirMissile:
-	Inherits: ^AntiGroundMissile
-	ValidTargets: Air, AirSmall
-	Projectile: MissileCA
 		Inaccuracy: 0
-		AllowSnapping: true
+		Image: MISSILE
+		Shadow: True
+		TrailImage: smokey
+		ContrailLength: 12
+        ContrailStartWidth: 16
+        ContrailEndWidth: 16
+		HorizontalRateOfTurn: 80
+		RangeLimit: 9c0
 	Warhead@1Dam: SpreadDamage
-		Range: 0, 0c64, 0c256, 3c0
-		Falloff: 100, 100, 30, 15
-		ValidTargets: Air
-		ValidRelationships: Enemy, Neutral
-		Versus:
-			None: 100
-			Wood: 100
-			Light: 100
-			Concrete: 100
-			Brick: 100
-	Warhead@smallDamage: SpreadDamage
 		Spread: 128
-		Falloff: 100, 50, 14, 0
-		ValidTargets: AirSmall
-		ValidRelationships: Enemy, Neutral
-		Versus:
-			None: 100
-			Wood: 100
-			Light: 100
-			Concrete: 100
-			Brick: 100
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
+		Damage: 3000
+		ValidTargets: AirborneActor
+        Versus:
+            None: 25
+            Wood: 75
+            Light: 75
+            Heavy: 100
+            Concrete: 50 
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
 	Warhead@3Eff: CreateEffect
-		Explosions: med_explosion_air
+		Explosions: sml_poof
+		ImpactSounds: kaboom25.aud
 		ImpactActors: false
+		ValidTargets: Air, AirborneActor
 
-^AirToAirMissile:
-	Inherits: ^AntiAirMissile
-	-MinRange:
-	Projectile: MissileCA
-		-Arm:
-		Speed: 384
-		HorizontalRateOfTurn: 40
-		RangeLimit: 13c0
-	Warhead@smallDamage: SpreadDamage
-		Spread: 341
+PortaSAM:
+    Inherits: ^RocketAA
+	ReloadDelay: 40
+	Report: missile1.aud
 
-Maverick:
-	Inherits: ^AirToGroundMissile
+TOWLauncher:
+    Inherits: ^Rocket
+	ReloadDelay: 40
 	Range: 7c0
-	MinRange: 0c768
-	Report: missile7.aud
-	Burst: 2
-	BurstDelays: 7
-	Projectile: MissileCA
-		Speed: 256
-		CruiseAltitude: 2c0
-		RangeLimit: 14c410
+	MinRange: 0c512
+    Burst: 2
+    BurstDelays: 0
+	Report: bazook1.aud
+	Projectile: Missile
+		RangeLimit: 9c0
 	Warhead@1Dam: SpreadDamage
-		Damage: 11000
-		Versus:
-			None: 20
-			Wood: 30
-			Concrete: 95
-			Light: 65
-			Heavy: 100
-
-MaverickAA:
-	Inherits: ^AirToAirMissile
-	Range: 7c0
-	ReloadDelay: 60
-	Report: missile7.aud
-	Burst: 2
-	BurstDelays: 10
-	Warhead@1Dam: SpreadDamage
-		Damage: 6000
-	Warhead@smallDamage: SpreadDamage
-		Damage: 6000
-
-Sidewinder:
-	Inherits: MaverickAA
-	Report: sidewinder.aud
-	Projectile: MissileCA
-		ContrailLength: 10
-		ContrailStartWidth: 42
-
-MaverickSU:
-	Inherits: Maverick
-	Report: vbleatta.aud, vbleattb.aud
-	Burst: 4
-	BurstDelays: 0, 10, 0
-	FirstBurstTargetOffset: -768,0,0
-	FollowingBurstTargetOffset: 768,0,0
-	-Projectile:
-	Projectile: Bullet
-		Inaccuracy: 64
-		Blockable: false
-		Shadow: true
-		Speed: 550
-		LaunchAngle: 0
-		Image: DRAGON
-		TrailImage: smokey
-		ContrailLength: 8
-		ContrailStartWidth: 48
-		ContrailStartColor: ff990088
-		ContrailStartColorAlpha: 128
-	Warhead@1Dam: SpreadDamage
-		Damage: 16000
-		Spread: 448
-		Falloff: 100, 55, 35, 8, 0
-		Versus:
-			None: 0
-			Wood: 18
-			Concrete: 65
-			Heavy: 85
-	Warhead@2Dam: SpreadDamage
-		Damage: 1600
 		Spread: 128
-		Versus:
-			None: 100
-			Wood: 0
-			Light: 0
-			Concrete: 0
-			Heavy: 0
-			Brick: 0
-	Warhead@3Eff: CreateEffect
-		Explosions: large_explosion
-		ImpactSounds: gexp14a.aud, gexp14b.aud, gexp14c.aud, gexp14d.aud
-	Warhead@4EffWater: CreateEffect
-		ImpactSounds: splashl1.aud, splashl2.aud
-
-SeismicMissile:
-	ReloadDelay: 70
-	Range: 7c0
-	MinRange: 0c768
-	Report: rocket1.aud
-	Burst: 2
-	BurstDelays: 2
-	FirstBurstTargetOffset: 0,-341,0
-	FollowingBurstTargetOffset: 768,341,0
-	TargetActorCenter: true
-	Projectile: Bullet
-		Image: seismsl
-		Blockable: false
-		Shadow: true
-		Inaccuracy: 128
-		TrailImage: smokey
-		TrailDelay: 2
-		ContrailStartWidth: 64
-		ContrailLength: 8
-		ContrailStartColor: ff6600aa
-		ContrailStartColorAlpha: 170
-		Speed: 250
-		LaunchAngle: 0
-	Warhead@1Dam: SpreadDamage
-		Spread: 1c0
-		Damage: 1850
-		Falloff: 1000, 368, 135, 75, 0
-		ValidTargets: Ground, Water
-		Versus:
-			None: 10
-			Wood: 70
-			Light: 75
-			Heavy: 100
-			Concrete: 75
-			Brick: 100
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, TankBuster, AirToGround
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: Crater
-		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees
-	Warhead@3Eff: CreateEffect
-		Explosions: large_artillery_explosion
-		ImpactSounds: artyhit.aud, artyhit2.aud, artyhit3.aud
-		ValidTargets: Ground, Air, Ship, Trees
-	Warhead@4EffWater: CreateEffect
-		ImpactSounds: splashl1.aud, splashl2.aud
-		Explosions: med_splash
-		ValidTargets: Water, Underwater
-		InvalidTargets: Ship, Structure, Bridge
-	Warhead@Concussion1: GrantExternalConditionCA
-		Range: 1c512
-		Duration: 275
-		Condition: concussion
-		ValidTargets: Ground, Infantry, Vehicle, Ship
-	Warhead@Concussion2: GrantExternalConditionCA
-		Range: 3c0
-		Duration: 175
-		Condition: concussion
-		ValidTargets: Ground, Infantry, Vehicle, Ship
-	Warhead@5Shake: ShakeScreen
-		Duration: 5
-		Intensity: 1
-		Multiplier: 0.5,0.5
-
-Dragon:
-	Inherits: ^AntiGroundMissile
-
-Dragon.TD:
-	Inherits: Dragon
-	Report: bazook1.aud
-
-Dragon.CYB:
-	Inherits: Dragon
-	Report: itanweaa.aud, itanweab.aud, itanweac.aud
-	Warhead@1Dam: SpreadDamage
-		Damage: 7000
-
-Dragon.CRYO:
-	Inherits: Dragon
-	Projectile: MissileCA
-		Image: cryomiss
-	Warhead@1Dam: SpreadDamage
-		DamageTypes: Prone50Percent, TriggerProne, FrozenDeath
-	Warhead@3Eff: CreateEffect
-		Explosions: cryohit
-		ExplosionPalette: ra2effect-ignore-lighting-alpha75
-		ImpactSounds: cryohit.aud
-	Warhead@chill: GrantExternalConditionCA
-		Condition: chilled
-		Duration: 75
-		Range: 0c341
-		ValidRelationships: Enemy, Neutral
-		InvalidTargets: Structure
-
-Dragon.TibCore:
-	Inherits: Dragon
-	Report: tibcore1.aud, tibcore2.aud, tibcore3.aud
-	Projectile: MissileCA
-		Image: tibcoremsl
-		Speed: 266
-		RangeLimit: 9c0
-		ContrailLength: 15
-		ContrailStartColor: 33aa00aa
-		ContrailStartColorAlpha: 170
-		ContrailStartWidth: 0c40
-	Warhead@1Dam: SpreadDamage
-		Damage: 5125
-	Warhead@3Eff: CreateEffect
-		ImpactSounds: tibcorehit1.aud, tibcorehit2.aud, tibcorehit3.aud
-	Warhead@tib: CreateEffect
-		Explosions: idle, idle2, idle3, idle4
-		ExplosionPalette: scrin
-		Image: shardhit
-		ValidTargets: Ground, Trees, Water
-
-Dragon.CYB.TibCore:
-	Inherits: Dragon.TibCore
-	Report: itanweaa.aud, itanweab.aud, itanweac.aud
-	Warhead@1Dam: SpreadDamage
-		Damage: 7175
-
-DragonGI:
-	Inherits: Dragon
-	Range: 6c0
-	Report: iggiat2a.aud, iggiat2b.aud
-	ReloadDelay: 40
-	Projectile: MissileCA
-		RangeLimit: 8c0
-	Warhead@1Dam: SpreadDamage
-		Damage: 4500
-
-DragonGI.CRYO:
-	Inherits: Dragon.CRYO
-	Range: 6c0
-	Report: iggiat2a.aud, iggiat2b.aud
-	ReloadDelay: 40
-	Projectile: MissileCA
-		RangeLimit: 8c0
-	Warhead@1Dam: SpreadDamage
-		Damage: 4500
-
-DragonBATF:
-	Inherits: Dragon
-	Range: 5c768
-	Projectile: MissileCA
-		RangeLimit: 7c0
-	Warhead@1Dam: SpreadDamage
-		Damage: 3750
-
-DragonBATF.TD:
-	Inherits: DragonBATF
-	Report: bazook1.aud
-
-DragonBATF.CYB:
-	Inherits: DragonBATF
-	Report: itanweaa.aud, itanweab.aud, itanweac.aud
-	Warhead@1Dam: SpreadDamage
-		Damage: 4400
-
-DragonBATF.CRYO:
-	Inherits: Dragon.CRYO
-	Range: 5c768
-	Projectile: MissileCA
-		RangeLimit: 7c0
-	Warhead@1Dam: SpreadDamage
-		Damage: 3750
-
-DragonBATF.TibCore:
-	Inherits: Dragon.TibCore
-	Range: 5c768
-	Projectile: MissileCA
-		RangeLimit: 9c0
-	Warhead@1Dam: SpreadDamage
-		Damage: 3850
-
-DragonBATF.CYB.TibCore:
-	Inherits: DragonBATF.TibCore
-	Report: itanweaa.aud, itanweab.aud, itanweac.aud
-	Warhead@1Dam: SpreadDamage
-		Damage: 5400
-
-HellfireAG:
-	Inherits: ^AirToGroundMissile
-	Range: 6c0
-	ReloadDelay: 70
-	MinRange: 0c768
-	Burst: 4
-	BurstDelays: 10
-	Projectile: MissileCA
-		Speed: 256
-		HorizontalRateOfTurn: 40
-		RangeLimit: 10c0
-	Warhead@1Dam: SpreadDamage
-		Damage: 5500
-		Versus:
-			None: 20
-			Wood: 30
-			Light: 65
-			Concrete: 95
-
-HellfireAG.Orca:
-	Inherits: HellfireAG
-	Report: orcamis1.aud
-	BurstDelays: 8
-
-HellfireAG.Cryo:
-	Inherits: HellfireAG
-	Projectile: MissileCA
-		Image: cryomiss
-	Warhead@3Eff: CreateEffect
-		Explosions: cryohit
-		ExplosionPalette: ra2effect-ignore-lighting-alpha75
-		ImpactSounds: cryohit.aud
-	Warhead@chill: GrantExternalConditionCA
-		Condition: chilled
-		Duration: 75
-		Range: 0c341
-		ValidRelationships: Enemy, Neutral
-
-HindRockets:
-	Inherits: HellfireAG
-	Range: 5c512
-	ReloadDelay: 70
-	Report: hind-rocket1.aud, hind-rocket2.aud
-	ValidTargets: Ground
-	BurstDelays: 12
-	Burst: 6
-	Warhead@1Dam: SpreadDamage
-		Damage: 3200
-		Versus:
-			None: 25
-			Light: 40
-			Wood: 30
-			Concrete: 30
-			Heavy: 75
-
-HindRockets.UPG:
-	Inherits: HindRockets
-	BurstDelays: 8
-
-KamovRockets:
-	Inherits: HindRockets
-	Warhead@1Dam: SpreadDamage
-		Damage: 3550
-
-HellfireAG.Harrier:
-	Inherits: ^AirToGroundMissile
-	Range: 7c0
-	MinRange: 0c768
-	ReloadDelay: 70
-	Report: migmis.aud, migmis2.aud
-	Burst: 2
-	BurstDelays: 10
-	TargetActorCenter: true
-	Projectile: MissileCA
-		Speed: 256
-		HorizontalRateOfTurn: 40
-		RangeLimit: 12c512
-		ContrailLength: 10
-		Inaccuracy: 512
-	Warhead@1Dam: SpreadDamage
-		Spread: 448
-		Damage: 2000
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
-		ValidTargets: Ground, Water, Trees
-		Versus:
-			None: 100
-			Wood: 65
-			Light: 55
-			Heavy: 28
-			Concrete: 25
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, FlakVestMitigatedMinor, AirToGround
-	Warhead@3Eff: CreateEffect
-		Explosions: large_explosion
-		ImpactSounds: kaboom15.aud
-	Warhead@4EffWater: CreateEffect
-		ImpactSounds: splashl1.aud, splashl2.aud
-
-HellfireAG.Horn:
-	Inherits: HellfireAG.Harrier
-	ReloadDelay: 50
-	Range: 5c0
-	MinRange: 0c768
-	Burst: 2
-	Projectile: MissileCA
-		RangeLimit: 7c512
-		ContrailLength: 0
-	Warhead@1Dam: SpreadDamage
-		Spread: 341
-		Damage: 500
-		Versus:
-			Wood: 85
-			Concrete: 45
-
-HellfireAA:
-	Inherits: ^AirToAirMissile
-	ReloadDelay: 60
-	Burst: 4
-	BurstDelays: 10
-	Warhead@1Dam: SpreadDamage
 		Damage: 3000
-	Warhead@smallDamage: SpreadDamage
-		Damage: 3000
-
-HellfireAA.Orca:
-	Inherits: HellfireAA
-	Report: orcamis1.aud
-	BurstDelays: 8
-
-HellfireAA.Cryo:
-	Inherits: HellfireAA
-	Projectile: MissileCA
-		Image: cryomiss
-	Warhead@3Eff: CreateEffect
-		Explosions: cryohit
-		ExplosionPalette: ra2effect-ignore-lighting-alpha75
-		ImpactSounds: cryohit.aud
-	Warhead@chill: GrantExternalConditionCA
-		Condition: chilled
-		Duration: 75
-		Range: 0c341
-		ValidRelationships: Enemy, Neutral
-
-HellfireAA.Harrier:
-	Inherits: HellfireAA
-	Report: migmis.aud, migmis2.aud
-	Burst: 2
-	BurstDelays: 10
-	Range: 7c512
-	Projectile: MissileCA
-		RangeLimit: 12c512
-		ContrailLength: 10
-	Warhead@1Dam: SpreadDamage
-		Damage: 8000
-	Warhead@smallDamage: SpreadDamage
-		Damage: 8000
-
-WidowAA:
-	Inherits: ^AirToAirMissile
-	ReloadDelay: 60
-	Report: vbleatta.aud, vbleattb.aud
-	Range: 8c0
-	Burst: 2
-	BurstDelays: 10
-	Projectile: MissileCA
-		Speed: 404
-		ContrailLength: 6
-	Warhead@1Dam: SpreadDamage
-		Damage: 6000
-	Warhead@smallDamage: SpreadDamage
-		Damage: 6000
+		ValidTargets: GroundActor, WaterActor
+        Versus:
+            None: 25
+            Wood: 75
+            Light: 75
+            Heavy: 100
+            Concrete: 50
 
 MammothTusk:
-	Inherits: ^AntiGroundMissile
-	ReloadDelay: 70
-	Range: 6c512
-	Burst: 2
-	ValidTargets: Air, AirSmall, Infantry
-	Projectile: MissileCA
-		Speed: 230
-		HorizontalRateOfTurn: 60
-		RangeLimit: 9c614
-	Warhead@1Dam: SpreadDamage
-		Spread: 256
-		Versus:
-			None: 100
-			Light: 50
-			Heavy: 50
-			Aircraft: 50
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, FlakVestMitigated
-	Warhead@smallDamage: SpreadDamage
-		Damage: 2000
-		Spread: 128
-		Falloff: 100, 50, 14, 0
-		ValidTargets: AirSmall
-		ValidRelationships: Enemy, Neutral
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, FlakVestMitigated
-	Warhead@3Eff: CreateEffect
-		ImpactSounds: kaboom15.aud
-		ValidTargets: Ground, Trees
-	Warhead@5EffAir: CreateEffect
-		Explosions: med_explosion_air
-		ImpactSounds: kaboom25.aud
-		ValidTargets: Air, AirSmall
-
-ApocalypseTusk:
-	Inherits: MammothTusk
-	Report: vapoat2a.aud, vapoat2b.aud, vapoat2c.aud
-	ValidTargets: Air, AirSmall
-	ReloadDelay: 60
-	Burst: 4
-	Range: 8c0
-	Projectile: MissileCA
-		RangeLimit: 10c614
-		Speed: 401
-	Warhead@1Dam: SpreadDamage
-		Damage: 4000
-	Warhead@smallDamage: SpreadDamage
-		Damage: 4000
-
-TitanTusk:
-	Inherits: MammothTusk
-	Burst: 1
-	Report: samshot1.aud
-	Projectile: MissileCA
-		Image: MISSILE
-		RangeLimit: 10c614
-	Warhead@1Dam: SpreadDamage
-		Damage: 10000
-	Warhead@smallDamage: SpreadDamage
-		Damage: 10000
-
-TitanTusk.Gyro:
-	Inherits: TitanTusk
-	ReloadDelay: 38
-	Range: 3c768
-
-APCTusk:
-	Inherits: MammothTusk
-	ValidTargets: Air, AirSmall, Ground, Infantry
-
-Nike:
-	Inherits: ^AntiAirMissile
-	ReloadDelay: 20
-	Range: 7c512
-	Report: samshot1.aud
-	ValidTargets: Air, AirSmall, ICBM
-	Projectile: MissileCA
-		Arm: 2
-		Image: MISSILE
-		HorizontalRateOfTurn: 100
-		RangeLimit: 10c512
-		Speed: 341
-	Warhead@1Dam: SpreadDamage
-		Damage: 6750
-		Range: 0, 0c64, 0c256, 4c256
-		ValidTargets: Air
-	Warhead@smallDamage: SpreadDamage
-		Damage: 6750
-		Range: 0, 0c64, 0c256, 2c256
-		Falloff: 100, 70, 30, 10
-		ValidTargets: AirSmall, ICBM
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-	Warhead@3Eff: CreateEffect
-		ValidTargets: Air, AirSmall, ICBM, Ground, Water, Trees
-
-RedEye:
-	Inherits: ^AntiAirMissile
-	Range: 7c512
-	ReloadDelay: 50
-	Report: missile1.aud
-	ValidTargets: Air, AirSmall
-	Projectile: MissileCA
-		Arm: 3
-		Image: Dragon
-		HorizontalRateOfTurn: 80
-		RangeLimit: 9c0
-		Speed: 298
-	Warhead@1Dam: SpreadDamage
-		Damage: 4000
-	Warhead@smallDamage: SpreadDamage
-		Damage: 6000
-	Warhead@3Eff: CreateEffect
-		ValidTargets: Air, AirSmall, ICBM, Ground, Water, Trees
-
-RedEye.TibCore:
-	Inherits: RedEye
-	Report: tibcore1.aud, tibcore2.aud, tibcore3.aud
-	Projectile: MissileCA
-		Image: tibcoremsl
-		ContrailLength: 15
-		ContrailStartColor: 33aa00aa
-		ContrailStartColorAlpha: 170
-		ContrailStartWidth: 0c40
-	Warhead@3Eff: CreateEffect
-		ImpactSounds: tibcorehit1.aud, tibcorehit2.aud, tibcorehit3.aud
-	Warhead@tib: CreateEffect
-		Explosions: idle, idle2, idle3, idle4
-		ExplosionPalette: scrin
-		Image: shardhit
-		ValidTargets: Air, AirSmall, ICBM, Ground, Water, Trees
-
-RedEye.CYB:
-	Inherits: RedEye
-	Report: itanweaa.aud, itanweab.aud, itanweac.aud
-	Warhead@1Dam: SpreadDamage
-		Damage: 4600
-	Warhead@smallDamage: SpreadDamage
-		Damage: 6900
-
-RedEye.CYB.TibCore:
-	Inherits: RedEye.TibCore
-	Report: itanweaa.aud, itanweab.aud, itanweac.aud
-	Warhead@1Dam: SpreadDamage
-		Damage: 4600
-	Warhead@smallDamage: SpreadDamage
-		Damage: 6900
-
-RedEye.CRYO:
-	Inherits: RedEye
-	Projectile: MissileCA
-		Image: cryomiss
-	Warhead@3Eff: CreateEffect
-		Explosions: cryohit
-		ExplosionPalette: ra2effect-ignore-lighting-alpha75
-		ImpactSounds: cryoblast.aud
-	Warhead@chill: GrantExternalConditionCA
-		Condition: chilled
-		Duration: 75
-		Range: 0c341
-		ValidTargets: Air, AirSmall
-		ValidRelationships: Enemy, Neutral
-
-RedEyeE:
-	Inherits: RedEye
-	Range: 9c0
-
-RedEyeGI:
-	Inherits: RedEye
-	Report: iggiat2a.aud, iggiat2b.aud
-	ReloadDelay: 40
-	Range: 9c0
-
-RedEyeGI.CRYO:
-	Inherits: RedEye.CRYO
-	Report: iggiat2a.aud, iggiat2b.aud
-	ReloadDelay: 40
-	Range: 9c0
-
-RedEyeE.TibCore:
-	Inherits: RedEye.TibCore
-	Range: 9c0
-
-RedEyeE.CYB:
-	Inherits: RedEyeE
-	Report: itanweaa.aud, itanweab.aud, itanweac.aud
-
-RedEyeE.CYB.TibCore:
-	Inherits: RedEyeE.TibCore
-	Report: itanweaa.aud, itanweab.aud, itanweac.aud
-
-Stinger:
-	Inherits: ^AntiGroundMissile
-	ReloadDelay: 60
-	Range: 9c0
-	Burst: 2
-	BurstDelays: 6
-	InvalidTargets: Submarine
-	Projectile: MissileCA
-		Arm: 3
-		Inaccuracy: 0
-		HorizontalRateOfTurn: 80
-		RangeLimit: 10c0
-		Speed: 170
-		CloseEnough: 149
-	Warhead@1Dam: SpreadDamage
-		Spread: 368
-		Damage: 7000
-		InvalidTargets: Submarine
-		Versus:
-			None: 36
-			Wood: 80
-			Light: 75
-			Heavy: 65
-			Concrete: 60
-			Brick: 75
-	Warhead@3Eff: CreateEffect
-		ImpactSounds: kaboom15.aud
-
-StingerAA:
-	Inherits: Stinger
-	ReloadDelay: 40
-	ValidTargets: Air, AirSmall
-	Projectile: MissileCA
-		Speed: 255
-		CloseEnough: 298
-		LockOnProbability: 95
-	Warhead@1Dam: SpreadDamage
-		Damage: 3375
-		Range: 0, 0c64, 0c256, 3c0
-		Falloff: 100, 100, 30, 15
-		ValidTargets: Air
-		ValidRelationships: Enemy, Neutral
-		Versus:
-			None: 100
-			Wood: 100
-			Light: 100
-			Concrete: 100
-			Brick: 100
-	Warhead@smallDamage: SpreadDamage
-		Damage: 3375
-		Spread: 128
-		Falloff: 100, 50, 14, 0
-		ValidTargets: AirSmall
-		ValidRelationships: Enemy, Neutral
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-	Warhead@3Eff: CreateEffect
-		Explosions: med_explosion_air
-		ImpactActors: false
-
-StingerGTWR:
-	Inherits: Stinger
-	ReloadDelay: 50
-	Range: 7c0
-	Report: rocket2.aud
-	BurstDelays: 10
-	Projectile: MissileCA
-		Arm: 0
-		HorizontalRateOfTurn: 40
-		RangeLimit: 11c819
-		Speed: 320
-		LockOnProbability: 66
-	Warhead@1Dam: SpreadDamage
-		Damage: 6600
-		Spread: 341
-		ValidTargets: Ground, Water
-		Versus:
-			None: 40
-			Wood: 55
-			Light: 70
-			Heavy: 75
-			Concrete: 60
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, FlakVestMitigated
-	Warhead@3Eff: CreateEffect
-		Explosions: frag_3
-		ExplosionPalette: temptd
-		ImpactSounds: xplobig4.aud
-
-APTusk:
-	Inherits: ^AntiGroundMissile
-	ValidTargets: Ground, Water, Air, AirSmall
+    Inherits: ^Rocket
 	ReloadDelay: 80
-	Range: 6c0
+	Range: 5c512
+	MinRange: 0c512
+	Report: rocket1.aud
+	Burst: 2
+	BurstDelays: 15
+	ValidTargets: AirborneActor, Infantry
+	Projectile: Missile
+		Arm: 0
+		Blockable: false
+		Inaccuracy: 128
+		Image: ROCKET
+		Shadow: true
+		HorizontalRateOfTurn: 60
+		TrailImage: smokey
+		ContrailLength: 12
+        ContrailStartWidth: 16
+        ContrailEndWidth: 16
+		Speed: 341
+		RangeLimit: 8c512
+	Warhead@1Dam: SpreadDamage
+		Damage: 5000
+		ValidTargets: AirborneActor, Infantry
+	Warhead@3Eff: CreateEffect
+		Explosions: sml_poof
+		ImpactSounds: xplobig4.aud
+		ImpactActors: false
+		ValidTargets: Ground, GroundActor, Trees
+	Warhead@4EffAir: CreateEffect
+		Explosions: sml_building
+		ImpactSounds: xplos.aud
+		ImpactActors: false
+		ValidTargets: Air, AirborneActor
+
+M269Missile:
+    Inherits: ^Rocket
+	ReloadDelay: 20
+	Range: 11c0
+	MinRange: 3c0
 	Burst: 2
 	BurstDelays: 0
-	-Report:
-	StartBurstReport: missile6.aud
-	Projectile: MissileCA
-		Speed: 298
-		HorizontalRateOfTurn: 40
-		RangeLimit: 8c0
-	Warhead@1Dam: SpreadDamage
-		ValidTargets: Ground, Water, Air, AirSmall
-		Damage: 8000
-		Versus:
-			None: 20
-			Wood: 55
-			Light: 60
-			Heavy: 100
-			Concrete: 85
-			Aircraft: 25
-	Warhead@5EffAir: CreateEffect
-		Explosions: med_explosion_air
-		ImpactSounds: kaboom25.aud
-		ValidTargets: Air, AirSmall
-
-TOW:
-	Inherits: ^AntiGroundMissile
-	Range: 5c0
-	ValidTargets: Vehicle, Structure
-	Report: tow1.aud, tow2.aud
-	ReloadDelay: 175
-	Projectile: MissileCA
-		Speed: 180
-		Inaccuracy: 0
-		HorizontalRateOfTurn: 20
-		RangeLimit: 16c0
-		PointDefenseType: Missile
-		ContrailLength: 17
-		ContrailStartColor: ccccccaa
-		ContrailStartColorAlpha: 170
-		ContrailStartWidth: 0c48
-		MinimumLaunchAngle: 0
-		MaximumLaunchAngle: 48
-	Warhead@1Dam: SpreadDamage
-		Damage: 10000
-		Versus:
-			Wood: 40
-			Concrete: 30
-			Light: 40
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, TankBuster
-	Warhead@3Eff: CreateEffect
-		ImpactSounds: tow-hit1.aud
-
-PitbullRockets:
-	Inherits: ^AntiGroundMissile
-	Range: 6c0
-	Report: pitbull-fire1.aud, pitbull-fire2.aud
-	ReloadDelay: 80
-	Burst: 2
-	BurstDelays: 4
-	Projectile: MissileCA
-		Speed: 270
-		ContrailLength: 17
-		ContrailStartColor: ffaa00aa
-		ContrailStartColorAlpha: 170
-		ContrailStartWidth: 0c48
-	Warhead@1Dam: SpreadDamage
-		Spread: 256
-		Damage: 7000
-		Versus:
-			Wood: 40
-			Concrete: 30
-			Light: 100
-			Heavy: 50
-	Warhead@Blind: GrantExternalConditionCA
-		Range: 0c256
-		Duration: 45
-		Condition: blinded
-		ValidTargets: Vehicle
-	Warhead@3Eff: CreateEffect
-		Explosions: idle
-		ExplosionPalette: caneon
-		Image: nullhit
-		ImpactSounds: pitbull-hit1.aud
-
-PitbullRocketsAA:
-	Inherits: RedEye
-	Report: pitbull-fire1.aud, pitbull-fire2.aud
-	ReloadDelay: 80
-	Burst: 2
-	BurstDelays: 4
-	Projectile: MissileCA
-		Speed: 270
-		ContrailLength: 17
-		ContrailStartColor: ffaa00aa
-		ContrailStartColorAlpha: 170
-		ContrailStartWidth: 0c48
-	Warhead@1Dam: SpreadDamage
-		Range: 0, 0c64, 0c256, 1c768
-		Damage: 7200
-	Warhead@smallDamage: SpreadDamage
-		Damage: 7200
-	Warhead@Blind: GrantExternalConditionCA
-		Range: 0c256
-		Duration: 50
-		Condition: blinded
-		ValidTargets: Air, AirSmall
-		InvalidTargets: Shielded
-		ValidRelationships: Enemy, Neutral
-	Warhead@3Eff: CreateEffect
-		Explosions: idle
-		ExplosionPalette: caneon
-		Image: nullhit
-		ImpactSounds: pitbull-hit1.aud
-
-TorpTube:
-	ReloadDelay: 100
-	Range: 9c0
-	Report: torpedo1.aud
-	ValidTargets: Water, Underwater, Bridge
-	Burst: 2
-	BurstDelays: 20
-	Projectile: MissileCA
-		Image: torpedo
-		Arm: 3
-		Speed: 85
-		TrailImage: bubbles
-		HorizontalRateOfTurn: 4
-		RangeLimit: 10c819
-		BoundToTerrainType: Water
-		Palette: shadow
-		MaximumLaunchAngle: 0
-		CruiseAltitude: 0
-	Warhead@1Dam: SpreadDamage
-		Spread: 426
-		Damage: 12000
-		ValidTargets: Water, Underwater, Bridge
-		Versus:
-			Wood: 75
-			Light: 65
-			Heavy: 100
-			Concrete: 100
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-	Warhead@3Eff: CreateEffect
-		Explosions: artillery_explosion
-		ImpactSounds: kaboom15.aud
-		ValidTargets: Ship, Structure, Underwater, Ground, Bridge
-	Warhead@4EffWater: CreateEffect
-		Explosions: large_splash
-		ImpactSounds: splash9.aud
-		ValidTargets: Water
-		InvalidTargets: Ship, Structure, Underwater, Bridge
-
-^SubMissileDefault:
-	Inherits: ^AntiGroundMissile
-	ReloadDelay: 90
-	Range: 8c0
-	Burst: 2
-	Projectile: MissileCA
-		Speed: 234
-		Inaccuracy: 1c0
-		HorizontalRateOfTurn: 60
-		Image: MISSILE
-	Warhead@1Dam: SpreadDamage
-		Spread: 511
-		Damage: 1250
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
-		Versus:
-			None: 60
-			Wood: 80
-			Concrete: 50
-	Warhead@3Eff: CreateEffect
-		Explosions: building, building2
-	Warhead@4EffWater: CreateEffect
-		Explosions: large_splash
-
-SubMissile:
-	Inherits: ^SubMissileDefault
-	Range: 14c0
-	Projectile: MissileCA
-		Inaccuracy: 0c614
-		Speed: 294
-		RangeLimit: 20c0
-		Image: dragon
-		CruiseAltitude: 0c128
-
-#Used by ICBM, Missile but just Explosion
-HonestJohnSub:
-	ValidTargets: Ground, Trees, Water, Air
-	Warhead@1Dam: SpreadDamage
-		Spread: 1c0
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
-		Damage: 5000
-		Versus:
-			None: 45
-			Wood: 100
-			Concrete: 85
-			Light: 55
-			Heavy: 35
-			Brick: 100
-		ValidTargets: Ground, Trees, Water, Air
-		AffectsParent: true
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
-	Warhead@2Res_impact: DestroyResource
-	Warhead@3Eff_impact: CreateEffect
-		Explosions: nuke
-		ImpactSounds: nukexplo.aud
-		ImpactActors: false
-	Warhead@6Eff_areanuke1: CreateEffect
-		ImpactSounds: kaboom22.aud
-		Delay: 5
-		ImpactActors: false
-	Warhead@6Smu_areanuke1: LeaveSmudge
-		SmudgeType: Scorch
-		InvalidTargets: Vehicle, Structure, Wall, Trees
-		Size: 4
-		Delay: 5
-	Warhead@TREEKILL: SpreadDamage
-		Spread: 1c0
-		Damage: 3000
-		Falloff: 1000, 600, 400, 250, 150, 100, 0
-		Delay: 5
-		ValidTargets: Trees
-		DamageTypes: Incendiary
-	Warhead@Flames: FireCluster
-		Weapon: BurnFx
-		RandomClusterCount: 5
-		Dimensions: 3,3
-		Footprint: xxx xxx xxx
-	Warhead@18Radio: CreateTintedCells
-		Spread: 1c0
-		Level: 350
-		Falloff: 100, 75, 52, 37, 24, 15, 2
-		MaxLevel: 750
-		LayerName: radioactivity.medium
-
-SCUD:
-	Inherits: ^AntiGroundMissile
-	ReloadDelay: 240
-	Range: 12c0
-	MinRange: 3c0
-	Report: missile1.aud
-	-Projectile:
+	Report: rocket1.aud
+	ValidTargets: Ground, Water, GroundActor, WaterActor
+	TargetActorCenter: true
+    -Projectile:
 	Projectile: Bullet
-		Speed: 190
 		Blockable: false
-		TrailImage: smokey
-		TrailDelay: 5
-		Inaccuracy: 213
-		Image: V2
-		Shadow: True
-		LaunchAngle: 62
-	Warhead@1Dam: SpreadDamage
-		Spread: 341
-		Damage: 3600
-		Falloff: 1000, 448, 192, 50, 18, 7, 0
-		Versus:
-			None: 90
-			Wood: 80
-			Light: 65
-			Heavy: 45
-			Concrete: 50
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, FlakVestMitigated
-	Warhead@3Eff: CreateEffect
-		Explosions: building, building2
-	Warhead@4EffWater: CreateEffect
-		Explosions: large_splash
-		ImpactSounds: splashl1.aud, splashl2.aud
-
-V3Weapon:
-	Inherits: ^AntiGroundMissile
-	-Report:
-	ValidTargets: Ground, Trees, Water
-	Warhead@1Dam: SpreadDamage
-		Spread: 341
-		Damage: 3600
-		Falloff: 1000, 448, 192, 50, 18, 7, 0
-		Versus:
-			None: 90
-			Wood: 100
-			Light: 65
-			Heavy: 45
-			Concrete: 60
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, FlakVestMitigated
-	Warhead@3Eff: CreateEffect
-		Explosions: building, building2
-		ValidTargets: Ground, Air, Ship, Trees, ICBM
-	Warhead@4EffWater: CreateEffect
-		Explosions: large_splash
-		ImpactSounds: splashl1.aud, splashl2.aud
-
-THWeapon:
-	Inherits: ^AntiGroundMissile
-	-Report:
-	ValidTargets: Ground, Trees, Water
-	Warhead@1Dam: SpreadDamage
-		Spread: 448
-		Damage: 3600
-		Falloff: 1000, 448, 192, 50, 18, 7, 0
-		ValidTargets: Ground, Water, Trees
-		Versus:
-			None: 90
-			Wood: 100
-			Light: 80
-			Heavy: 100
-			Concrete: 70
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, FlakVestMitigated
-	Warhead@3Eff: CreateEffect
-		ImpactSounds: xplobig4.aud
-		Explosions: building, building2
-		ValidTargets: Ground, Air, Ship, Trees, ICBM
-	Warhead@4EffWater: CreateEffect
-		Explosions: large_splash
-		ImpactSounds: splashl1.aud, splashl2.aud
-
-KatyushaRockets:
-	Inherits: ^AntiGroundMissile
-	ReloadDelay: 180
-	Range: 8c768
-	MinRange: 3c0
-	Report: katyrocket1.aud, katyrocket2.aud, katyrocket3.aud
-	Burst: 3
-	BurstDelays: 12
-	-Projectile:
-	Projectile: Bullet
-		Inaccuracy: 1c512
-		InaccuracyType: Absolute
-		Image: dragon
-		Speed: 200
-		LaunchAngle: 70
-		TrailImage: smokey
+		Image: ROCKET
 		Shadow: true
-		Blockable: false
-	ValidTargets: Ground, Trees, Water
+		TrailImage: smokey
+		Inaccuracy: 853
+		LaunchAngle: 62
+		ContrailLength: 10
+        ContrailStartWidth: 20
+        ContrailEndWidth: 10
+		Speed: 341
 	Warhead@1Dam: SpreadDamage
-		Damage: 4000
-		Spread: 448
-		Versus:
-			None: 100
-			Wood: 85
-			Concrete: 45
-			Light: 80
-			Heavy: 45
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, FlakVestMitigated
+		Spread: 684
+		Damage: 5000
 	Warhead@3Eff: CreateEffect
-		Explosions: frag_3
-		ExplosionPalette: temptd
-		ImpactSounds: kaboom15.aud
-		ValidTargets: Ground, Ship, Trees
-
-KatyushaRocketsWide:
-	Inherits: KatyushaRockets
-	Projectile: Bullet
-		Inaccuracy: 2c512
-
-GradRockets:
-	Inherits: KatyushaRockets
-	Range: 10c0
-	Report: grad-fire1.aud, grad-fire2.aud
-	Warhead@1Dam: SpreadDamage
-		Damage: 400
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
-
-GradRocketsWide:
-	Inherits: GradRockets
-	Projectile: Bullet
-		Inaccuracy: 2c512
-
-GradRockets.UPG:
-	Inherits: GradRockets
-	Burst: 5
-
-GradRocketsWide.UPG:
-	Inherits: GradRocketsWide
-	Burst: 5
+		Explosions: med_frag
+		ImpactSounds: xplobig4.aud
+		ImpactActors: false
+		ValidTargets: Ground, Air, GroundActor, AirborneActor, WaterActor
+	Warhead@4EffWater: CreateEffect
+		Explosions: med_splash
+		ImpactSounds: splash9.aud
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
 
 HonestJohn:
-	ReloadDelay: 130
+    Inherits: ^Rocket
+	ReloadDelay: 200
 	Burst: 2
 	BurstDelays: 50
-	Range: 12c0
+	Range: 11c0
 	MinRange: 3c0
-	Report: rocket2.aud
+	Report: rocket1.aud
+    ValidTargets: Ground, GroundActor, Water, WaterActor, Trees
+    -Projectile:
 	Projectile: Bullet
 		Blockable: false
 		Shadow: true
 		Inaccuracy: 0c511
-		Image: ssmmsl
+		Image: hjm
 		TrailImage: smokey
 		TrailDelay: 3
-		Speed: 210
+		Speed: 200
 		LaunchAngle: 37
 	Warhead@1Dam: SpreadDamage
-		Spread: 448
-		Damage: 600
-		Falloff: 500, 368, 135, 50, 18, 7, 0
-		Versus:
-			None: 100
-			Wood: 100
-			Concrete: 80
-			Light: 70
-			Heavy: 35
-			Brick: 5
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath, FlakVestMitigatedMinor
-	Warhead@2Dam: SpreadDamage
-		Spread: 448
-		Damage: 600
-		Falloff: 500, 368, 135, 50, 18, 7, 0
-		Delay: 3
-		Versus:
-			None: 100
-			Wood: 100
-			Concrete: 80
-			Light: 70
-			Heavy: 35
-			Brick: 5
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath, FlakVestMitigatedMinor
-	Warhead@3Dam: SpreadDamage
-		Spread: 448
-		Damage: 600
-		Falloff: 500, 368, 135, 50, 18, 7, 0
-		Delay: 6
-		Versus:
-			None: 100
-			Wood: 100
-			Concrete: 80
-			Light: 70
-			Heavy: 35
-			Brick: 5
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath, FlakVestMitigatedMinor
-	Warhead@4Dam: SpreadDamage
-		Spread: 448
-		Damage: 600
-		Falloff: 500, 368, 135, 50, 18, 7, 0
-		Delay: 9
-		Versus:
-			None: 100
-			Wood: 100
-			Concrete: 80
-			Light: 70
-			Heavy: 35
-			Brick: 5
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath, FlakVestMitigatedMinor
+		Spread: 1c0
+		Damage: 15000
+        ValidTargets: Ground, GroundActor, Water, WaterActor, Trees
+        Versus:
+            None: 87
+            Wood: 100
+            Light: 68
+            Heavy: 25
+            Concrete: 50
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath, Incendiary
 	Warhead@2Smu: LeaveSmudge
 		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall, Bridge
 	Warhead@3Eff: CreateEffect
-		Explosions: large_napalm
-		ImpactSounds: firebl3.aud
-		ImpactActors: false
-	Warhead@Flames: FireCluster
-		Weapon: BurnFx
-		RandomClusterCount: 5
-		Dimensions: 3,3
-		Footprint: xxx xxx xxx
+		Explosions: big_napalm
+		ImpactSounds: xplos.aud, firebl3.aud
+	Warhead@5EffWater: CreateEffect
+		Explosions: big_splash
+		ImpactSounds: ssplash3.aud
+		ValidTargets: Water
 
-HonestJohn.UPG:
-	Inherits: HonestJohn
-	ReloadDelay: 145
+HonestJohnChem:
+    Inherits: HonestJohn
+	Projectile: Bullet
+		Blockable: false
+		Shadow: true
+		Inaccuracy: 0c511
+		Image: hjmb
+		TrailImage: smokey
+		TrailDelay: 3
+		Speed: 200
+		LaunchAngle: 37
 	Warhead@1Dam: SpreadDamage
-		Damage: 1200
-		Versus:
-			Light: 100
-			Heavy: 70
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath
-	Warhead@2Dam: SpreadDamage
-		Damage: 1200
-		Versus:
-			Light: 100
-			Heavy: 70
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath
-	-Warhead@3Dam:
-	-Warhead@4Dam:
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: Scorch-Black
+		Spread: 1c0
+		Damage: 15000
+        ValidTargets: Ground, GroundActor, Water, WaterActor, Trees
+        Versus:
+            None: 88
+            Wood: 75
+            Light: 56
+            Heavy: 25
+            Concrete: 100
+		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath, Incendiary
 	Warhead@3Eff: CreateEffect
-		Explosions: large_blacknapalm
-		ExplosionPalette: scrin-ignore-lighting-alpha85
-	Warhead@Flames: FireCluster
-		Weapon: BurnFxBlack
+		Explosions: big_chem
+		ImpactSounds: xplos.aud, firebl3.aud
+	Warhead@3Chem: GrantExternalCondition
+		Range: 0c256
+		Duration: 45
+		Condition: chem-condition
+		ValidTargets: ChemApplicable
+        InvalidTargets: Invulnerable
 
-HonestJohnTargeting:
-	Inherits: HonestJohn
+NikeSAM:
+    Inherits: ^RocketAA
 	ReloadDelay: 25
-	-Report:
-	-Burst:
-	-BurstDelays:
-	-Projectile:
-	-Warhead@1Dam:
-	-Warhead@2Dam:
-	-Warhead@3Dam:
-	-Warhead@4Dam:
-	-Warhead@2Smu:
-	-Warhead@3Eff:
-	-Warhead@Flames:
-	Projectile: InstantHit
-	Warhead@1Dum: Dummy
-
-BikeRockets:
-	Inherits: Dragon
-	Range: 4c512
-	Report: bazook1.aud
-	Burst: 2
-	BurstDelays: 5
-	Warhead@1Dam: SpreadDamage
-		Damage: 4000
-		Versus:
-			Wood: 60
-			Light: 45
-			Concrete: 35
-
-BikeRocketsAA:
-	Inherits: RedEye
-	Report: bazook1.aud
-	Burst: 2
-	BurstDelays: 5
-	Warhead@1Dam: SpreadDamage
-		Damage: 3600
-	Warhead@smallDamage: SpreadDamage
-		Damage: 3600
-
-BikeRockets.TibCore:
-	Inherits: BikeRockets
-	Range: 5c512
-	Projectile: MissileCA
-		Speed: 266
-		Image: tibcoremsl
-		ContrailLength: 15
-		ContrailStartColor: 33aa00aa
-		ContrailStartColorAlpha: 170
-		ContrailStartWidth: 0c40
-		RangeLimit: 8c0
-	Report: tibcore1.aud, tibcore2.aud, tibcore3.aud
-	Warhead@1Dam: SpreadDamage
-		Damage: 4300
-		Versus:
-			Heavy: 34
-	Warhead@antiHeavySplash: SpreadDamage
-		Damage: 4300
-		Spread: 341
-		ValidTargets: Vehicle, Husk
-		Versus:
-			Heavy: 66
-			None: 0
-			Wood: 0
-			Light: 0
-			Concrete: 0
-			Brick: 0
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-	Warhead@3Eff: CreateEffect
-		ImpactSounds: tibcorehit1.aud, tibcorehit2.aud, tibcorehit3.aud
-	Warhead@tib: CreateEffect
-		Explosions: idle, idle2, idle3, idle4
-		ExplosionPalette: scrin
-		Image: shardhit
-		ValidTargets: Ground, Trees, Water
-
-BikeRocketsAA.TibCore:
-	Inherits: BikeRocketsAA
-	Report: tibcore1.aud, tibcore2.aud, tibcore3.aud
-	Projectile: MissileCA
-		Speed: 357
-		Image: tibcoremsl
-		ContrailLength: 15
-		ContrailStartColor: 33aa00aa
-		ContrailStartColorAlpha: 170
-		ContrailStartWidth: 0c40
-	Warhead@1Dam: SpreadDamage
-		Damage: 3870
-	Warhead@smallDamage: SpreadDamage
-		Damage: 3870
-	Warhead@3Eff: CreateEffect
-		ImpactSounds: tibcorehit1.aud, tibcorehit2.aud, tibcorehit3.aud
-	Warhead@tib: CreateEffect
-		Explosions: idle, idle2, idle3, idle4
-		ExplosionPalette: scrin
-		Image: shardhit
-		ValidTargets: Air, AirSmall
-
-SBRockets:
-	Inherits: BikeRockets
-	Range: 5c0
-
-IFVRockets:
-	Inherits: Dragon
-	Range: 4c768
-	Burst: 2
-	BurstDelays: 5
-	Warhead@1Dam: SpreadDamage
-		Damage: 2750
-		Versus:
-			Wood: 40
-			Concrete: 50
-			Light: 80
-
-IFVRocketsAA:
-	Inherits: RedEye
-	Burst: 2
-	BurstDelays: 5
-	Warhead@1Dam: SpreadDamage
-		Damage: 4200
-	Warhead@smallDamage: SpreadDamage
-		Damage: 4200
-
-IFVRocketsE:
-	Inherits: IFVRockets
-	Report: vifvatta.aud
-	Range: 6c0
-	Projectile: MissileCA
-		ContrailLength: 10
-	Warhead@1Dam: SpreadDamage
-		Damage: 3750
-
-IFVRocketsE.CRYO:
-	Inherits: IFVRocketsE
-	Projectile: MissileCA
-		Image: cryomiss
-	Warhead@1Dam: SpreadDamage
-		DamageTypes: Prone50Percent, TriggerProne, FrozenDeath
-	Warhead@antiHeavySplash: SpreadDamage
-		DamageTypes: FrozenDeath
-	Warhead@3Eff: CreateEffect
-		Explosions: cryohit
-		ExplosionPalette: ra2effect-ignore-lighting-alpha75
-		ImpactSounds: cryohit.aud
-	Warhead@chill: GrantExternalConditionCA
-		Condition: chilled
-		Duration: 75
-		Range: 0c341
-		ValidRelationships: Enemy, Neutral
-
-IFVRocketsAAE:
-	Inherits: IFVRocketsAA
-	Report: vifvatta.aud
-	Projectile: MissileCA
-		ContrailLength: 10
-	Warhead@1Dam: SpreadDamage
-		Damage: 4800
-	Warhead@smallDamage: SpreadDamage
-		Damage: 4800
-
-IFVRocketsAAE.CRYO:
-	Inherits: IFVRocketsAAE
-	Projectile: MissileCA
-		Image: cryomiss
-	Warhead@3Eff: CreateEffect
-		Explosions: cryohit
-		ExplosionPalette: ra2effect-ignore-lighting-alpha75
-		ImpactSounds: cryoblast.aud
-	Warhead@chill: GrantExternalConditionCA
-		Condition: chilled
-		Duration: 75
-		Range: 0c341
-		ValidTargets: Air, AirSmall
-		ValidRelationships: Enemy, Neutral
-
-IFVRocketsE.TibCore:
-	Inherits: StnkMissile.TibCore
-
-IFVRocketsAAE.TibCore:
-	Inherits: StnkMissileAA.TibCore
-
-#Artillery Missiles, lock-on but act dumb
-227mm:
-	Inherits: ^AntiGroundMissile
-	ReloadDelay: 130
-	Burst: 2
-	BurstDelays: 4
-	Range: 9c0
-	MinRange: 3c0
-	Report: rocket1.aud
-	Projectile: MissileCA
-		Speed: 266
-		Inaccuracy: 512
-		CruiseAltitude: 5c0
-		LockOnProbability: 66
-		Jammable: false
-		RangeLimit: 13c0
-	Warhead@1Dam: SpreadDamage
-		Spread: 341
-		Damage: 800
-		Falloff: 1000, 448, 192, 50, 18, 7, 0
-		ValidTargets: Ground, Water, Trees
-		Versus:
-			None: 100
-			Wood: 80
-			Light: 72
-			Heavy: 25
-			Concrete: 80
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, FlakVestMitigated
-	Warhead@3Eff: CreateEffect
-		Explosions: large_explosion
-		ImpactSounds: kaboom15.aud
-	Warhead@4EffWater: CreateEffect
-		ImpactSounds: splashl1.aud, splashl2.aud
-
-227mmH:
-	Inherits: 227mm
-	Report: hovrmis1.aud
-
-227mm.upg:
-	Inherits: 227mm
-	Range: 9c0
-	Projectile: MissileCA
-		ContrailLength: 15
-		ContrailStartColorAlpha: 230
-	Warhead@1Dam: SpreadDamage
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, FlakVestMitigated
-
-227mm.Hypersonic:
-	Inherits: 227mm.upg
-	Report: vaegattb.aud, vaegatta.aud
-	Range: 10c512
-	BurstDelays: 6
-	Projectile: MissileCA
-		Speed: 430
-		Inaccuracy: 256
-		LockOnProbability: 100
-		ContrailStartColor: 00FFFFE6
-		MinimumLaunchAngle: 100
-		MaximumLaunchAngle: 200
-		AllowSnapping: true
-	Warhead@1Dam: SpreadDamage
-		Damage: 900
-
-227mm.Hammerhead:
-	Inherits: 227mm.upg
-	BurstDelays: 12
-	Report: hammerheadmissile1.aud, hammerheadmissile2.aud
-	Projectile: MissileCA
-		ContrailStartColor: FFCC00E6
-		LockOnProbability: 80
-	Warhead@1Dam: SpreadDamage
-		Damage: 860
-		Spread: 426
-	Warhead@4Eff: CreateEffect
-		ImpactSounds: xplobig4.aud
-		Explosions: artillery_explosion
-	Warhead@Concussion: GrantExternalConditionCA
-		Range: 0c768
-		Duration: 70
-		Condition: concussion
-
-227mm.Hailstorm:
-	Inherits: 227mm.upg
-	Range: 10c0
-	Report: hailstormmissile1.aud, hailstormmissile2.aud
-	Burst: 6
-	BurstDelays: 6
-	-Projectile:
-	Projectile: Bullet
-		Image: DRAGON
-		TrailImage: smokey
-		Shadow: True
-		ContrailLength: 15
-		ContrailStartColor: FF4400E6
-		Speed: 266
-		Inaccuracy: 1c0
-		LaunchAngle: 62
-	Warhead@1Dam: SpreadDamage
-		Spread: 426
-		Damage: 370
-
-227mmAA:
-	Inherits: ^AntiAirMissile
-	ReloadDelay: 80
-	Burst: 2
-	BurstDelays: 4
-	Range: 6c512
-	Report: rocket1.aud
-	Projectile: MissileCA
-		Speed: 230
-		Image: Dragon
-		HorizontalRateOfTurn: 60
-		CruiseAltitude: 2c0
-		RangeLimit: 7c512
-	Warhead@1Dam: SpreadDamage
-		Damage: 2200
-		Falloff: 100, 37, 14, 5, 0
-		Spread: 0c256
-		-Range:
-	Warhead@smallDamage: SpreadDamage
-		Damage: 2200
-	Warhead@3Eff: CreateEffect
-		ImpactSounds: xplos.aud
-
-227mmAAH:
-	Inherits: 227mmAA
-	Report: hovrmis1.aud
-
-227mmAA.upg:
-	Inherits: 227mmAA
-	Range: 6c512
-	Projectile: MissileCA
-		Speed: 250
-		ContrailLength: 15
-		ContrailStartColorAlpha: 230
-		RangeLimit: 7c512
-	Warhead@1Dam: SpreadDamage
-		Damage: 2600
-	Warhead@smallDamage: SpreadDamage
-		Damage: 2600
-
-227mmAA.Hypersonic:
-	Inherits: 227mmAA.upg
-	Report: vaegattb.aud, vaegatta.aud
-	Projectile: MissileCA
-		ContrailStartColor: 00FFFFE6
-		Speed: 320
-
-227mmAA.Hammerhead:
-	Inherits: 227mmAA.upg
-	Report: hammerheadmissile1.aud, hammerheadmissile2.aud
-	Projectile: MissileCA
-		ContrailStartColor: FFCC00E6
-
-227mmAA.Hailstorm:
-	Inherits: 227mmAA.upg
-	Report: hailstormmissile1.aud, hailstormmissile2.aud
-	Projectile: MissileCA
-		ContrailStartColor: FF4400E6
-
-StnkMissile:
-	Inherits: ^AntiGroundMissile
-	ReloadDelay: 70
-	Report: rocket1.aud
-	Burst: 2
-	BurstDelays: 4
-	Projectile: MissileCA
-		Arm: 0
-		Inaccuracy: 213
-		HorizontalRateOfTurn: 40
-		LockOnProbability: 95
-	Warhead@1Dam: SpreadDamage
-		Damage: 5500
-		Versus:
-			None: 25
-			Wood: 70
-			Light: 100
-			Heavy: 70 # 30% of anti-heavy damage moved to tankbuster warhead
-	Warhead@tankbuster: SpreadDamage
-		Spread: 128
-		Damage: 5500
-		ValidTargets: Vehicle, Husk
-		Versus:
-			Heavy: 30
-			None: 0
-			Wood: 0
-			Light: 0
-			Concrete: 0
-			Brick: 0
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, TankBuster
-	Warhead@3Eff: CreateEffect
-		ImpactSounds: xplos.aud
-	Warhead@4EffWater: CreateEffect
-		ImpactSounds: splashl1.aud, splashl2.aud
-
-StnkMissileAA:
-	Inherits: ^AntiAirMissile
-	ReloadDelay: 70
 	Range: 7c512
-	Report: rocket1.aud
-	Burst: 2
-	BurstDelays: 4
-	Projectile: MissileCA
-		Arm: 0
-		Inaccuracy: 128
-		HorizontalRateOfTurn: 40
-		Speed: 298
-		RangeLimit: 9c0
-	Warhead@1Dam: SpreadDamage
-		Damage: 4800
-	Warhead@smallDamage: SpreadDamage
-		Damage: 4800
-	Warhead@3Eff: CreateEffect
-		ImpactSounds: xplos.aud
-
-StnkMissile.TibCore:
-	Inherits: StnkMissile
-	ReloadDelay: 75
-	Burst: 4
-	BurstDelays: 4, 7, 4
-	Range: 6c0
-	Projectile: MissileCA
-		Speed: 266
-		Image: tibcoremsl
-		ContrailLength: 15
-		ContrailStartColor: 33aa00aa
-		ContrailStartColorAlpha: 170
-		ContrailStartWidth: 0c40
-		RangeLimit: 9c0
-	Report: tibcore1.aud, tibcore2.aud, tibcore3.aud
-	Warhead@1Dam: SpreadDamage
-		Damage: 3850
-		Versus:
-			Heavy: 0
-	Warhead@tankbuster: SpreadDamage
-		Spread: 341
-		Damage: 3850
-		Versus:
-			Heavy: 100
-	Warhead@3Eff: CreateEffect
-		ImpactSounds: tibcorehit1.aud, tibcorehit2.aud, tibcorehit3.aud
-	Warhead@tib: CreateEffect
-		Explosions: idle, idle2, idle3, idle4
-		ExplosionPalette: scrin
-		Image: shardhit
-		ValidTargets: Ground, Trees, Water
-
-StnkMissileAA.TibCore:
-	Inherits: StnkMissileAA
-	ReloadDelay: 75
-	Burst: 4
-	BurstDelays: 4, 7, 4
-	Projectile: MissileCA
-		Speed: 357
-		Image: tibcoremsl
-		ContrailLength: 15
-		ContrailStartColor: 33aa00aa
-		ContrailStartColorAlpha: 170
-		ContrailStartWidth: 0c40
-	Report: tibcore1.aud, tibcore2.aud, tibcore3.aud
-	Warhead@1Dam: SpreadDamage
-		Damage: 3360
-	Warhead@smallDamage: SpreadDamage
-		Damage: 3360
-	Warhead@3Eff: CreateEffect
-		ImpactSounds: tibcorehit1.aud, tibcorehit2.aud, tibcorehit3.aud
-	Warhead@tib: CreateEffect
-		Explosions: idle, idle2, idle3, idle4
-		ExplosionPalette: scrin
-		Image: shardhit
-		ValidTargets: Air, AirSmall
-
-BoatMissile:
-	Inherits: Stinger
-	Report: rocket2.aud
-	Range: 7c0
-	BurstDelays: 9
-	Warhead@1Dam: SpreadDamage
-		Spread: 512
-		Versus:
-			None: 100
-			Wood: 68
-			Light: 40
-			Heavy: 40
-			Concrete: 50
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
-	Warhead@3Eff: CreateEffect
-		Explosions: frag_3
-		ExplosionPalette: temptd
-		ImpactSounds: xplos.aud
-	Warhead@4EffWater: CreateEffect
-		ImpactSounds: splashl1.aud, splashl2.aud
-
-BoatMissileAA:
-	Inherits: StingerAA
-	ReloadDelay: 60
-	BurstDelays: 9
-	Report: rocket2.aud
-	Warhead@3Eff: CreateEffect
-		ImpactSounds: xplos.aud
-
-Rah66AG:
-	ReloadDelay: 35
-	Range: 6c0
-	MinRange: 0c768
-	Report: rocket2.aud
-	Burst: 4
-	BurstDelays: 4
-	ValidTargets: Ground, Water
-	InvalidTargets: Air
-	TargetActorCenter: true
-	Projectile: Bullet
-		Blockable: false
-		Shadow: true
-		Inaccuracy: 1c0
-		Image: tibcoremsl
-		TrailImage: smokey
-		TrailDelay: 3
-		Speed: 250
-		LaunchAngle: 10
-		ContrailLength: 15
-		ContrailStartColor: 33aa00aa
-		ContrailStartColorAlpha: 170
-		ContrailStartWidth: 0c40
-	Warhead@1Dam: SpreadDamage
-		Spread: 512
-		Damage: 800
-		Falloff: 1000, 368, 135, 50, 18, 7, 0
-		Versus:
-			None: 85
-			Wood: 55
-			Concrete: 30
-			Light: 55
-			Heavy: 30
-			Brick: 5
-		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath, FlakVestMitigatedMinor, AirToGround
-	Warhead@3Eff: CreateEffect
-		Explosions: idle
-		ExplosionPalette: caneon
-		Image: tibexplodesm
-		ImpactSounds: firebl3.aud
-		ValidTargets: Ground, Air, Ship
-	Warhead@4EffWater: CreateEffect
-		Explosions: med_splash
-		ImpactSounds: splashm1.aud, splashm2.aud, splashm3.aud
-		ValidTargets: Water, Underwater
-		InvalidTargets: Ship, Structure, Bridge
-
-Rah66AG.BlackHand:
-	Inherits: Rah66AG
-	Projectile: Bullet
-		Image: dragon
-		-ContrailLength:
-		-ContrailStartColor:
-		-ContrailStartColorAlpha:
-		-ContrailStartWidth:
-	Warhead@1Dam: SpreadDamage
-		DamageTypes: Prone50Percent, TriggerProne, FireDeath
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: Scorch
-	Warhead@3Eff: CreateEffect
-		Explosions: small_napalm
-		-ExplosionPalette:
-		-Image:
-
-Rah66AA:
-	Inherits: HellfireAA
-	ReloadDelay: 35
-	Burst: 4
-	BurstDelays: 4
-	Report: rocket2.aud
-	Projectile: MissileCA
-		Speed: 250
-		Image: tibcoremsl
-		ContrailLength: 15
-		ContrailStartColor: 33aa00aa
-		ContrailStartColorAlpha: 170
-		ContrailStartWidth: 0c40
-	Warhead@3Eff: CreateEffect
-		Explosions: idle
-		ExplosionPalette: caneon
-		Image: tibexplodeair
-		ImpactSounds: firebl3.aud
-		ValidTargets: Air, AirSmall
-		Inaccuracy: 682
-
-Rah66AA.BlackHand:
-	Inherits: Rah66AA
-	Projectile: MissileCA
-		Image: dragon
-		-ContrailLength:
-		-ContrailStartColor:
-		-ContrailStartColorAlpha:
-		-ContrailStartWidth:
-	Warhead@3Eff: CreateEffect
-		-Image:
-		Explosions: small_napalm_air
-
-ScrinTorp:
-	ValidTargets: Ground, Water, Trees
-	ReloadDelay: 50
 	MinRange: 0c512
-	Burst: 3
-	BurstDelays: 4
-	Report: scrin5b.aud
-	Range: 7c0
-	TargetActorCenter: true
-	Projectile: Bullet
-		Blockable: false
-		Shadow: true
-		Image: scrintorp
-		Palette: tseffect-ignore-lighting-alpha90
-		Speed: 682
-		LaunchAngle: 10
-	Warhead@1Dam: SpreadDamage
-		Spread: 512
-		Damage: 800
-		Falloff: 1000, 448, 192, 64, 26, 10, 0
-		ValidTargets: Ground, Water
-		Versus:
-			None: 15
-			Wood: 35
-			Concrete: 90
-			Light: 60
-			Heavy: 100
-			Brick: 95
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath, TankBuster, AirToGround
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: Scorch
-	Warhead@3Eff: CreateEffect
-		Explosions: large_explosion
-		ImpactSounds: expnew16.aud, expnew17.aud
-	Warhead@green: GrantExternalConditionCA
-		Range: 0c511
-		Duration: 2
-		Condition: greenhighlight
-		ValidTargets: Ground, Vehicle
-
-ScrinTorpAA:
-	Inherits: ^AirToAirMissile
-	ReloadDelay: 40
-	Range: 7c0
-	Report: scrin5b.aud
-	Burst: 3
-	BurstDelays: 4
+	Report: rocket2.aud
 	Projectile: Missile
-		Image: scrintorp
-		Palette: tseffect-ignore-lighting-alpha90
-		-TrailImage:
-		Jammable: false
+		RangeLimit: 9c512
 	Warhead@1Dam: SpreadDamage
-		Damage: 4000
-	Warhead@smallDamage: SpreadDamage
-		Damage: 4000
-	Warhead@3Eff: CreateEffect
-		ImpactSounds: expnew17.aud
-	Warhead@green: GrantExternalConditionCA
-		Range: 0c511
-		Duration: 2
-		Condition: greenhighlight
-		ValidTargets: Air, AirSmall
+		Damage: 4500
+        Versus:
+            None: 25
+            Wood: 75
+            Light: 75
+            Heavy: 100
+            Concrete: 50
 
-SMIGBomb:
-	ReloadDelay: 150
-	Range: 8c0
-	Report: vmigatta.aud
-	Projectile: Bullet
-		Image: MISSILE
-		Speed: 256
-		Shadow: true
-		Inaccuracy: 128
-		Blockable: false
-		TrailImage: smokey
-		TrailDelay: 3
-		LaunchAngle: 10
-	ValidTargets: Ground, Trees, Water, Underwater, Air
-	Warhead@1Dam: SpreadDamage
-		Spread: 1c0
-		Damage: 60000
-		Falloff: 368, 135, 25
-		Versus:
-			None: 30
-			Wood: 75
-			Light: 65
-			Heavy: 30
-			Concrete: 40
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: Crater
-		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees
-	Warhead@3Eff: CreateEffect
-		Explosions: building, building2
-		ImpactSounds: kaboom15.aud
-		ValidTargets: Ground, Ship, Trees
-	Warhead@4EffWater: CreateEffect
-		Explosions: small_splash
-		ImpactSounds: splashm1.aud, splashm2.aud, splashm3.aud
-		ValidTargets: Water, Underwater
-		InvalidTargets: Ship, Structure
+TankNike:
+    Inherits: NikeSAM
+    Burst: 2
+    BurstDelays: 6
+    ReloadDelay: 55
 
-CryoMissile:
-	ReloadDelay: 125
-	Range: 9c0
-	MinRange: 2c0
-	Report: cryomissile.aud
+TowerMissile:
+    Inherits: ^Rocket
+	ReloadDelay: 55
 	Burst: 2
-	BurstDelays: 6
-	Projectile: Bullet
+	BurstDelays: 8
+	Range: 6c512
+	MinRange: 0c512
+	Report: rocket2.aud
+	Projectile: Missile
 		Blockable: false
-		Shadow: true
-		Inaccuracy: 1c341
-		Image: dragon
-		TrailImage: smokey
-		TrailPalette: cold
-		TrailInterval: 1
-		TrailDelay: 1
-		Speed: 300
-		LaunchAngle: 65
-		ContrailLength: 17
-		ContrailStartColor: 8fc6ffaa
-		ContrailStartColorAlpha: 170
-		ContrailStartWidth: 0c48
-	ValidTargets: Ground, Water
+		Image: MISSILE
+		HorizontalRateOfTurn: 80
+		RangeLimit: 9c512
 	Warhead@1Dam: SpreadDamage
-		Spread: 341
-		Damage: 2500
-		Falloff: 100, 50, 25, 0
-		Versus:
-			None: 50
-			Wood: 20
-			Light: 100
-			Heavy: 70
-			Concrete: 75
-			Brick: 5
-		DamageTypes: FrozenDeath
-	Warhead@2Eff: CreateEffect
-		Explosions: cryoblast
-		ExplosionPalette: ra2effect-ignore-lighting-alpha75
-		ImpactSounds: cryoblast.aud
-	Warhead@chill1: GrantExternalConditionCA
-		Condition: chilled
-		Duration: 200
-		Range: 0c682
-		ValidRelationships: Enemy, Neutral
-	Warhead@chill2: GrantExternalConditionCA
-		Condition: chilled
-		Duration: 200
-		Range: 1c341
-		ValidRelationships: Enemy, Neutral
-	Warhead@chill3: GrantExternalConditionCA
-		Condition: chilled
-		Duration: 200
-		Range: 2c0
-		ValidRelationships: Enemy, Neutral
-	Warhead@chillally: GrantExternalConditionCA
-		Condition: chilled
-		Duration: 50
-		Range: 0c682
-		ValidRelationships: Ally
-	Warhead@cryoresidue: CreateTintedCells
-		LayerName: cryoresidue
-		Spread: 1c0
-		Level: 100
-		Falloff: 100, 75, 52, 15, 2
-		MaxLevel: 600
-
-CryoMissileNHAW:
-	Inherits: CryoMissile
-	ReloadDelay: 50
-	Report: vrocweaa.aud, vrocweab.aud
-	-Burst:
-	-BurstDelays:
-	Range: 7c0
-	Projectile: Bullet
-		Image: cmiss
-		Speed: 230
-		LaunchAngle: 3
-	Warhead@1Dam: SpreadDamage
-		Damage: 1000
-	Warhead@chill1: GrantExternalConditionCA
-		Range: 1c0
-	Warhead@chill2: GrantExternalConditionCA
-		Range: 2c0
-	Warhead@chill3: GrantExternalConditionCA
-		Range: 3c0
-	Warhead@chillally: GrantExternalConditionCA
-		Range: 1c341
-	Warhead@cryoresidue: CreateTintedCells
-		Level: 150
-
-Rocket.P51.R:
-	ReloadDelay: 200
-	Range: 9c0
-	MinRange: 0c768
-	Report: vintatta.aud
-	Burst: 4
-	BurstDelays: 4
-	FirstBurstTargetOffset: -1024,-613,0
-	FollowingBurstTargetOffset: 682,0,0
-	ValidTargets: Ground, Water
-	InvalidTargets: Air
-	TargetActorCenter: true
-	Projectile: Bullet
-		Blockable: false
-		Shadow: true
-		Inaccuracy: 0c256
-		Image: dragon
-		TrailImage: smokey
-		TrailDelay: 3
-		Speed: 250
-		LaunchAngle: 15, 30
-		ContrailLength: 8
-		ContrailStartWidth: 48
-	Warhead@1Dam: SpreadDamage
-		Spread: 512
-		Damage: 500
-		Falloff: 1000, 448, 192, 50, 18, 7, 0
-		Versus:
-			None: 85
-			Wood: 25
-			Concrete: 60
-			Light: 70
-			Heavy: 100
-			Brick: 75
-		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
-	Warhead@2Smu: LeaveSmudge
-		SmudgeType: Crater
-		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees
+		Spread: 483
+		Damage: 6000
 	Warhead@3Eff: CreateEffect
-		Explosions: med_explosion
+		Explosions: big_frag
+		ImpactSounds: xplobig4.aud
+		ImpactActors: false
+		ValidTargets: Ground, GroundActor, Water, WaterActor
+	Warhead@4EffWater: CreateEffect
+		Explosions: big_splash
+		ImpactSounds: splash9.aud
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+
+TowerMissileEMP:
+    Inherits: TowerMissile
+	Projectile: Missile
+		Blockable: false
+		Image: DARKMIS
+		HorizontalRateOfTurn: 80
+		RangeLimit: 9c0
+	Warhead@5Emp: GrantExternalCondition
+		Range: 0c256
+		Duration: 45
+		Condition: emp-condition
+		ValidTargets: EMPApplicable
+        InvalidTargets: Invulnerable
+
+HellfireAG:
+    Inherits: ^Rocket
+	ReloadDelay: 34
+	Range: 6c0
+	MinRange: 0c768
+	Burst: 2
+	BurstDelays: 10
+	Report: missile6.aud
+	Projectile: Missile
+		Blockable: false
+        RangeLimit: 8c512
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 4500 # 3500
+		ValidTargets: GroundActor, WaterActor
+        Versus:
+            None: 87
+            Wood: 100
+            Light: 68
+            Heavy: 25
+            Concrete: 50
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: sml_napalm
 		ImpactSounds: kaboom25.aud
-		ValidTargets: Ground, Air, Ship, Trees
+		ValidTargets: Ground, Air, GroundActor, AirborneActor, WaterActor, Trees
 	Warhead@4EffWater: CreateEffect
 		Explosions: med_splash
 		ImpactSounds: splash9.aud
 		ValidTargets: Water, Underwater
-		InvalidTargets: Ship, Structure, Bridge
+		InvalidTargets: Bridge
 
-Rocket.P51.L:
-	Inherits: Rocket.P51.R
-	FirstBurstTargetOffset: -1024,613,0
-
-BlackEagleMissiles:
-	Inherits: Maverick
-	Report: beag-fire1.aud, beag-fire2.aud
-	-Burst:
-	-BurstDelays:
-	Projectile: MissileCA
-		Image: MISSILE
+HellfireAA:
+    Inherits: HellfireAG
+	ValidTargets: AirborneActor
+	Projectile: Missile
+		Speed: 492
+		Arm: 0
+		Image: ROCKET
+		Shadow: True
+		HorizontalRateOfTurn: 80
+        RangeLimit: 8c512
+        CloseEnough: 0c600
 	Warhead@1Dam: SpreadDamage
-		Damage: 24000
-		Versus:
-			Concrete: 75
-	Warhead@VeiledCondition: GrantExternalConditionCA
-		Range: 2c0
-		Duration: 175
-		Condition: gapveiled
-		ValidTargets: Infantry, Vehicle, Ship
-		ValidRelationships: Enemy, Neutral
+		Damage: 3000 # 4000
+		ValidTargets: AirborneActor
 	Warhead@3Eff: CreateEffect
-		Explosions: idle
-		Image: veilblast
-		ExplosionPalette: effect
-		ImpactSounds: veilblast.aud
-		ValidTargets: Ground, Air, Ship, Trees
+        Explosions: sml_poof
+		ImpactActors: false
 
-BlackEagleMissilesAA:
-	Inherits: MaverickAA
-	Range: 11c0
-	Report: beag-fire1.aud, beag-fire2.aud
-	-Burst:
-	-BurstDelays:
-	Projectile: MissileCA
-		Image: MISSILE
-		Speed: 450
+HydraRocket:
+    Inherits: HellfireAG
+	ReloadDelay: 30
 	Warhead@1Dam: SpreadDamage
-		Damage: 16000
-	Warhead@VeiledCondition: GrantExternalConditionCA
-		Range: 2c0
-		Duration: 175
-		Condition: gapveiled
-		ValidTargets: Air, AirSmall
-		ValidRelationships: Enemy, Neutral
+		Damage: 4000
+        Versus:
+            None: 88
+            Wood: 75
+            Light: 56
+            Heavy: 25
+            Concrete: 100
 	Warhead@3Eff: CreateEffect
-		Explosions: idle
-		Image: veilblast
-		ExplosionPalette: effect
-		ImpactSounds: veilblast.aud
-		ValidTargets: Ground, Air, Ship, Trees
+		Explosions: sml_frag
+		ImpactSounds: kaboom25.aud
+		ValidTargets: Ground, Air, GroundActor, AirborneActor, WaterActor, Trees
 
-PhantomMissiles:
-	Inherits: Maverick
-	Report: beag-fire1.aud, beag-fire2.aud
-	Projectile: MissileCA
-		Image: MISSILE
-		Speed: 550
-		TrailInterval: 1
+OrcaMissileAG:
+    Inherits: HellfireAG
 	Warhead@1Dam: SpreadDamage
-		Damage: 12000
-		Versus:
-			Concrete: 75
+        Damage: 4000
+        Versus:
+            None: 25
+            Wood: 75
+            Light: 75
+            Heavy: 100
+            Concrete: 50
 	Warhead@3Eff: CreateEffect
-		Explosions: idle
-		ExplosionPalette: caneon
-		Image: nullhit
-		ImpactSounds: null-hit1.aud
-	Warhead@Blind: GrantExternalConditionCA
-		Range: 0c256
-		Duration: 150
-		Condition: blinded
-		InvalidTargets: Infantry
+		Explosions: sml_frag
+		ImpactSounds: kaboom25.aud
+		ValidTargets: Ground, Air, GroundActor, AirborneActor, WaterActor, Trees
 
-PhantomMissilesAA:
-	Inherits: MaverickAA
+OrcaMissileAA:
+    Inherits: HellfireAA
+	Warhead@1Dam: SpreadDamage
+        Damage: 3500
+        Versus:
+            None: 25
+            Wood: 75
+            Light: 75
+            Heavy: 100
+            Concrete: 50
+
+BoatMissile:
+    Inherits: ^Rocket
+	ReloadDelay: 60
+	Range: 7c0
+	MinRange: 0c512
+    Burst: 2
+    BurstDelays: 0
+	Report: rocket2.aud
+	Projectile: Missile
+		RangeLimit: 9c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 6000
+		ValidTargets: GroundActor, WaterActor
+        Versus:
+            None: 25
+            Wood: 75
+            Light: 75
+            Heavy: 100
+            Concrete: 50
+
+Sidewinder:
+	Inherits: ^RocketAA
 	Range: 9c0
-	Report: beag-fire1.aud, beag-fire2.aud
-	Projectile: MissileCA
-		Image: MISSILE
-		Speed: 550
-		TrailInterval: 1
+	ReloadDelay: 55
+	StartBurstReport: sidewinder.aud
+	Burst: 2
+	BurstDelays: 6
+	Projectile: Missile
+		RangeLimit: 11c0
 	Warhead@1Dam: SpreadDamage
-		Damage: 8000
-	Warhead@3Eff: CreateEffect
-		Explosions: idle
-		ExplosionPalette: caneon
-		Image: nullhit
-		ImpactSounds: null-hit1.aud
-	Warhead@Blind: GrantExternalConditionCA
-		Range: 0c341
-		Duration: 150
-		Condition: blinded
-		ValidTargets: Air, AirSmall
-		ValidRelationships: Enemy, Neutral
+		Damage: 6000
 
-RocketShells:
-	Inherits: JuggernautGun
-	-StartBurstReport:
-	-Projectile:
-	Report: rocketshell1.aud, rocketshell2.aud, rocketshell3.aud
-	Projectile: MissileCA
-		Speed: 255
-		Blockable: false
-		Image: 120MM
-		TrailImage: smokey
-		Shadow: true
-		HorizontalRateOfTurn: 30
-		VerticalRateOfTurn: 30
-		PointDefenseType: Missile
-		HomingActivationDelay: 7
-		MinimumLaunchSpeed: 200
-		MaximumLaunchSpeed: 200
-		Acceleration: 30
-		MinimumLaunchAngle: 100
-		MaximumLaunchAngle: 100
-		ContrailLength: 15
-		ContrailStartColor: aaaa00aa
-		ContrailStartColorAlpha: 170
-		ContrailStartWidth: 0c40
-		Gravity: 0
-		CruiseAltitude: 2c0
-		Inaccuracy: 128
-		AllowSnapping: true
+BikeRockets:
+    Inherits: ^Rocket
+	ReloadDelay: 40
+    Burst: 2
+    BurstDelays: 0
+	Range: 5c0
+	MinRange: 0c512
+	Report: bazook1.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 3000
+
+BikeRocketsAA:
+    Inherits: ^RocketAA
+	ReloadDelay: 40
+    Burst: 2
+    BurstDelays: 0
+	Range: 5c0
+	MinRange: 0c512
+	Projectile: Missile
+		RangeLimit: 7c0

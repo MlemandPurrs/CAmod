@@ -1,974 +1,3 @@
-MINV:
-	Inherits: ^Mine
-	RenderSprites:
-		Image: minv
-		FactionImages:
-			soviet: minp
-			russia: minp
-			ukraine: minp
-			iraq: minp
-	GrantConditionOnFaction@Soviets:
-		Factions: soviet, russia, ukraine, iraq, yuri
-		Condition: soviet
-	Explodes@Allies:
-		Weapon: ATMine
-		RequiresCondition: !soviet && !defused
-	Explodes@Soviet:
-		Weapon: APMine
-		RequiresCondition: soviet && !defused
-	ExternalCondition@DEFUSED:
-		Condition: defused
-
-MINVS:
-	Inherits: MINV
-
-# Only kept for backwards-compatibility with existing and imported maps, use MINV instead
-MINP:
-	Inherits: MINV
-	Explodes:
-		Weapon: APMine
-
-MINS:
-	Inherits: ^Mine
-	Explodes:
-		Weapon: ATMine
-
-PROXYMINESPAWN:
-	Inherits: ^SpriteActor
-	RenderSprites:
-		Image: empty
-	Interactable:
-		Bounds: 1024, 1024
-	WithSpriteBody:
-	HiddenUnderFog:
-	Health:
-		HP: 10000
-		NotifyAppliedDamage: false
-	Armor:
-		Type: Light
-	Tooltip:
-		Name: Mine
-	Targetable:
-		TargetTypes: Ground, Water, Mine
-	HitShape:
-	KillsSelf:
-	Mobile:
-		Locomotor: cloud
-		Speed: 1
-	SpawnActorOnDeath:
-		Actor: minvs
-
-PROXYMINESPAWNWATER:
-	Inherits: PROXYMINESPAWN
-	SpawnActorOnDeath:
-		Actor: mins
-
-CRATE:
-	Inherits: ^Crate
-	GiveCashCrateAction:
-		Amount: 1000
-		SelectionShares: 50
-		UseCashTick: true
-	LevelUpCrateAction:
-		SelectionShares: 40
-		Range: 1c512
-	ExplodeCrateAction@fire:
-		Weapon: CrateNapalm
-		SelectionShares: 5
-	ExplodeCrateAction@boom:
-		Weapon: CrateExplosion
-		SelectionShares: 5
-	HideMapCrateAction:
-		SelectionShares: 5
-		Sequence: hide-map
-	HealActorsCrateAction:
-		Sound: heal2.aud
-		SelectionShares: 2
-		Sequence: heal
-	RevealMapCrateAction:
-		SelectionShares: 1
-		Sequence: reveal-map
-	DuplicateUnitCrateAction:
-		SelectionShares: 10
-		MaxAmount: 5
-		MinAmount: 1
-		MaxDuplicateValue: 1500
-	GiveBaseBuilderCrateAction@RA:
-		SelectionShares: 0
-		NoBaseSelectionShares: 100
-		ValidFactions: allies, england, france, germany, usa, soviet, russia, ukraine, iraq, yuri
-		Units: mcv
-	GiveBaseBuilderCrateAction@TD:
-		SelectionShares: 0
-		NoBaseSelectionShares: 100
-		ValidFactions: gdi, talon, zocom, eagle, arc, nod, blackh, marked, legion, shadow
-		Units: amcv
-	GiveBaseBuilderCrateAction@Scrin:
-		SelectionShares: 0
-		NoBaseSelectionShares: 100
-		ValidFactions: scrin, reaper, travel, harbinger, collector
-		Units: smcv
-	GiveUnitCrateAction@jeep:
-		SelectionShares: 7
-		Units: jeep
-		ValidFactions: allies, england, france, germany, usa
-		Prerequisites: techlevel.low
-	GiveUnitCrateAction@btr:
-		SelectionShares: 7
-		Units: btr
-		ValidFactions: soviet, russia, ukraine, iraq, yuri
-		Prerequisites: techlevel.low
-	GiveUnitCrateAction@hmmv:
-		SelectionShares: 7
-		Units: hmmv
-		ValidFactions: gdi, talon, zocom, eagle, arc
-		Prerequisites: techlevel.low
-	GiveUnitCrateAction@bggy:
-		SelectionShares: 7
-		Units: bggy
-		ValidFactions: nod, marked, blackh, legion, shadow
-		Prerequisites: techlevel.low
-	GiveUnitCrateAction@gunw:
-		SelectionShares: 7
-		Units: gunw
-		ValidFactions: scrin, reaper, travel, harbinger, collector
-		Prerequisites: techlevel.low
-	GiveUnitCrateAction@arty:
-		SelectionShares: 6
-		Units: arty
-		ValidFactions: allies, england, france, germany, usa, nod, blackh, marked, legion, shadow
-		Prerequisites: techlevel.medium, anyradar
-	GiveUnitCrateAction@v2rl:
-		SelectionShares: 6
-		Units: v2rl
-		ValidFactions: soviet, russia, ukraine, iraq, yuri
-		Prerequisites: techlevel.medium, anyradar
-	GiveUnitCrateAction@msam:
-		SelectionShares: 6
-		Units: msam
-		ValidFactions: gdi, talon, zocom, eagle, arc
-		Prerequisites: techlevel.medium, anyradar
-	GiveUnitCrateAction@corr:
-		SelectionShares: 6
-		Units: corr
-		ValidFactions: scrin, reaper, travel, harbinger, collector
-		Prerequisites: techlevel.medium, anyradar
-	GiveUnitCrateAction@2tnk:
-		SelectionShares: 4
-		Units: 2tnk
-		ValidFactions: allies, england, france, germany, usa
-		Prerequisites: techlevel.medium
-	GiveUnitCrateAction@3tnk:
-		SelectionShares: 4
-		Units: 3tnk
-		ValidFactions: soviet, russia, ukraine, iraq, yuri
-		Prerequisites: techlevel.medium
-	GiveUnitCrateAction@mtnk:
-		SelectionShares: 5
-		Units: mtnk
-		ValidFactions: gdi, talon, zocom, eagle, arc, legion
-		Prerequisites: techlevel.medium
-	GiveUnitCrateAction@ltnk:
-		SelectionShares: 5
-		Units: ltnk
-		ValidFactions: nod, blackh, marked, shadow
-		Prerequisites: techlevel.medium
-	GiveUnitCrateAction@intl:
-		SelectionShares: 5
-		Units: intl
-		ValidFactions: scrin, reaper, travel, harbinger, collector
-		Prerequisites: techlevel.medium
-	GiveUnitCrateAction@ptnk:
-		SelectionShares: 3
-		Units: ptnk
-		ValidFactions: allies, england, france, germany, usa
-		Prerequisites: techlevel.high, techcenter.any
-	GiveUnitCrateAction@4tnk:
-		SelectionShares: 3
-		Units: 4tnk
-		ValidFactions: soviet, russia, ukraine, iraq, yuri
-		Prerequisites: techlevel.high, techcenter.any
-	GiveUnitCrateAction@htnk:
-		SelectionShares: 3
-		Units: htnk
-		ValidFactions: gdi, talon, zocom, eagle, arc
-		Prerequisites: techlevel.high, techcenter.any
-	GiveUnitCrateAction@stnk:
-		SelectionShares: 3
-		Units: stnk.nod
-		ValidFactions: nod, marked, blackh, legion, shadow
-		Prerequisites: techlevel.high, techcenter.any
-	GiveUnitCrateAction@devo:
-		SelectionShares: 3
-		Units: devo
-		ValidFactions: scrin, reaper, travel, harbinger, collector
-		Prerequisites: techlevel.high, techcenter.any
-	GiveUnitCrateAction@squadlight:
-		SelectionShares: 7
-		Units: e1,e1,e1,e3,e3
-		ValidFactions: allies, england, france, germany, usa, soviet, russia, ukraine, iraq, yuri
-	GiveUnitCrateAction@squadlightTD:
-		SelectionShares: 7
-		Units: n1,n1,n1,n3,n3
-		ValidFactions: gdi, talon, zocom, eagle, arc, nod, blackh, marked, legion, shadow
-	GiveUnitCrateAction@squadlightscrin:
-		SelectionShares: 7
-		Units: s1,s1,s1,s3,s3
-		ValidFactions: scrin, reaper, travel, harbinger, collector
-	GiveUnitCrateAction@squadheavyallies:
-		SelectionShares: 7
-		Units: e1,e1,e1,e1,e3,e3,e3,e6,medi
-		ValidFactions: allies, england, france, germany, usa
-		TimeDelay: 4500
-	GiveUnitCrateAction@squadheavysoviet:
-		SelectionShares: 7
-		Units: e1,e1,e4,e4,e3,e3,e3
-		ValidFactions: soviet, russia, ukraine, iraq, yuri
-		TimeDelay: 4500
-	GiveUnitCrateAction@squadheavynod:
-		SelectionShares: 7
-		Units: n1,n1,n1,n1,n3,n3,n4,n4
-		ValidFactions: nod, blackh, marked, legion, shadow
-		TimeDelay: 4500
-	GiveUnitCrateAction@squadheavygdi:
-		SelectionShares: 7
-		Units: n1,n1,n1,n1,n3,n3,n2,n2
-		ValidFactions: gdi, talon, zocom, eagle, arc
-		TimeDelay: 4500
-	GiveUnitCrateAction@squadheavyscrin:
-		SelectionShares: 7
-		Units: s1,s1,s1,s1,s3,s3,s2,s2
-		ValidFactions: scrin, reaper, travel, harbinger, collector
-		TimeDelay: 4500
-	GrantExternalConditionCrateAction@invuln:
-		SelectionShares: 5
-		Sound: ironcur9.aud
-		Condition: invulnerability
-		Duration: 600
-		Sequence: invuln
-	GrantExternalConditionCrateAction@invis:
-		SelectionShares: 5
-		Sound: trans1.aud
-		Range: 3c0
-		Condition: crate-cloak
-		Duration: 0
-		Sequence: stealth
-	SupportPowerCrateAction@airstrike:
-		Proxy: powerproxy.airstrike
-		SelectionShares: 5
-		Notification: Reinforce
-		Sequence: airstrike
-		TimeDelay: 4500
-	SupportPowerCrateAction@parabombs:
-		Proxy: powerproxy.parabombs
-		SelectionShares: 5
-		Notification: Reinforce
-		Sequence: parabombs
-		TimeDelay: 4500
-
-MONEYCRATE:
-	Inherits: ^Crate
-	Tooltip:
-		Name: Money Crate
-	GiveCashCrateAction:
-		Amount: 500
-		SelectionShares: 1
-		Sequence: dollar
-	RenderSprites:
-		Image: wcrate
-
-HEALCRATE:
-	Inherits: ^Crate
-	Tooltip:
-		Name: Heal Crate
-	HealActorsCrateAction:
-		Sound: heal2.aud
-		SelectionShares: 1
-		Sequence: heal
-	RenderSprites:
-		Image: hcrate
-
-WCRATE:
-	Inherits: ^Crate
-	Tooltip:
-		Name: Wooden Crate
-	RenderSprites:
-		Image: wcrate
-
-SCRATE:
-	Inherits: ^Crate
-	Tooltip:
-		Name: Steel Crate
-
-CAMERA:
-	Inherits@DUMMY: ^InvisibleDummy
-	EditorOnlyTooltip:
-		Name: (reveals area to owner)
-	Immobile:
-		OccupiesSpace: false
-	RevealsShroud:
-		Range: 10c0
-		Type: CenterPosition
-	BodyOrientation:
-		QuantizedFacings: 1
-	WithSpriteBody:
-	RenderSpritesEditorOnly:
-		Image: camera
-	MapEditorData:
-		Categories: System
-
-camera.dummy:
-	Inherits: CAMERA
-	-RevealsShroud:
-	KillsSelf:
-		Delay: 25
-
-camera.paradrop:
-	Inherits: CAMERA
-	EditorOnlyTooltip:
-		Name: (support power proxy camera)
-	RevealsShroud:
-		Range: 6c0
-
-camera.spyplane:
-	Inherits: CAMERA
-	EditorOnlyTooltip:
-		Name: (support power proxy camera)
-
-camera.sathack:
-	Inherits: CAMERA
-	Interactable:
-		Bounds: 64, 64
-	-RenderSpritesEditorOnly:
-	RenderSprites:
-		Image: satscan
-	EditorOnlyTooltip:
-		Name: (support power proxy camera)
-	DetectCloaked:
-		Range: 10c0
-		DetectionTypes: Cloak
-
-camera.satscan:
-	Inherits: CAMERA
-	-RevealsShroud:
-	Buildable:
-		Queue: SpySatellite
-	Tooltip:
-		Name: Satellite Scan
-	RevealsMap:
-		RevealGeneratedShroud: false
-		RequiresCondition: uplinkavailable
-		ValidRelationships: Ally
-	KillsSelf:
-		RemoveInstead: true
-		Delay: 375
-		GrantsCondition: killsself
-	GrantConditionOnPrerequisite@UPLINK:
-		Condition: uplinkavailable
-		Prerequisites: atek
-	VoiceAnnouncement:
-		Voice: Build
-	VoiceAnnouncement@Die:
-		Voice: Die
-		RequiresCondition: killsself
-	Voiced:
-		VoiceSet: SatelliteScanVoice
-
-camera.satscan.oneshot:
-	Inherits: camera.satscan
-	-VoiceAnnouncement:
-	VoiceAnnouncement@Die:
-		Voice: Build
-	KillsSelf:
-		Delay: 380
-	RevealsMap:
-		RequiresCondition: animation-complete
-	GrantDelayedCondition:
-		Delay: 375
-		Condition: animation-complete
-	-GrantConditionOnPrerequisite@UPLINK:
-
-camera.hacker:
-	Inherits: CAMERA
-	RevealsShroud:
-		Range: 1c512
-	KillsSelf:
-		RemoveInstead: true
-		Delay: 50
-
-gps.satellite:
-	Inherits@DUMMY: ^InvisibleDummy
-	ProvidesPrerequisite:
-	Buildable:
-		Queue: SpySatellite
-	Tooltip:
-		Name: GPS Satellite
-
-gps.satellite.firstscan:
-	Inherits@DUMMY: ^InvisibleDummy
-	ProvidesPrerequisite:
-	Buildable:
-		Queue: SpySatellite
-	Tooltip:
-		Name: GPS Satellite
-
-ToxicCloud:
-	Interactable:
-	ScriptTriggers:
-	EditorOnlyTooltip:
-		Name: (support power)
-	HiddenUnderFog:
-		Type: CenterPosition
-	RenderSprites:
-		Image: cloud1
-		Palette: tseffect-ignore-lighting-alpha75
-	# required for death animation
-	Health:
-		HP: 1
-	WithSpriteBody:
-	BodyOrientation:
-		QuantizedFacings: 1
-	HitShape:
-	Aircraft:
-		CanHover: True
-		Speed: 20
-		CruiseAltitude: 1
-		LandableTerrainTypes: Clear,Road,Rough,Ore,Gems,Tiberium,BlueTiberium,Water,Tree,River
-	Wanders:
-		WanderMoveRadius: 5
-		ReduceMoveRadiusDelay: 3
-	RevealsShroud:
-		Range: 2c0
-		Type: CenterPosition
-	KillsSelf:
-		Delay: 300
-		DamageTypes: ToxinDeath
-	Hovers:
-	WithDeathAnimation:
-		DeathSequencePalette: tseffect
-		DeathPaletteIsPlayerPalette: False
-		UseDeathTypeSuffix: False
-		CrushedSequence: die
-		FallbackSequence: die
-	PeriodicExplosion:
-		Weapon: Cloud
-
-ToxicCloud2:
-	Inherits: ToxicCloud
-	RenderSprites:
-		Image: cloud2
-	KillsSelf:
-		Delay: 500
-
-ChaosCloud:
-	Inherits: ToxicCloud
-	RenderSprites:
-		Image: chaoscloud1
-		Palette: caneon-ignore-lighting-alpha75
-	WithDeathAnimation:
-		DeathSequencePalette: caneon
-	PeriodicExplosion:
-		Weapon: ChaosCloud
-	Aircraft:
-		Speed: 10
-	KillsSelf:
-		Delay: 250
-
-ChaosCloud2:
-	Inherits: ChaosCloud
-	RenderSprites:
-		Image: chaoscloud2
-
-SONAR:
-	Inherits: camera.spyplane
-	-RevealsShroud:
-	DetectCloaked:
-		DetectionTypes: Underwater
-		Range: 10c0
-
-FLARE:
-	Interactable:
-	ScriptTriggers:
-	Immobile:
-		OccupiesSpace: false
-	RevealsShroud:
-		Range: 3c0
-		Type: CenterPosition
-	RenderSprites:
-		Image: smokland
-		PlayerPalette : player
-	WithSpriteBody:
-		StartSequence: open
-	BodyOrientation:
-		QuantizedFacings: 1
-	HiddenUnderFog:
-		Type: CenterPosition
-	Tooltip:
-		Name: Flare
-		ShowOwnerRow: false
-	MapEditorData:
-		Categories: Decoration
-
-FLARE.dropzone:
-	Inherits: FLARE
-	RevealsShroud:
-		Range: 4c0
-	Tooltip:
-		Name: Dropzone Flare
-	FreeActorWithDelivery@2:
-		Actor: vulc.reinforce
-		DeliveryOffset: -1,1
-		DeliveringActor: ocar.reinforce
-		Facing: 0
-
-FLARE.KillZone:
-	Inherits: FLARE
-	-RevealsShroud:
-	KillsSelf:
-		Delay: 400 # same as for killzone actor
-		RemoveInstead: true
-
-MINE:
-	Inherits@1: ^SpriteActor
-	Interactable:
-	HiddenUnderShroud:
-	Tooltip:
-		Name: Ore Mine
-	RenderSprites:
-		Palette: terrain
-	WithSpriteBody:
-	Building:
-		Footprint: x
-		Dimensions: 1,1
-	AppearsOnRadar:
-	RadarColorFromTerrain:
-		Terrain: Ore
-	AppearsOnMapPreview:
-		Terrain: Ore
-	SeedsResource:
-		Interval: 66
-		RequiresCondition: !fast-regrowth
-	SeedsResource@FastRegrowth:
-		Interval: 33
-		RequiresCondition: fast-regrowth
-	MapEditorData:
-		Categories: Resource spawn
-	RequiresSpecificOwners:
-		ValidOwnerNames: Neutral
-	ProximityExternalCondition@ONORE:
-		Condition: on-ore
-		Range: 4c0
-		ValidRelationships: Ally, Neutral, Enemy
-	GrantConditionOnPrerequisite@FastRegrowth:
-		Condition: fast-regrowth
-		Prerequisites: global.fastregrowth
-
-GMINE:
-	Inherits@1: ^SpriteActor
-	Interactable:
-	HiddenUnderShroud:
-	Tooltip:
-		Name: Gem Mine
-	RenderSprites:
-		Palette: player
-	WithSpriteBody:
-	Building:
-		Footprint: x
-		Dimensions: 1,1
-	AppearsOnRadar:
-	RadarColorFromTerrain:
-		Terrain: Gems
-	AppearsOnMapPreview:
-		Terrain: Gems
-	SeedsResource:
-		ResourceType: Gems
-		Interval: 66
-		RequiresCondition: !fast-regrowth
-	SeedsResource@FastRegrowth:
-		ResourceType: Gems
-		Interval: 33
-		RequiresCondition: fast-regrowth
-	MapEditorData:
-		Categories: Resource spawn
-	RequiresSpecificOwners:
-		ValidOwnerNames: Neutral
-	ProximityExternalCondition@ONGEMS:
-		Condition: on-gems
-		Range: 4c0
-		ValidRelationships: Ally, Neutral, Enemy
-	GrantConditionOnPrerequisite@FastRegrowth:
-		Condition: fast-regrowth
-		Prerequisites: global.fastregrowth
-
-RAILMINE:
-	Inherits@1: ^SpriteActor
-	Interactable:
-	HiddenUnderShroud:
-	Tooltip:
-		Name: Abandoned Mine
-	RenderSprites:
-		Palette: player
-	WithSpriteBody:
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-	MapEditorData:
-		ExcludeTilesets: INTERIOR
-		Categories: Civilian building
-	RequiresSpecificOwners:
-		ValidOwnerNames: Neutral
-
-QUEE:
-	Inherits@1: ^SpriteActor
-	Inherits@shape: ^2x1Shape
-	Interactable:
-	HiddenUnderShroud:
-	Tooltip:
-		Name: Queen Ant
-	Building:
-		Footprint: xx
-		Dimensions: 2,1
-	WithSpriteBody:
-	AppearsOnRadar:
-	MapEditorData:
-		RequireTilesets: INTERIOR
-		Categories: Critter
-
-LAR1:
-	Inherits@1: ^SpriteActor
-	Inherits@shape: ^1x1Shape
-	Interactable:
-	HiddenUnderShroud:
-	Tooltip:
-		Name: Ant Larva
-	Building:
-		Footprint: x
-		Dimensions: 1,1
-	RenderSprites:
-		Palette: terrain
-	WithSpriteBody:
-	AppearsOnRadar:
-	MapEditorData:
-		RequireTilesets: INTERIOR
-		Categories: Critter
-
-LAR2:
-	Inherits@1: LAR1
-	Tooltip:
-		Name: Ant Larvae
-
-powerproxy.parabombs:
-	Inherits@DUMMY: ^InvisibleDummy
-	AirstrikePowerCA:
-		Icon: parabombs
-		Name: Parabombs (Single Use)
-		Description: A Badger drops a load of parachuted bombs on your target.
-		OneShot: true
-		AllowMultiple: true
-		UnitType: badr.bomber
-		EndChargeSpeechNotification: Reinforce
-		SelectTargetSpeechNotification: SelectTarget
-		IncomingSpeechNotification: EnemyPlanesApproaching
-		QuantizedFacings: 8
-		DisplayBeacon: True
-		BeaconPoster: pbmbicon
-		CameraActor: camera.paradrop
-		CameraRemoveDelay: 150
-		ArrowSequence: arrow
-		ClockSequence: clock
-		CircleSequence: circles
-		OrderName: crateparabombs
-		SupportPowerPaletteOrder: 70
-
-powerproxy.sonarpulse:
-	Inherits@DUMMY: ^InvisibleDummy
-	SpawnActorPower:
-		Icon: sonar
-		Name: Sonar Pulse
-		Description: Reveals all submarines in the vicinity for a \nshort time.
-		ChargeInterval: 750
-		EndChargeSpeechNotification: SonarPulseReady
-		SelectTargetSpeechNotification: SelectTarget
-		Actor: sonar
-		LifeTime: 250
-		DeploySound: sonpulse.aud
-		EffectImage: moveflsh
-		EffectPalette: moveflash
-		SupportPowerPaletteOrder: 70
-
-powerproxy.paratroopers:
-	Inherits@DUMMY: ^InvisibleDummy
-	ParatroopersPower:
-		Icon: paratroopers
-		SquadSize: 1
-		UnitType: halo.paradrop
-		Name: Paratroopers (Single Use)
-		Description: A Halo transport drops a squad of infantry\nanywhere on the map.
-		OneShot: true
-		AllowMultiple: true
-		DropItems: E1,E1,E1,E3,E3,E1,E1,E1,E2,E2
-		SelectTargetSpeechNotification: SelectTarget
-		EndChargeSpeechNotification: Reinforce
-		LaunchSpeechNotification: ReinforcementsArrived
-		IncomingSpeechNotification: EnemyPlanesApproaching
-		AllowImpassableCells: false
-		QuantizedFacings: 8
-		CameraActor: camera.paradrop
-		DisplayBeacon: true
-		BeaconPoster: pinficon
-		ArrowSequence: arrow
-		ClockSequence: clock
-		CircleSequence: circles
-		SupportPowerPaletteOrder: 70
-
-powerproxy.paratroopers.allies:
-	Inherits@DUMMY: ^InvisibleDummy
-	ParatroopersPower:
-		Icon: paratroopers
-		SquadSize: 1
-		UnitType: tran.paradrop
-		Name: Paratroopers (Single Use)
-		Description: A Chinook drops a squad of infantry\nanywhere on the map.
-		OneShot: true
-		AllowMultiple: true
-		DropItems: E1,E1,E1,E1,E3,E3,E3,MEDI
-		SelectTargetSpeechNotification: SelectTarget
-		EndChargeSpeechNotification: Reinforce
-		LaunchSpeechNotification: ReinforcementsArrived
-		IncomingSpeechNotification: EnemyPlanesApproaching
-		AllowImpassableCells: false
-		QuantizedFacings: 8
-		CameraActor: camera.paradrop
-		DisplayBeacon: true
-		BeaconPoster: pinficon
-		ArrowSequence: arrow
-		ClockSequence: clock
-		CircleSequence: circles
-		SupportPowerPaletteOrder: 70
-
-powerproxy.airborne:
-	Inherits@DUMMY: ^InvisibleDummy
-	ParatroopersPowerCA:
-		OrderName: airborne
-		Icon: airborne
-		SquadSize: 1
-		UnitType: galx
-		Name: Airdrop: Guardian GIs (Single Use)
-		Description: A Heavy Transport Plane drops a squad of Guardian GIs\nanywhere on the map.
-		OneShot: true
-		AllowMultiple: true
-		DropItems: U3,U3,U3,U3,U3
-		SelectTargetSpeechNotification: SelectTarget
-		EndChargeSpeechNotification: Reinforce
-		LaunchSpeechNotification: ReinforcementsArrived
-		IncomingSpeechNotification: EnemyPlanesApproaching
-		AllowImpassableCells: false
-		QuantizedFacings: 8
-		CameraActor: camera.paradrop
-		DisplayBeacon: true
-		BeaconPoster: pinficon
-		ArrowSequence: arrow
-		ClockSequence: clock
-		CircleSequence: circles
-		UseDirectionalTarget: True
-		DirectionArrowAnimation: paradirection
-		SupportPowerPaletteOrder: 70
-		PrerequisiteDropItems:
-			airborne.upgrade: U3R2, U3R2, U3R2, U3R2, U3R2
-	Buildable:
-		Queue: PowerProxy
-	Tooltip:
-		Name: Guardian GIs (Single Use)
-
-powerproxy.airborne.tank:
-	Inherits@DUMMY: ^InvisibleDummy
-	ParatroopersPowerCA:
-		OrderName: airbornetank
-		Icon: airdropicon
-		SquadSize: 1
-		UnitType: galx
-		Name: Airdrop: Grizzly Tanks (Single Use)
-		Description: A Heavy Transport Plane drops a pair of Grizzly Tanks\nanywhere on the map.
-		OneShot: true
-		AllowMultiple: true
-		DropItems: GTNK,GTNK
-		SelectTargetSpeechNotification: SelectTarget
-		EndChargeSpeechNotification: Reinforce
-		LaunchSpeechNotification: ReinforcementsArrived
-		IncomingSpeechNotification: EnemyPlanesApproaching
-		AllowImpassableCells: false
-		QuantizedFacings: 8
-		CameraActor: camera.paradrop
-		DisplayBeacon: true
-		BeaconPoster: lrairdropicon
-		ArrowSequence: arrow
-		ClockSequence: clock
-		CircleSequence: circles
-		UseDirectionalTarget: True
-		DirectionArrowAnimation: paradirection
-		SupportPowerPaletteOrder: 70
-		PrerequisiteDropItems:
-			airborne.upgrade: GTNKR2, GTNKR2
-	Buildable:
-		Queue: PowerProxy
-	Tooltip:
-		Name: Grizzly Tanks (Single Use)
-
-powerproxy.airstrike:
-	Inherits@DUMMY: ^InvisibleDummy
-	ClassicAirstrikePower:
-		Squad:
-			a10.bomber:
-				SpawnDelay: 20
-				SpawnOffset: -1536,1024,0
-				TargetOffset: -536,0,0
-			a10.bomber:
-				SpawnDelay: 0
-				SpawnOffset: 0,0,0
-				TargetOffset: 0,0,0
-		Icon: airstrike
-		Name: Air Strike (Single Use)
-		Description: A10 strike planes drop napalm\nbombs on your target.
-		OneShot: true
-		AllowMultiple: true
-		SelectTargetSpeechNotification: SelectTarget
-		EndChargeSpeechNotification: Reinforce
-		LaunchSpeechNotification: ReinforcementsArrived
-		IncomingSpeechNotification: EnemyPlanesApproaching
-		QuantizedFacings: 8
-		DisplayBeacon: True
-		BeaconPoster: a10airstrike
-		BeaconPosterPalette: temptd
-		CameraActor: camera.paradrop
-		ArrowSequence: arrow
-		ClockSequence: clockTD
-		CircleSequence: circles
-		Strikes: 2
-		CircleDelay: 20
-		OrderName: crateairstrike
-		SupportPowerPaletteOrder: 70
-		DirectionArrowAnimation: paradirection
-		UseDirectionalTarget: true
-
-barracks.upgraded:
-	Inherits@DUMMY: ^InvisibleDummy
-	ProvidesPrerequisite:
-
-vehicles.upgraded:
-	Inherits@DUMMY: ^InvisibleDummy
-	ProvidesPrerequisite:
-
-aircraft.upgraded:
-	Inherits@DUMMY: ^InvisibleDummy
-	ProvidesPrerequisite:
-
-player.level1:
-	Inherits@DUMMY: ^InvisibleDummy
-	Tooltip:
-		Name: Player Rank 1
-	Buildable:
-		Description: Player Rank 1
-
-player.level2:
-	Inherits@DUMMY: ^InvisibleDummy
-	Tooltip:
-		Name: Player Rank 2
-	Buildable:
-		Description: Player Rank 2
-
-player.level3:
-	Inherits@DUMMY: ^InvisibleDummy
-	Tooltip:
-		Name: Player Rank 3
-	Buildable:
-		Description: Player Rank 3
-
-# tent - cryo mortar
-stolentech.tent:
-	Inherits@DUMMY: ^InvisibleDummy
-	ProvidesPrerequisite:
-
-# barr - cyberdog
-stolentech.barr:
-	Inherits@DUMMY: ^InvisibleDummy
-	ProvidesPrerequisite:
-
-# pyle - sonic mortar
-stolentech.pyle:
-	Inherits@DUMMY: ^InvisibleDummy
-	ProvidesPrerequisite:
-
-# hand - chem mortar
-stolentech.hand:
-	Inherits@DUMMY: ^InvisibleDummy
-	ProvidesPrerequisite:
-
-# ra weap - reckoner from allies, cyclops from soviets
-stolentech.weap:
-	Inherits@DUMMY: ^InvisibleDummy
-	ValidFactions:
-		Factions: allies, england, france, germany, usa, soviet, russia, ukraine, iraq, yuri
-	ProvidesPrerequisiteValidatedFaction@STOLENALLIED:
-		Factions: allies, england, france, germany, usa
-		Prerequisite: vehicles.reck
-	ProvidesPrerequisiteValidatedFaction@STOLENSOVIET:
-		Factions: soviet, russia, ukraine, iraq, yuri
-		Prerequisite: vehicles.cycp
-
-# td weap - basilisk from gdi, mantis from legion
-stolentech.weap.td:
-	Inherits@DUMMY: ^InvisibleDummy
-	ValidFactions:
-		Factions: gdi, talon, zocom, eagle, arc, legion
-	ProvidesPrerequisiteValidatedFaction@STOLENGDI:
-		Factions: gdi, talon, zocom, eagle, arc
-		Prerequisite: vehicles.basi
-	ProvidesPrerequisiteValidatedFaction@STOLENNOD:
-		Factions: legion
-		Prerequisite: vehicles.mant
-
-# airs - mantis
-stolentech.airs:
-	Inherits@DUMMY: ^InvisibleDummy
-	ProvidesPrerequisite@STOLENNOD:
-		Prerequisite: vehicles.mant
-
-# afld - kamov
-stolentech.afld:
-	Inherits@DUMMY: ^InvisibleDummy
-	ProvidesPrerequisite@STOLENSOVIET:
-		Prerequisite: aircraft.kamv
-
-# afld.gdi - shade
-stolentech.afld.gdi:
-	Inherits@DUMMY: ^InvisibleDummy
-	ProvidesPrerequisite@STOLENGDI:
-		Prerequisite: aircraft.shde
-
-# hpad - phantom from allies, kamov from soviets
-stolentech.hpad:
-	Inherits@DUMMY: ^InvisibleDummy
-	ValidFactions:
-		Factions: allies, england, france, germany, usa, soviet, russia, ukraine, iraq, yuri
-	ProvidesPrerequisiteValidatedFaction@STOLENALLIED:
-		Factions: allies, england, france, germany, usa
-		Prerequisite: aircraft.phan
-	ProvidesPrerequisiteValidatedFaction@STOLENSOVIET:
-		Factions: soviet, russia, ukraine, iraq, yuri
-		Prerequisite: aircraft.kamv
-
-# hpad.td - shade from gdi, vertigo from nod
-stolentech.hpad.td:
-	Inherits@DUMMY: ^InvisibleDummy
-	ValidFactions:
-		Factions: gdi, talon, zocom, eagle, arc, nod, blackh, marked, legion, shadow
-	ProvidesPrerequisiteValidatedFaction@STOLENGDI:
-		Factions: gdi, talon, zocom, eagle, arc
-		Prerequisite: aircraft.shde
-	ProvidesPrerequisiteValidatedFaction@STOLENNOD:
-		Factions: nod, blackh, marked, legion, shadow
-		Prerequisite: aircraft.vert
-
 mpspawn:
 	Interactable:
 	EditorOnlyTooltip:
@@ -999,387 +28,324 @@ waypoint:
 	MapEditorData:
 		Categories: System
 
-fact.colorpicker:
-	Inherits: FACT
-	-Buildable:
-	-MapEditorData:
+cnst.colorpicker:
+    AlwaysVisible:
+    WithSpriteBody:
+        Sequence: place
 	RenderSprites:
-		Image: fact
-		Palette: colorpicker
+		Image: cnst
+        Palette: colorpicker
 
-afac.colorpicker:
-	Inherits: AFAC
-	-Buildable:
-	-MapEditorData:
+cnst.colorpicker.nod:
+    AlwaysVisible:
+    WithSpriteBody:
+        Sequence: place
 	RenderSprites:
-		Image: afac
-		Palette: colorpickertd
+        Image: ncst
+        Palette: colorpicker
 
-sfac.colorpicker:
-	Inherits: SFAC
-	-Buildable:
-	-MapEditorData:
-	RenderSprites:
-		Image: sfac
-		Palette: colorpickerscrin
-
-CTFLAG:
-	Inherits: ^TechBuilding
-	Tooltip:
-		Name: Flag
-	WithBuildingBib:
-		HasMinibib: true
-	-HitShape:
-	-Health:
-	-Explodes:
-	-Selectable:
-	-SelectionDecorations:
-	-Targetable:
-	MapEditorData:
-		Categories: Decoration
+CAMERA:
 	Interactable:
-
-SPLIT2:
-	Inherits: ^TibTree
-	SeedsResource:
-		ResourceType: Tiberium
-		Interval: 66
-		RequiresCondition: !fast-regrowth
-	SeedsResource@FastRegrowth:
-		ResourceType: Tiberium
-		Interval: 33
-		RequiresCondition: fast-regrowth
-	AppearsOnMapPreview:
-		Terrain: Tiberium
-	MapEditorData:
-		Categories: Resource spawn
-
-SPLIT3:
-	Inherits: SPLIT2
-
-SPLITBLUE:
-	Inherits: SPLIT2
-	RenderSprites:
-		Image: split3
-	SeedsResource:
-		ResourceType: BlueTiberium
-	SeedsResource@FastRegrowth:
-		ResourceType: BlueTiberium
-	AppearsOnMapPreview:
-		Terrain: BlueTiberium
-	Tooltip:
-		Name: Blossom Tree (blue)
-	RadarColorFromTerrain:
-		Terrain: BlueTiberium
-	ProximityExternalCondition@ONTIB:
-		Condition: on-bluetib
-
-^Veil:
-	Inherits@DUMMY: ^InvisibleDummy
-	EditorOnlyTooltip:
-		Name: (Veil of War)
+	AlwaysVisible:
 	Immobile:
 		OccupiesSpace: false
 	BodyOrientation:
 		QuantizedFacings: 1
 	WithSpriteBody:
+	RenderSpritesEditorOnly:
+		Image: camera
 	MapEditorData:
 		Categories: System
-	HitShape:
-	CreatesShroud:
-		Range: 2c512
+
+CAMERA.small:
+    Inherits: CAMERA
+	EditorOnlyTooltip:
+		Name: (reveals small area to owner)
+	RevealsShroud:
+		Range: 5c512
 		Type: CenterPosition
-	RenderShroudCircleCA:
-		Visible: Always
-		UsePlayerColor: true
-		PlayerColorAlpha: 192
-		ValidRelationships: Ally, Enemy, Neutral
-	RenderSprites:
-		Image: gpsscrambler
-	PeriodicExplosion:
-		Weapon: VeilSmall
-	Health:
-		HP: 1
-	ProximityExternalCondition@Veiled:
-		Range: 2c512
-		Condition: veiled
-		ValidRelationships: Enemy, Neutral
 
-veilofwar1:
-	Inherits: ^Veil
-	CreatesShroud:
-		Range: 3c512
-	KillsSelf:
-		Delay: 60
-	WithMakeAnimation:
-	SpawnActorOnDeath:
-		Actor: veilofwar2
-	WithRangeCircle@VeilMaxRange:
-		Type: VeilOfWar
-		Range: 7c512
-		Visible: Always
-		Color: 999999AA
-	ProximityExternalCondition@Veiled:
-		Range: 3c512
+CAMERA.large:
+    Inherits: CAMERA
+	EditorOnlyTooltip:
+		Name: (reveals large area to owner)
+	RevealsShroud:
+		Range: 11c0
+		Type: CenterPosition
 
-veilofwar2:
-	Inherits: ^Veil
-	CreatesShroud:
+CAMERA.scan:
+    Inherits: CAMERA
+	EditorOnlyTooltip:
+		Name: (reveals area to owner)
+	RevealsShroud:
 		Range: 5c512
-	PeriodicExplosion:
-		Weapon: VeilMedium
-	KillsSelf:
-		Delay: 60
-	SpawnActorOnDeath:
-		Actor: veilofwar3
-	WithRangeCircle@VeilMaxRange:
-		Type: VeilOfWar
-		Range: 7c512
-		Visible: Always
-		Color: 999999AA
-	ProximityExternalCondition@Veiled:
+		Type: CenterPosition
+	DetectCloaked:
 		Range: 5c512
+	RenderDetectionCircle:
+        TrailCount: 2
+        Visible: Always
+        UpdateLineTick: 6
+        BorderWidth: 0
+    WithRangeCircle:
+        Range: 5c512
+        Visible: Always
+        UsePlayerColor: true
 
-veilofwar3:
-	Inherits: ^Veil
-	CreatesShroud:
-		Range: 7c512
-	PeriodicExplosion:
-		Weapon: VeilLarge
-	KillsSelf:
-		Delay: 300
-	ProximityExternalCondition@Veiled:
-		Range: 7c512
-
-jamming.field:
-	Interactable:
-		Bounds: 64, 64
-	ScriptTriggers:
-	BodyOrientation:
-		QuantizedFacings: 1
-	WithSpriteBody:
-	HitShape:
-	HiddenUnderFog:
-		Type: GroundPosition
-	Immobile:
-		OccupiesSpace: false
-	RenderSprites:
-		Image: jamfield
-		Palette: effect
-	KillsSelf:
-		Delay: 225
-	WithRangeCircleCA@JAMMER:
-		Type: JammingField
-		Range: 6c0
-		Visible: Always
-		ValidRelationships: Ally, Enemy, Neutral
-		UsePlayerColor: true
-		PlayerColorAlpha: 160
-	ProximityExternalCondition@WEAPJAMMER:
-		Range: 6c0
-		ValidRelationships: Enemy, Neutral
-		Condition: weapjammed
-	ProximityExternalCondition@JAMMER:
-		Range: 6c0
-		ValidRelationships: Enemy, Neutral
-		Condition: jammed
-
-cryostorm:
-	Interactable:
-		Bounds: 64, 64
-	ScriptTriggers:
-	BodyOrientation:
-		QuantizedFacings: 1
-	WithSpriteBody:
-	HitShape:
-	HiddenUnderFog:
-		Type: GroundPosition
-	Immobile:
-		OccupiesSpace: false
-	RenderSprites:
-		Image: cryostorm
-		Palette: effect
-	# required for spawning actor on death
-	Health:
-		HP: 1
-	KillsSelf:
-		Delay: 375
-	WithRangeCircleCA@Cryostorm:
-		Type: Cryostorm
-		Range: 4c682
-		Visible: Always
-		ValidRelationships: Ally, Enemy, Neutral
-		UsePlayerColor: true
-		PlayerColorAlpha: 192
-	PeriodicExplosion:
-		Weapon: Cryostorm
-	ProximityExternalCondition@Cryostorm1:
+CAMERA.hacker:
+	Inherits: CAMERA
+	EditorOnlyTooltip:
+		Name: (reveals the hacker)
+	RevealsShroud:
 		Range: 1c512
-		Condition: chilled
-		ValidRelationships: Ally, Enemy, Neutral
-	ProximityExternalCondition@Cryostorm2:
-		Range: 3c0
-		Condition: chilled
-		ValidRelationships: Ally, Enemy, Neutral
-	ProximityExternalCondition@Cryostorm3:
-		Range: 4c512
-		Condition: chilled
-		ValidRelationships: Ally, Enemy, Neutral
-	ProximityExternalCondition@Cryostorm4:
-		Range: 4c512
-		Condition: chilled
-		ValidRelationships: Ally, Enemy, Neutral
-	ProximityExternalCondition@Cryostorm5:
-		Range: 4c512
-		Condition: chilled
-		ValidRelationships: Ally, Enemy, Neutral
-	AmbientSound:
-		SoundFiles: cryostorm.aud
-	WithMakeAnimation:
-	SpawnActorOnDeath:
-		Actor: cryostorm.fade
-		SkipMakeAnimations: false
-
-cryostorm.fade:
-	Inherits: cryostorm
-	-WithRangeCircleCA@Cryostorm:
-	-PeriodicExplosion:
-	-ProximityExternalCondition@Cryostorm1:
-	-ProximityExternalCondition@Cryostorm2:
-	-ProximityExternalCondition@Cryostorm3:
-	-ProximityExternalCondition@Cryostorm4:
-	-AmbientSound:
-	-SpawnActorOnDeath:
+        Type: CenterPosition
 	KillsSelf:
-		Delay: 15
-	WithMakeAnimation:
-		Sequence: die
-	WithSpriteBody:
-		Sequence: dead
+		RemoveInstead: true
+		Delay: 50
 
-nshield:
-	Inherits@1: CAMERA
-	Interactable:
-		Bounds: 64, 64
-	-RevealsShroud:
-	WithRangeCircleCA:
-		Type: NaniteShield
-		Visible: Always
-		UsePlayerColor: true
-		PlayerColorAlpha: 192
-		Range: 6c0
-	ProximityExternalCondition@NSHIELD:
-		Range: 6c0
-		Condition: nshield
-		ValidRelationships: Ally
-	ProvidesPrerequisite@NSHIELD:
+CRATE:
+	Inherits: ^Crate
+	GiveCashCrateAction:
+        SelectionShares: 33
+		Amount: 2000
+		UseCashTick: true
+    HealActorsCrateAction:
+        SelectionShares: 33
+        TargetTypes: Heal, Repair
+    LevelUpCrateAction:
+        SelectionShares: 33
+        Levels: 1
+        Range: 2c0
+        MaxExtraCollectors: 20
+        ExcludedActorTypes: mcv, harv, tec1, tec2, scnt, engi, medi, mech, vice, jack, hack, mnly, mhq, mrj, disr, wtnk, xo, t55h, truk, ttrk, chin, ocar
+	ExplodeCrateAction@nuke:
+		Weapon: Atomic
+		SelectionShares: 1
+	GiveBaseBuilderCrateAction:
+		SelectionShares: 0
+		NoBaseSelectionShares: 100
+		Units: mcv
 
-killzone:
+MONEYCRATE:
+	Inherits: ^Crate
+	Tooltip:
+		Name: Money Crate
+	GiveCashCrateAction:
+		Amount: 1000
+		SelectionShares: 1
+		UseCashTick: true
+	RenderSprites:
+		Image: wcrate
+
+MINE:
+	Inherits: ^SpriteActor
 	Interactable:
-		Bounds: 64, 64
-	ScriptTriggers:
-	BodyOrientation:
-		QuantizedFacings: 1
-	RevealsShroud:
-		Range: 8c0
-		Type: CenterPosition
-	ProximityExternalCondition@KillZone:
-		Range: 8c0
-		Condition: killzone
-		ValidRelationships: Enemy, Neutral
-	WithSpriteBody:
-	HitShape:
+		Bounds: 1024, 1024
+    WithSpriteBody:
+        Sequence: idle
 	HiddenUnderFog:
-		Type: GroundPosition
+	Mine:
+		CrushClasses: crate
+		DetonateClasses: mine
+		AvoidFriendly: false
+		BlockFriendly: false
+	Health:
+		HP: 5000
+		NotifyAppliedDamage: false
+	Armor:
+		Type: Light
+	Cloak:
+		CloakSound:
+		UncloakSound:
+		Palette:
+		DetectionTypes: Mine
+		InitialDelay: 0
+	Tooltip:
+		Name: Mine
+	Targetable:
+		TargetTypes: GroundActor, Mine
+	Immobile:
+		OccupiesSpace: true
+	HitShape:
+	Explodes:
+		Weapon: ATMine
+    Explodes@EMP:
+        Weapon: EMPMine
+        RequiresCondition: emp.on
+    GrantConditionOnPrerequisite@EMP:
+		Condition: emp.on
+		Prerequisites: emp.upgrade
+	MapEditorData:
+		Categories: System
+
+FLARE:
 	Immobile:
 		OccupiesSpace: false
+	RevealsShroud:
+		Range: 3c0
+		Type: CenterPosition
 	RenderSprites:
-		Image: killzone
-		PlayerPalette: player
-	KillsSelf:
-		Delay: 400
-		RemoveInstead: true
-	WithRangeCircleCA:
-		Type: KillZone
-		Visible: Always
-		UsePlayerColor: true
-		PlayerColorAlpha: 192
-		Range: 8c0
-
-shadow.beacon.camera:
-	Inherits@1: CAMERA
-	-Immobile:
-	AttachedAircraft:
-		Speed: 0
-		CanHover: true
-		Repulsable: false
-		CruiseAltitude: 1
-		LandableTerrainTypes: Clear,Road,Rough,Ore,Gems,Tiberium,BlueTiberium,Water,Tree,River
-	Attachable:
-		Type: ShadowBeacon
-		TargetTypes: ShadowBeaconAttachable
-	RevealsShroud:
-		Range: 8c0
-		Type: GroundPosition
-
-watcher.parasite:
-	Inherits: shadow.beacon.camera
-	KillsSelf:
-		RemoveInstead: true
-		Delay: 2250
-	Attachable:
-		Type: WatcherParasite
-		TargetTypes: WatcherParasiteAttachable
-
-SHAB:
-	Inherits: ^Mine
+		Image: flare
+		Palette: terrain
+	WithSpriteBody:
+		StartSequence: open
+	HiddenUnderFog:
+		Type: CenterPosition
 	Tooltip:
-		Name: Shadow Beacon
-	Mine:
-		CrushClasses: beacon, mine
-		DetonateClasses: beacon
-		AvoidFriendly: true
-		BlockFriendly: false
-	Cloak:
-		DetectionTypes: Mine
-		InitialDelay: 1
-		CloakSound: shad-beaconplace1.aud
-	RevealsShroud:
-		Range: 8c0
-	WithIdleAnimation:
-		Sequences: idle
-		Interval: 25
-	Explodes:
-		Weapon: AttachShadowBeacon
-	GrantTimedCondition@active:
-		Condition: active
-		Duration: 4500
-	KillsSelf:
-		RequiresCondition: !active
-
-optimized.production1:
-	Inherits@DUMMY: ^InvisibleDummy
-	ProvidesPrerequisite:
-	PopControlled:
-		Limit: 1
-
-optimized.production2:
-	Inherits@DUMMY: ^InvisibleDummy
-	ProvidesPrerequisite:
-	PopControlled:
-		Limit: 1
-
-scrin.allegiances.available:
-	AlwaysVisible:
+		Name: Flare
+		ShowOwnerRow: false
+	BodyOrientation:
+		QuantizedFacings: 1
+	MapEditorData:
+		Categories: System
 	Interactable:
-	Tooltip:
-		Name: 4x Refineries
-	Buildable:
-		Description: 4x Refineries
 
 # For MQ, ensures production tabs are updated properly
 QueueUpdaterDummy:
-	Inherits@DUMMY: ^InvisibleDummy
+	AlwaysVisible:
+	Interactable:
+	ScriptTriggers:
 	ProvidesPrerequisite:
 	KillsSelf:
 		RemoveInstead: true
+
+player.level1:
+	AlwaysVisible:
+	Interactable:
+	ScriptTriggers:
+	Tooltip:
+		Name: Player Rank 1
+	Buildable:
+		Description: Player Rank 1
+
+player.level2:
+	AlwaysVisible:
+	Interactable:
+	ScriptTriggers:
+	Tooltip:
+		Name: Player Rank 2
+	Buildable:
+		Description: Player Rank 2
+
+player.level3:
+	AlwaysVisible:
+	Interactable:
+	ScriptTriggers:
+	Tooltip:
+		Name: Player Rank 3
+	Buildable:
+		Description: Player Rank 3
+
+CRATE.DROP:
+	Inherits: ^Crate
+	Parachutable:
+		FallRate: 26
+		KilledOnImpassableTerrain: false
+		ParachutingCondition: parachute
+	Tooltip:
+		Name: Money Crate
+	RenderSprites:
+		Image: wcrate
+	CashTrickler@Normal:
+		Interval: 13
+		Amount: 2000
+		RequiresCondition: !parachute && !zoneup.on
+	CashTrickler@Upgraded:
+		Interval: 13
+		Amount: 3500
+		RequiresCondition: !parachute && zoneup.on
+	KillsSelf:
+		Delay: 13
+		RemoveInstead: true
+		RequiresCondition: !parachute
+	GrantConditionOnPrerequisite@supplylines:
+		Condition: zoneup.on
+		Prerequisites: supply.upgrade
+	RenderSprites:
+		Image: wcrate
+
+spysatactivator:
+	Interactable:
+	EditorOnlyTooltip:
+		Name: (Timed Spy Sattelite Activator)
+	AlwaysVisible:
+	Aircraft:
+		Repulsable: False
+	BodyOrientation:
+		QuantizedFacings: 1
+	WithSpriteBody:
+	RenderSpritesEditorOnly:
+		Image: camera
+	MapEditorData:
+		Categories: System
+	Health:
+		HP: 1
+	HitShape:
+	ChangesHealth:
+		Step: -1
+		StartIfBelow: 101
+		Delay: 1
+	SpawnActorOnDeath:
+		Actor: spysat
+		SpawnAfterDefeat: False
+        RequiresCondition: !ssat-enabled
+	GrantConditionOnPrerequisite@enabling:
+		Prerequisites: ssat
+		Condition: ssat-enabled
+	KillsSelf:
+	Buildable:
+		Queue: SupportPower
+		Prerequisites: ~disabled
+        Icon: 
+	Tooltip:
+		Name: "Dummy Actor to activate Timed Spy Sattelite"
+
+spysat:
+	Interactable:
+	EditorOnlyTooltip:
+		Name: (Timed Spy Sattelite)
+	AlwaysVisible:
+	Aircraft:
+		Repulsable: False
+	BodyOrientation:
+		QuantizedFacings: 1
+	WithSpriteBody:
+	RenderSpritesEditorOnly:
+		Image: camera
+	MapEditorData:
+		Categories: System
+	ProvidesPrerequisite:
+		Prerequisite: ssat
+	Health:
+		HP: 1500
+	HitShape:
+	ChangesHealth:
+		Step: -1
+		StartIfBelow: 101
+		Delay: 1
+	ProduceActorPower@spysatactivesign:
+        OrderName: SpySatteliteTimer
+		Name: Spy Sattelite
+		Description: Reveals the entire map,\nincluding shroud and fog.
+		Icon: spysat
+		Actors: e1
+		Type: Infantry
+		ChargeInterval: 1501
+		SupportPowerPaletteOrder: 20
+		DisplayTimerRelationships: Ally, Neutral, Enemy
+		RequiresCondition: ssat-activated
+	GrantConditionOnPrerequisite@spysatactivation:
+		Prerequisites: ssat
+		Condition: ssat-activated
+	GrantConditionOnPrerequisite@satelliteexists:
+		Prerequisites: uplink
+		Condition: uplinkexists
+	KillsSelf:
+		RequiresCondition: !uplinkexists
+	VoiceAnnouncement:
+		RequiresCondition: uplinkexists
+		Voice: Build
+	DeathSounds:
+		Voice: Die
+	Voiced:
+		VoiceSet: SatVoice

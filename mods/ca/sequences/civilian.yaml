@@ -1,0 +1,614 @@
+c1:
+	Defaults:
+		Filename: c1.shp
+	stand:
+		Facings: 8
+	panic-stand:
+		Facings: 8
+	panic-run:
+		Start: 8
+		Length: 6
+		Facings: 8
+	run:
+		Start: 56
+		Length: 6
+		Facings: 8
+		Tick: 80
+	shoot:
+		Start: 205
+		Length: 4
+		Facings: 8
+	cheer:
+		Start: 200
+		Length: 3
+		Facings: 8
+		Tick: 120
+	die1:
+		Start: 329
+		Length: 8
+		Tick: 80
+	die2:
+		Start: 337
+		Length: 8
+		Tick: 80
+	die3:
+		Start: 337
+		Length: 8
+		Tick: 80
+	die4:
+		Start: 345
+		Length: 12
+		Tick: 80
+	die5:
+		Start: 357
+		Length: 18
+		Tick: 80
+	die6:
+		Start: 182
+		Length: 4
+		Tick: 80
+	die-crushed:
+		Filename: e1rot.shp
+		Start: 16
+		Length: 4
+		Tick: 1600
+
+c2:
+	Inherits: c1
+	Defaults:
+		Filename: c2.shp
+
+c3:
+	Inherits: c1
+	Defaults:
+		Filename: c3.shp
+
+c4:
+	Inherits: c1
+	Defaults:
+		Filename: c4.shp
+
+c5:
+	Inherits: c1
+	Defaults:
+		Filename: c5.shp
+
+c6:
+	Inherits: c1
+	Defaults:
+		Filename: c6.shp
+
+c7:
+	Inherits: c1
+	Defaults:
+		Filename: c7.shp
+
+c8:
+	Inherits: c1
+	Defaults:
+		Filename: c8.shp
+
+c9:
+	Inherits: c1
+	Defaults:
+		Filename: c9.shp
+
+c10:
+	Inherits: c1
+	Defaults:
+		Filename: c10.shp
+
+chan:
+	Defaults:
+		Filename: chan.shp
+		Tick: 80
+	stand:
+		Facings: 8
+	panic-stand:
+		Facings: 8
+	panic-run:
+		Start: 8
+		Length: 6
+		Facings: 8
+	run:
+		Start: 56
+		Length: 6
+		Facings: 8
+		Tick: 80
+	idle1:
+		Start: 104
+		Length: 15
+	die1:
+		Start: 212
+		Length: 8
+	die2:
+		Start: 220
+		Length: 8
+	die3:
+		Start: 220
+		Length: 8
+	die4:
+		Start: 228
+		Length: 12
+	die5:
+		Start: 240
+		Length: 17
+	die6:
+		Start: 214
+		Length: 3
+	die-crushed:
+		Filename: e1rot.shp
+		Start: 16
+		Length: 4
+		Tick: 1600
+
+mobi:
+	Inherits: chan
+	Defaults:
+		Filename: mobi.shp
+
+car:
+	idle:
+		Filename: car.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: xxicon.shp
+
+v01:
+	Defaults:
+		TilesetFilenames:
+            TEMPERAT: v01.tem
+	idle:
+	damaged-idle:
+		Start: 1
+
+v01.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v01.tem
+		Start: 2
+
+v02:
+	Defaults:
+		TilesetFilenames:
+            TEMPERAT: v02.tem
+	idle:
+	damaged-idle:
+		Start: 1
+
+v02.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v02.tem
+		Start: 2
+
+v03:
+	Defaults:
+		TilesetFilenames:
+            TEMPERAT: v03.tem
+	idle:
+	damaged-idle:
+		Start: 1
+
+v03.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v03.tem
+		Start: 2
+
+v04:
+	Defaults:
+		TilesetFilenames:
+            TEMPERAT: v04.tem
+	idle:
+	damaged-idle:
+		Start: 1
+
+v04.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v04.tem
+		Start: 2
+
+v05:
+	Defaults:
+		TilesetFilenames:
+            TEMPERAT: v05.tem
+	idle:
+	damaged-idle:
+		Start: 1
+
+v05.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v05.tem
+		Start: 2
+
+v06:
+	Defaults:
+		Filename: v06.tem
+		TilesetFilenames:
+            TEMPERAT: v06.tem
+	idle:
+	damaged-idle:
+		Start: 1
+
+v06.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v06.tem
+		Start: 2
+
+v07:
+	Defaults:
+		TilesetFilenames:
+            TEMPERAT: v07.tem
+	idle:
+	damaged-idle:
+		Start: 2
+
+v07.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v07.tem
+		Start: 2
+
+v08:
+	Defaults:
+		TilesetFilenames:
+            TEMPERAT: v08.tem
+	idle:
+	damaged-idle:
+		Start: 1
+
+v08.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v08.tem
+		Start: 2
+
+v09:
+	Defaults:
+		TilesetFilenames:
+            TEMPERAT: v09.tem
+	idle:
+	damaged-idle:
+		Start: 1
+
+v09.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v09.tem
+		Start: 2
+
+v10:
+	Defaults:
+		TilesetFilenames:
+            TEMPERAT: v10.tem
+	idle:
+	damaged-idle:
+		Start: 1
+
+v10.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v10.tem
+		Start: 2
+
+v11:
+	Defaults:
+		TilesetFilenames:
+            TEMPERAT: v11.tem
+	idle:
+	damaged-idle:
+		Start: 1
+
+v11.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v11.tem
+		Start: 2
+
+v12:
+	Defaults:
+		TilesetFilenames:
+            TEMPERAT: v12.tem
+	idle:
+		ZOffset: -2c512
+	damaged-idle:
+		Start: 1
+		ZOffset: -2c512
+
+v12.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v12.tem
+		Start: 2
+		ZOffset: -2c512
+
+v13:
+	Defaults:
+		TilesetFilenames:
+            TEMPERAT: v13.tem
+	idle:
+		ZOffset: -2c512
+	damaged-idle:
+		Start: 1
+		ZOffset: -2c512
+
+v13.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v13.tem
+		Start: 2
+		ZOffset: -2c512
+
+v14:
+	Defaults:
+		TilesetFilenames:
+            TEMPERAT: v14.tem
+	idle:
+		ZOffset: -2c512
+	damaged-idle:
+		Start: 1
+		ZOffset: -2c512
+
+v14.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v14.tem
+		Start: 2
+		ZOffset: -2c512
+
+v15:
+	Defaults:
+		TilesetFilenames:
+            TEMPERAT: v15.tem
+	idle:
+		ZOffset: -2c512
+	damaged-idle:
+		Start: 1
+		ZOffset: -2c512
+
+v15.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v15.tem
+		Start: 2
+		ZOffset: -2c512
+
+v16:
+	Defaults:
+		TilesetFilenames:
+            TEMPERAT: v16.tem
+	idle:
+		ZOffset: -2c512
+	damaged-idle:
+		Start: 1
+		ZOffset: -2c512
+
+v16.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v16.tem
+		Start: 2
+		ZOffset: -2c512
+
+v17:
+	Defaults:
+		TilesetFilenames:
+            TEMPERAT: v17.tem
+	idle:
+		ZOffset: -2c512
+	damaged-idle:
+		Start: 1
+		ZOffset: -2c512
+
+v17.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v17.tem
+		Start: 2
+		ZOffset: -2c512
+
+v18:
+	Defaults:
+		TilesetFilenames:
+            TEMPERAT: v18.tem
+	idle:
+		ZOffset: -2c512
+	damaged-idle:
+		Start: 1
+		ZOffset: -2c512
+
+v18.husk:
+	idle:
+		TilesetFilenames:
+            TEMPERAT: v18.tem
+		Start: 2
+		ZOffset: -2c512
+
+v19:
+	Defaults:
+		Filename: v19.shp
+	idle:
+		Length: 14
+		Tick: 120
+	damaged-idle:
+		Start: 14
+		Length: 14
+		Tick: 120
+
+v19.husk:
+	idle:
+		Filename: v19.shp
+		Start: 28
+	fire-start:
+		Filename: flmspt.shp
+		Length: *
+		Offset: 7,-15
+		ZOffset: 1
+	fire-loop:
+		Filename: flmspt.shp
+		Start: 50
+		Length: *
+		Offset: 7,-15
+		ZOffset: 1
+
+wood:
+	Defaults:
+		Filename: wood.shp
+	idle:
+		Length: 16
+	damaged-idle:
+		Start: 16
+		Length: 16
+	icon:
+		Filename: woodicon.shp
+
+barb:
+	Defaults:
+		Filename: barb.shp
+	idle:
+		Length: 16
+	damaged-idle:
+		Start: 16
+		Length: 16
+	icon:
+		Filename: barbicon.shp
+
+cycl:
+	Defaults:
+		Filename: cycl.shp
+	idle:
+		Length: 16
+	damaged-idle:
+		Start: 16
+		Length: 16
+	icon:
+		Filename: cyclicon.shp
+
+aprt:
+    Defaults:
+        Filename: aprt.shp
+	idle: 
+		Length: 8
+		Tick: 160
+		ZOffset: -1023
+		Offset: 0,-4
+	damaged-idle: 
+		Start: 8
+		Length: 8
+		Tick: 160
+		ZOffset: -1023
+		Offset: 0,-4
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+		Length: *
+        ZOffset: -1022
+    dead:
+        Tick: 800
+        Start: 16
+        ZOffset: -1023
+        Offset: 0,-4
+    icon: aprticon.shp
+
+aprt.husk:
+	idle:
+        Filename: aprt.shp
+		Start: 16
+		Length: 1
+		ZOffset: -1023
+		Offset: 0,-4
+    dead: 
+        Filename: aprt.shp
+        Tick: 800
+        Start: 16
+        ZOffset: -1023
+        Offset: 0,-4
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+		Length: *
+        ZOffset: -1022
+
+wind:
+	Defaults:
+        Filename: wind.shp
+		Offset: 0,-32
+	idle:
+        Length: 12
+        Tick: 90
+	damaged-idle:
+        Start: 12
+        Length: 36
+        Tick: 90
+	dead:
+		Start: 48
+        Length: 1
+		Tick: 800
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbgtwr.tem
+		Length: *
+		Offset: -3,-6
+
+wind.husk:
+	Defaults:
+        Filename: wind.shp
+		Offset: 0,-32
+	idle: 
+		Start: 48
+        Length: 1
+	dead:
+		Start: 48
+        Length: 1
+		Tick: 800
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbgtwr.tem
+		Length: *
+		Offset: -3,-6
+
+outp:
+	Defaults:
+        Filename: outp.shp
+		Offset: 0,-13
+	idle:
+        Start: 0
+        Length: 1
+        Tick: 90
+	damaged-idle:
+        Start: 1
+        Length: 1
+        Tick: 90
+	dead:
+		Start: 2
+        Length: 1
+		Tick: 800
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbobel.tem
+		Length: *
+		Offset: 0,0
+    icon:
+        Filename: outpicon.shp
+
+outp.husk:
+	Defaults:
+        Filename: outp.shp
+		Offset: 0,-13
+	idle: 
+		Start: 2
+        Length: 1
+	dead:
+		Start: 2
+        Length: 1
+		Tick: 800
+	bib:
+		TilesetFilenames:
+			TEMPERAT: mbobel.tem
+		Length: *
+		Offset: 0,0

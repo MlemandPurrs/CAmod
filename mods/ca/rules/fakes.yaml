@@ -1,161 +1,779 @@
-SYRF:
+FCST:
 	Inherits: ^FakeBuilding
 	Inherits@infiltrate: ^InfiltratableFake
-	RenderSprites:
-		PlayerPalette: playernavy
+	Inherits@shape: ^3x2Shape
+	Selectable:
+		Bounds: 3072, 2048
 	Buildable:
-		BuildPaletteOrder: 890
+		BuildPaletteOrder: 490
 		Queue: DefenseSQ, DefenseMQ
-		Prerequisites: syrd, ~structures.england, ~techlevel.navy, ~techlevel.low
-		Description: Looks like a Naval yard. Packed with explosives.
-		Icon: fake-icon
-	Tooltip:
-		Name: Fake Naval Yard
-		GenericName: Shipyard
-		GenericVisibility: Enemy
-		GenericStancePrefix: False
-	TooltipExtras:
-		FakeActor: syrd
-	Targetable:
-		TargetTypes: Ground, Water, Structure, SpyInfiltrate
-		RequiresCondition: !being-warped
-	Building:
-		Footprint: xxx xxx xxx
-		Dimensions: 3,3
-		TerrainTypes: Water
-	HitShape:
-		TargetableOffsets: 768,0,0, 768,-1024,0, 768,1024,0
-		Type: Rectangle
-			TopLeft: -1536, -1152
-			BottomRight: 1536, 598
-	HitShape@BOTTOM:
-		TargetableOffsets: -768,0,0
-		Type: Rectangle
-			TopLeft: -512, 598
-			BottomRight: 512, 1110
-	RenderSprites:
-		Image: SYRD
-	Valued:
-		Cost: 100
-	Health:
-		HP: 100000
-	Armor:
-		Type: Wood
-	MapEditorData:
-		ExcludeTilesets: INTERIOR
-	RequiresBuildableArea:
-		AreaTypes: building
-		Adjacent: 8
-
-WEAF:
-	Inherits: ^FakeBuilding
-	Inherits@infiltrate: ^InfiltratableFake
-	Inherits@SHAPE: ^3x2Shape
-	Buildable:
-		BuildPaletteOrder: 920
-		Prerequisites: weap, ~structures.england, ~techlevel.low
-		Queue: DefenseSQ, DefenseMQ
-		Description: Looks like a War Factory. Packed with explosives.
-		Icon: fake-icon
-	Tooltip:
-		Name: Fake War Factory
-		GenericName: War Factory
-		GenericVisibility: Enemy
-		GenericStancePrefix: False
-	TooltipExtras:
-		FakeActor: weap
-	Building:
-		Footprint: xxx xxx +++
-		Dimensions: 3,3
-		LocalCenterOffset: 0,-512,0
-	WithBuildingBib:
-	RenderSprites:
-		Image: WEAP
-	WithProductionDoorOverlay:
-		Sequence: build-top
-		RequiresCondition: !build-incomplete
-	Valued:
-		Cost: 225
-	Health:
-		HP: 150000
-	Armor:
-		Type: Wood
-	-ActorPreviewPlaceBuildingPreview:
-	SequencePlaceBuildingPreview:
-		Sequence: place
-	RequiresBuildableArea:
-		AreaTypes: building
-
-DOMF:
-	Inherits: ^FakeBuilding
-	Inherits@infiltrate: ^InfiltratableFake
-	Inherits@SHAPE: ^2x2Shape
-	Inherits@IDISABLE: ^DisableOnLowPowerOrPowerDownOrForceDisable
-	Tooltip:
-		Name: Fake Radar Dome
-		GenericName: Radar Dome
-		GenericVisibility: Enemy
-		GenericStancePrefix: False
-	TooltipExtras:
-		FakeActor: dome
-	Buildable:
-		BuildPaletteOrder: 930
-		Queue: DefenseSQ, DefenseMQ
-		Prerequisites: dome, ~structures.england, ~techlevel.medium
-		Description: Looks like a Radar Dome. Packed with explosives.
-		Icon: fake-icon
-	Building:
-		Footprint: xx xx ==
-		Dimensions: 2,3
-		LocalCenterOffset: 0,-512,0
-	WithBuildingBib:
-	RenderSprites:
-		Image: DOME
-	Valued:
-		Cost: 200
-	Health:
-		HP: 110000
-	Armor:
-		Type: Wood
-	RequiresBuildableArea:
-		AreaTypes: building
-
-FACF:
-	Inherits: ^FakeBuilding
-	Buildable:
-		BuildPaletteOrder: 1000
-		Queue: DefenseSQ, DefenseMQ
-		Prerequisites: ~structures.england
-		Description: Looks like a Construction Yard. Packed with explosives.
+		Prerequisites: ~disabled
+		Description: Looks like a Construction Yard.
 		Icon: fake-icon
 	Tooltip:
 		Name: Fake Construction Yard
 		GenericName: Construction Yard
 		GenericVisibility: Enemy
 		GenericStancePrefix: False
-	TooltipExtras:
-		FakeActor: fact
 	Building:
-		Footprint: xxX xxx XxX ===
-		Dimensions: 3,4
+		Footprint: xxx xxx ===
+		Dimensions: 3,3
 		LocalCenterOffset: 0,-512,0
-	Selectable:
-		Bounds: 3072, 3072
-	HitShape:
-		TargetableOffsets: 1273,939,0, -980,-640,0, -980,640,0
-		Type: Rectangle
-			TopLeft: -1536, -1536
-			BottomRight: 1536, 1536
 	WithBuildingBib:
-	WithBuildingPlacedAnimation:
-		RequiresCondition: !build-incomplete
 	RenderSprites:
-		Image: FACT
+		Image: cnst
+		FactionImages:
+            nod: ncst
 	Valued:
-		Cost: 250
+		Cost: 625
 	Health:
 		HP: 150000
 	Armor:
+		Type: Heavy
+	ActorPreviewPlaceBuildingPreview:
+		Animated: false
+
+FPWR:
+	Inherits: ^FakeBuilding
+	Inherits@infiltrate: ^InfiltratableFake
+	Inherits@shape: ^2x2Shape
+	Selectable:
+		Bounds: 2048, 2048
+	HitShape:
+		TargetableOffsets: 630,299,0
+	Buildable:
+		BuildPaletteOrder: 500
+		Queue: DefenseSQ, DefenseMQ
+		Prerequisites: ~disabled
+		Description: Looks like a Power Plant.
+		Icon: fake-icon
+	Tooltip:
+		Name: Fake Power Plant
+		GenericName: Power Plant
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: Xx xx
+		Dimensions: 2,2
+		LocalCenterOffset: 0,-256,0
+	Health:
+		HP: 40000
+	Armor:
 		Type: Wood
-	RequiresBuildableArea:
-		AreaTypes: building
+	WithBuildingBib:
+	RenderSprites:
+		Image: powr
+		FactionImages:
+            nod: npwr
+	Valued:
+		Cost: 100
+	ActorPreviewPlaceBuildingPreview:
+		Animated: false
+
+FPW2:
+	Inherits: ^FakeBuilding
+	Inherits@infiltrate: ^InfiltratableFake
+	Inherits@shape: ^2x2Shape
+	Selectable:
+		Bounds: 2048, 2048
+	HitShape:
+		TargetableOffsets: 630,299,0
+	Buildable:
+		BuildPaletteOrder: 550
+		Queue: DefenseSQ, DefenseMQ
+		Prerequisites: ~disabled
+		Description: Looks like an Advanced Power Plant.
+		Icon: fake-icon
+	Tooltip:
+		Name: Fake Advanced Power Plant
+		GenericName: Advanced Power Plant
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: Xx xx
+		Dimensions: 2,2
+		LocalCenterOffset: 0,-256,0
+	Health:
+		HP: 60000
+	Armor:
+		Type: Wood
+	WithBuildingBib:
+	RenderSprites:
+		Image: pwr2
+		FactionImages:
+            nod: npw2
+	Valued:
+		Cost: 175
+	ActorPreviewPlaceBuildingPreview:
+		Animated: false
+
+FAPW:
+	Inherits: ^FakeBuilding
+	Inherits@infiltrate: ^InfiltratableFake
+	Inherits@shape: ^3x2Shape
+	HitShape:
+		TargetableOffsets: 630,299,0
+	Buildable:
+		BuildPaletteOrder: 600
+		Queue: DefenseSQ, DefenseMQ
+		Prerequisites: ~disabled
+		Description: Looks like an Advanced Power Plant.
+		Icon: fake-icon
+	Tooltip:
+		Name: Fake Advanced Power Plant
+		GenericName: Advanced Power Plant
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: xXx XxX
+		Dimensions: 3,2
+		LocalCenterOffset: 0,-256,0
+	Health:
+		HP: 60000
+	Armor:
+		Type: Wood
+	WithBuildingBib:
+	RenderSprites:
+		Image: APWR
+	Selectable:
+		Bounds: 3072, 2048
+		DecorationBounds: 3072, 2148, 0, 0
+	Valued:
+		Cost: 175
+	RenderSprites:
+		Image: apwr
+		FactionImages:
+			nod: napw
+	ActorPreviewPlaceBuildingPreview:
+		Animated: false
+
+FREF:
+	Inherits: ^FakeBuilding
+	Inherits@infiltrate: ^InfiltratableFake
+	Selectable:
+		Bounds: 3072, 2133, 0, 170
+		DecorationBounds: 3072, 2986, 0, -85
+	HitShape:
+		Type: Rectangle
+			TopLeft: -1536, -512
+			BottomRight: 1536, 853
+	HitShape@TOP:
+		Type: Rectangle
+			TopLeft: -512, -1450
+			BottomRight: 896, -512
+	Buildable:
+		BuildPaletteOrder: 510
+		Queue: DefenseSQ, DefenseMQ
+		Prerequisites: ~disabled
+		Description: Looks like a Tiberium Refinery.
+		Icon: fake-icon
+	Tooltip:
+		Name: Fake Refinery
+		GenericName: Tiberium Refinery
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: xxx x+x ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 90000
+	Armor:
+		Type: Wood
+	WithBuildingBib:
+	RenderSprites:
+		Image: refn
+		FactionImages:
+            nod: nref
+	Valued:
+		Cost: 375
+	ProximityExternalCondition@REFDOCK:
+		Condition: onref
+		Range: 1c512
+		ValidRelationships: Ally, Neutral, Enemy
+	ActorPreviewPlaceBuildingPreview:
+		Animated: false
+
+FSIL:
+	Inherits: ^FakeBuilding
+	Inherits@shape: ^2x1Shape
+	Selectable:
+		Bounds: 2048, 1024
+		DecorationBounds: 2090, 1280
+	Buildable:
+		BuildPaletteOrder: 530
+		Queue: DefenseSQ, DefenseMQ
+		Prerequisites: ~disabled
+		Description: Looks like a Tiberium Silo.
+		Icon: fake-icon
+	Tooltip:
+		Name: Fake Silo
+		GenericName: Tiberium Silo
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: xx
+		Dimensions: 2,1
+	RenderSprites:
+		Image: BARR
+	Valued:
+		Cost: 125
+	Health:
+		HP: 60000
+	Armor:
+		Type: Wood
+	WithBuildingBib:
+		HasMinibib: true
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 840,-256,0, 840,512,0, 210,-512,0, -71,512,0
+		Type: Rectangle
+			TopLeft: -1024, -1024
+			BottomRight: 1024, 640
+	RenderSprites:
+		Image: silo
+		FactionImages:
+            nod: nsil
+
+FBAR:
+	Inherits: ^FakeBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@infiltrate: ^InfiltratableFake
+	Selectable:
+		Bounds: 2048, 1792, 0, -213
+	Buildable:
+		BuildPaletteOrder: 530
+		Queue: DefenseSQ, DefenseMQ
+		Prerequisites: ~disabled
+		Description: Looks like a Barracks.
+		Icon: fake-icon
+	Tooltip:
+		Name: Fake Barracks
+		GenericName: Barracks
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	RenderSprites:
+		Image: BARR
+	Valued:
+		Cost: 125
+	Health:
+		HP: 60000
+	Armor:
+		Type: Wood
+	WithBuildingBib:
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 840,-256,0, 840,512,0, 210,-512,0, -71,512,0
+		Type: Rectangle
+			TopLeft: -1024, -1024
+			BottomRight: 1024, 640
+	ActorPreviewPlaceBuildingPreview:
+		Animated: false
+
+FHND:
+	Inherits: ^FakeBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@infiltrate: ^InfiltratableFake
+	Selectable:
+		Bounds: 2048, 2048
+		DecorationBounds: 2048, 2901, 0, -426
+	Buildable:
+		BuildPaletteOrder: 540
+		Queue: DefenseSQ, DefenseMQ
+		Prerequisites: ~disabled
+		Description: Looks like a Hand of Nod.
+		Icon: fake-icon
+	Tooltip:
+		Name: Fake Hand of Nod
+		GenericName: Hand of Nod
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: xx xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	RenderSprites:
+		Image: HAND
+	Valued:
+		Cost: 125
+	Health:
+		HP: 60000
+	Armor:
+		Type: Wood
+	WithBuildingBib:
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 630,-512,0, 355,512,0, -281,-512,0, -630,512,0
+	ActorPreviewPlaceBuildingPreview:
+		Animated: false
+
+FWEP:
+	Inherits: ^FakeBuilding
+	Inherits@shape: ^3x2Shape
+	Inherits@infiltrate: ^InfiltratableFake
+	HitShape:
+		TargetableOffsets: 0,0,0, 0,1024,0, 0,-1024,0
+		Type: Rectangle
+			TopLeft: -1536, -1024
+			BottomRight: 1536, 512
+	Selectable:
+		Bounds: 3072, 2048
+		DecorationBounds: 3072, 2730, 0, -682
+	Buildable:
+		BuildPaletteOrder: 550
+		Prerequisites: ~disabled
+		Queue: DefenseSQ, DefenseMQ
+		Description: Looks like a War Factory.
+		Icon: fake-icon
+	Tooltip:
+		Name: Fake Weapons Factory
+		GenericName: Weapons Factory
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: xxx +++ ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	RenderSprites:
+		Image: weap
+	WithBuildingBib:
+	WithProductionDoorOverlay:
+		RequiresCondition: !build-incomplete
+		Sequence: build-top
+	Valued:
+		Cost: 500
+	Health:
+		HP: 80000
+	Armor:
+		Type: Wood
+	-ActorPreviewPlaceBuildingPreview:
+	SequencePlaceBuildingPreview:
+		Sequence: place
+		SequenceAlpha: 0.65
+
+FAIR:
+	Inherits: ^FakeBuilding
+	Inherits@infiltrate: ^InfiltratableFake
+	HitShape:
+		TargetableOffsets: 0,0,0, 0,-512,256, 0,-1451,384, 0,512,128, 0,1536,85
+		Type: Rectangle
+			TopLeft: -2048, -1024
+			BottomRight: 2048, 1024
+	Selectable:
+		Bounds: 4096, 2048
+	Buildable:
+		BuildPaletteOrder: 550
+		Prerequisites: ~disabled
+		Queue: DefenseSQ, DefenseMQ
+		Description: Looks like an Airstrip.
+		Icon: fake-icon
+	Tooltip:
+		Name: Fake Airstrip
+		GenericName: Airstrip
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: XXX+ xxx+ ====
+		Dimensions: 4,3
+		LocalCenterOffset: 0,-512,0
+	RenderSprites:
+		Image: airs
+	WithBuildingBib:
+	Valued:
+		Cost: 375
+	Health:
+		HP: 100000
+	Armor:
+		Type: Wood
+	WithIdleOverlay@DISH:
+		RequiresCondition: !build-incomplete
+		Sequence: idle-dish
+	ActorPreviewPlaceBuildingPreview:
+		Animated: false
+
+FDEP:
+	Inherits: ^FakeBuilding
+	Selectable:
+		Bounds: 2730, 1450, 0, 128
+		DecorationBounds: 3072, 2048
+	Buildable:
+		BuildPaletteOrder: 560
+		Queue: DefenseSQ, DefenseMQ
+		Prerequisites: ~disabled
+		Description: Looks like a Service Depot.
+		Icon: fake-icon
+	Tooltip:
+		Name: Fake Service Depot
+		GenericName: Service Depot
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: =+= +++ =+=
+		Dimensions: 3,3
+	Health:
+		HP: 60000
+	Armor:
+		Type: Wood
+	WithBuildingBib:
+		HasMinibib: true
+	RenderSprites:
+		Image: dept
+		FactionImages:
+            nod: ndep
+	Valued:
+		Cost: 300
+	HitShape:
+		TargetableOffsets: 840,0,0, 598,-640,0, 598,640,0, -1060,0,0, -768,-640,0, -768,640,0
+		Type: Polygon
+			Points: -1536,-256, -341,-940, 341,-940, 1536,-256, 1536,341, 341,1110, -341,1110, -1536,341
+	ProximityExternalCondition@REFDOCK:
+		Condition: onref
+		Range: 1c512
+		ValidRelationships: Ally, Neutral, Enemy
+
+FPAD:
+	Inherits: ^FakeBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@infiltrate: ^InfiltratableFake
+	Selectable:
+		Bounds: 2048, 2048
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 768,-512,0, 768,512,0, -281,-512,0, -630,512,0
+	Tooltip:
+		Name: Fake Helipad
+		GenericName: Helipad
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Buildable:
+		BuildPaletteOrder: 570
+		Queue: DefenseSQ, DefenseMQ
+		Prerequisites: ~disabled
+		Description: Looks like a Helipad.
+		Icon: fake-icon
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	WithBuildingBib:
+	RenderSprites:
+		Image: hpad
+	Valued:
+		Cost: 125
+	Health:
+		HP: 40000
+	Armor:
+		Type: Wood
+
+FHQ:
+	Inherits: ^FakeBuilding
+	Inherits@IDISABLE: ^DisabledOverlay
+	Inherits@infiltrate: ^InfiltratableFake
+	Selectable:
+		Bounds: 2048, 1706, 0, 384
+		DecorationBounds: 2048, 2261, 0, -170
+	HitShape:
+		TargetableOffsets: 0,0,0, 0,512,0, 420,-598,256
+		Type: Rectangle
+			TopLeft: -1024, -384
+			BottomRight: 1024, 1024
+	Tooltip:
+		Name: Fake Headquarters
+		GenericName: Headquarters
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Buildable:
+		BuildPaletteOrder: 580
+		Queue: DefenseSQ, DefenseMQ
+		Prerequisites: ~disabled
+		Description: Looks like a Headquarters.
+		Icon: fake-icon
+	Building:
+		Footprint: X+ xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	WithBuildingBib:
+    RenderSprites:
+		Image: hq
+		FactionImages:
+			nod: nhq
+	Valued:
+		Cost: 450
+	Health:
+		HP: 90000
+	Armor:
+		Type: Wood
+    WithSpriteBody:
+        PauseOnCondition: lowpower
+    WithIdleOverlay@1:
+        Palette: effect
+        Sequence: white-light
+        Offset: 640,300,0
+        PauseOnCondition: lowpower
+        RequiresCondition: !build-incomplete && !lowpower
+	ActorPreviewPlaceBuildingPreview:
+		Animated: false
+
+FEYE:
+	Inherits: ^FakeBuilding
+	Inherits@IDISABLE: ^DisabledOverlay
+	Inherits@infiltrate: ^InfiltratableFake
+	Selectable:
+		Bounds: 2048, 1706, 0, 384
+		DecorationBounds: 2048, 2261, 0, -170
+	HitShape:
+		TargetableOffsets: 0,0,0, 0,512,0, 420,-598,256
+		Type: Rectangle
+			TopLeft: -1024, -384
+			BottomRight: 1024, 1024
+	Tooltip:
+		Name: Fake Advanced Headquarters
+		GenericName: Advanced Headquarters
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Buildable:
+		BuildPaletteOrder: 590
+		Queue: DefenseSQ, DefenseMQ
+		Prerequisites: ~disabled
+		Description: Looks like an Advanced Headquarters.
+		Icon: fake-icon
+	Building:
+		Footprint: X+ xx ==
+		Dimensions: 2,3
+		LocalCenterOffset: 0,-512,0
+	WithBuildingBib:
+    RenderSprites:
+		Image: eye
+	Valued:
+		Cost: 450
+	Health:
+		HP: 90000
+	Armor:
+		Type: Wood
+    WithSpriteBody:
+        PauseOnCondition: lowpower
+    WithIdleOverlay@1:
+        Palette: effect
+        Sequence: white-light
+        Offset: 640,300,0
+        PauseOnCondition: lowpower
+        RequiresCondition: !build-incomplete && !lowpower
+	ActorPreviewPlaceBuildingPreview:
+		Animated: false
+
+FTEC:
+	Inherits: ^FakeBuilding
+	Inherits@shape: ^3x2Shape
+	Inherits@infiltrate: ^InfiltratableFake
+	Selectable:
+		Bounds: 3072, 2048
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 840,0,0, 840,-1024,0, 420,768,0, -840,0,0, -840,-1024,0, -840,1024,0
+	Tooltip:
+		Name: Fake Tech Center
+		GenericName: Tech Center
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Buildable:
+    	BuildDuration: 500
+        BuildDurationModifier: 100
+		BuildPaletteOrder: 600
+		Queue: DefenseSQ, DefenseMQ
+		Prerequisites: ~disabled
+		Description: Looks like a Tech Center.
+		Icon: fake-icon
+	Building:
+		Footprint: xxx xxx ===
+		Dimensions: 3,3
+        LocalCenterOffset: 0,-256,0
+	WithBuildingBib:
+		HasMinibib: true
+	RenderSprites:
+		Image: tech
+	Valued:
+		Cost: 500
+	Health:
+		HP: 100000
+	Armor:
+		Type: Wood
+
+FTMP:
+	Inherits: ^FakeBuilding
+	Inherits@infiltrate: ^InfiltratableFake
+	Inherits@IDISABLE: ^DisabledOverlay
+	Inherits@shape: ^3x2Shape
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 0,-896,0, 0,896,0, 840,0,0, -706,0,0, -706,-768,0, -706,640,0
+	Buildable:
+    	BuildDuration: 500
+        BuildDurationModifier: 100
+		BuildPaletteOrder: 90 # 590
+		Queue: DefenseSQ, DefenseMQ
+		BuildLimit: 1
+		Prerequisites: hq, ~structures.nod, ~techlevel.maximum
+		Description: Maximum 1 can be built.\n\nLooks like a Temple of Nod.
+		Icon: fake-icon
+	Tooltip:
+		Name: Fake Temple of Nod
+		GenericName: Temple of Nod
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: xxx xxx ===
+		Dimensions: 3,3
+		LocalCenterOffset: 0,-512,0
+	Health:
+		HP: 100000
+	Armor:
+		Type: Heavy
+	WithBuildingBib:
+		HasMinibib: true
+	RenderSprites:
+		Image: tmpl
+	Selectable:
+		Bounds: 3072, 2048
+		DecorationBounds: 3072, 2901, 0, -512
+	Valued:
+		Cost: 500
+
+FNUK:
+	Inherits: ^FakeBuilding
+	Inherits@shape: ^2x2Shape
+	Selectable:
+		Bounds: 2048, 2048
+	Buildable:
+    	BuildDuration: 150
+        BuildDurationModifier: 100
+		BuildPaletteOrder: 610
+		Queue: DefenseSQ, DefenseMQ
+		Prerequisites: ~disabled
+		Description: Looks like a Nuclear Facility.
+		Icon: fake-icon
+	Tooltip:
+		Name: Fake Nuclear Facility
+		GenericName: Nuclear Facility
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+		LocalCenterOffset: 0,0,0
+	Health:
+		HP: 50000
+	Armor:
+		Type: Wood
+	WithBuildingBib:
+		HasMinibib: true
+	RenderSprites:
+		Image: nuke
+	Valued:
+		Cost: 150
+
+FDOM:
+	Inherits: ^FakeBuilding
+	Inherits@shape: ^2x2Shape
+	Inherits@IDISABLE: ^DisabledOverlay
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 630,-384,0, 630,384,0, -700,-512,0, -700,512,0
+	Selectable:
+		Priority: 0
+		Bounds: 2048, 2048
+	Buildable:
+		BuildPaletteOrder: 620
+		Queue: DefenseSQ, DefenseMQ
+		Prerequisites: ~disabled
+		Description: Looks like a Air Control Dome.
+		Icon: fake-icon
+	Tooltip:
+		Name: Fake Air Control Dome
+		GenericName: Air Control Dome
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+		LocalCenterOffset: 0,-256,0
+	Health:
+		HP: 70000
+	Armor:
+		Type: Wood
+	WithBuildingBib:
+		HasMinibib: true
+	RenderSprites:
+		Image: dome
+	Valued:
+		Cost: 150
+	ActorPreviewPlaceBuildingPreview:
+		Animated: false
+
+FHSP:
+	Inherits: ^FakeBuilding
+	Inherits@shape: ^2x2Shape
+	Selectable:
+		Priority: 0
+		Bounds: 2048, 2048
+	Buildable:
+		BuildPaletteOrder: 630
+		Queue: DefenseSQ, DefenseMQ
+		Prerequisites: ~disabled
+		Description: Looks like a Hospital.
+		Icon: fake-icon
+	Tooltip:
+		Name: Fake Hospital
+		GenericName: Hospital
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 80000
+	Armor:
+		Type: Wood
+	WithBuildingBib:
+		HasMinibib: true
+	RenderSprites:
+		Image: hosp
+	Valued:
+		Cost: 150
+	ActorPreviewPlaceBuildingPreview:
+		Animated: false
+
+FBIO:
+	Inherits: ^FakeBuilding
+	Inherits@shape: ^2x2Shape
+	Selectable:
+		Priority: 0
+		Bounds: 2048, 2048
+	Buildable:
+		BuildPaletteOrder: 640
+		Queue: DefenseSQ, DefenseMQ
+		Prerequisites: ~disabled
+		Description: Looks like a Biological Lab.
+		Icon: fake-icon
+	Tooltip:
+		Name: Fake Biological Lab
+		GenericName: Biological Lab
+		GenericVisibility: Enemy
+		GenericStancePrefix: False
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Health:
+		HP: 80000
+	Armor:
+		Type: Wood
+	WithBuildingBib:
+		HasMinibib: true
+	RenderSprites:
+		Image: bio
+	Valued:
+		Cost: 150
+	ActorPreviewPlaceBuildingPreview:
+		Animated: false

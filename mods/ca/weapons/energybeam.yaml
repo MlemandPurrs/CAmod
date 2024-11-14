@@ -1,0 +1,360 @@
+LaserZap:
+	ReloadDelay: 60
+	Range: 7c512
+	Report: obelray1.aud
+    ValidTargets: Ground, GroundActor, Water, WaterActor, Trees
+	Projectile: LaserZap
+		Width: 85
+		HitAnim: laserfire
+		ZOffset: 2047
+        Blockable: false
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 20000
+		Versus:
+            None: 100
+			Wood: 50
+            Light: 100
+            Heavy: 120
+            Concrete: 75
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+        ValidTargets: Ground, GroundActor, Water, WaterActor, Trees
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
+
+PortaLaser:
+	ReloadDelay: 45
+	Range: 5c0
+	Report: minilaser.aud
+    ValidTargets: Ground, GroundActor, Water, WaterActor, Trees
+	Projectile: LaserZap
+		Width: 30
+		Duration: 3
+		SecondaryBeamWidth: 50
+		SecondaryBeamColor: FF000030
+		HitAnim: laserfire
+		ZOffset: 2047
+        Blockable: true
+		Inaccuracy: 0c256
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 3000
+		Versus:
+            None: 100
+			Wood: 50
+            Light: 100
+            Heavy: 120
+            Concrete: 75
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+        ValidTargets: Ground, GroundActor, Water, WaterActor, Trees
+
+TurretLaser:
+	ReloadDelay: 45
+	Range: 6c256
+	Report: lastur1.aud
+    ValidTargets: Ground, GroundActor, Water, WaterActor, Trees
+	Projectile: LaserZap
+		Width: 45
+		HitAnim: laserfire
+		ZOffset: 2047
+        Blockable: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 5000
+		Versus:
+            None: 100
+			Wood: 50
+            Light: 100
+            Heavy: 120
+            Concrete: 75
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+        ValidTargets: Ground, GroundActor, Water, WaterActor, Trees
+
+LaserFence:
+	TargetActorCenter: true
+	Projectile: InstantHit
+	Warhead@1Dam: TargetDamage
+		DebugOverlayColor: FF0000
+		Damage: 10000000
+		DamageTypes: FireDeath
+
+
+TankLaser:
+	ReloadDelay: 91
+	Range: 7c512
+	Report: obelray1.aud
+    ValidTargets: Ground, GroundActor, Water, WaterActor
+	Projectile: LaserZap
+		Width: 85
+		HitAnim: laserfire
+		ZOffset: 2047
+        Blockable: false
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 15000
+		Versus:
+            None: 100
+			Wood: 50
+            Light: 100
+            Heavy: 120
+            Concrete: 75
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+        ValidTargets: Ground, GroundActor, Water, WaterActor
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall, Husk, Trees, Creep
+
+TankLaserFiringGFX:
+	ReloadDelay: 91
+	Range: 7c512
+    ValidTargets: Ground, GroundActor, Water, WaterActor
+	Projectile: InstantHit
+        Blockable: false
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+		Versus:
+            None: 0
+            Wood: 0
+            Light: 0
+            Heavy: 0
+            Concrete: 0
+        ValidTargets: Ground, GroundActor, Water, WaterActor
+
+TankLaserFiringSFX:
+	ReloadDelay: 91
+	Range: 7c512
+	StartBurstReport: obelpowr.aud
+	Report: obelpowr.aud
+	BurstDelays: 40
+	Burst: 2
+    ValidTargets: Ground, GroundActor, Water, WaterActor
+	Projectile: InstantHit
+        Blockable: false
+	Warhead@1Dam: SpreadDamage
+		Damage: 1
+		Versus:
+            None: 0
+            Wood: 0
+            Light: 0
+            Heavy: 0
+            Concrete: 0
+        ValidTargets: Ground, GroundActor, Water, WaterActor
+
+MicroWave:
+	ReloadDelay: 90
+    Range: 5c768
+	Report: corefir1.aud
+	ValidTargets: GroundActor, WaterActor, Trees
+	InvalidTargets: AirborneActor, Wall
+	TargetActorCenter: true
+	Projectile: Railgun
+		Duration: 5
+		Blockable: true
+		DamageActorsInLine: false
+		BeamColor: FFFFFFFF
+		BeamWidth: 0c0
+		HelixThickness: 0c32
+		HelixRadius: 0c16
+		HelixAngleDeltaPerTick: 64
+		QuantizationCount: 64
+		HitAnim: empfx
+		ZOffset: 2046
+	Warhead@1Dam: SpreadDamage
+        ValidTargets: GroundActor, WaterActor, Trees
+		InvalidTargets: AirborneActor, Wall
+		Spread: 512
+		Damage: 5000
+		Versus:
+			None: 100
+			Wood: 100
+			Light: 50
+			Heavy: 50
+			Concrete: 50
+		DamageTypes: Prone50Percent, TriggerProne, Incendiary, FireDeath
+		AffectsParent: false
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Scorch
+		InvalidTargets: Vehicle, Structure, Wall
+	Warhead@3Emp: GrantExternalCondition
+		Range: 0c256
+		Duration: 45
+		Condition: emp-condition
+		ValidTargets: EMPApplicable
+        InvalidTargets: Invulnerable
+
+MicroWaveSound:
+	Inherits: MicroWave
+	ValidTargets: GroundActor, WaterActor, Trees
+	InvalidTargets: AirborneActor, Wall
+	Report: coreup1.aud
+	Projectile: InstantHit
+        Blockable: true
+	-Warhead@2Smu:
+    -Warhead@3Emp:
+	Warhead@1Dam: SpreadDamage
+        ValidTargets: GroundActor, WaterActor, Trees
+		InvalidTargets: AirborneActor, Wall
+		Damage: 1
+		Versus:
+            None: 0
+            Wood: 0
+            Light: 0
+            Heavy: 0
+            Concrete: 0
+
+RailGun:
+	ReloadDelay: 65
+	Range: 6c512
+	Report: xolasr.aud
+    AfterFireSound: xocoil.aud
+    AfterFireSoundDelay: 3
+    ValidTargets: Ground, GroundActor, Water, WaterActor
+    InvalidTargets: Wall
+	Projectile: Railgun
+		Duration: 8
+		Blockable: true
+		DamageActorsInLine: true
+		BeamColor: 00FFFFC8
+		BeamWidth: 40
+		HelixThickness: 16
+		HelixRadius: 32
+		HitAnim: explosion
+		HitAnimSequence: sml_frag
+		ZOffset: 2047
+	Warhead@1Dam: SpreadDamage
+        Range: 0, 32, 48, 64, 80
+		Spread: 0c64
+		Falloff: 100, 37, 14, 5, 0
+		Damage: 10000
+		AffectsParent: false
+		Versus:
+            None: 100
+			Wood: 50
+            Light: 100
+            Heavy: 120
+            Concrete: 75 
+        ValidTargets: Ground, GroundActor, Water, WaterActor
+        InvalidTargets: Wall
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+		ValidRelationships: Ally, Neutral, Enemy
+
+SonicZap:
+	ReloadDelay: 120
+	Range: 6c768
+	TargetActorCenter: true
+    ValidTargets: Ground, GroundActor, Water, WaterActor
+	InvalidTargets: Air
+	Report: sonic4.aud
+	Projectile: AreaBeam
+		Speed: 0c428
+		Duration: 65
+		DamageInterval: 3
+		Width: 390
+		Shape: Flat
+		ZOffset: 1023
+		BeyondTargetRange: 0c256
+		Blockable: true
+		TrackTarget: true
+		Color: 00c3ff25
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 550
+		AffectsParent: false
+		ValidRelationships: Neutral, Enemy
+        ValidTargets: Ground, GroundActor, Water, WaterActor
+		Versus:
+            None: 100
+			Wood: 50
+            Light: 100
+            Heavy: 120
+            Concrete: 75 
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+	Warhead@2Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 50, 50
+		Damage: 225
+        ValidTargets: Ground, GroundActor, Water, WaterActor
+		InvalidTargets: Disruptor, Air
+		AffectsParent: false
+		ValidRelationships: Ally
+		Versus:
+            None: 100
+			Wood: 50
+            Light: 100
+            Heavy: 100
+            Concrete: 75 
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+
+SonicZapVisual:
+	ReloadDelay: 120
+	Range: 6c768
+	TargetActorCenter: true
+    ValidTargets: Ground, GroundActor, Water, WaterActor
+	InvalidTargets: Air
+	Projectile: AreaBeam
+		Speed: 0c428
+		Duration: 65
+		DamageInterval: 3
+		Width: 180
+		Shape: Flat
+		ZOffset: 1023
+		BeyondTargetRange: 0c256
+		Blockable: true
+		TrackTarget: true
+		Color: 00fffb35
+	Warhead@1Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 100, 100
+		Damage: 100
+		AffectsParent: false
+		ValidRelationships: Neutral, Enemy
+        ValidTargets: Ground, GroundActor, Water, WaterActor
+		Versus:
+            None: 100
+			Wood: 50
+            Light: 100
+            Heavy: 120
+            Concrete: 75 
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+	Warhead@2Dam: SpreadDamage
+		Range: 0, 32
+		Falloff: 50, 50
+		Damage: 50
+        ValidTargets: Ground, GroundActor, Water, WaterActor
+		InvalidTargets: Disruptor, Air
+		AffectsParent: false
+		ValidRelationships: Ally
+		Versus:
+            None: 100
+			Wood: 50
+            Light: 100
+            Heavy: 120
+            Concrete: 75 
+		DamageTypes: Prone50Percent, TriggerProne, FireDeath
+
+TiberiumLaser:
+	ReloadDelay: 80
+	Range: 7c512
+	Report: xolasr.aud
+    ValidTargets: Ground, GroundActor, Water, WaterActor
+	Projectile: LaserZapCA
+		Blockable: true
+		Width: 56
+		HitAnim: laserfire
+		Color: 9eff1480
+		SecondaryBeam: true
+		SecondaryBeamWidth: 90
+		SecondaryBeamColor: 79cd0040
+	Warhead@1Dam: SpreadDamage
+		Spread: 42
+		Damage: 10000
+		Versus:
+            None: 100
+			Wood: 50
+            Light: 100
+            Heavy: 120
+            Concrete: 75
+  		DamageTypes: Prone50Percent, TriggerProne, TiberiumDeath
+        ValidTargets: Ground, GroundActor, Water, WaterActor

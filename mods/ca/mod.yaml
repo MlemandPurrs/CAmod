@@ -1,106 +1,70 @@
 Metadata:
-	Title: Combined Arms
+	Title: OpenRA
 	Version: prep-CA
-	Website: https://www.moddb.com/mods/command-conquer-combined-arms
-	WebIcon32: https://ca.oraladder.net/img/icon_32x32.png
-	WindowTitle: OpenRA Combined Arms
+	WindowTitle: OpenRA
 
 PackageFormats: Mix
 
 Packages:
-	~^SupportDir|Content/ca
-	~^SupportDir|Content/ca/expand
-	~^SupportDir|Content/ca/ra
-	~^SupportDir|Content/ca/cnc
-	~^SupportDir|Content/ca/ts
-	~^SupportDir|Content/ca/firestorm
-	~^SupportDir|Content/ca/ra2
-	~^SupportDir|Content/ca/movies
-	~^SupportDir|Content/ca/music
 	^EngineDir
 	^EngineDir|mods/common: common
 	$ca: ca
-	~main.mix
-	~conquer.mix
-	~lores.mix: lores
-	~hires.mix
-	~local.mix
-	~sounds.mix
-	~speech.mix
-	~allies.mix
-	~russian.mix
-	~temperat.mix
-	~snow.mix
-	~interior.mix
-	~./cnc/scores.mix
-	~./ra/scores.mix
-	~./ts/scores.mix
-	~./ts/scores01.mix
-	~./ra2/theme.mix
-	~./ra2/thememd.mix
-	~expand2.mix
-	~hires1.mix
-	~desert.mix
+    ca|bits\general.mix
+    ca|bits\temperat.mix
+    ca|bits\eva.mix
+    ca|bits\buildings.mix
+    ca|bits\units.mix
+    ca|bits\icons.mix
+    ca|bits\effects.mix
+    ca|bits\warfare.mix
+    ca|bits\sounds.mix
+    ca|bits\voices.mix
+    ca|bits\music.mix
+    ca|bits\dinosaurs.mix
 	ca|bits
-	ca|bits/desert
-	ca|bits/jungle
-	ca|bits/winter
-	ca|bits/barren
-	ca|bits/temp
-	ca|bits/int
-	ca|bits/snow
-	ca|bits/audio
-	ca|bits/music
-	ca|uibits
-	ca|bits/scrin
-	ca|bits/scrin/audio
-	ca|bits/scrin/terrain
 	ca|scripts
+	common|scripts
+    ca|uibits
 
 MapFolders:
 	ca|maps: System
-	~^SupportDir|maps/ca/prep-CA: User
 
 Rules:
 	ca|rules/misc.yaml
-	ca|rules/ai.yaml
-	ca|rules/player.yaml
-	ca|rules/palettes.yaml
-	ca|rules/world.yaml
-	ca|rules/defaults.yaml
-	ca|rules/powers.yaml
-	ca|rules/vehicles.yaml
-	ca|rules/husks.yaml
-	ca|rules/structures.yaml
-	ca|rules/infantry.yaml
-	ca|rules/civilian.yaml
-	ca|rules/decoration.yaml
-	ca|rules/aircraft.yaml
-	ca|rules/ships.yaml
-	ca|rules/fakes.yaml
 	ca|rules/bridges.yaml
-	ca|rules/scrin.yaml
+	ca|rules/player.yaml
+	ca|rules/world.yaml
+	ca|rules/palettes.yaml
+	ca|rules/defaults.yaml
+	ca|rules/structures.yaml
+	ca|rules/fakes.yaml
+	ca|rules/infantry.yaml
+	ca|rules/vehicles.yaml
+	ca|rules/aircraft.yaml
+	ca|rules/naval.yaml
+	ca|rules/civilian.yaml
+	ca|rules/trees.yaml
+	ca|rules/decorations.yaml
+	ca|rules/dinosaurs.yaml
 	ca|rules/upgrades.yaml
+	ca|rules/ai.yaml
 
 Sequences:
 	ca|sequences/misc.yaml
-	ca|sequences/ships.yaml
-	ca|sequences/vehicles.yaml
+	ca|sequences/warfare.yaml
 	ca|sequences/structures.yaml
 	ca|sequences/infantry.yaml
+	ca|sequences/vehicles.yaml
 	ca|sequences/aircraft.yaml
+	ca|sequences/naval.yaml
+	ca|sequences/civilian.yaml
+	ca|sequences/trees.yaml
 	ca|sequences/decorations.yaml
-	ca|sequences/scrin.yaml
+	ca|sequences/dinosaurs.yaml
 	ca|sequences/upgrades.yaml
 
 TileSets:
-	ca|tilesets/snow.yaml
-	ca|tilesets/interior.yaml
 	ca|tilesets/temperat.yaml
-	ca|tilesets/desert.yaml
-	ca|tilesets/jungle.yaml
-	ca|tilesets/winter.yaml
-	ca|tilesets/barren.yaml
 
 Cursors:
 	ca|cursors.yaml
@@ -169,12 +133,14 @@ ChromeLayout:
 
 Weapons:
 	ca|weapons/explosions.yaml
+	ca|weapons/smallarms.yaml
 	ca|weapons/ballistics.yaml
 	ca|weapons/missiles.yaml
-	ca|weapons/other.yaml
-	ca|weapons/smallcaliber.yaml
+	ca|weapons/incendiary.yaml
+	ca|weapons/energybeam.yaml
 	ca|weapons/superweapons.yaml
-	ca|weapons/scrin.yaml
+	ca|weapons/miscellaneous.yaml
+    ca|weapons/dinosaurs.yaml
 
 Voices:
 	ca|audio/voices.yaml
@@ -222,41 +188,41 @@ ChromeMetrics:
 
 Fonts:
 	Tiny:
-		Font: ca|bombardreg.ttf
-		Size: 12
+		Font: common|FreeSans.ttf
+		Size: 10
 		Ascender: 8
 	TinyBold:
-		Font: ca|bombardreg.ttf
-		Size: 12
+		Font: common|FreeSansBold.ttf
+		Size: 10
 		Ascender: 8
 	Small:
-		Font: ca|bombardreg.ttf
-		Size: 14
+		Font: common|FreeSans.ttf
+		Size: 12
 		Ascender: 9
 	Regular:
-		Font: ca|bombardreg.ttf
-		Size: 16
-		Ascender: 11
-	Bold:
-		Font: ca|bombard.ttf
-		Size: 18
+		Font: common|FreeSans.ttf
+		Size: 14
 		Ascender: 11
 	Medium:
-		Font: ca|bombardreg.ttf
-		Size: 20
+		Font: common|FreeSans.ttf
+		Size: 18
 		Ascender: 14
+	Bold:
+		Font: common|FreeSansBold.ttf
+		Size: 14
+		Ascender: 11
 	MediumBold:
-		Font: ca|bombard.ttf
-		Size: 20
+		Font: common|FreeSansBold.ttf
+		Size: 18
 		Ascender: 14
 	BigBold:
-		Font: ca|bombard.ttf
-		Size: 26
+		Font: common|FreeSansBold.ttf
+		Size: 24
 		Ascender: 18
 	Title:
-		Font: ca|bombard.ttf
+		Font: common|FreeSansBold.ttf
 		Size: 32
-		Ascender: 26
+		Ascender: 24
 
 Missions:
 	ca|missions.yaml
@@ -267,7 +233,7 @@ MapGrid:
 
 DefaultOrderGenerator: UnitOrderGenerator
 
-SupportsMapsFrom: ca, ra
+SupportsMapsFrom: ca
 
 SoundFormats: Aud, Wav, Mp3, Ogg
 
@@ -276,20 +242,8 @@ SpriteFormats: ShpD2, R8, ShpTD, TmpRA, TmpTD, ShpTS
 SpriteSequenceFormat: ClassicTilesetSpecificSpriteSequence
 	TilesetCodes:
 		TEMPERAT: .tem
-		SNOW: .sno
-		INTERIOR: .int
-		DESERT: .des
-		JUNGLE: .jun
-		WINTER: .win
-		BARREN: .bar
 	TilesetExtensions:
 		TEMPERAT: .tem
-		SNOW: .sno
-		INTERIOR: .int
-		DESERT: .des
-		JUNGLE: .jun
-		WINTER: .win
-		BARREN: .bar
 
 ModelSequenceFormat: PlaceholderModelSequence
 
@@ -332,95 +286,4 @@ GameSpeeds:
 
 ModCredits:
 	ModCreditsFile: ca|CREDITS
-	ModTabTitle: Combined Arms
-
-ModContent:
-	InstallPromptMessage: Combined Arms requires artwork and audio from the original games.\n\nQuick Install will automatically download this content (without music\nor videos) from a mirror of the 2008 Command & Conquer/Red Alert\nfreeware release.\n\nAdvanced Install allows you to install music and other content,\nwhich may require original game installations or discs.\n\nYou can also install this additional content later via the main menu.
-	QuickDownload: quickinstall
-	HeaderMessage: Game content may be extracted from the original game discs or an\nexisting digital install. OpenRA can also download the base game\nfiles from an online mirror of the 2008 freeware release of RA.
-	Packages:
-		ContentPackage@base:
-			Title: Base Game Files
-			Identifier: base
-			TestFiles: ^SupportDir|Content/ca/allies.mix, ^SupportDir|Content/ca/conquer.mix, ^SupportDir|Content/ca/interior.mix, ^SupportDir|Content/ca/hires.mix, ^SupportDir|Content/ca/lores.mix, ^SupportDir|Content/ca/local.mix, ^SupportDir|Content/ca/speech.mix, ^SupportDir|Content/ca/russian.mix, ^SupportDir|Content/ca/snow.mix, ^SupportDir|Content/ca/sounds.mix, ^SupportDir|Content/ca/temperat.mix
-			Sources: allied, soviet, tfd, ra-steam, cncr-steam, ra-origin, cncr-origin
-			Required: true
-			Download: basefiles
-		ContentPackage@aftermathbase:
-			Title: Aftermath Expansion Files
-			Identifier: aftermathbase
-			TestFiles: ^SupportDir|Content/ca/expand/expand2.mix
-			Sources: aftermath, tfd, ra-steam, cncr-steam, ra-origin, cncr-origin
-			Required: true
-			Download: aftermath
-		ContentPackage@cncdesert:
-			Title: C&C Desert Tileset
-			Identifier: cncdesert
-			TestFiles: ^SupportDir|Content/ca/cnc/desert.mix
-			Sources: cnc95, tfd, cnc-steam, cncr-steam, cnc-origin, cncr-origin
-			Required: true
-			Download: cncdesert
-		ContentPackage@music-cnc:
-			Title: Tiberian Dawn Music
-			Identifier: music-cnc
-			TestFiles: ^SupportDir|Content/ca/cnc/scores.mix
-			Download: music-cnc
-			Sources: covertops, cnc95, tfd, cnc-steam, cncr-steam, cnc-origin, cncr-origin
-		ContentPackage@music-ra:
-			Title: Red Alert Music
-			Identifier: music-ra
-			TestFiles: ^SupportDir|Content/ca/ra/scores.mix
-			Download: music-ra
-			Sources: allied, soviet, tfd, ra-steam, cncr-steam, ra-origin, cncr-origin
-		ContentPackage@music-counterstrike:
-			Title: Counterstrike Music
-			Identifier: music-counterstrike
-			TestFiles: ^SupportDir|Content/ca/expand/2nd_hand.aud, ^SupportDir|Content/ca/expand/araziod.aud, ^SupportDir|Content/ca/expand/backstab.aud, ^SupportDir|Content/ca/expand/chaos2.aud, ^SupportDir|Content/ca/expand/shut_it.aud, ^SupportDir|Content/ca/expand/twinmix1.aud, ^SupportDir|Content/ca/expand/under3.aud, ^SupportDir|Content/ca/expand/vr2.aud,
-			Sources: counterstrike, ra-steam, cncr-steam, ra-origin, cncr-origin
-		ContentPackage@music-aftermath:
-			Title: Aftermath Music
-			Identifier: music-aftermath
-			TestFiles: ^SupportDir|Content/ca/expand/await.aud, ^SupportDir|Content/ca/expand/bog.aud, ^SupportDir|Content/ca/expand/float_v2.aud, ^SupportDir|Content/ca/expand/gloom_ra.aud, ^SupportDir|Content/ca/expand/grndwire.aud, ^SupportDir|Content/ca/expand/rpt.aud, ^SupportDir|Content/ca/expand/search.aud, ^SupportDir|Content/ca/expand/traction.aud, ^SupportDir|Content/ca/expand/wastelnd.aud
-			Sources: aftermath, ra-steam, cncr-steam, ra-origin, cncr-origin
-		ContentPackage@music-ts:
-			Title: Tiberian Sun Music
-			Identifier: music-ts
-			TestFiles: ^SupportDir|Content/ca/ts/scores.mix
-			Download: music-ts
-			Sources: tibsun, ts-steam, ts-origin
-		ContentPackage@music-firestorm:
-			Title: Firestorm Music
-			Identifier: music-firestorm
-			TestFiles: ^SupportDir|Content/ca/firestorm/dmachine.aud, ^SupportDir|Content/ca/firestorm/elusive.aud, ^SupportDir|Content/ca/firestorm/hacker.aud, ^SupportDir|Content/ca/firestorm/infiltra.aud, ^SupportDir|Content/ca/firestorm/kmachine.aud, ^SupportDir|Content/ca/firestorm/linkup.aud, ^SupportDir|Content/ca/firestorm/rainnite.aud, ^SupportDir|Content/ca/firestorm/slavesys.aud
-			Download: music-fs
-			Sources: firestorm, ts-steam, ts-origin
-		ContentPackage@music-ra2:
-			Title: Red Alert 2 Music
-			Identifier: music-ra2
-			TestFiles: ^SupportDir|Content/ca/ra2/theme.mix
-			Sources: ra2, ra2-steam, ra2-origin
-		ContentPackage@music-yr:
-			Title: Yuri's Revenge Music
-			Identifier: music-yr
-			TestFiles: ^SupportDir|Content/ca/ra2/thememd.mix
-			Sources: ra2yr, ra2-steam, ra2-origin
-
-	Downloads:
-		ca|installer/downloads.yaml
-	Sources:
-		ca|installer/aftermath.yaml
-		ca|installer/allies95.yaml
-		ca|installer/cnc95.yaml
-		ca|installer/counterstrike.yaml
-		ca|installer/covertops.yaml
-		ca|installer/firestorm.yaml
-		ca|installer/firstdecade.yaml
-		ca|installer/origin.yaml
-		ca|installer/ra2.yaml
-		ca|installer/ra2yr.yaml
-		ca|installer/soviet95.yaml
-		ca|installer/steam.yaml
-		ca|installer/tibsun.yaml
-
-DiscordService:
-	ApplicationId: 787647352399200277
+	ModTabTitle: Tiberian Dawn

@@ -1,31 +1,8 @@
 # General dumping-ground for UI element sizes, etc.
 
 Metrics:
-	FactionSuffix-allies: allies
-	FactionSuffix-england: allies
-	FactionSuffix-france: allies
-	FactionSuffix-germany: allies
-	FactionSuffix-usa: allies
-	FactionSuffix-soviet: soviet
-	FactionSuffix-russia: soviet
-	FactionSuffix-ukraine: soviet
-	FactionSuffix-iraq: soviet
-	FactionSuffix-yuri: soviet
 	FactionSuffix-gdi: gdi
-	FactionSuffix-talon: gdi
-	FactionSuffix-zocom: gdi
-	FactionSuffix-eagle: gdi
-	FactionSuffix-arc: gdi
 	FactionSuffix-nod: nod
-	FactionSuffix-blackh: nod
-	FactionSuffix-marked: nod
-	FactionSuffix-legion: nod
-	FactionSuffix-shadow: nod
-	FactionSuffix-scrin: scrin
-	FactionSuffix-reaper: scrin
-	FactionSuffix-traveler: scrin
-	FactionSuffix-harbinger: scrin
-	FactionSuffix-collector: scrin
 	IncompatibleProtectedGameColor: B22222
 	IncompatibleVersionColor: D3D3D3
 	TextfieldColorHighlight: 562020

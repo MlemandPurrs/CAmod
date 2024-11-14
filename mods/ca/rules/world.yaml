@@ -1,695 +1,306 @@
 ^BaseWorld:
-	Inherits: ^Palettes
 	AlwaysVisible:
-	ActorMap:
+	Inherits: ^Palettes
 	ScreenMap:
+	ActorMap:
 	Selection:
 	ControlGroups:
 	MusicPlaylist:
-		VictoryMusic: slavesys
-		DefeatMusic: fsmenu
-	TerrainGeometryOverlay:
+		VictoryMusic: win1
+		DefeatMusic: nod_map1
 	DebugVisualizations:
+	TerrainRenderer:
+	TerrainGeometryOverlay:
+	ShroudRenderer:
+		ShroudVariants: typea, typeb, typec, typed
+		FogVariants: typea, typeb, typec, typed
+		OverrideFullShroud: full
+		OverrideFullFog: full
 	Locomotor@FOOT:
 		Name: foot
-		Crushes: mine, crate
+		Crushes: crate
 		SharesCell: true
+        TerrainSpeeds:
+			Clear: 100
+			Rough: 90
+			Road: 110
+			Bridge: 110
+			Tiberium: 90
+				PathingCost: 300
+			BlueTiberium: 90
+				PathingCost: 300
+			RedTiberium: 90
+				PathingCost: 300
+			Beach: 90
+            Stone: 90
+	Locomotor@FOOTCHEM:
+		Name: foot-chem
+		Crushes: crate
+		SharesCell: true
+        TerrainSpeeds:
+			Clear: 100
+			Rough: 90
+			Road: 110
+			Bridge: 110
+			Tiberium: 90
+			BlueTiberium: 90
+			RedTiberium: 90
+			Beach: 90
+	Locomotor@WHEELED:
+		Name: wheeled
+		Crushes: crate, mine
+		TerrainSpeeds:
+			Clear: 100
+			Rough: 50
+			Road: 125
+			Bridge: 125
+			Tiberium: 90
+			BlueTiberium: 90
+			RedTiberium: 90
+			Beach: 50
+	Locomotor@HEAVYWHEELED:
+		Name: heavywheeled
+		Crushes: crate, mine, infantry, bike
+        CrushDamageTypes: CrushingDeath
+		TerrainSpeeds:
+			Clear: 100
+			Rough: 50
+			Road: 125
+			Bridge: 125
+			Tiberium: 90
+			BlueTiberium: 90
+			RedTiberium: 90
+			Beach: 50
+	Locomotor@TRACKED:
+		Name: tracked
+		Crushes: wall, crate, mine, infantry
+        CrushDamageTypes: CrushingDeath
+		TerrainSpeeds:
+			Clear: 100
+			Rough: 90
+			Road: 125
+			Bridge: 125
+			Tiberium: 90
+			BlueTiberium: 90
+			RedTiberium: 90
+			Beach: 90
+	Locomotor@HEAVYTRACKED:
+		Name: heavytracked
+		Crushes: wall, heavywall, crate, mine, infantry, bike
+        CrushDamageTypes: CrushingDeath
+		TerrainSpeeds:
+			Clear: 100
+			Rough: 90
+			Road: 125
+			Bridge: 125
+			Tiberium: 90
+			BlueTiberium: 90
+			RedTiberium: 90
+			Beach: 90
+	Locomotor@CRITTER:
+		Name: critter
+        Crushes: crate, mine
 		TerrainSpeeds:
 			Clear: 100
 			Rough: 90
 			Road: 110
-			Bridge: 100
-			Ford: 90
-			Ore: 80
-			Gems: 80
-			Tiberium: 70
-			BlueTiberium: 70
-			Beach: 80
-	Locomotor@JUMPJET:
-		Name: jumpjet
-		Crushes: crate
-		SharesCell: true
-		TerrainSpeeds:
-			Clear: 100
-			Rough: 100
-			Road: 100
-			Bridge: 100
-			Ford: 100
-			Ore: 100
-			Gems: 100
-			Tiberium: 100
-			BlueTiberium: 100
-			Beach: 100
-			Water: 100
-			River: 100
-			Rock: 100
-			Tunnel: 100
-			Wall: 100
-			Tree: 100
-	Locomotor@WHEELED:
-		Name: wheeled
-		Crushes: mine, crate, beacon
-		TerrainSpeeds:
-			Clear: 100
-			Rough: 75
-			Road: 125
-			Bridge: 125
-			Ford: 75
-			Ore: 88
-			Gems: 88
-			Tiberium: 88
-			BlueTiberium: 88
-			Beach: 50
-	Locomotor@HEAVYWHEELED:
-		Name: heavywheeled
-		Crushes: wall, mine, crate, infantry, beacon
-		TerrainSpeeds:
-			Clear: 100
-			Rough: 88
-			Road: 120
 			Bridge: 110
-			Ford: 88
-			Ore: 88
-			Gems: 88
-			Tiberium: 88
-			BlueTiberium: 88
-			Beach: 45
-	Locomotor@LIGHTTRACKED:
-		Name: lighttracked
-		Crushes: wall, mine, crate, beacon
-		TerrainSpeeds:
-			Clear: 100
-			Rough: 88
-			Road: 125
-			Bridge: 125
-			Ford: 88
-			Ore: 88
-			Gems: 88
-			Tiberium: 88
-			BlueTiberium: 88
-			Beach: 88
-	Locomotor@TRACKED:
-		Name: tracked
-		Crushes: wall, infantry, mine, crate, beacon
-		TerrainSpeeds:
-			Clear: 100
-			Rough: 88
-			Road: 125
-			Bridge: 125
-			Ford: 88
-			Ore: 88
-			Gems: 88
-			Tiberium: 88
-			BlueTiberium: 88
-			Beach: 88
-	Locomotor@HEAVYTRACKED:
-		Name: heavytracked
-		Crushes: wall, infantry, mine, crate, heavywall, beacon
-		TerrainSpeeds:
-			Clear: 100
-			Rough: 88
-			Road: 125
-			Bridge: 125
-			Ford: 88
-			Ore: 88
-			Gems: 88
-			Tiberium: 88
-			BlueTiberium: 88
-			Beach: 88
-	Locomotor@SHEAVYTRACKED:
-		Name: sheavytracked
-		Crushes: wall, infantry, tank, mine, crate, heavywall, beacon
-		TerrainSpeeds:
-			Clear: 100
-			Rough: 88
-			Road: 125
-			Bridge: 125
-			Ford: 88
-			Ore: 88
-			Gems: 88
-			Tiberium: 88
-			BlueTiberium: 88
-			Beach: 88
+			Tiberium: 90
+			BlueTiberium: 90
+			RedTiberium: 90
+			Beach: 90
 	Locomotor@NAVAL:
 		Name: naval
 		Crushes: crate, mine
 		TerrainSpeeds:
 			Water: 100
-			Ford: 70
-			Bridge: 100
-			Tunnel: 100
 	Locomotor@LANDINGCRAFT:
-		Name: lcraft
+		Name: landingcraft
 		Crushes: crate, mine
 		TerrainSpeeds:
 			Water: 100
 			Beach: 70
-			Ford: 70
-			Bridge: 100
-			Tunnel: 100
-	Locomotor@HOVER:
-		Name: hover
-		Crushes: wall, infantry, mine, crate, beacon
-		TerrainSpeeds:
-			Clear: 100
-			Rough: 88
-			Road: 125
-			Bridge: 125
-			Ford: 88
-			Ore: 88
-			Gems: 88
-			Tiberium: 88
-			BlueTiberium: 88
-			Beach: 88
-			Water: 100
-			Tunnel: 100
-	Locomotor@LIGHTHOVER:
-		Name: lighthover
-		Crushes: mine, crate, beacon
-		TerrainSpeeds:
-			Clear: 100
-			Rough: 88
-			Road: 125
-			Bridge: 125
-			Ford: 88
-			Ore: 88
-			Gems: 88
-			Tiberium: 88
-			BlueTiberium: 88
-			Beach: 88
-			Water: 70
-			Tunnel: 100
-	Locomotor@Amphibious:
-		Name: Amphibious
-		Crushes: wall, infantry, mine, crate, beacon
-		TerrainSpeeds:
-			Clear: 100
-			Rough: 88
-			Road: 125
-			Bridge: 125
-			Ford: 88
-			Ore: 88
-			Gems: 88
-			Tiberium: 88
-			BlueTiberium: 88
-			Beach: 88
-			Water: 35
-	Locomotor@CLOUD:
-		Name: cloud
-		Crushes: crate
-		SharesCell: true
-		TerrainSpeeds:
-			Clear: 100
-			Rough: 100
-			Road: 100
-			Bridge: 100
-			Ford: 100
-			Ore: 100
-			Gems: 100
-			Tiberium: 100
-			BlueTiberium: 100
-			Beach: 100
-			Tunnel: 100
-			Water: 100
-			River: 100
-			Rock: 100
-			Wall: 100
-			Tree: 100
-	Locomotor@IMMOBILE:
-		Name: immobile
-		TerrainSpeeds:
-	Locomotor@SEAL:
-		Name: seal
-		Crushes: mine, crate
-		SharesCell: true
+	Locomotor@TRACKEDAMPHIBIAN:
+		Name: tracked-amphibious
+		Crushes: wall, crate, mine, infantry
+        CrushDamageTypes: CrushingDeath
 		TerrainSpeeds:
 			Clear: 100
 			Rough: 90
-			Road: 110
-			Bridge: 100
-			Ford: 90
-			Ore: 80
-			Gems: 80
-			Tiberium: 70
-			BlueTiberium: 70
-			Beach: 80
-			Water: 50
-	TerrainRenderer:
-	ShroudRenderer:
-		FogVariants: shroud
-		Index: 255, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240, 20, 40, 56, 65, 97, 130, 148, 194, 24, 33, 66, 132, 28, 41, 67, 134, 1, 2, 4, 8, 3, 6, 12, 9, 7, 14, 13, 11, 5, 10, 15, 255
-		UseExtendedIndex: true
-	Faction@random:
+			Road: 125
+			Bridge: 125
+			Tiberium: 90
+			BlueTiberium: 90
+			RedTiberium: 90
+			Beach: 90
+            Water: 80
+	Faction@Random:
 		Name: Any
 		InternalName: Random
-		RandomFactionMembers: RandomAllies, RandomSoviet, RandomGDI, RandomNOD, RandomScrin
+		RandomFactionMembers: gdi, nod
 		Description: Random Faction\nA random faction will be chosen when the game starts.
-	Faction@0:
-		Name: Allies
-		InternalName: allies
-		Side: Allies
-		Selectable: False
-	Faction@1:
-		Name: England
-		InternalName: england
-		Side: Allies
-		Description: England: Subterfuge\n Units:\n  • Sniper\n  • Mirage Tank (replaces Scout Tank)\n  • Camo Pillbox (replaces Pillbox)\n\n Powers:\n  • Veil of War\n\n Upgrades:\n  • Raufoss Ammo\n\n Bonuses:\n  • Fake Buildings
-	Faction@2:
-		Name: France
-		InternalName: france
-		Side: Allies
-		Description: France: Fortification\n Units:\n  • Battle Fortress\n  • Grand Cannon (replaces Prism Tower)\n\n Powers:\n  • Cluster Mines\n\n Upgrades:\n  • Entrenchment\n\n Bonuses:\n  • Walls & Defenses (10% Discount)
-	Faction@3:
-		Name: Germany
-		InternalName: germany
-		Side: Allies
-		Description: Germany: Innovation\n Units:\n  • Chrono Prison\n  • Tank Destroyer\n\n Powers:\n  • Temporal Incursion\n  • Time Warp\n\n Upgrades:\n  • Temporal Flux\n\n Bonuses:\n  • Chrono Tanks (10% Discount)\n  • Chronosphere (20% Discount)
-	Faction@USA:
-		Name: USA
-		InternalName: usa
-		Side: Allies
-		Description: USA: Airborne Forces\n Units:\n  • SEAL\n  • Nighthawk (replaces Chinook)\n  • Guardian GI (via Airdrop)\n  • Grizzly Tank (via Airdrop)\n\n Powers:\n  • Strafing Run\n\n Upgrades:\n  • Advanced Airborne Training\n\n Bonuses:\n  • Airdrop Units
-	Faction@4:
-		Name: Soviet
-		InternalName: soviet
-		Side: Soviet
-		Selectable: False
-	Faction@5:
-		Name: Russia
-		InternalName: russia
-		Side: Soviet
-		Description: Russia: Tesla Techology\n Units:\n  • Tesla Tank\n  • Tesla Reactor (replaces Advanced Power Plant)\n\n Powers:\n  • Storm Troopers\n  • Parabombs\n\n Upgrades:\n  • Tesla Arcing\n\n Bonuses:\n  • Tesla Coil (10% Discount)\n  • Shock Trooper (10% Discount)\n  • Tesla Trooper (10% Discount)\n  • Kirov Tesla Bombs
-	Faction@6:
-		Name: Ukraine
-		InternalName: ukraine
-		Side: Soviet
-		Description: Ukraine: Demolition\n Units:\n  • Siege Tank\n  • Crazy Ivan (replaces Grenadier)\n\n Powers:\n  • Carpet Bomb\n  • Paratroopers\n\n Upgrades:\n  • Seismic Missiles\n\n Bonuses:\n  • V3 Launcher (10% Discount)\n  • MAD Tank (25% Discount)\n  • Kirov Cluster Bombs
-	Faction@7:
-		Name: Iraq
-		InternalName: iraq
-		Side: Soviet
-		Description: Iraq: Nuclear Warfare\n Units:\n  • Rad Trooper (replaces Shock Trooper)\n  • Toxin Tower (replaces Flame Tower)\n\n Powers:\n  • A-Bomb\n  • Paratroopers\n\n Upgrades:\n  • Desolator (replaces Rad Trooper)\n  • Eradicator (replaces Mammoth Tank)\n\n Bonuses:\n  • Demolition Truck (10% Discount)\n  • Missile Silo (40% Discount)\n  • Kirov Atom Bombs
-	Faction@YURI:
-		Name: Psi-Corps
-		InternalName: yuri
-		Side: Soviet
-		Description: Psychic Corps: Mind Control & Genetics\n Units:\n  • Brute\n  • Floating Disc (replaces Kirov)\n  • Chaos Drone (replaces MAD Tank)\n  • Yuri (replaces Boris)\n\n Powers:\n  • Genetic Mutation Bomb\n  • Chaos Bombs\n\n Upgrades:\n  • Lasher Tank\n  • Gattling BTR
-	Faction@8:
+	Faction@gdi:
 		Name: GDI
 		InternalName: gdi
-		Side: GDI
-		Selectable: False
-	Faction@9:
-		Name: Talon
-		InternalName: talon
-		Side: GDI
-		Description: Steel Talon: Mech Warfare\n Units:\n  • Wolverine\n  • Juggernaut\n  • Titan (replaces Mammoth Tank)\n\n Powers:\n  • X-O Drop\n\n Upgrades:\n  • Railgun Titan (replaces Titan)\n  • Gyro Stabilizers\n\n Bonuses:\n  • Tech Center (10% Discount)\n  • Upgrade Center (20% Discount)
-	Faction@10:
-		Name: ZOCOM
-		InternalName: zocom
-		Side: GDI
-		Description: ZOCOM: Experimental Weapons\n Units:\n  • X-O Powersuit\n  • Disruptor\n  • Sonic Tower (replaces Advanced Guard Tower)\n\n Powers:\n  • Drop Pods\n  • Surgical Strike\n\n Upgrades:\n  • Ion Mammoth (replaces Mammoth Tank)\n  • Sonic Amplifiers\n\n Bonuses:\n  • Adv. Communication Center (40% Discount)\n  • Hazmat Suits Equipped as Standard
-	Faction@11:
-		Name: Eagle
-		InternalName: eagle
-		Side: GDI
-		Description: Eagle Corps: Rapid Reaction Force\n Units:\n  • Pitbull\n  • Aurora\n  • Hover MLRS (replaces MLRS)\n\n Powers:\n  • Reinforcements\n\n Upgrades:\n  • Hover Mammoth (replaces Mammoth Tank)\n  • Orca Afterburner\n\n Bonuses:\n  • Aircraft (10% Discount)
-	Faction@ARC:
-		Name: ARC
-		InternalName: arc
-		Side: GDI
-		Description: Advanced Robotics Command: Robotics\n Units:\n  • Mini Drone\n  • Jackknife\n  • Guardian Drone (replaces Hum-Vee)\n\n Powers:\n  • Nanite Repair\n\n Upgrades:\n  • Mammoth Drone (replaces Mammoth Tank)\n  • Battle Drone (replaces Battle Tank)\n\n Bonuses:\n  • Recon Drone (-20% Cooldown)\n  • Mobile Sensor Array (20% Discount)\n  • Drone Carrier (10% Discount)\n  • Additional Comms. Centers (-50% Discount)
-	Faction@12:
+		Description: Global Defense Initiative\nThe GDI is an international military branch of the United Nations tasked\nwith keeping world peace. Commanding the combined forces of the world's\nmost powerful nations, they have an unmatched arsenal of high-tech weaponry.
+	Faction@nod:
 		Name: Nod
 		InternalName: nod
-		Side: Nod
-		Selectable: False
-	Faction@13:
-		Name: Black Hand
-		InternalName: blackh
-		Side: Nod
-		Description: Black Hand: Flame Weaponry\n Units:\n  • Black Hand Trooper\n  • Heavy Flame Tank (replaces Flame Tank)\n\n Powers:\n  • Inferno Bomb\n  • Heavy Flame Tank Drop\n\n Upgrades:\n  • Black Napalm\n\n Bonuses:\n  • SSM (10% Discount)\n  • Free Howitzer Upgrade
-	Faction@14:
-		Name: Marked
-		InternalName: marked
-		Side: Nod
-		Description: Marked of Kane: Alien Weaponry\n Units:\n  • Acolyte/Templar\n  • Venom (replaces Apache)\n\n Powers:\n  • Frenzy\n  • Subterranean Strike\n\n Upgrades:\n  • Quantum Capacitors\n\n Bonuses:\n  • Banshee (10% Discount)\n  • Temple Prime (10% Discount)
-	Faction@15:
-		Name: Legion
-		InternalName: legion
-		Side: Nod
-		Description: Legion: Stolen Technology\n Units:\n  • Microwave Tank\n  • APC\n  • Battle Tank (replaces Light Tank)\n\n Powers:\n  • Cash Hack\n  • Hacker Cell\n\n Upgrades:\n  • Intensified Microwaves\n\n Bonuses:\n  • Stolen Technology Units (10% Discount)\n  • Hack Satellite (-33% Cooldown)
-	Faction@shadow:
-		Name: Shadow
-		InternalName: shadow
-		Side: Nod
-		Description: Shadow Sect: Stealth Technology\n Units:\n  • Mobile Stealth Generator\n  • Spectre (replaces SSM)\n\n Powers:\n  • Shadow Team\n  • Stealth Tank Drop\n\n Upgrades:\n  • Alpha Comanche\n\n Bonuses:\n  • Stealth Tank (10% Discount)\n  • Stealth Generator (+4 Passive Range, remains cloaked while active)
-	Faction@16:
-		Name: Scrin
-		InternalName: scrin
-		Side: Scrin
-		Selectable: False
-	Faction@17:
-		Name: Reaper-17
-		InternalName: reaper
-		Side: Scrin
-		Description: Reaper-17: Frontal Assault\n Units:\n  • Stormcrawler\n  • Reaper Tripod (replaces Annihilator Tripod)\n\n Powers:\n  • Storm Spike\n\n Upgrades:\n  • Shard Walker\n\n Bonuses:\n  • Devourer (10% Discount)\n  • Ichor Seed (-20% Cooldown)
-	Faction@18:
-		Name: Traveler-59
-		InternalName: traveler
-		Side: Scrin
-		Description: Traveler-59: Fast Attack\n Units:\n  • Enervator\n  • Lacerator (replaces Seeker)\n\n Powers:\n  • Ion Surge\n\n Upgrades:\n  • Advanced Articulators\n\n Bonuses:\n  • Fast Walkers (+15% Speed)
-	Faction@19:
-		Name: Harbinger-31
-		InternalName: harbinger
-		Side: Scrin
-		Description: Harbinger-31: Extermination & Rift Tech\n Units:\n  • Ruiner\n  • Darkener (replaces Devourer)\n\n Powers:\n  • Buzzer Swarm\n\n Upgrades:\n  • Stellar Fusion Cannon\n\n Bonuses:\n  • Devastator Warship (10% Discount)\n  • Rift Generator (20% Discount)
-	Faction@20:
-		Name: Collector-73
-		InternalName: collector
-		Side: Scrin
-		Description: Collector-73: Leeching & Degeneration\n Units:\n  • Atomizer\n  • Leecher (replaces Corrupter)\n\n Powers:\n  • Greater Coalescence\n\n Upgrades:\n  • Coalescence\n\n Bonuses:\n  • Field Manipulator (20% Discount)\n  • Suppression Field (affected units take damage over time)
-	Faction@randomallies:
-		Name: Allies
-		InternalName: RandomAllies
-		RandomFactionMembers: england, france, germany, usa
-		Side: Random
-		Description: Random Allied Faction\nA random Allied faction will be chosen when the game starts.
-	Faction@randomsoviet:
-		Name: Soviet
-		InternalName: RandomSoviet
-		RandomFactionMembers: russia, ukraine, iraq, yuri
-		Side: Random
-		Description: Random Soviet Faction\nA random Soviet faction will be chosen when the game starts.
-	Faction@randomgdi:
-		Name: GDI
-		InternalName: RandomGDI
-		RandomFactionMembers: talon, zocom, eagle, arc
-		Side: Random
-		Description: Random GDI Faction\nA random GDI faction will be chosen when the game starts.
-	Faction@randomnod:
-		Name: Nod
-		InternalName: RandomNOD
-		RandomFactionMembers: blackh, marked, legion, shadow
-		Side: Random
-		Description: Random Nod Faction\nA random Nod faction will be chosen when the game starts.
-	Faction@randomscrin:
-		Name: Scrin
-		InternalName: RandomScrin
-		RandomFactionMembers: reaper, traveler, harbinger, collector
-		Side: Random
-		Description: Random Scrin Faction\nA random Scrin faction will be chosen when the game starts.
+		Description: Brotherhood of Nod\nThe Brotherhood is a religious cult centered around their leader Kane\nand the alien substance Tiberium. They utilize stealth technology\nand guerilla tactics to defeat those who oppose them.
 	ResourceRenderer:
 		ResourceTypes:
-			Ore:
-				Sequences: gold01, gold02, gold03, gold04
-				Palette: player
-				Name: Valuable Minerals
-			Gems:
-				Sequences: gem01, gem02, gem03, gem04
-				Palette: player
-				Name: Valuable Minerals
 			Tiberium:
 				Sequences: ti1,ti2,ti3,ti4,ti5,ti6,ti7,ti8,ti9,ti10,ti11,ti12
-				Palette: tiberiumpalette
+				Palette: tiberium
 				Name: Tiberium
 			BlueTiberium:
-				Sequences: bti1,bti2,bti3,bti4,bti5,bti6,bti7,bti8,bti9,bti10,bti11,bti12
-				Palette: bluetiberium
-				Name: Azure Tiberium
+				Sequences: ti1,ti2,ti3,ti4,ti5,ti6,ti7,ti8,ti9,ti10,ti11,ti12
+				Palette: tiberium2
+				Name: Blue Tiberium
+			RedTiberium:
+				Sequences: ti1,ti2,ti3,ti4,ti5,ti6,ti7,ti8,ti9,ti10,ti11,ti12
+				Palette: tiberium3
+				Name: Red Tiberium
 
 World:
 	Inherits: ^BaseWorld
+	CrateSpawner:
+		Minimum: 1
+		Maximum: 6
+		SpawnInterval: 3000
+		WaterChance: 0
+		InitialSpawnDelay: 1500
+		CheckboxDisplayOrder: 1
 	ChatCommands:
 	DevCommands:
 	DebugVisualizationCommands:
-	HierarchicalPathFinderOverlay:
 	PathFinderOverlay:
+	HierarchicalPathFinderOverlay:
 	PlayerCommands:
 	HelpCommand:
 	ScreenShaker:
 	BuildingInfluence:
+	LegacyBridgeLayer:
+		Bridges: bridge1, bridge2, bridgev, bridgeh, bridgew1, bridgew2
 	ProductionQueueFromSelectionCA:
 		ProductionTabsWidget: PRODUCTION_TABS
-	LegacyBridgeLayer:
-		Bridges: bridge1, bridge2, br1, br2, br3, sbridge1, sbridge2, sbridge3, sbridge4, sbridge5, sbridge6, sbridge7, brg1, brg2, brg3, brv1, brv2, brv3, brh1, brh2, brh3
-	CustomTerrainDebugOverlay:
-	CrateSpawner:
-		DeliveryAircraft: c17
-		QuantizedFacings: 16
-		Minimum: 1
-		Maximum: 3
-		SpawnInterval: 3000
-		WaterChance: 20
-		InitialSpawnDelay: 1500
-		CheckboxDisplayOrder: 5
-		CheckboxEnabled: false
 	SmudgeLayer@SCORCH:
 		Type: Scorch
 		Sequence: scorches
-		SmokeChance: 35
-		SmokeImage: scorch_flames
-		SmokeSequences: medium_flame, small_flame, smoke
-		MaxSmokeOffsetDistance: 213
-	SmudgeLayer@SCORCHNF:
-		Type: Scorch-NoFlame
-		Sequence: scorches
-		SmokeChance: 35
-		SmokeImage: scorch_flames
-		SmokeSequences: smoke
-		MaxSmokeOffsetDistance: 213
-	SmudgeLayer@SCORCHBLACK:
-		Type: Scorch-Black
-		Sequence: scorches
-		SmokeChance: 35
-		SmokeImage: scorch_flames
-		SmokeSequences: medium_flame_black, small_flame_black, smoke
-		MaxSmokeOffsetDistance: 213
-		SmokePalette: scrineffect
+		SmokeChance: 50
+		SmokeImage: smoke_m
+		SmokeSequences: idle
 	SmudgeLayer@CRATER:
 		Type: Crater
 		Sequence: craters
 		SmokeChance: 25
 		SmokeImage: smoke_m
 		SmokeSequences: idle
-		MaxSmokeOffsetDistance: 213
 	ResourceLayer:
 		RecalculateResourceDensity: true
 		ResourceTypes:
-			Ore:
-				ResourceIndex: 1
-				TerrainType: Ore
-				AllowedTerrainTypes: Clear, Road
-				MaxDensity: 12
-			Gems:
-				ResourceIndex: 2
-				TerrainType: Gems
-				AllowedTerrainTypes: Clear, Road
-				MaxDensity: 8
 			Tiberium:
-				ResourceIndex: 3
+				ResourceIndex: 1
 				TerrainType: Tiberium
 				AllowedTerrainTypes: Clear, Road
 				MaxDensity: 12
 			BlueTiberium:
-				ResourceIndex: 4
+				ResourceIndex: 2
 				TerrainType: BlueTiberium
 				AllowedTerrainTypes: Clear, Road
-				MaxDensity: 8
+				MaxDensity: 12
+            RedTiberium:
+                ResourceIndex: 3
+                TerrainType: RedTiberium
+                AllowedTerrainTypes: Clear, Road
+                MaxDensity: 12
 	ResourceClaimLayer:
-	TintedCellsLayer@RADSTRONG:
-		Color: 00FF00
-		Brightest: 54
-		FadeoutDelay: 400
-		ZOffset: 0
-		Name: radioactivity.strong
-	TintedCellsLayer@RADMED:
-		Color: 00FF00
-		Brightest: 54
-		FadeoutDelay: 300
-		ZOffset: 0
-		Name: radioactivity.medium
-	TintedCellsLayer@RADWEAK:
-		Color: 00FF00
-		Brightest: 54
-		FadeoutDelay: 200
-		ZOffset: 0
-		Name: radioactivity.weak
-	TintedCellsLayer@cryoresidue:
-		Color: 51aed9
-		Brightest: 54
-		FadeoutDelay: 100
-		ZOffset: 0
-		Name: cryoresidue
 	WarheadDebugOverlay:
+	CustomTerrainDebugOverlay:
+	MapCreeps:
+		CheckboxVisible: False
+		CheckboxEnabled: True
+		CheckboxLocked: True
 	SpawnMapActors:
 	MapBuildRadius:
-		AllyBuildRadiusCheckboxDisplayOrder: 9
-		BuildRadiusCheckboxDisplayOrder: 6
+		AllyBuildRadiusCheckboxDisplayOrder: 0
+        AllyBuildRadiusCheckboxEnabled: false
+        AllyBuildRadiusCheckboxLocked: true
+        AllyBuildRadiusCheckboxVisible: false
+		BuildRadiusCheckboxDisplayOrder: 5
 	MapOptions:
 		ShortGameCheckboxDisplayOrder: 1
-		TechLevelDropdownDisplayOrder: 4
-		GameSpeedDropdownDisplayOrder: 2
-	CreateMapPlayers:
-	StartingUnits@mcvonly:
-		Class: none
-		ClassName: options-starting-units.mcv-only
-		Factions: allies, england, france, germany, usa, soviet, russia, ukraine, iraq, yuri
-		BaseActor: mcv
-	StartingUnits@lightallies:
-		Class: light
-		ClassName: options-starting-units.light-support
-		Factions: allies, england, france, germany, usa
-		BaseActor: mcv
-		SupportActors: e1,e1,e1,e3,e3
-		InnerSupportRadius: 3
-		OuterSupportRadius: 5
-	StartingUnits@lightsoviet:
-		Class: light
-		ClassName: options-starting-units.light-support
-		Factions: soviet, russia, ukraine, iraq, yuri
-		BaseActor: mcv
-		SupportActors: e1,e1,e1,e3,e3
-		InnerSupportRadius: 3
-		OuterSupportRadius: 5
-	StartingUnits@heavyallies:
-		Class: heavy
-		ClassName: options-starting-units.heavy-support
-		Factions: allies, england, france, germany, usa
-		BaseActor: mcv
-		SupportActors: e1,e1,e1,e3,e3,e3,2tnk,2tnk
-		InnerSupportRadius: 3
-		OuterSupportRadius: 5
-	StartingUnits@heavysoviet:
-		Class: heavy
-		ClassName: options-starting-units.heavy-support
-		Factions: soviet, russia, ukraine, iraq, yuri
-		BaseActor: mcv
-		SupportActors: e1,e1,e1,e3,e3,3tnk,3tnk
-		InnerSupportRadius: 3
-		OuterSupportRadius: 5
-	StartingUnits@mcvonly2:
-		Class: none
-		ClassName: options-starting-units.mcv-only
-		Factions: gdi, talon, zocom, eagle, arc, nod, blackh, marked, legion, shadow
-		BaseActor: amcv
-	StartingUnits@defaultgdia:
-		Class: light
-		ClassName: options-starting-units.light-support
-		Factions: gdi, talon, zocom, eagle, arc
-		BaseActor: amcv
-		SupportActors: n1,n1,n1,n3,n3
-		InnerSupportRadius: 3
-		OuterSupportRadius: 5
-	StartingUnits@defaultnoda:
-		Class: light
-		ClassName: options-starting-units.light-support
-		Factions: nod, blackh, marked, legion, shadow
-		BaseActor: amcv
-		SupportActors: n1,n1,n1,n3,n3
-		InnerSupportRadius: 3
-		OuterSupportRadius: 5
-	StartingUnits@heavynoda:
-		Class: heavy
-		ClassName: options-starting-units.heavy-support
-		Factions: nod, blackh, marked, legion, shadow
-		BaseActor: amcv
-		SupportActors: n1,n1,n1,n3,n3,mtnk,mtnk
-		InnerSupportRadius: 3
-		OuterSupportRadius: 5
-	StartingUnits@heavygdia:
-		Class: heavy
-		ClassName: options-starting-units.heavy-support
-		Factions: gdi, talon, zocom, eagle, arc
-		BaseActor: amcv
-		SupportActors: n1,n1,n1,n3,n3,mtnk,mtnk
-		InnerSupportRadius: 3
-		OuterSupportRadius: 5
-	StartingUnits@mcvonlyscrin:
-		Class: none
-		ClassName: options-starting-units.mcv-only
-		Factions: scrin, reaper, traveler, harbinger, collector
-		BaseActor: smcv
-	StartingUnits@lightscrin:
-		Class: light
-		ClassName: options-starting-units.light-support
-		Factions: scrin, reaper, traveler, harbinger, collector
-		BaseActor: smcv
-		SupportActors: s1,s1,s1,s3,s3
-		InnerSupportRadius: 3
-		OuterSupportRadius: 5
-	StartingUnits@heavyscrin:
-		Class: heavy
-		ClassName: options-starting-units.heavy-support
-		Factions: scrin, reaper, traveler, harbinger, collector
-		BaseActor: smcv
-		SupportActors: s1,s1,s1,s3,s3,seek,gunw
-		InnerSupportRadius: 3
-		OuterSupportRadius: 5
+		TechLevelDropdownDisplayOrder: 2
+        TechLevel: max
+		GameSpeedDropdownDisplayOrder: 1
 	MapStartingLocations:
-		SeparateTeamSpawnsCheckboxDisplayOrder: 12
+		SeparateTeamSpawnsCheckboxDisplayOrder: 6
+        SeparateTeamSpawnsCheckboxLocked: true
+        SeparateTeamSpawnsCheckboxVisible: false
+	CreateMapPlayers:
+	StartingUnits@default:
+		Class: none
+		ClassName: options-starting-units.mcv-only
+		Factions: gdi, nod
+		BaseActor: mcv
+	StartingUnits@lightgdi:
+		Class: light
+		ClassName: options-starting-units.light-support
+		Factions: gdi
+		BaseActor: mcv
+		SupportActors: e1,e1,e1,e1,e1,e3,e3,e3,jeep
+	StartingUnits@lightnod:
+		Class: light
+		ClassName: options-starting-units.light-support
+		Factions: nod
+		BaseActor: mcv
+		SupportActors: e1,e1,e1,e1,e1,e3,e3,e3,bggy
+	StartingUnits@heavygdi:
+		Class: heavy
+		ClassName: options-starting-units.heavy-support
+		Factions: gdi
+		BaseActor: mcv
+		SupportActors: e1,e1,e1,e1,e1,e3,e3,e3,jeep,mtnk,jeep
+	StartingUnits@heavynod:
+		Class: heavy
+		ClassName: options-starting-units.heavy-support
+		Factions: nod
+		BaseActor: mcv
+		SupportActors: e1,e1,e1,e1,e1,e3,e3,e3,bggy,ltnk,bggy
 	SpawnStartingUnits:
-		DropdownDisplayOrder: 5
 	PathFinder:
 	ValidateOrder:
 	DebugPauseState:
-	RadarPings:
-	StartGameNotification:
 	ObjectivesPanel:
 		PanelName: SKIRMISH_STATS
 	LoadWidgetAtGameStart:
+	RadarPings:
 	ScriptTriggers:
+	CellTriggerOverlay:
 	TimeLimitManager:
-		TimeLimitDisplayOrder: 6
+		TimeLimitDisplayOrder: 2
 		TimeLimitWarnings:
+            60: OneHourRemaining
+			50: FiftyMinutesRemaining
 			40: FourtyMinutesRemaining
 			30: ThirtyMinutesRemaining
 			20: TwentyMinutesRemaining
 			10: TenMinutesRemaining
-			5: WarningFiveMinutesRemaining
-			4: WarningFourMinutesRemaining
-			3: WarningThreeMinutesRemaining
-			2: WarningTwoMinutesRemaining
-			1: WarningOneMinuteRemaining
+			5: FiveMinutesRemaining
+			4: FourMinutesRemaining
+			3: ThreeMinutesRemaining
+			2: TwoMinutesRemaining
+			1: OneMinuteRemaining
 	ColorPickerManager:
-		PreviewActor: fact.colorpicker
-		FactionPreviewActors:
-			england: fact.colorpicker
-			france: fact.colorpicker
-			germany: fact.colorpicker
-			usa: fact.colorpicker
-			russia: fact.colorpicker
-			ukraine: fact.colorpicker
-			iraq: fact.colorpicker
-			yuri: fact.colorpicker
-			marked: afac.colorpicker
-			legion: afac.colorpicker
-			blackh: afac.colorpicker
-			shadow: afac.colorpicker
-			talon: afac.colorpicker
-			eagle: afac.colorpicker
-			zocom: afac.colorpicker
-			arc: afac.colorpicker
-			reaper: sfac.colorpicker
-			harbinger: sfac.colorpicker
-			traveler: sfac.colorpicker
-			collector: sfac.colorpicker
-			Random: fact.colorpicker
-			RandomAllies: fact.colorpicker
-			RandomSoviet: fact.colorpicker
-			RandomNod: afac.colorpicker
-			RandomGdi: afac.colorpicker
-			RandomScrin: sfac.colorpicker
-		HsvSaturationRange: 0.22, 0.97
-		HsvValueRange: 0.41, 0.95
-		PresetColors: F20C0C, F26A07, F2DB07, 18F221, 0790F2, 242DF2, 7818F2, F218EA, D68181, BFA995, F2CF74, 9DF2BF, 1DF2E5, 99ACF2, C39DF2, F299D9, 731C1C, 734B2F, 6F7322, 0B7310, 048282, 293F78, 574173, 712A73
-		SimilarityThreshold: 2
+		PreviewActor: cnst.colorpicker
+        FactionPreviewActors:
+            nod: cnst.colorpicker.nod
+		PresetColors: FCFC54, A4A4BC, F40000, 54FC54, D47810, 007070, D0C4AC, A8704C, C4B060, 4494E4, EC0000, 00C400, FC8800, 707070, 44907C, 702C24
+        SimilarityThreshold: 20
 	OrderEffects:
 		TerrainFlashImage: moveflsh
 		TerrainFlashSequence: idle
 		TerrainFlashPalette: moveflash
-		ActorFlashType: Tint
-	RevealedPlayersManager:
 
 EditorWorld:
 	Inherits: ^BaseWorld
@@ -698,26 +309,21 @@ EditorWorld:
 	EditorResourceLayer:
 		RecalculateResourceDensity: true
 		ResourceTypes:
-			Ore:
-				ResourceIndex: 1
-				TerrainType: Ore
-				AllowedTerrainTypes: Clear, Road
-				MaxDensity: 12
-			Gems:
-				ResourceIndex: 2
-				TerrainType: Gems
-				AllowedTerrainTypes: Clear, Road
-				MaxDensity: 8
 			Tiberium:
-				ResourceIndex: 3
+				ResourceIndex: 1
 				TerrainType: Tiberium
 				AllowedTerrainTypes: Clear, Road
 				MaxDensity: 12
 			BlueTiberium:
-				ResourceIndex: 4
+				ResourceIndex: 2
 				TerrainType: BlueTiberium
 				AllowedTerrainTypes: Clear, Road
-				MaxDensity: 8
+				MaxDensity: 12
+            RedTiberium:
+                ResourceIndex: 3
+                TerrainType: RedTiberium
+                AllowedTerrainTypes: Clear, Road
+                MaxDensity: 12
 	EditorSelectionLayer:
 	LoadWidgetAtGameStart:
 	EditorActionManager:

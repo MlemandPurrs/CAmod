@@ -1,0 +1,23 @@
+World:
+	WeatherOverlay:
+		WindTick: 150, 550
+		UseSquares: false
+		ParticleSize: 1, 1
+		ScatterDirection: 0, 0
+		Gravity: 8.00, 12.00
+		SwingOffset: 0, 0
+		SwingSpeed: 0, 0
+		SwingAmplitude: 0, 0
+		ParticleColors: 304074, 28386C, 202C60, 182C54
+		LineTailAlphaValue: 150
+	GlobalLightingPaletteEffect:
+		Red: 0.5
+		Green: 0.5
+		Blue: 0.7
+		Ambient: 1.2
+	MusicPlaylist:
+		BackgroundMusic: rain
+	FlashPaletteEffect@LIGHTNINGSTRIKE:
+		Type: LightningStrike
+	LuaScript:
+		Scripts: Storm.lua

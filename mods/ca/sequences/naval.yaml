@@ -1,0 +1,36 @@
+lst:
+	idle:
+        Filename: lst.shp
+		UseClassicFacings: True
+		Facings: 32
+	roof:
+        Filename: lst2.shp
+		UseClassicFacings: True
+		Facings: 32
+	icon:
+        Filename: lsticon.shp
+
+gbt:
+	idle:
+		Filename: gbt.shp
+		Facings: 16
+	turret:
+		Filename: gbtturr.shp
+        Facings: 32
+	icon:
+		Filename: gbticon.shp
+
+pbt:
+	idle:
+		Filename: pbt.shp
+		Facings: 32
+	turret:
+		Filename: pbt.shp
+        Start: 32
+        Facings: 32
+	muzzle:
+        Filename: cannmuz.shp
+		Length: 2
+		Facings: 16
+	icon:
+		Filename: pbticon.shp

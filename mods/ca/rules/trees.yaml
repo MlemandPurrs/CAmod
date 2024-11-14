@@ -1,0 +1,361 @@
+SPLIT2:
+	Inherits: ^TibTree
+	SeedsResource:
+		ResourceType: Tiberium
+		Interval: 55
+	WithIdleAnimation:
+		Interval: 500, 1000
+
+SPLIT3:
+	Inherits: ^TibTree
+	SeedsResource:
+		ResourceType: Tiberium
+		Interval: 55
+	WithIdleAnimation:
+		Interval: 500, 1000
+
+SPLITBLUE:
+	Inherits: ^TibTree
+	SeedsResource:
+		ResourceType: BlueTiberium
+		Interval: 55
+	WithIdleAnimation:
+		Interval: 500, 1000
+	RadarColorFromTerrain:
+		Terrain: BlueTiberium
+	AppearsOnMapPreview:
+		Terrain: BlueTiberium
+	RenderSprites:
+		Image: split2
+
+SPLITBLUE2:
+	Inherits: ^TibTree
+	SeedsResource:
+		ResourceType: BlueTiberium
+		Interval: 55
+	WithIdleAnimation:
+		Interval: 500, 1000
+	RadarColorFromTerrain:
+		Terrain: BlueTiberium
+	AppearsOnMapPreview:
+		Terrain: BlueTiberium
+	RenderSprites:
+		Image: split3
+
+SPLITRED:
+	Inherits: ^TibTree
+	SeedsResource:
+		ResourceType: RedTiberium
+		Interval: 55
+	WithIdleAnimation:
+		Interval: 500, 1000
+	RadarColorFromTerrain:
+		Terrain: RedTiberium
+	AppearsOnMapPreview:
+		Terrain: RedTiberium
+	RenderSprites:
+		Image: split2
+
+SPLITRED2:
+	Inherits: ^TibTree
+	SeedsResource:
+		ResourceType: RedTiberium
+		Interval: 55
+	WithIdleAnimation:
+		Interval: 500, 1000
+	RadarColorFromTerrain:
+		Terrain: RedTiberium
+	AppearsOnMapPreview:
+		Terrain: RedTiberium
+	RenderSprites:
+		Image: split3
+
+T01:
+	Inherits: ^Tree
+	SpawnActorOnDeath:
+		Actor: T01.Husk
+
+T01.Husk:
+	Inherits: ^TreeHusk
+
+T02:
+	Inherits: ^Tree
+	SpawnActorOnDeath:
+		Actor: T02.Husk
+
+T02.Husk:
+	Inherits: ^TreeHusk
+
+T03:
+	Inherits: ^Tree
+	SpawnActorOnDeath:
+		Actor: T03.Husk
+
+T03.Transformable:
+	Inherits: ^Tree
+	RenderSprites:
+		Image: t03
+	SpawnActorOnDeath:
+		Actor: T03.Husk
+	TransformsNearResources:
+		Type: Tiberium
+		IntoActor: split2
+		Offset: 0,1
+	EditorOnlyTooltip:
+		Name: (Tree that can transform into a Blossom Tree)
+
+T03.Husk:
+	Inherits: ^TreeHusk
+
+T05:
+	Inherits: ^Tree
+	SpawnActorOnDeath:
+		Actor: T05.Husk
+
+T05.Husk:
+	Inherits: ^TreeHusk
+
+T06:
+	Inherits: ^Tree
+	SpawnActorOnDeath:
+		Actor: T06.Husk
+
+T06.Husk:
+	Inherits: ^TreeHusk
+
+T07:
+	Inherits: ^Tree
+	SpawnActorOnDeath:
+		Actor: T07.Husk
+
+T07.Husk:
+	Inherits: ^TreeHusk
+
+T08:
+	Inherits: ^Tree
+	Building:
+		Footprint: x_
+		Dimensions: 2,1
+	SpawnActorOnDeath:
+		Actor: T08.Husk
+
+T08.Husk:
+	Inherits: ^TreeHusk
+	Building:
+		Footprint: x_
+		Dimensions: 2,1
+
+T10:
+	Inherits: ^Tree
+	Building:
+		Footprint: __ xx
+	SpawnActorOnDeath:
+		Actor: T10.Husk
+
+T10.Husk:
+	Inherits: ^TreeHusk
+	Building:
+		Footprint: __ xx
+
+T11:
+	Inherits: ^Tree
+	Building:
+		Footprint: __ xx
+	SpawnActorOnDeath:
+		Actor: T11.Husk
+
+T11.Husk:
+	Inherits: ^TreeHusk
+	Building:
+		Footprint: __ xx
+
+T12:
+	Inherits: ^Tree
+	SpawnActorOnDeath:
+		Actor: T12.Husk
+
+T12.Husk:
+	Inherits: ^TreeHusk
+	Building:
+
+T13:
+	Inherits: ^Tree
+	SpawnActorOnDeath:
+		Actor: T13.Husk
+
+T13.Transformable:
+	Inherits: ^Tree
+	RenderSprites:
+		Image: t13
+	SpawnActorOnDeath:
+		Actor: T13.Husk
+	TransformsNearResources:
+		Type: Tiberium
+		IntoActor: split3
+		Offset: 0,1
+	EditorOnlyTooltip:
+		Name: (Tree that can transform into a Blossom Tree)
+
+T13.Husk:
+	Inherits: ^TreeHusk
+	Building:
+
+T14:
+	Inherits: ^Tree
+	SpawnActorOnDeath:
+		Actor: T14.Husk
+
+T14.Husk:
+	Inherits: ^TreeHusk
+
+T15:
+	Inherits: ^Tree
+	Building:
+		Footprint: ___ xx_
+		Dimensions: 3,2
+	SpawnActorOnDeath:
+		Actor: T15.Husk
+
+T15.Husk:
+	Inherits: ^TreeHusk
+	Building:
+		Footprint: ___ xx_
+		Dimensions: 3,2
+
+T16:
+	Inherits: ^Tree
+	SpawnActorOnDeath:
+		Actor: T16.Husk
+
+T16.Husk:
+	Inherits: ^TreeHusk
+
+T17:
+	Inherits: ^Tree
+	SpawnActorOnDeath:
+		Actor: T17.Husk
+
+T17.Husk:
+	Inherits: ^TreeHusk
+
+TC01:
+	Inherits: ^Tree
+	Building:
+		Footprint: ___ xx_
+		Dimensions: 3,2
+	SpawnActorOnDeath:
+		Actor: TC01.Husk
+
+TC01.Husk:
+	Inherits: ^TreeHusk
+	Building:
+		Footprint: ___ xx_
+		Dimensions: 3,2
+
+TC02:
+	Inherits: ^Tree
+	Building:
+		Footprint: _x_ xx_
+		Dimensions: 3,2
+	SpawnActorOnDeath:
+		Actor: TC02.Husk
+
+TC02.Husk:
+	Inherits: ^TreeHusk
+	Building:
+		Footprint: _x_ xx_
+		Dimensions: 3,2
+
+TC03:
+	Inherits: ^Tree
+	Building:
+		Footprint: _x_ xx_
+		Dimensions: 3,2
+	SpawnActorOnDeath:
+		Actor: TC03.Husk
+
+TC03.Husk:
+	Inherits: ^TreeHusk
+	Building:
+		Footprint: _x_ xx_
+		Dimensions: 3,2
+
+TC04:
+	Inherits: ^Tree
+	Building:
+		Footprint: ____ xxx_ x___
+		Dimensions: 4,3
+	SpawnActorOnDeath:
+		Actor: TC04.Husk
+
+TC04.Husk:
+	Inherits: ^TreeHusk
+	Building:
+		Footprint: ____ xxx_ x___
+		Dimensions: 4,3
+
+TC05:
+	Inherits: ^Tree
+	Building:
+		Footprint: __x_ xxx_ _xx_
+		Dimensions: 4,3
+	SpawnActorOnDeath:
+		Actor: TC05.Husk
+
+TC05.Husk:
+	Inherits: ^TreeHusk
+	Building:
+		Footprint: __x_ xxx_ _xx_
+		Dimensions: 4,3
+
+T03.Transformable.Blue:
+	Inherits: ^Tree
+	RenderSprites:
+		Image: t03
+	SpawnActorOnDeath:
+		Actor: T03.Husk
+	TransformsNearResources:
+		Type: BlueTiberium
+		IntoActor: splitblue
+		Offset: 0,1
+	EditorOnlyTooltip:
+		Name: (Tree that can transform into a Blossom Tree)
+
+T13.Transformable.Blue:
+	Inherits: ^Tree
+	RenderSprites:
+		Image: t13
+	SpawnActorOnDeath:
+		Actor: T13.Husk
+	TransformsNearResources:
+		Type: BlueTiberium
+		IntoActor: splitblue2
+		Offset: 0,1
+	EditorOnlyTooltip:
+		Name: (Tree that can transform into a Blossom Tree)
+
+T03.Transformable.Red:
+	Inherits: ^Tree
+	RenderSprites:
+		Image: t03
+	SpawnActorOnDeath:
+		Actor: T03.Husk
+	TransformsNearResources:
+		Type: RedTiberium
+		IntoActor: splitred
+		Offset: 0,1
+	EditorOnlyTooltip:
+		Name: (Tree that can transform into a Blossom Tree)
+
+T13.Transformable.Red:
+	Inherits: ^Tree
+	RenderSprites:
+		Image: t13
+	SpawnActorOnDeath:
+		Actor: T13.Husk
+	TransformsNearResources:
+		Type: RedTiberium
+		IntoActor: splitred2
+		Offset: 0,1
+	EditorOnlyTooltip:
+		Name: (Tree that can transform into a Blossom Tree)

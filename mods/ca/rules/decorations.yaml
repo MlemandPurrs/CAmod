@@ -1,0 +1,57 @@
+BRL1:
+	Inherits: ^Rock
+    Inherits@hitshape: ^1x1Shape
+	Health:
+		HP: 1000
+	Explodes:
+		Weapon: BarrelExplode
+	Tooltip:
+		Name: Explosive Barrel
+		ShowOwnerRow: False
+	Armor:
+		Type: None
+	Targetable:
+		TargetTypes: GroundActor, NoAutoTarget
+	MapEditorData:
+		Categories: Decoration
+	Interactable:
+		Bounds: 1024, 1024
+
+BRL2:
+    Inherits: BRL1
+    RenderSprites:
+        Image: brl2
+
+BRL3:
+	Inherits: ^Rock
+    Inherits@hitshape: ^1x1Shape
+	Health:
+		HP: 1000
+	Explodes:
+		Weapon: BarrelExplode
+	Tooltip:
+		Name: Explosive Barrels
+		ShowOwnerRow: False
+	Armor:
+		Type: None
+	Targetable:
+		TargetTypes: GroundActor, NoAutoTarget
+	MapEditorData:
+		Categories: Decoration
+	Interactable:
+		Bounds: 1024, 1024
+
+TANKTRAP1:
+	Inherits: ^Rock
+	RenderSprites:
+		Palette: player
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	Tooltip:
+		Name: Tank Trap
+
+TANKTRAP2:
+	Inherits: TANKTRAP1
+	RenderSprites:
+        Image: tanktrap2

@@ -1,371 +1,53 @@
-bombard.strat:
-	icon:
-		Filename: strat-bombicnh.shp
-
-bombard2.strat:
-	icon:
-		Filename: strat-bomb2icnh.shp
-
-seek.strat:
-	icon:
-		Filename: strat-seekicnh.shp
-
-seek2.strat:
-	icon:
-		Filename: strat-seek2icnh.shp
-
-hold.strat:
-	icon:
-		Filename: strat-holdicnh.shp
-
-hold2.strat:
-	icon:
-		Filename: strat-hold2icnh.shp
-
-hypersonic.upgrade:
-	icon:
-		Filename: upg-hypericnh.shp
-
-hailstorm.upgrade:
-	icon:
-		Filename: upg-hailicnh.shp
-
-hammerhead.upgrade:
-	icon:
-		Filename: upg-hammicnh.shp
-
-sonic.upgrade:
-	icon:
-		Filename: upg-sonicicnh.shp
-
-bdrone.upgrade:
-	icon:
-		Filename: upg-bdroneicnh.shp
-
-mdrone.upgrade:
-	icon:
-		Filename: upg-mdroneicnh.shp
-
-ionmam.upgrade:
-	icon:
-		Filename: upg-ionmamicnh.shp
-
-hovermam.upgrade:
-	icon:
-		Filename: upg-hovermamicnh.shp
-
-railgun.upgrade:
-	icon:
-		Filename: upg-railgunicnh.shp
-
-vulcan.upgrade:
-	icon:
-		Filename: upg-vulcicon.shp
-
-rapc.upgrade:
-	icon:
-		Filename: upg-rapcicon.shp
-
-empgren.upgrade:
-	icon:
-		Filename: upg-empgrenicnh.shp
-
-bjet.upgrade:
-	icon:
-		Filename: upg-bjeticon.shp
-
-thwk.upgrade:
-	icon:
-		Filename: upg-thwkicnh.shp
-
-tow.upgrade:
-	icon:
-		Filename: upg-towicon.shp
-
-abur.upgrade:
-	icon:
-		Filename: upg-aburicnh.shp
-
-gyro.upgrade:
-	icon:
-		Filename: upg-gyroicnh.shp
-
-pointdef.upgrade:
-	icon:
-		Filename: upg-pointdeficnh.shp
-
-hazmat.upgrade:
-	icon:
-		Filename: upg-hazmicnh.shp
-
-flakarmor.upgrade:
-	icon:
-		Filename: upg-flakarmoricon.shp
-
-howi.upgrade:
-	icon:
-		Filename: upg-howiicon.shp
-
-blacknapalm.upgrade:
-	icon:
-		Filename: upg-blacknapalmicon.shp
-
-microwave.upgrade:
-	icon:
-		Filename: upg-microicnh.shp
-
-quantum.upgrade:
-	icon:
-		Filename: upg-quantumicon.shp
-
-alphacomanche.upgrade:
-	icon:
-		Filename: upg-alpharahicon.shp
-
-tibcore.upgrade:
-	icon:
-		Filename: upg-tibcoreicon.shp
-
-decoy.upgrade:
-	icon:
-		Filename: upg-decoyicon.shp
-
-sidewinders.upgrade:
-	icon:
-		Filename: upg-sidewindersicnh.shp
-
-advcyborg.upgrade:
-	icon:
-		Filename: upg-advcyborgicnh.shp
-
-cyborgspeed.upgrade:
-	icon:
-		Filename: upg-cyborgspeedicnh.shp
-
-cyborgarmor.upgrade:
-	icon:
-		Filename: upg-cyborgarmoricnh.shp
-
-tarc.upgrade:
-	icon:
-		Filename: upg-tarcicon.shp
-
-seismic.upgrade:
-	icon:
-		Filename: upg-seisicon.shp
-
-v2.upgrade:
-	icon:
-		Filename: upg-v2rlicon.shp
-
-v3.upgrade:
-	icon:
-		Filename: upg-v3rlicon.shp
-
-hazmats.upgrade:
-	icon:
-		Filename: upg-hazmatsoviet.shp
-
-atomicengines.upgrade:
-	icon:
-		Filename: upg-atomicengicon.shp
-
-lasher.upgrade:
-	icon:
-		Filename: upg-lashericon.shp
-
-gattling.upgrade:
-	icon:
-		Filename: upg-gattlingicon.shp
-
-ttrp.upgrade:
-	icon:
-		Filename: upg-ttrpicon.shp
-
-deso.upgrade:
-	icon:
-		Filename: upg-desoicon.shp
-
-tdog.upgrade:
-	icon:
-		Filename: upg-tdogicon.shp
-
-erad.upgrade:
-	icon:
-		Filename: upg-eradicon.shp
-
-charv.upgrade:
-	icon:
-		Filename: upg-charvicon.shp
-
-pcan.upgrade:
-	icon:
-		Filename: upg-pcanicon.shp
-
-regen.upgrade:
-	icon:
-		Filename: upg-hullregenicon.shp
-
-shields.upgrade:
-	icon:
-		Filename: upg-fleetshieldsicon.shp
-
-blink.upgrade:
-	icon:
-		Filename: upg-blinkicon.shp
-
-shrw.upgrade:
-	icon:
-		Filename: upg-shrwicon.shp
-
-advart.upgrade:
-	icon:
-		Filename: upg-advarticon.shp
-
-stellar.upgrade:
-	icon:
-		Filename: upg-stellaricon.shp
-
-coalescence.upgrade:
-	icon:
-		Filename: upg-coalescenceicon.shp
-
-carapace.upgrade:
-	icon:
-		Filename: upg-carapaceicon.shp
-
-resconv.upgrade:
-	icon:
-		Filename: upg-resconvicon.shp
-
-greece.coalition:
-	icon:
-		Filename: upg-greicon.shp
-
-korea.coalition:
-	icon:
-		Filename: upg-koricon.shp
-
-sweden.coalition:
-	icon:
-		Filename: upg-sweicon.shp
-
-cryw.upgrade:
-	icon:
-		Filename: upg-crywicon.shp
-
-optics.upgrade:
-	icon:
-		Filename: upg-advopticsicon.shp
-
-entrench.upgrade:
-	icon:
-		Filename: upg-entrenchicon.shp
-
-airborne.upgrade:
-	icon:
-		Filename: upg-airborneicon.shp
-
-apb.upgrade:
-	icon:
-		Filename: upg-apbicon.shp
-
-ioncon.upgrade:
-	icon:
-		Filename: upg-ionconicon.shp
-
-tflx.upgrade:
-	icon:
-		Filename: upg-tflxicon.shp
-
-strategic.upgrade:
-	icon:
-		Filename: upg-strategicicnh.shp
-
-hyper.upgrade:
-	icon:
-		Filename: upg-hypericon.shp
-
-lastnk.upgrade:
-	icon:
-		Filename: upg-lastnkicon.shp
-
-evis.upgrade:
-	icon:
-		Filename: upg-evisicon.shp
-
-impl.upgrade:
-	icon:
-		Filename: upg-implicon.shp
-
-muti.upgrade:
-	icon:
-		Filename: upg-mutiicon.shp
-
-loyalist.allegiance:
-	icon:
-		Filename: upg-loyalisticon.shp
-
-rebel.allegiance:
-	icon:
-		Filename: upg-rebelicon.shp
-
-malefic.allegiance:
-	icon:
-		Filename: upg-maleficicon.shp
-
-allegiance.upgrade:
-	icon:
-		Filename: upg-allegianceicon.shp
-
-infantry.doctrine:
-	icon:
-		Filename: upg-infdoctrineicon.shp
-
-armor.doctrine:
-	icon:
-		Filename: upg-armordoctrineicon.shp
-
-arty.doctrine:
-	icon:
-		Filename: upg-artydoctrineicon.shp
-
-ovld.upgrade:
-	icon:
-		Filename: upg-ovldicon.shp
-
-apoc.upgrade:
-	icon:
-		Filename: upg-apocicon.shp
-
-nukc.upgrade:
-	icon:
-		Filename: upg-nukcicon.shp
-
-doctrine.upgrade1:
-	icon:
-		Filename: upg-doctrine1icon.shp
-
-doctrine.upgrade2:
-	icon:
-		Filename: upg-doctrine2icon.shp
-
-imppara.upgrade:
-	icon:
-		Filename: upg-impparaicon.shp
-
-impstorm.upgrade:
-	icon:
-		Filename: upg-impstormicon.shp
-
-impmuta.upgrade:
-	icon:
-		Filename: upg-impmutaicon.shp
-
-reactive.upgrade:
-	icon:
-		Filename: upg-eraicon.shp
-
-rocketpods.upgrade:
-	icon:
-		Filename: upg-rocketpodsicon.shp
+upgicon:
+    gdia:
+        Filename: gdiaicon.shp
+    gdib:
+        Filename: gdibicon.shp
+    gdic:
+        Filename: gdicicon.shp
+    gdidoc1:
+        Filename: gdidoc1icon.shp
+    gdidoc2:
+        Filename: gdidoc2icon.shp
+    carm:
+        Filename: carmicon.shp
+    a10u:
+        Filename: a10uicon.shp
+    trng:
+        Filename: trngicon.shp
+    apb:
+        Filename: apbicon.shp
+    raufoss:
+        Filename: cmdoupicon.shp
+    towl:
+        Filename: towlicon.shp
+    mgup:
+        Filename: mgupicon.shp
+    healup:
+        Filename: healupicon.shp
+    empup:
+        Filename: empupicon.shp
+    noda:
+        Filename: nodaicon.shp
+    nodb:
+        Filename: nodbicon.shp
+    nodc:
+        Filename: nodcicon.shp
+    mpod:
+        Filename: mpodicon.shp
+    hpod:
+        Filename: hpodicon.shp
+    noddoc1:
+        Filename: noddoc1icon.shp
+    noddoc2:
+        Filename: noddoc2icon.shp
+    chemical:
+        Filename: chemupicon.shp
+    android:
+        Filename: cybricon.shp
+    electron:
+        Filename: elcticon.shp
+    c17speed:
+        Filename: crgoicon.shp
+    supply:
+        Filename: zoneupicon.shp
