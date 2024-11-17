@@ -1205,17 +1205,21 @@ nuke:
         Filename: nuke.shp
 		Offset: 0,-2
 	idle:
-        Start: 0
-        Length: 1
+        #   Start: 0
+        Frames: 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 13, 13, 13
+        Length: 18
+		Tick: 80
 	damaged-idle:
-		Start: 1
-        Length: 1
+		#   Start: 14
+        Frames: 14, 14, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 27, 27, 27
+        Length: 18
+		Tick: 80
 	make:
         Filename: nukemake.shp
 		Length: *
 		Tick: 80
 	dead:
-		Start: 2
+		Start: 28
 		Tick: 800
 	bib:
 		TilesetFilenames:
@@ -1234,9 +1238,9 @@ nuke.husk:
         Filename: nuke.shp
 		Offset: 0,-2
 	idle: 
-		Start: 2
+		Start: 28
 	dead:
-		Start: 2
+		Start: 28
 		Tick: 800
 	bib:
 		TilesetFilenames:
@@ -1746,11 +1750,9 @@ sam.husk:
 	idle:
 		Start: 128
 		Length: 1
-		Offset: -1,-2
 	dead:
 		Start: 128
 		Tick: 800
-		Offset: -1,-2
 
 agun:
     Defaults:
@@ -1870,7 +1872,7 @@ obel:
 		Tick: 800
 	make:
 		Filename: obelmake.shp
-		Length: 13
+		Length: *
 		Tick: 80
 	bib:
 		TilesetFilenames:

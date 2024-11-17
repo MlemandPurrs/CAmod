@@ -37,23 +37,36 @@
 		Name: player-noshadow
 		Filename: temperat.pal
 		TransparentIndex: 0, 4
-	OverlayPlayerColorPalette:
-		#   Ramp: 0.14
-        Ramp: 0.11
+	#   this only looks good in RA palette
+    #   and why: because it has only one
+    #   ramp of teamcolor that goes from
+    #   light to dark, here its actually two
+    #   shorter ramps, need to define more
+    #   than one to fix, game doesnt accept
+    #   that and crashes
+    #   OverlayPlayerColorPalette:
+	#   Ramp: 0.14
+	#   BasePalette: player
+	#   BaseName: player
+	#   RemapIndex: 176, 178, 180, 182, 184, 186, 189, 191, 177, 179, 181, 183, 185, 187, 188, 190
+	PlayerColorPalette:
 		BasePalette: player
-		BaseName: player
 		RemapIndex: 176, 178, 180, 182, 184, 186, 189, 191, 177, 179, 181, 183, 185, 187, 188, 190
 	PlayerColorPalette@NOSHADOW:
 		BaseName: player-noshadow
 		BasePalette: player-noshadow
 		RemapIndex: 176, 178, 180, 182, 184, 186, 189, 191, 177, 179, 181, 183, 185, 187, 188, 190
-	OverlayColorPickerPalette@colorpicker:
-		#   Ramp: 0.14
-        Ramp: 0.11
+	ColorPickerPalette@colorpicker:
 		Name: colorpicker
 		BasePalette: player
 		RemapIndex: 176, 178, 180, 182, 184, 186, 189, 191, 177, 179, 181, 183, 185, 187, 188, 190
 		AllowModifiers: false
+    #   OverlayColorPickerPalette@colorpicker:
+	#   Ramp: 0.14
+	#   Name: colorpicker
+	#   BasePalette: player
+	#   RemapIndex: 176, 178, 180, 182, 184, 186, 189, 191, 177, 179, 181, 183, 185, 187, 188, 190
+	#   AllowModifiers: false
 	MenuPaletteEffect:
 		MenuEffect: Desaturated
 	RotationPaletteEffect@water:

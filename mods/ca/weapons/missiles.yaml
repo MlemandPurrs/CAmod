@@ -179,7 +179,7 @@ M269Missile:
 		Speed: 341
 	Warhead@1Dam: SpreadDamage
 		Spread: 684
-		Damage: 5000
+		Damage: 4500
 	Warhead@3Eff: CreateEffect
 		Explosions: med_frag
 		ImpactSounds: xplobig4.aud

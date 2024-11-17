@@ -10,6 +10,8 @@ MCV:
         GenericVisibility: Ally, Neutral, Enemy
 	TooltipExtras:
 		Weaknesses: Unarmed
+	EditorOnlyTooltip:
+		Name: MCV
 	Buildable:
     	BuildDuration: 2500
         BuildDurationModifier: 100
@@ -83,13 +85,15 @@ HARV:
         Strengths: Collects the Tiberium
 		Weaknesses: Unarmed
         Attributes: Self-Repairs up until 50% Hp
+	EditorOnlyTooltip:
+		Name: Harvester
 	Buildable:
     	BuildDuration: 1000
         BuildDurationModifier: 100
 		BuildPaletteOrder: 10
 		Prerequisites: refn, ~techlevel.low
 		Queue: VehicleSQ, VehicleMQ
-		Description: Medium armored vehicle,\ncollects Tiberium for processing.Self-Repairs
+		Description: Collects Tiberium for processing.
 	Selectable:
 		DecorationBounds: 1536, 1536
 	Harvester:
@@ -262,6 +266,8 @@ JEEP.Upg:
 		Strengths: Strong vs Vehicles
 		Weaknesses: Weak vs Infantry
         Attributes: Detects invisible units nearby
+	EditorOnlyTooltip:
+		Name: GDI Jeep (upgraded)
 	Buildable:
 		Prerequisites: weap, ~vehicles.gdi, ~jeeptow.upgrade, ~techlevel.low
 		Description: Light and fast scout vehicle,\narmed with a rocket launcher.
@@ -290,11 +296,12 @@ BGGY:
 	TooltipExtras:
 		Strengths: Strong vs Infantry, Light Armor
 		Weaknesses: Weak vs Heavy Armor, Buildings, Defenses
+        Attributes: Detects invisible units nearby
         RequiresCondition: !jamming.on
 	TooltipExtras@2:
 		Strengths: Strong vs Infantry, Light Armor
 		Weaknesses: Weak vs Heavy Armor, Buildings, Defenses
-        Attributes: Invisible on enemy radar
+        Attributes: Detects invisible units nearby\nInvisible on enemy radar
         IsStandard: false
         RequiresCondition: jamming.on
 	UpdatesPlayerStatistics:
@@ -305,7 +312,7 @@ BGGY:
 		BuildPaletteOrder: 20
 		Prerequisites: airs, ~vehicles.nod, ~techlevel.low
 		Queue: VehicleSQ, VehicleMQ
-		Description: Light, fast attack vehicle,\narmed with a machinegun.
+		Description: Light, fast scout vehicle,\narmed with a machinegun.
 	Mobile:
 		TurnSpeed: 20
 		Speed: 160
@@ -332,6 +339,8 @@ BGGY:
 	WithSpriteTurret:
 	AutoTarget:
 		ScanRadius: 5
+	DetectCloaked:
+		Range: 2c512
     AppearsOnRadar:
         RequiresCondition: !jamming.on
 	AppearsOnRadar@2:
@@ -425,6 +434,76 @@ BIKE:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
 
+APC2:
+	Inherits: ^TrackedVehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@experience: ^GainsExperience
+    Inherits@expupgrade: ^AffectedBySpecialTraining
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Armored Personnel Carrier
+        GenericStancePrefix: false
+        GenericName: APC
+        GenericVisibility: Ally, Neutral, Enemy
+	TooltipExtras:
+		Strengths: Strong vs Infantry, Aircraft
+		Weaknesses: Weak vs Vehicles, Defenses
+        Attributes: Can attack Aircraft
+	EditorOnlyTooltip:
+		Name: Old APC
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+    	BuildDuration: 500
+        BuildDurationModifier: 100
+		BuildPaletteOrder: 30
+		Prerequisites: ~disabled
+		Queue: VehicleSQ, VehicleMQ
+		Description: Armored troop transport,\narmed with a machinegun.
+	Mobile:
+		TurnSpeed: 16
+		Speed: 120
+        PauseOnCondition: notmobile || boarding || being-captured || emp-condition || driver-dead
+	Health:
+		HP: 25000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 7c0
+	Turreted:
+		TurnSpeed: 16
+	Armament:
+		Weapon: 50CalibreMG
+		LocalOffset: 85,0,171
+		MuzzleSequence: muzzle
+        PauseOnCondition: emp-condition
+	AttackFrontal:
+		FacingTolerance: 0
+	AttackMove:
+		Voice: Attack
+	WithMuzzleOverlay:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 5
+		UnloadVoice: Unload
+		LoadingCondition: notmobile
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		CustomPipSequences:
+			gray: pip-gray
+            green: pip-green
+			yellow: pip-yellow
+			red: pip-red
+            blue: pip-blue
+	Explodes:
+		Weapon: UnitExplodeBig
+		EmptyWeapon: UnitExplodeBig
+	AutoTarget:
+		ScanRadius: 7
+
 APC:
 	Inherits: ^TrackedVehicle
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -441,6 +520,8 @@ APC:
 		Strengths: Strong vs Infantry, Aircraft
 		Weaknesses: Weak vs Vehicles, Defenses
         Attributes: Can attack Aircraft
+	EditorOnlyTooltip:
+		Name: GDI APC
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -537,6 +618,8 @@ NAPC:
 		Strengths: Strong vs Infantry, Aircraft
 		Weaknesses: Weak vs Vehicles, Defenses
         Attributes: Can attack Aircraft
+	EditorOnlyTooltip:
+		Name: Nod APC
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -717,6 +800,8 @@ LTNK.Upg:
 		Strengths: Strong vs Vehicles, Buildings
 		Weaknesses: Weak vs Infantry, Defenses
         Attributes: Uses rocket pod against Vehicles
+	EditorOnlyTooltip:
+		Name: Light Tank (upgraded)
 	Buildable:
 		Prerequisites: dept, ~vehicles.nod, ~mpod.upgrade, ~!nodb.doctrine, ~techlevel.medium
 		Description: Main battle tank of Nod.\nHas a 75mm cannon,\nand AT rocket pod.
@@ -863,6 +948,8 @@ MTNK.Upg:
 		Strengths: Strong vs Vehicles, Infantry, Buildings
 		Weaknesses: Weak vs Aircraft, Defenses
         Attributes: Uses machinegun against infantry
+	EditorOnlyTooltip:
+		Name: Medium Tank (upgraded)
 	Buildable:
 		Prerequisites: dept, ~vehicles.gdi, ~mtnkmg.upgrade, ~techlevel.medium
 		Description: Main battle tank of GDI.\nArmed with a 105mm cannon,\nand anti-infantry machinegun.
@@ -1012,6 +1099,8 @@ HTNK.Upg:
 		Strengths: Strong vs Vehicles, Buildings
 		Weaknesses: Weak vs Infantry, Defenses
         Attributes: Uses rocket pod against Vehicles
+	EditorOnlyTooltip:
+		Name: Heavy Tank (upgraded)
 	Buildable:
 		Prerequisites: dept, ~vehicles.nod, ~mpod.upgrade, ~nodb.doctrine, ~techlevel.medium
 		Description: Main battle tank of Nod.\nArmed with twin 75mm cannons\nand AT rocket pod.
@@ -1280,6 +1369,76 @@ CTNK.Husk:
 	RenderSprites:
 		Image: ctnk.destroyed
 
+STN2:
+	Inherits: ^Vehicle
+	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
+	Inherits@experience: ^GainsExperience
+    Inherits@expupgrade: ^AffectedBySpecialTraining
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: Stealth Tank
+	TooltipExtras:
+        Strengths: Strong vs Vehicles, Buildings
+		Weaknesses: Weak vs Infantry, Defenses
+        Attributes: Invisible out of combat
+	EditorOnlyTooltip:
+		Name: Old Stealth Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+    	BuildDuration: 900
+        BuildDurationModifier: 100
+		BuildPaletteOrder: 110
+		Prerequisites: ~disabled
+		Queue: VehicleSQ, VehicleMQ
+		Description: Fast moving tank armed\nwith anti-ground missiles.
+	Mobile:
+		Locomotor: heavywheeled
+		TurnSpeed: 16
+		Speed: 120
+	Health:
+		HP: 15000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 6c0
+	Cloak:
+		InitialDelay: 125
+		CloakDelay: 175
+		CloakSound: trans1.aud
+		UncloakSound: trans1.aud
+		IsPlayerPalette: true
+		UncloakOn: Attack, Unload, Dock, Damage, Heal
+		PauseOnCondition: cloak-force-disabled || emp-condition || oncarryall
+	GrantConditionOnDamageState@UNCLOAK:
+		Condition: cloak-force-disabled
+		ValidDamageStates: Critical
+	Armament@PRIMARY:
+		Weapon: TOWLauncher
+		LocalOffset: 213,43,128, 213,-43,128
+        PauseOnCondition: emp-condition
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 0
+        PauseOnCondition: emp-condition
+	AttackMove:
+		Voice: Attack
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: ReturnFire
+	Explodes:
+		Weapon: UnitExplodeStealthTank
+		EmptyWeapon: UnitExplodeStealthTank
+	-MustBeDestroyed:
+	Targetable:
+		TargetTypes: GroundActor, Vehicle, StealthTank
+	Carryable:
+		ReservedCondition: awaiting
+		CarriedCondition: oncarryall
+		LockedCondition: boarding
+		LocalOffset: 0,0,200
+
 STNK:
 	Inherits: ^Vehicle
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
@@ -1323,19 +1482,21 @@ STNK:
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical
-	Armament@PRIMARY:
+	Turreted:
+		TurnSpeed: 16
+	Armament:
 		Weapon: TOWLauncher
-		LocalOffset: 213,43,128, 213,-43,128
+		LocalOffset: 213,43,192, 213,-43,192
         PauseOnCondition: emp-condition
-	AttackFrontal:
+	AttackTurreted:
 		Voice: Attack
-		FacingTolerance: 0
         PauseOnCondition: emp-condition
 	AttackMove:
 		Voice: Attack
+	WithSpriteTurret:
 	AutoTarget:
-		InitialStance: HoldFire
-		InitialStanceAI: ReturnFire
+		InitialStance: ReturnFire
+		InitialStanceAI: Defend
 	Explodes:
 		Weapon: UnitExplodeStealthTank
 		EmptyWeapon: UnitExplodeStealthTank
@@ -1477,6 +1638,8 @@ AAV:
 		Strengths: Strong vs Infantry, Light Armor
 		Weaknesses: Weak vs Heavy Armor, Defenses
         Attributes: Can fire over walls
+	EditorOnlyTooltip:
+		Name: AAV
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -1551,6 +1714,57 @@ AAV:
 		Name: floating
 		Sequence: idle-swim
 		RequiresCondition: floating
+
+ART2:
+	Inherits: ^TrackedVehicle
+	Inherits@EXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+    Inherits@expupgrade: ^AffectedBySpecialTraining
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Artillery
+	TooltipExtras:
+        Strengths: Strong vs Infantry, Buildings, Slow units
+		Weaknesses: Weak vs Vehicles, Fast units
+        Attributes: Can fire over walls
+	EditorOnlyTooltip:
+		Name: Old Artillery
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+    	BuildDuration: 700
+        BuildDurationModifier: 100
+		BuildPaletteOrder: 60
+		Prerequisites: ~disabled
+		Queue: VehicleSQ, VehicleMQ
+		Description: Long-range artillery.
+	Mobile:
+		TurnSpeed: 16
+		Speed: 60
+	Health:
+		HP: 10000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 5c0
+	Armament:
+		Weapon: 155mmShell
+		LocalOffset: 624,0,208
+		MuzzleSequence: muzzle
+	AttackFrontal:
+		TargetFrozenActors: True
+		ForceFireIgnoresActors: True
+		Voice: Attack
+		FacingTolerance: 0
+	AttackMove:
+		Voice: Attack
+	WithMuzzleOverlay:
+	AutoTarget:
+		InitialStanceAI: Defend
+	Explodes:
+		Weapon: 155mmShell
+		EmptyWeapon: 155mmShell
 
 ARTY:
 	Inherits: ^TrackedVehicle
@@ -2391,7 +2605,7 @@ TRUK:
 		Range: 3c0
 	DeliversCash:
         Cursor: sell-unit
-		Payload: 1000
+		Payload: 2000
 		PlayerExperience: 0
 	SpawnActorOnDeath:
 		Actor: moneycrate
@@ -2415,6 +2629,8 @@ TTRK:
 	TooltipExtras:
 		Weaknesses: Unarmed
         Attributes: Deploy for detonation\nCorrodes and slows vehicles\nDetonation can spawn Visceroids
+	EditorOnlyTooltip:
+		Name: Toxic Demo Truck
 	Buildable:
     	BuildDuration: 2000
         BuildDurationModifier: 100
@@ -2439,6 +2655,109 @@ TTRK:
 	Explodes:
 		Weapon: ChemBomb
 		EmptyWeapon: ChemBomb
+		DamageSource: Killer
+	AttackFrontal:
+		FacingTolerance: 512
+        PauseOnCondition: emp-condition
+	Armament@PRIMARY:
+		Weapon: DemoTruckTargeting
+        PauseOnCondition: emp-condition
+	GrantConditionOnAttack:
+		Condition: triggered
+	GrantConditionOnDeploy:
+		DeployedCondition: triggered
+        DeployCursor: deploy
+        DeployBlockedCursor: deploy-blocked
+        PauseOnCondition: emp-condition
+	KillsSelf:
+		RequiresCondition: triggered
+	RevealOnDeath:
+		Duration: 50
+		Radius: 3c512
+        RevealForRelationships: Ally, Neutral, Enemy
+
+TRU2:
+	Inherits: ^Vehicle
+	Inherits@selection: ^SelectableEconomicUnit
+	Buildable:
+        BuildDuration: 1000
+        BuildDurationModifier: 100
+		Queue: VehicleSQ, VehicleMQ
+		BuildPaletteOrder: 150
+		#   Prerequisites: refn, ~techlevel.low
+        Prerequisites: ~disabled
+		Description: Transports cash to other players.
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Supply Truck
+	TooltipExtras:
+		Weaknesses: Unarmed
+        Attributes: Drops a money crate
+	EditorOnlyTooltip:
+		Name: Old Supply Truck
+	Health:
+		HP: 12000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 80
+		TurnSpeed: 16
+	RevealsShroud:
+		Range: 3c0
+	DeliversCash:
+        Cursor: sell-unit
+		Payload: 2000
+		PlayerExperience: 0
+	SpawnActorOnDeath:
+		Actor: moneycrate
+        RequiresCondition: !oncarryall
+    Carryable:
+		ReservedCondition: awaiting
+		CarriedCondition: oncarryall
+		LockedCondition: boarding
+		LocalOffset: 0,0,200
+
+DTRK:
+	Inherits: ^Vehicle
+	Inherits@selection: ^SelectableSupportUnit
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Demolition Truck
+        GenericStancePrefix: false
+        GenericName: Demo Truck
+        GenericVisibility: Ally, Neutral, Enemy
+	TooltipExtras:
+        Strengths: Carries an atomic bomb
+		Weaknesses: Unarmed
+        Attributes: Deploy for detonation
+	EditorOnlyTooltip:
+		Name: Demo Truck
+	Buildable:
+    	BuildDuration: 2000
+        BuildDurationModifier: 100
+		BuildPaletteOrder: 160
+		#   Prerequisites: nuke, ~vehicles.nod, ~chemical.upgrade, ~techlevel.maximum
+        Prerequisites: ~disabled
+		Queue: VehicleSQ, VehicleMQ
+		Description: Transports atomic demolition charge.
+	Health:
+		HP: 12000
+	Armor:
+		Type: Light
+	Mobile:
+        Locomotor: wheeled
+        TurnSpeed: 16
+		Speed: 60
+	RevealsShroud:
+		Range: 3c512
+	Passenger:
+        CargoType: Vehicle
+		CustomPipType: pip-blue
+	Explodes:
+		Weapon: MiniNuke
+		EmptyWeapon: MiniNuke
 		DamageSource: Killer
 	AttackFrontal:
 		FacingTolerance: 512

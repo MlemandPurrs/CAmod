@@ -5,6 +5,8 @@ explosion:
 		ZOffset: 2047
 	nuke_explosion:
 		Filename: atomsfx.shp
+    mini_nuke_explosion:
+        Filename: miniatomsfx.shp
 	piff:
 		Filename: piff.shp
 	piffs:

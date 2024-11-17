@@ -79,7 +79,7 @@ CAR:
 	Armor:
 		Type: Light
 	RevealsShroud:
-		Range: 3c0
+		Range: 3c512
 
 CAR1:
     Inherits: CAR
@@ -549,6 +549,8 @@ HOSP:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
+	Valued:
+		Cost: 600
 	Health:
 		HP: 80000
 	CaptureManager:
@@ -614,6 +616,8 @@ APRT:
         Strengths: Provides Paratroopers support
 	Selectable:
 		Bounds: 3072, 2048
+	Valued:
+		Cost: 600
 	Health:
 		HP: 80000
 	Armor:
@@ -694,6 +698,8 @@ WIND:
 		Dimensions: 1,1
 	Health:
 		HP: 20000
+	Valued:
+		Cost: 300
 	RevealsShroud:
 		Range: 3c0
 	Tooltip:
@@ -745,6 +751,8 @@ OUTP:
 		Dimensions: 1,1
 	Health:
 		HP: 20000
+	Valued:
+		Cost: 500
 	RevealsShroud:
 		Range: 4c0
 	Tooltip:

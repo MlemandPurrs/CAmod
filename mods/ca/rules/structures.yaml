@@ -1242,7 +1242,7 @@ HQ:
     GrantConditionOnPrerequisite@JAMMER:
         Condition: jamming.on
         Prerequisites: jamming.upgrade
-	SpawnActorPower@RadarScan:
+	SpawnActorPowerCA@RadarScan:
 		PauseOnCondition: disabled || jammed
 		OrderName: RadarScan
 		Actor: camera.scan
@@ -1262,6 +1262,8 @@ HQ:
 		EffectSequence: idle
 		EffectPalette: effect
 		DeploySound: reveal1.aud
+        TargetCircleRange: 5c512
+        TargetCircleColor: 32cd32
 	SupportPowerChargeBar:
 	Power:
 		Amount: -60
@@ -1840,6 +1842,11 @@ TMPL.Husk:
 NUKE:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^2x2Shape
+	WithSpriteBody:
+		PauseOnCondition: lowpower
+	GrantConditionOnPowerState@LOWPOWER:
+		Condition: lowpower
+		ValidPowerStates: Low, Critical
 	Selectable:
 		Bounds: 2048, 2048
 	Building:
@@ -1857,7 +1864,7 @@ NUKE:
 		BuildLimit: 1
 		Prerequisites: tmpl, ~structures.nod, ~techlevel.maximum
 		Queue: BuildingSQ, BuildingMQ
-		Description: Maximum 1 can be built.\n\nEnables 'Atomic Bomb' super-weapon,\nMissile Launcher and Demo Truck.
+		Description: Maximum 1 can be built.\n\nAllows production of Missile Launchers.
 	Tooltip:
 		Name: Nuclear Facility
     TooltipExtras:
@@ -1877,6 +1884,8 @@ NUKE:
         OwnerType: Victim
         EffectiveOwnerFromOwner: true
         RequiresCondition: !being-demolished
+    ActorPreviewPlaceBuildingPreview:
+		Animated: false
 
 NUKE.Husk:
 	Inherits: ^BuildingHusk
@@ -1904,6 +1913,8 @@ BIO:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
+	Valued:
+		Cost: 600
 	Health:
 		HP: 80000
 	Tooltip:
@@ -2499,7 +2510,7 @@ SYRD:
 		Dimensions: 3,3
 		TerrainTypes: Water
 	Valued:
-		Cost: 750
+		Cost: 800
 	Tooltip:
 		Name: Shipyard
 		GenericStancePrefix: false

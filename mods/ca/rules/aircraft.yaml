@@ -59,6 +59,8 @@ CHIN:
 	TooltipExtras:
 		Weaknesses: Unarmed
         Attributes: Carries up to 6 Infantry
+	EditorOnlyTooltip:
+		Name: Chinook
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -154,7 +156,7 @@ CHIN.Husk2:
 	Health: 
 		HP: 7500
 	Tooltip:
-		Name: Husk (Chinook)
+		Name: Chinook (Destroyed)
 	TransformOnCapture:
 		IntoActor: chin
 	InfiltrateForTransform:
@@ -186,6 +188,8 @@ APCH:
         Strengths: Strong vs Infantry, Light Armor
 		Weaknesses: Weak vs Heavy Armor, Anti-Air weapons
         Attributes: Can attack Aircraft
+	EditorOnlyTooltip:
+		Name: Apache
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -505,6 +509,8 @@ ORCA:
         Strengths: Strong vs Ground units
 		Weaknesses: Weak vs Anti-Air measures
         Attributes: Can attack Aircraft
+	EditorOnlyTooltip:
+		Name: Orca
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
@@ -781,6 +787,30 @@ PDP:
 		RequiresCondition: enable-smoke
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
+	SpawnActorOnDeath:
+		Actor: PDP.Husk
+		RequiresCondition: airborne
+
+PDP.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Paradrop Plane (Destroyed)
+	Health:
+		HP: 5000
+	Aircraft:
+		CruiseAltitude: 3072
+		TurnSpeed: 24
+		Speed: 200
+	LeavesTrails:
+		Offsets: -432,560,0, -432,-560,0
+		MovingInterval: 2
+		Image: smokey
+		StationaryInterval: 2
+		SpawnAtLastPosition: False
+		TrailWhileStationary: True
+		Type: CenterPosition
+	RenderSprites:
+		Image: pdp
 
 MH60:
 	Inherits: ^Helicopter
@@ -999,9 +1029,6 @@ SFIG:
 		RequiresCondition: enable-smoke
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
-	Explodes:
-		Weapon: UnitExplodeAir
-		EmptyWeapon: UnitExplodeAir
 	Cloak:
 		InitialDelay: 0
 		CloakDelay: 85
@@ -1184,18 +1211,9 @@ UAV:
 		RequiresCondition: enable-smoke
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
-	Explodes:
-		Weapon: UnitExplodeAir
-		EmptyWeapon: UnitExplodeAir
 	RevealsShroud:
 		Range: 15c768
 		Type: GroundPosition
- 		RevealGeneratedShroud: False
-        MinRange: 7c512
-	RevealsShroud@GAPGenerator:
-		Range: 7c512
-		Type: GroundPosition
-        RevealGeneratedShroud: True
 	DetectCloaked:
         DetectionTypes: Cloak, Mine
 		Range: 7c536

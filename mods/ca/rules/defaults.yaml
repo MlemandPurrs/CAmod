@@ -607,8 +607,9 @@
 	Health:
 		HP: 40000
 	Explodes:
-		Weapon: UnitExplode
-		RequiresCondition: !airborne
+		Weapon: UnitExplodeAir
+        EmptyWeapon: UnitExplodeAir
+		RequiresCondition: airborne
 
 ^Helicopter:
 	Inherits: ^NeutralPlane
@@ -898,6 +899,8 @@
 	FrozenUnderFog:
 	MapEditorData:
 		Categories: Civilian building
+	RenderSprites:
+        Palette: terrain
 
 ^CivBuildingHusk:
 	Inherits@1: ^SpriteActor
@@ -915,6 +918,8 @@
 	ScriptTriggers:
 	MapEditorData:
 		Categories: Civilian husk
+	RenderSprites:
+        Palette: terrain
 
 ^CivField:
 	Inherits: ^CivBuilding
@@ -939,12 +944,12 @@
 		Name: Field (Destroyed)
 		GenericVisibility: None
 		ShowOwnerRow: false
-	RenderSprites:
-		Palette: terrain
 	WithSpriteBody:
 	FrozenUnderFog:
 	MapEditorData:
 		Categories: Civilian husk
+	RenderSprites:
+		Palette: terrain
 
 ^Tree:
 	Inherits@1: ^SpriteActor
@@ -952,8 +957,6 @@
 	Tooltip:
 		Name: Tree
 		ShowOwnerRow: false
-	RenderSprites:
-		Palette: terrain
 	WithSpriteBody:
 	Building:
 		Footprint: __ x_
@@ -988,6 +991,8 @@
 	HitShape:
 	MapEditorData:
 		Categories: Tree
+	RenderSprites:
+		Palette: terrain
 	RequiresSpecificOwners:
 		ValidOwnerNames: Neutral
 
@@ -1009,6 +1014,8 @@
 	HiddenUnderShroud:
 	MapEditorData:
 		Categories: Tree
+	RenderSprites:
+		Palette: terrain
 	RequiresSpecificOwners:
 		ValidOwnerNames: Neutral
 
@@ -1449,7 +1456,7 @@
 		HP: 10000
 	Explodes:
 		Weapon: Demolish
-		DamageThreshold: 70
+		DamageThreshold: 50
 	RevealsShroud:
 		Range: 1c0
 	WithDecoration@fake:

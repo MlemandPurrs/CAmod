@@ -130,6 +130,27 @@ apc:
 	icon:
         Filename: apcicon.shp
 
+apc2:
+	Defaults:
+		Filename: apc2.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	muzzle: 
+        Filename: mgun8.shp
+		Length: 6
+		Facings: 8
+	open:
+		Frames: 34, 33, 32
+		Length: 3
+	close:
+		Start: 32
+		Length: 3
+	unload:
+		Start: 32
+	icon:
+        Filename: apc2icon.shp
+
 napc:
 	Defaults:
 		Filename: napc.shp
@@ -452,6 +473,17 @@ arty:
 	icon:
 		Filename: artyicon.shp
 
+art2:
+	idle:
+		Filename: art2.shp
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: gunfire.shp
+		Length: *
+	icon:
+		Filename: art2icon.shp
+
 mlrs:
 	Defaults:
 		Filename: mlrs.shp
@@ -512,12 +544,25 @@ ssmb:
         Filename: ssmbicon.shp
 
 stnk:
+    Defaults:
+        Filename: stnk.shp
 	idle:
-		Filename: stnk.shp
+		Facings: 32
+		UseClassicFacings: True
+    turret:
+        Start: 32
 		Facings: 32
 		UseClassicFacings: True
 	icon:
 		Filename: stnkicon.shp
+
+stn2:
+	idle:
+		Filename: stn2.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: stn2icon.shp
 
 sapc:
 	Defaults:
@@ -672,3 +717,19 @@ ttrk:
 		UseClassicFacings: True
 	icon:
         Filename: ttrkicon.shp
+
+tru2:
+	idle:
+		Filename: tru2.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: tru2icon.shp
+
+dtrk:
+	idle:
+        Filename: dtrk.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+        Filename: dtrkicon.shp

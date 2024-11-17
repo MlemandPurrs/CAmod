@@ -1,0 +1,36 @@
+^Palettes:
+	IndexedPlayerPalette@originalmpcolors:
+		BasePalette: player
+		BaseName: player-mp
+		RemapIndex: 176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191
+		PlayerIndex:
+			Multi0: 2,119,118,135,136,138,112,12,118,135,136,137,138,139,114,112
+            Multi1: 24,25,26,27,29,31,46,47,26,27,28,29,30,31,43,47
+            Multi2: 5,165,166,167,159,142,140,199,166,167,157,3,159,143,142,141
+            Multi3: 161,200,201,202,204,205,206,12,201,202,203,204,205,115,198,114
+            Multi4: 176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191
+            Multi5: 127,126,125,124,122,46,120,47,125,124,123,122,42,121,120,120
+			Neutral: 192,164,132,155,133,197,112,12,163,132,155,133,134,197,154,198
+            Creeps: 192,193,195,194,197,169,199,169,195,194,196,197,42,198,199,199
+
+^Vehicle:
+	RenderSprites:
+		PlayerPalette: player-mp
+
+^Helicopter:
+	RenderSprites:
+		PlayerPalette: player-mp
+
+^Plane:
+	RenderSprites:
+		PlayerPalette: player-mp
+
+^Infantry:
+	RenderSprites:
+		PlayerPalette: player-mp
+	WithDeathAnimation:
+		DeathSequencePalette: player-mp
+
+^Building:
+	RenderSprites:
+		PlayerPalette: player-mp

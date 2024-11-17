@@ -31,31 +31,43 @@ Players:
 		Name: Multi0
 		Playable: True
 		Faction: Random
+		LockColor: True
+		Color: 00A8A8
 		Enemies: Creeps
 	PlayerReference@Multi1:
 		Name: Multi1
 		Playable: True
 		Faction: Random
+		LockColor: True
+		Color: ECAC48
 		Enemies: Creeps
 	PlayerReference@Multi2:
 		Name: Multi2
 		Playable: True
 		Faction: Random
+		LockColor: True
+		Color: 8CC808
 		Enemies: Creeps
 	PlayerReference@Multi3:
 		Name: Multi3
 		Playable: True
 		Faction: Random
+		LockColor: True
+		Color: C0C0D0
 		Enemies: Creeps
 	PlayerReference@Multi4:
 		Name: Multi4
 		Playable: True
 		Faction: Random
+		LockColor: True
+		Color: FCFC54
 		Enemies: Creeps
 	PlayerReference@Multi5:
 		Name: Multi5
 		Playable: True
 		Faction: Random
+		LockColor: True
+		Color: F40000
 		Enemies: Creeps
 
 Actors:
@@ -482,9 +494,6 @@ Actors:
 	Actor524: t08
 		Owner: Neutral
 		Location: 117,121
-	Actor525: tech
-		Owner: Neutral
-		Location: 64,64
 	Actor526: barb
 		Owner: Neutral
 		Location: 66,67
@@ -527,18 +536,6 @@ Actors:
 	Actor514: t10
 		Owner: Neutral
 		Location: 12,9
-	Actor518: flare
-		Owner: Neutral
-		Location: 65,62
-	Actor549: flare
-		Owner: Neutral
-		Location: 64,67
-	Actor552: flare
-		Owner: Neutral
-		Location: 62,64
-	Actor550: flare
-		Owner: Neutral
-		Location: 67,65
 	Actor523: t12
 		Owner: Neutral
 		Location: 116,115
@@ -1505,3 +1502,40 @@ Actors:
 	Actor551: t08
 		Owner: Neutral
 		Location: 9,106
+	Actor496: bio
+		Owner: Neutral
+		Location: 64,64
+	Actor499: atur
+		Owner: Neutral
+		Location: 51,92
+		TurretFacing: 1023
+	Actor500: atur
+		Owner: Neutral
+		Location: 78,92
+		TurretFacing: 1023
+	Actor501: atur
+		Owner: Neutral
+		Location: 78,37
+		TurretFacing: 491
+	Actor502: atur
+		Owner: Neutral
+		Location: 51,37
+		TurretFacing: 499
+	Actor503: atur
+		Owner: Neutral
+		Location: 95,76
+		TurretFacing: 245
+	Actor518: atur
+		Owner: Neutral
+		Location: 95,53
+		TurretFacing: 261
+	Actor525: atur
+		Owner: Neutral
+		Location: 34,76
+		TurretFacing: 753
+	Actor535: atur
+		Owner: Neutral
+		Location: 34,53
+		TurretFacing: 777
+
+Rules: rules.yaml
