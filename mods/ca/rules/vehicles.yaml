@@ -542,7 +542,7 @@ APC:
 	RevealsShroud:
 		Range: 7c0
 	Turreted:
-		TurnSpeed: 16
+		TurnSpeed: 20
 	AutoTargetPriority@Air:
 		ValidTargets: Air
 		Priority: 2
@@ -640,7 +640,7 @@ NAPC:
 	RevealsShroud:
 		Range: 7c0
 	Turreted:
-		TurnSpeed: 16
+		TurnSpeed: 20
         Offset: 64,0,0
 	AutoTarget:
 		ScanRadius: 7
@@ -1149,7 +1149,7 @@ GTNK:
     Inherits@expupgrade: ^AffectedBySpecialTraining
     Inherits@armorupgrade: ^AffectedbyCompositeArmor
 	Valued:
-		Cost: 1500
+		Cost: 1600
 	Tooltip:
 		Name: Mammoth Tank
 	TooltipExtras:
@@ -1159,7 +1159,7 @@ GTNK:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-    	BuildDuration: 1500
+    	BuildDuration: 1600
         BuildDurationModifier: 100
 		BuildPaletteOrder: 50
 		Prerequisites: hq, ~vehicles.gdi, ~techlevel.high
@@ -1772,7 +1772,7 @@ ARTY:
 	Inherits@experience: ^GainsExperience
     Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
-		Cost: 700
+		Cost: 750
 	Tooltip:
 		Name: Mobile Artillery
 	TooltipExtras:
@@ -1782,7 +1782,7 @@ ARTY:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-    	BuildDuration: 700
+    	BuildDuration: 750
         BuildDurationModifier: 100
 		BuildPaletteOrder: 60
 		Prerequisites: hq, ~vehicles.nod, ~techlevel.high
@@ -1830,7 +1830,7 @@ MLRS:
 	Inherits@experience: ^GainsExperience
     Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
-		Cost: 800
+		Cost: 900
 	Tooltip:
 		Name: Rocket Launcher
 	TooltipExtras:
@@ -1840,7 +1840,7 @@ MLRS:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
-    	BuildDuration: 800
+    	BuildDuration: 900
         BuildDurationModifier: 100
 		BuildPaletteOrder: 60
 		Prerequisites: hq, ~vehicles.gdi, ~techlevel.high
@@ -1930,7 +1930,7 @@ SSML:
     	BuildDuration: 1200
         BuildDurationModifier: 100
 		BuildPaletteOrder: 120
-		Prerequisites: nuke, ~vehicles.nod, ~chemical.upgrade,  ~techlevel.maximum
+		Prerequisites: nuke, ~vehicles.nod, ~!chemical.upgrade, ~techlevel.maximum
 		Queue: VehicleSQ, VehicleMQ
 		Description: Surface to surface missile launcher.
 	Mobile:
@@ -2376,7 +2376,7 @@ XO:
 		Speed: 50
         PauseOnCondition: boarding || emp-condition
 	RevealsShroud:
-		Range: 5c0
+		Range: 6c0
 	WithMoveAnimation:
         ValidMovementTypes: Horizontal, Vertical
 	Armament@1:
@@ -2407,7 +2407,7 @@ XO:
 		AmmoCondition: ammo
 	ReloadAmmoPoolCA:
 		AmmoPool: railgun
-		Delay: 400
+		Delay: 300
 		Count: 1
 		PauseOnCondition: ammo || emp-condition
         SelectionBarColor: B0B4E4
@@ -2478,7 +2478,7 @@ T55H:
 	Armor:
 		Type: Heavy
 	RevealsShroud:
-		Range: 5c0
+		Range: 6c0
 	WithSpriteTurret:
 	Turreted:
 		TurnSpeed: 12
@@ -2605,7 +2605,7 @@ TRUK:
 		Range: 3c0
 	DeliversCash:
         Cursor: sell-unit
-		Payload: 2000
+		Payload: 1000
 		PlayerExperience: 0
 	SpawnActorOnDeath:
 		Actor: moneycrate
@@ -2707,7 +2707,7 @@ TRU2:
 		Range: 3c0
 	DeliversCash:
         Cursor: sell-unit
-		Payload: 2000
+		Payload: 1000
 		PlayerExperience: 0
 	SpawnActorOnDeath:
 		Actor: moneycrate

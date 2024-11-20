@@ -673,6 +673,8 @@ FNUK:
 		Image: nuke
 	Valued:
 		Cost: 150
+	ActorPreviewPlaceBuildingPreview:
+		Animated: false
 
 FDOM:
 	Inherits: ^FakeBuilding

@@ -690,6 +690,17 @@ BARR:
 		InfiltrationNotification: BuildingInfiltrated
 		InfiltratedNotification: OnHold
 		ShowSelectionBar: true
+	ProximityExternalCondition@barracksheal:
+		Condition: barracks
+		ValidRelationships: Ally
+		Range: 2c512
+        RequiresCondition: !build-incomplete && barrup.on
+	WithRangeCircle:
+		Range: 2c512
+        RequiresCondition: !build-incomplete && barrup.on
+    GrantConditionOnPrerequisite@auraupgrade:
+        Condition: barrup.on
+        Prerequisites: barracks.upgrade
 
 BARR.Husk:
 	Inherits: ^BuildingHusk
@@ -1030,7 +1041,7 @@ DEPT:
 		Name: Service Depot
     TooltipExtras:
         Strengths: Repairs Vehicles and Aircraft
-        Attributes: Can upgrade units
+        Attributes: Can apply upgrades to units
 	Buildable:
     	BuildDuration: 1200
         BuildDurationModifier: 100
@@ -1350,7 +1361,35 @@ HQ:
 		PauseOnCondition: disabled
 		SupportPowerPaletteOrder: 50
 		SelectProducer: true
- 
+    #   service depot should have a plug type upgrade
+    #   where it turns into repair facility that then can
+    #   provide this ability and enables helipad repairs
+ 	SpawnActorPowerCA@FieldRepairs:
+		PauseOnCondition: disabled
+		OrderName: FieldRepairs
+        Prerequisites: dept
+		Actor: camera.frep
+		LifeTime: 450
+		ChargeInterval: 4500
+		Icon: fieldrepairs
+		Name: Field Repairs
+		Description: Designates an area on the map,\nwhere Vehicles can self-repair.\n\nLasts for 18 seconds.
+		StartFullyCharged: false
+		LaunchSpeechNotification: FieldRepairsUse
+        LaunchTextNotification: Field Repairs commencing.
+		EndChargeSpeechNotification: FieldRepairsReady
+        EndChargeTextNotification: Field Repairs ready.
+		SelectTargetSpeechNotification: SelectTarget
+        SelectTargetTextNotification: Select target.
+		Cursor: ability
+		SupportPowerPaletteOrder: 120
+		EffectImage: empty
+		EffectSequence: idle
+		EffectPalette: effect
+		DeploySound: fixit1.aud
+        TargetCircleRange: 2c768
+        TargetCircleColor: FCFC54
+  
 HQ.Husk:
 	Inherits: ^BuildingHusk
 	Interactable:

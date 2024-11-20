@@ -27,6 +27,7 @@ E1:
 		ScanRadius: 4
 	Armament:
 		Weapon: M16Rifle
+        FireDelay: 3
 	AttackFrontal:
 		Voice: Attack
 		FacingTolerance: 0
@@ -96,6 +97,7 @@ E3:
 		Name: secondary
 		Weapon: PortaSAM
 		LocalOffset: 0,0,555
+        FireDelay: 5
 		PauseOnCondition: reload-ag
         ReloadingCondition: reload-aa
 	AttackFrontal:
@@ -217,7 +219,7 @@ E4:
 	Armament:
 		Weapon: Flamer
 		LocalOffset: 341,0,256
-		FireDelay: 3
+		FireDelay: 4
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		Voice: Attack
@@ -385,11 +387,13 @@ CMDO:
 	Armament@1:
         Name: primary
 		Weapon: Sniper
+		FireDelay: 4
 		ReloadingCondition: reload-primary
         PauseOnCondition: reload-secondary
     Armament@2:
         Name: secondary
         Weapon: DriverKill
+		FireDelay: 4
 		ReloadingCondition: reload-secondary
         PauseOnCondition: reload-primary || !ammo
         RequiresCondition: raufoss.on
@@ -578,6 +582,7 @@ MEDI:
 	Armament:
         Name: primary
 		Weapon: Heal
+		FireDelay: 15
 		Cursor: heal
 		OutsideRangeCursor: heal
 		TargetRelationships: Ally
@@ -586,6 +591,7 @@ MEDI:
     Armament@upg:
         Name: secondary
 		Weapon: HealUpg
+		FireDelay: 15
 		Cursor: heal
 		OutsideRangeCursor: heal
 		TargetRelationships: Ally
@@ -661,6 +667,7 @@ MECH:
         CustomPipType: blue
 	Armament:
 		Weapon: Repair
+		FireDelay: 15
 		Cursor: repair
 		OutsideRangeCursor: repair
 		TargetRelationships: Ally
@@ -738,6 +745,7 @@ INF:
 		ScanRadius: 5
 	Armament:
 		Weapon: PortaLaser
+		FireDelay: 4
 		LocalOffset: 427,0,341
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
@@ -803,7 +811,7 @@ CHEM:
 	Armament:
 		Weapon: ChemSpray
 		LocalOffset: 341,0,256
-		FireDelay: 3
+		FireDelay: 4
 		MuzzleSequence: muzzle
 	AttackFrontal:
 		Voice: Attack
@@ -1198,7 +1206,7 @@ SNIP:
 		FacingTolerance: 0
 	Armament:
 		Weapon: Sniper
-        FireDelay: 2
+        FireDelay: 4
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		RequiresCondition: !parachute
@@ -1420,6 +1428,7 @@ A1:
 		ScanRadius: 4
 	Armament:
 		Weapon: M16Rifle
+        FireDelay: 4
 		PauseOnCondition: emp-condition
 	AttackFrontal:
 		Voice: Attack
@@ -1487,6 +1496,7 @@ A3:
 		Name: secondary
 		Weapon: PortaSAM
 		LocalOffset: 0,0,555
+		FireDelay: 5
 		PauseOnCondition: reload-ag || emp-condition
         ReloadingCondition: reload-aa
 	AttackFrontal:
@@ -1752,11 +1762,13 @@ CMDA:
 	Armament@1:
         Name: primary
 		Weapon: Sniper
+		FireDelay: 4
 		ReloadingCondition: reload-primary
         PauseOnCondition: reload-secondary && emp-condition
     Armament@2:
         Name: secondary
         Weapon: DriverKill
+		FireDelay: 4
 		ReloadingCondition: reload-secondary
         PauseOnCondition: reload-primary && !ammo && emp-condition
         RequiresCondition: raufoss.on
@@ -1898,6 +1910,7 @@ GNRL:
 		ScanRadius: 8
 	Armament:
 		Weapon: Sniper
+		FireDelay: 4
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
 		IdleSequences: idle1

@@ -1,5 +1,5 @@
 ^DamagingExplosion:
-    ValidTargets: Ground, GroundActor, Water, WaterActor
+    ValidTargets: Ground, GroundActor, Water, WaterActor, Air, AirborneActor
 	Warhead@1Dam: SpreadDamage
 		Spread: 426
 		Damage: 5000
@@ -33,7 +33,7 @@ UnitExplode:
 	Inherits: ^DamagingExplosionHE
 	Warhead@1Dam: SpreadDamage
 		Falloff: 500, 135, 50, 18, 7, 0
-        Damage: 4000
+        Damage: 4500
 	Warhead@2Eff: CreateEffect
 		ImpactSounds: xplobig6.aud
 
@@ -48,13 +48,15 @@ UnitExplodeSmall:
 UnitExplodeBig:
 	Inherits: UnitExplode
 	Warhead@1Dam: SpreadDamage
-		Damage: 5000
+		Damage: 6000
 	Warhead@2Eff: CreateEffect
 		Explosions: big_frag
 		ImpactSounds: xplobig6.aud
 
 UnitExplodePlane:
 	Inherits: UnitExplode
+	Warhead@1Dam: SpreadDamage
+		Damage: 6000
 	Warhead@2Eff: CreateEffect
 		Explosions: big_napalm
 
@@ -65,6 +67,8 @@ UnitExplodeHeli:
 
 UnitExplodeAir:
 	Inherits: UnitExplode
+	Warhead@1Dam: SpreadDamage
+		Damage: 3000
 	Warhead@2Eff: CreateEffect
 		Explosions: sml_napalm
 

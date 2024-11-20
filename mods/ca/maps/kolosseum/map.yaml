@@ -22,6 +22,7 @@ Players:
 		OwnsWorld: True
 		NonCombatant: True
 		Faction: Random
+        Color: D0C4AC
 	PlayerReference@Creeps:
 		Name: Creeps
 		NonCombatant: True
@@ -448,10 +449,10 @@ Actors:
 		Location: 95,10
 	Actor497: v19
 		Owner: Neutral
-		Location: 65,1
+		Location: 65,2
 	Actor498: v19
 		Owner: Neutral
-		Location: 64,128
+		Location: 64,127
 	Actor504: v19
 		Owner: Neutral
 		Location: 23,126

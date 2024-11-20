@@ -153,7 +153,7 @@ NapalmBombs:
 	Burst: 2
 	BurstDelays: 2
 	ValidTargets: Ground, GroundActor, Water, WaterActor, Trees
-	Report: flamer2.aud
+	Report: chute1.aud
 	Projectile: GravityBomb
 		Image: BOMBLET
 		Shadow: true
@@ -174,4 +174,5 @@ NapalmBombs:
 		InvalidTargets: Vehicle, Structure, Wall
 	Warhead@3Eff: CreateEffect
 		Explosions: med_napalm
+		ImpactSounds: flamer2.aud
 		ImpactActors: false

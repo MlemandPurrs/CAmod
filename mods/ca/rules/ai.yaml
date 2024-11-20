@@ -166,7 +166,7 @@ Player:
 					TargetMetric: Value
 					CheckRadius: 7c0
 				Consideration@2:
-					Against: Enemy
+					Against: Ally
 					Types: Structure
 					Attractiveness: 2
 					TargetMetric: Value
@@ -176,12 +176,12 @@ Player:
 				MinimumAttractiveness: 3000
 				Consideration@1:
 					Against: Enemy
-					Types: Air
+					Types: AirborneActor
 					Attractiveness: 5
 					TargetMetric: Value
 					CheckRadius: 7c0
 				Consideration@2:
-					Against: Enemy
+					Against: Ally
 					Types: Structure
 					Attractiveness: 2
 					TargetMetric: Value
@@ -239,6 +239,15 @@ Player:
 				OrderName: HackerCellMQ
 				Consideration@1:
 					Against: Ally
+			UseFieldRepairs:
+				OrderName: FieldRepairs
+				MinimumAttractiveness: 1
+				Consideration@1:
+					Against: Ally
+					Types: Repair
+					Attractiveness: 1
+					TargetMetric: None
+					CheckRadius: 2c0
 	HarvesterBotModuleCA:
 		RequiresCondition: enable-ai
 		HarvesterTypes: harv
@@ -357,6 +366,7 @@ Player:
             nodb.doctrine: 1
             nodc.doctrine: 1
             armorup.upgrade: 1
+            airstrike.upgrade: 1
             training.upgrade: 1
             chemical.upgrade: 1
             android.upgrade: 1
@@ -364,12 +374,12 @@ Player:
 	SquadManagerBotModuleCA:
 		RequiresCondition: enable-ai
 		SquadSize: 16
-        SquadSizeRandomBonus: 32
+        SquadSizeRandomBonus: 24
 		SquadValue: 1500
 		SquadValueRandomBonus: 3000
 		AssignRolesInterval: 10
-        ProtectInterval: 10
-        AttackForceInterval: 10
+        ProtectInterval: 50
+        AttackForceInterval: 75
 		#   RushAttackScanRadius: 22
         ProtectUnitScanRadius: 22
 		DangerScanRadius: 14
@@ -490,7 +500,7 @@ Player:
         EnemyAvoidanceRadius: 4c0
     CaptureManagerBotModuleCA@hijacker:
         CapturingActorTypes: jack, jack.nod
-        CapturableActorTypes: htnk, disr, mcv
+        CapturableActorTypes: gtnk, htnk, disr, mcv
         MaximumCaptureTargetOptions: 2
         CheckCaptureTargetsForVisibility: false
         EnemyAvoidanceRadius: 2c0

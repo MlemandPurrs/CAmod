@@ -30,6 +30,8 @@ icon:
         Filename: xoicon.shp
     spysat:
 		Filename: ssaticon.shp
+    fieldrepairs:
+        Filename: frepicon.shp
 
 beacon:
 	Defaults:

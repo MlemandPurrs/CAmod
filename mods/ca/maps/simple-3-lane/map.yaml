@@ -421,3 +421,19 @@ Actors:
 	Actor128: wind
 		Owner: Neutral
 		Location: 85,9
+	Actor129: gtnk
+		Owner: Creeps
+		Location: 71,14
+		Facing: 384
+		Stance: HoldFire
+	Actor130: e1
+		SubCell: 3
+		Owner: Multi0
+		Location: 68,13
+		Facing: 384
+		Stance: HoldFire
+	Actor131: jack
+		Owner: Multi0
+		SubCell: 3
+		Location: 67,14
+		Facing: 658

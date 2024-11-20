@@ -251,19 +251,24 @@
 		Delay: 100
 		StartIfBelow: 100
 		DamageCooldown: 125
-		RequiresCondition: hospitalheal && !parachute
+		RequiresCondition: ( barracksheal || hospitalheal ) && !parachute
 	GrantConditionOnPrerequisite@HOSPITAL:
 		Condition: hospital
 		Prerequisites: hosp
 	GrantCondition@HOSPITAL:
 		RequiresCondition: hospital && damaged
 		Condition: hospitalheal
+	ExternalCondition@BARRACKS:
+		Condition: barracks
+	GrantCondition@BARRACKS:
+		RequiresCondition: barracks && damaged
+		Condition: barracksheal
 	WithDecoration@REDCROSS:
 		Image: pips
 		Sequence: pip-heal
 		Position: TopLeft
 		Margin: 17, 4
-		RequiresCondition: hospitalheal
+		RequiresCondition: barracksheal || hospitalheal
 		BlinkInterval: 32
 		BlinkPattern: Off, On
 	QuantizeFacingsFromSequence:
@@ -381,6 +386,8 @@
     -ChangesHealth@HOSPITAL:
     -GrantConditionOnPrerequisite@HOSPITAL:
     -GrantCondition@HOSPITAL:
+    -ExternalCondition@BARRACKS:
+    -GrantCondition@BARRACKS:
     -WithDecoration@REDCROSS:
     -DamagedByTerrain:
     -SpawnActorOnDeath:
@@ -502,6 +509,7 @@
     Inherits@GDIDoctrines: ^ProductionCostVehicleGDI
     Inherits@corrosion: ^ChemApplicable
 	Inherits@driver: ^AffectedByDriverKill
+    Inherits@fieldrepair: ^AffectedByFieldRepair
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
@@ -2052,3 +2060,26 @@
 			primary: shoot
             secondary: shoot
 			commandeer: stand
+
+^AffectedByFieldRepair:
+	ChangesHealth@FieldRepair:
+		Step: 0
+		PercentageStep: 2
+		Delay: 25
+		StartIfBelow: 101
+		DamageCooldown: 0
+		RequiresCondition: fieldrepair
+	WithDecoration@FieldRepair:
+		RequiresSelection: false
+		Image: repair
+		Sequence: repair-small
+		Palette: player
+		IsPlayerPalette: true
+		Position: Center
+		Margin: 0,0
+		ValidRelationships: Ally, Neutral, Enemy
+		RequiresCondition: fieldrepair && damaged
+		BlinkInterval: 25
+		BlinkPattern: Off, On
+	ExternalCondition@FieldRepair:
+		Condition: fieldrepair

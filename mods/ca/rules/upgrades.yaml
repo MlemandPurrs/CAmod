@@ -119,7 +119,7 @@ gdi.doctrine.upgrade1:
 	Buildable:
 		BuildPaletteOrder: 70
 		Prerequisites: ~player.gdi, anydoctrine, player.level2, ~!gdia.doctrine, ~!gdib.doctrine, ~!gdic.doctrine, ~techlevel.minimum
-		Description: Promotion depends on chosen doctrine.\n\n  Tank Command: Medium Tank\n  Air Force: Orca VTOL\n  Special Ops: Rifle Soldier
+		Description: Promotion depends on chosen doctrine.\n\n  Tank Command: Medium Tank\n  Air Force: Orca VTOL\n  Special Ops: basic Soldiers
         Icon: gdidoc1
 	Valued:
 		Cost: 1000
@@ -236,7 +236,7 @@ vaccine.upgrade:
         Weaknesses: - The immunity lasts only temporarily
 	Buildable:
 		BuildPaletteOrder: 80
-		Prerequisites: hq, ~player.gdi, ~techlevel.high
+		Prerequisites: hq, ~player.gdi, ~!gdia.doctrine, ~techlevel.high
 		Description: Upgrades: Medic
         Icon: healup
 	Valued:
@@ -267,13 +267,29 @@ supply.upgrade:
     TooltipExtras:
         Strengths: + 1500$ resources to the Supply Drop.
 	Buildable:
-		BuildPaletteOrder: 100
+		BuildPaletteOrder: 120
 		#   Prerequisites: dbay, ~player.gdi, ~techlevel.maximum
         Prerequisites: ~disabled
 		Description: Upgrades: Supply Drop
         Icon: supply
 	Valued:
 		Cost: 1500
+	RenderSprites:
+		Image: upgicon
+
+barracks.upgrade:
+	Inherits: ^Upgrade
+	Tooltip:
+		Name: Upgrade: Barracks Healing
+	Buildable:
+		BuildPaletteOrder: 110
+		Prerequisites: hq, ~player.gdi, ~techlevel.high
+		Description: Upgrades: Barracks
+        Icon: barrup
+	TooltipExtras:
+		Strengths: + Allows infantry to self-heal near Barracks
+	Valued:
+		Cost: 800
 	RenderSprites:
 		Image: upgicon
 

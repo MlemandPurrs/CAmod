@@ -77,6 +77,12 @@ Sniper:
 		Spread: 48
 		Damage: 10000
 		ValidTargets: Infantry
+        Versus:
+            None: 150
+            Wood: 50
+            Light: 60
+            Heavy: 25
+            Concrete: 10
 
 DriverKill:
     Inherits: Sniper
@@ -160,7 +166,7 @@ Heli50CalMG:
 
 ChainGun:
     Inherits: ^MachineGun
-    ReloadDelay: 50
+    ReloadDelay: 45
     Range: 5c0
     MinRange: 0c768
     Burst: 1

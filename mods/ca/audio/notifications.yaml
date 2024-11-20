@@ -79,6 +79,8 @@ Speech:
         InterceptorsLaunched: incintc
 		InterceptorsReady: intcptr1
         ReconDroneAvailable: rcndrnr1
+        FieldRepairsReady: freprdy1
+        FieldRepairsUse: frepcom1
 
 Sounds:
 	Notifications:

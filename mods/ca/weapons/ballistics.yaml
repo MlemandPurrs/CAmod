@@ -112,7 +112,7 @@ TurretGun:
         ContrailStartWidth: 30
         ContrailEndWidth: 15
 	Warhead@1Dam: SpreadDamage
-		Spread: 344
+		Spread: 426 # 344
 		Damage: 10000
 	Warhead@3Eff: CreateEffect
 		Explosions: poof

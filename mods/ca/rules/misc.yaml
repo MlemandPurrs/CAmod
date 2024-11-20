@@ -90,6 +90,20 @@ CAMERA.scan:
         UpdateLineTick: 6
         BorderWidth: 0
 
+CAMERA.frep:
+    Inherits: CAMERA
+	EditorOnlyTooltip:
+		Name: (reveals area to owner)
+	ProximityExternalCondition@fieldrepair:
+		Condition: fieldrepair
+		ValidRelationships: Ally
+		Range: 2c768
+    WithRangeCircle@fieldrepair:
+        Range: 2c768
+        Visible: Always
+        UsePlayerColor: false
+        Color: FCFC54
+
 CAMERA.hacker:
 	Inherits: CAMERA
 	EditorOnlyTooltip:
@@ -109,7 +123,7 @@ CRATE:
 		UseCashTick: true
     HealActorsCrateAction:
         SelectionShares: 33
-        TargetTypes: Heal, Repair
+        #   TargetTypes: Heal, Repair
     LevelUpCrateAction:
         SelectionShares: 33
         Levels: 1
