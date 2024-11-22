@@ -468,8 +468,9 @@ arty:
 		Facings: 32
 		UseClassicFacings: True
 	muzzle:
-		Filename: gunfire.shp
+		Filename: smokeygun.shp
 		Length: *
+		Tick: 30
 	icon:
 		Filename: artyicon.shp
 
@@ -479,8 +480,9 @@ art2:
 		Facings: 32
 		UseClassicFacings: True
 	muzzle:
-		Filename: gunfire.shp
+		Filename: smokeygun.shp
 		Length: *
+		Tick: 30
 	icon:
 		Filename: art2icon.shp
 

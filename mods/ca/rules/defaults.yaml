@@ -751,7 +751,7 @@
 	GivesBuildableArea:
 		AreaTypes: building, fake
 	SpawnActorsOnSell:
-		ActorTypes: e1,e1,e1,tec1,tec2
+		ActorTypes: e1,e1,e1,tecn,tec2
 		GuaranteedActorTypes: e1
 	Demolishable:
 		Condition: being-demolished
@@ -2068,7 +2068,7 @@
 		Delay: 25
 		StartIfBelow: 101
 		DamageCooldown: 0
-		RequiresCondition: fieldrepair
+		RequiresCondition: fieldrepair && !emp-condition
 	WithDecoration@FieldRepair:
 		RequiresSelection: false
 		Image: repair
@@ -2078,7 +2078,7 @@
 		Position: Center
 		Margin: 0,0
 		ValidRelationships: Ally, Neutral, Enemy
-		RequiresCondition: fieldrepair && damaged
+		RequiresCondition: fieldrepair && damaged && !emp-condition
 		BlinkInterval: 25
 		BlinkPattern: Off, On
 	ExternalCondition@FieldRepair:

@@ -843,12 +843,14 @@ CHEM:
 		RevokeOnNewTarget: False
 		RevokeAll: True
 
-TEC1:
+TECN:
 	Inherits@1: ^CivInfantry
 	Inherits@2: ^ArmedCivilian
     Inherits@driver: ^CanCaptureDriverlessVehicles
 	Tooltip:
 		Name: Technician
+	TooltipExtras:
+        Strengths: Can be refunded for 10$
 	Selectable:
 		Class: Technician
 	DeliversCash:
@@ -864,6 +866,8 @@ TEC2:
     Inherits@driver: ^CanCaptureDriverlessVehicles
 	Tooltip:
 		Name: Technician
+	TooltipExtras:
+        Strengths: Can be refunded for 10$
 	Selectable:
 		Class: Technician
 	DeliversCash:
@@ -878,6 +882,8 @@ SCNT:
     Inherits@driver: ^CanCaptureDriverlessVehicles
 	Tooltip:
 		Name: Scientist
+	TooltipExtras:
+        Strengths: Can be refunded for 25$
 	Selectable:
 		Class: Technician
 	DeliversCash:

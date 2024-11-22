@@ -385,7 +385,7 @@ Player:
 		DangerScanRadius: 14
 		AttackScanRadius: 14
 		ProtectionScanRadius: 10
-		ExcludeFromSquadsTypes: harv, mcv, engi, tec1, tec2, scnt, crgo, pdp, f18, f22, a10, sfig, ospr
+		ExcludeFromSquadsTypes: harv, mcv, engi, tecn, tec2, scnt, crgo, pdp, f18, f22, a10, sfig, ospr
 		ConstructionYardTypes: cnst
 		#   ProtectionTypes: harv, mcv, cnst, refn, powr, dept, hq, apwr, tmpl, tech, nuke
         AirUnitsTypes: apch, apch.upg, orca

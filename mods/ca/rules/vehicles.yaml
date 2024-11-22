@@ -225,16 +225,21 @@ JEEP:
         Turret: primary
 		TurnSpeed: 20
 		Offset: 0,0,0
-	Armament:
+	Armament@1:
         Turret: primary
+        Name: primary
 		Weapon: 50CalibreMG
 		LocalOffset: 171,0,171
 		MuzzleSequence: muzzle
         PauseOnCondition: emp-condition
+		CasingWeapon: BrassDebris
+		CasingSpawnLocalOffset: 0,-125,200
+		CasingTargetOffset: 0, -500, 0
 	AttackMove:
 		Voice: Attack
 	AttackTurreted:
 		Voice: Attack
+        Armaments: primary
         PauseOnCondition: emp-condition
 	WithMuzzleOverlay:
 	WithSpriteTurret:
@@ -271,12 +276,15 @@ JEEP.Upg:
 	Buildable:
 		Prerequisites: weap, ~vehicles.gdi, ~jeeptow.upgrade, ~techlevel.low
 		Description: Light and fast scout vehicle,\narmed with a rocket launcher.
-	Armament:
+	Armament@2:
         Turret: primary
+        Name: secondary
 		Weapon: Bazooka
 		LocalOffset: 171,0,171
         PauseOnCondition: emp-condition
 	-WithMuzzleOverlay:
+    AttackTurreted:
+        Armaments: secondary
 	WithSpriteTurret:
         Sequence: turret2
     -FirepowerMultiplier@apb:
@@ -330,6 +338,9 @@ BGGY:
 		LocalOffset: 171,0,171
 		MuzzleSequence: muzzle
         PauseOnCondition: emp-condition
+		CasingWeapon: BrassDebris
+		CasingSpawnLocalOffset: 0,-125,200
+		CasingTargetOffset: 0, -500, 0
 	AttackMove:
 		Voice: Attack
 	AttackTurreted:
@@ -555,6 +566,9 @@ APC:
 		MuzzleSequence: muzzle
 		PauseOnCondition: reload-air || emp-condition
 		ReloadingCondition: reload-ground
+		CasingWeapon: BrassDebris
+		CasingSpawnLocalOffset: 0,-225,200
+		CasingTargetOffset: 0, -600, 0
 	Armament@2:
 		Name: secondary
 		Weapon: APCGunAA
@@ -564,6 +578,9 @@ APC:
 		MuzzleSequence: muzzle-air
 		PauseOnCondition: reload-ground || emp-condition
 		ReloadingCondition: reload-air
+		CasingWeapon: BrassDebris
+		CasingSpawnLocalOffset: 0,-225,200
+		CasingTargetOffset: 0, -600, 0
 	GrantConditionOnAttack:
 		Condition: attack-air
 		ArmamentNames: secondary
@@ -656,6 +673,9 @@ NAPC:
 		MuzzleSequence: muzzle
 		PauseOnCondition: reload-air || emp-condition
 		ReloadingCondition: reload-ground
+		CasingWeapon: BrassDebris
+		CasingSpawnLocalOffset: 0,-225,200
+		CasingTargetOffset: 0, -600, 0
 	Armament@2:
 		Name: secondary
 		Weapon: APCGunAA
@@ -665,6 +685,9 @@ NAPC:
 		MuzzleSequence: muzzle-air
 		PauseOnCondition: reload-ground || emp-condition
 		ReloadingCondition: reload-air
+		CasingWeapon: BrassDebris
+		CasingSpawnLocalOffset: 0,-225,200
+		CasingTargetOffset: 0, -600, 0
 	GrantConditionOnAttack:
 		Condition: attack-air
 		ArmamentNames: secondary
@@ -960,6 +983,9 @@ MTNK.Upg:
 		LocalOffset: 85,128,85
 		MuzzleSequence: muzzle2
         PauseOnCondition: emp-condition
+		CasingWeapon: BrassDebris
+		CasingSpawnLocalOffset: 0,-225,200
+		CasingTargetOffset: 0, -600, 0
 	AttackTurreted:
         Armaments: primary, secondary
 		Voice: Attack
@@ -1765,6 +1791,10 @@ ART2:
 	Explodes:
 		Weapon: 155mmShell
 		EmptyWeapon: 155mmShell
+	RenderRangeCircle:
+    ReloadArmamentsBar:
+        Armaments: primary
+		Color: FFFF00
 
 ARTY:
 	Inherits: ^TrackedVehicle
@@ -1802,7 +1832,7 @@ ARTY:
 		Offset: 0,0,0
 	Armament:
 		Weapon: 155mmShell
-		LocalOffset: 600,0,480
+		LocalOffset: 624,0,308 # 600,0,480
 		MuzzleSequence: muzzle
         PauseOnCondition: emp-condition
 	AttackTurreted:
@@ -2030,6 +2060,7 @@ SSMB:
 MHQ:
 	Inherits: ^Vehicle
 	Inherits@selection: ^SelectableSupportUnit
+	Inherits@UpgradeOverlay: ^UpgradeOverlay
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -2046,8 +2077,7 @@ MHQ:
         BuildDuration: 1000
         BuildDurationModifier: 100
 		BuildPaletteOrder: 90
-		#   Prerequisites: fix, ~techlevel.medium
-        Prerequisites: techcenter, ~!electron.upgrade, ~techlevel.maximum
+        Prerequisites: dept, ~!electron.upgrade, ~techlevel.medium
 		Queue: VehicleSQ, VehicleMQ
 		Description: Lightly armored support vehicle.
 	Mobile:
@@ -2071,6 +2101,14 @@ MHQ:
 		CarriedCondition: oncarryall
 		LockedCondition: boarding
 		LocalOffset: 0,0,200
+	ReplacedInQueue:
+		Actors: mrj
+	Upgradeable:
+		Type: electron.upgrade
+		UpgradingCondition: upgrading
+		Actor: mrj
+		UpgradeAtActors: dept
+		BuildDuration: 100
 
 MRJ:
 	Inherits: ^Vehicle
@@ -2091,7 +2129,7 @@ MRJ:
         BuildDuration: 1000
         BuildDurationModifier: 100
 		BuildPaletteOrder: 90
-		Prerequisites: techcenter, ~electron.upgrade, ~techlevel.maximum
+		Prerequisites: dept, ~electron.upgrade, ~techlevel.medium
 		Queue: VehicleSQ, VehicleMQ
 		Description: Lightly armored support vehicle.
 	Mobile:
@@ -2386,6 +2424,9 @@ XO:
 		LocalOffset: 338,-220,48
 		MuzzleSequence: muzzle
         PauseOnCondition: ammo || emp-condition
+		CasingWeapon: BrassDebris
+		CasingSpawnLocalOffset: 0,-125,200
+		CasingTargetOffset: 0, -500, 0
 	Armament@2:
 		Name: secondary
         Turret: primary
@@ -2592,6 +2633,7 @@ TRUK:
 	Tooltip:
 		Name: Supply Truck
 	TooltipExtras:
+        Strengths: Can deliver to Construction Yards
 		Weaknesses: Unarmed
         Attributes: Drops a money crate
 	Health:
@@ -2692,6 +2734,7 @@ TRU2:
 	Tooltip:
 		Name: Supply Truck
 	TooltipExtras:
+        Strengths: Can deliver to Construction Yards
 		Weaknesses: Unarmed
         Attributes: Drops a money crate
 	EditorOnlyTooltip:

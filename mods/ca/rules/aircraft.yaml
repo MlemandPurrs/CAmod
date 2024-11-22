@@ -206,6 +206,9 @@ APCH:
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo || emp-condition || reload-aa-gun
         ReloadingCondition: reload-ag-gun
+		CasingWeapon: BrassDebrisAir
+		CasingSpawnLocalOffset: 400,-225,0
+		CasingTargetOffset: 400, -300, 0
 	Armament@2:
 		Name: secondary
 		Weapon: ChainGunAA
@@ -213,6 +216,9 @@ APCH:
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo || emp-condition || reload-ag-gun
         ReloadingCondition: reload-aa-gun
+		CasingWeapon: BrassDebrisAir
+		CasingSpawnLocalOffset: 400,-225,0
+		CasingTargetOffset: 400, -300, 0
 	AttackAircraft:
         Armaments: primary, secondary
 		FacingTolerance: 80
@@ -398,6 +404,9 @@ CMCH:
 		LocalOffset: 427,0,-213
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo2 || emp-condition
+		CasingWeapon: BrassDebrisAir
+		CasingSpawnLocalOffset: 400,-225,0
+		CasingTargetOffset: 400, -300, 0
     WithMuzzleOverlay:
 	AmmoPool@1:
 		Name: primary
@@ -538,6 +547,9 @@ ORCA:
 		LocalOffset: 427,0,-213
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo2 || emp-condition
+		CasingWeapon: BrassDebrisAir
+		CasingSpawnLocalOffset: 400,-225,0
+		CasingTargetOffset: 400, -300, 0
 	AttackAircraft:
         Armaments: primary, secondary, tertiary
 		FacingTolerance: 80
@@ -687,6 +699,7 @@ OCAR:
             xo: heavy
             t55h: heavy
             wtnk: heavy
+            disr: heavy
 	SpeedMultiplier@carrying:
 		Modifier: 80
 		RequiresCondition: carrying && !heavy
@@ -846,12 +859,18 @@ MH60:
 		LocalOffset: 85,-213,-85, 85,213,-85
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo || emp-condition
+		CasingWeapon: BrassDebrisAir
+		CasingSpawnLocalOffset: 400,-225,0
+		CasingTargetOffset: 400, -300, 0
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: ChainGunAG
 		LocalOffset: 85,318,-85, 85,-318,-85
 		MuzzleSequence: muzzle
 		PauseOnCondition: !ammo || emp-condition
+		CasingWeapon: BrassDebrisAir
+		CasingSpawnLocalOffset: 400,-225,0
+		CasingTargetOffset: 400, -300, 0
 	AttackAircraft:
 		FacingTolerance: 80
 		PersistentTargeting: false

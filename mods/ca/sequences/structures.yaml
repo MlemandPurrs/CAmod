@@ -1275,6 +1275,7 @@ bio:
 		Offset: 0,0
     fake-icon:
 		Filename: fbioicon.shp
+		Offset: 0,0
 
 bio.husk:
     Defaults:
@@ -2007,9 +2008,10 @@ atur:
         Filename: aturmake.shp
 		Start: 8
 		Tick: 800
-	muzzle: 
-        Filename: gunfire.shp
+	muzzle:
+		Filename: smokeygun.shp
 		Length: *
+		Tick: 30
 	bib:
 		TilesetFilenames:
 			TEMPERAT: mbgun.tem

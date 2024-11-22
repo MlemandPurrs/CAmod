@@ -142,7 +142,7 @@ MammothTusk:
 		Speed: 341
 		RangeLimit: 8c512
 	Warhead@1Dam: SpreadDamage
-		Damage: 5000
+		Damage: 4500
 		ValidTargets: AirborneActor, Infantry
 	Warhead@3Eff: CreateEffect
 		Explosions: sml_poof
@@ -179,7 +179,7 @@ M269Missile:
 		Speed: 341
 	Warhead@1Dam: SpreadDamage
 		Spread: 684
-		Damage: 5000
+		Damage: 4500
 	Warhead@3Eff: CreateEffect
 		Explosions: med_frag
 		ImpactSounds: xplobig4.aud

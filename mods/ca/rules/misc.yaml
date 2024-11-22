@@ -129,7 +129,7 @@ CRATE:
         Levels: 1
         Range: 2c0
         MaxExtraCollectors: 20
-        ExcludedActorTypes: mcv, harv, tec1, tec2, scnt, engi, medi, mech, vice, jack, hack, mnly, mhq, mrj, disr, wtnk, xo, t55h, truk, ttrk, chin, ocar
+        ExcludedActorTypes: mcv, harv, tecn, tec2, scnt, engi, medi, mech, vice, jack, hack, mnly, mhq, mrj, disr, wtnk, xo, t55h, truk, ttrk, chin, ocar
 	ExplodeCrateAction@nuke:
 		Weapon: Atomic
 		SelectionShares: 1

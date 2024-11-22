@@ -81,7 +81,7 @@ CNST:
         EffectiveOwnerFromOwner: true
         RequiresCondition: !being-demolished
 	SpawnActorsOnSell:
-		ActorTypes: e1,e1,e1,tec1,tec2,engi
+		ActorTypes: e1,e1,e1,tecn,tec2,engi
 		GuaranteedActorTypes: e1,engi
     AcceptsDeliveredCash:
 
@@ -630,11 +630,18 @@ BARR:
 		Name: Barracks
     TooltipExtras:
         Strengths: Produces Infantry
-        RequiresCondition: global-multiqueue
+        RequiresCondition: global-multiqueue && !barrup.on
+    TooltipExtras@UPG:
+        Strengths: Produces and heals Infantry
+        RequiresCondition: global-multiqueue && barrup.on
     TooltipExtras@SQ:
         Strengths: Produces Infantry
         Attributes: Production speeds up with multiple
-        RequiresCondition: !global-multiqueue
+        RequiresCondition: !global-multiqueue && !barrup.on
+    TooltipExtras@SQUPG:
+        Strengths: Produces and heals Infantry
+        Attributes: Production speeds up with multiple
+        RequiresCondition: !global-multiqueue && barrup.on
 	Buildable:
     	BuildDuration: 500
         BuildDurationModifier: 100
@@ -1497,7 +1504,7 @@ EYE:
 		Cursor: ioncannon
 		ChargeInterval: 9000
 		Name: Ion Cannon
-		Description: Initiate an Ion Cannon strike.\nApplies instant damage to a small area,\napplies EMP to Vehicles hit.
+		Description: Initiate an Ion Cannon strike.\nApplies instant damage to a small area,\nand applies E.M.P. to Vehicles hit.
 		BeginChargeSpeechNotification: IonCannonCharging
 		EndChargeSpeechNotification: IonCannonReady
 		SelectTargetSpeechNotification: SelectTarget
@@ -1641,7 +1648,7 @@ TECH:
         EffectiveOwnerFromOwner: true
         RequiresCondition: !being-demolished
 	SpawnActorsOnSell:
-		ActorTypes: e1,e1,e1,tec1,tec2,engi,scnt,scnt,scnt
+		ActorTypes: e1,e1,e1,tecn,tec2,engi,scnt,scnt,scnt
 		GuaranteedActorTypes: e1,engi
 	InfiltrateForSupportPower:
 		Proxy: techstolen
@@ -1797,7 +1804,7 @@ TMPL:
 	ProvidesPrerequisite@sharedpreq:
 		Prerequisite: techcenter
 	SpawnActorsOnSell:
-		ActorTypes: e1,e1,e1,tec1,tec2,engi,scnt,scnt,scnt
+		ActorTypes: e1,e1,e1,tecn,tec2,engi,scnt,scnt,scnt
 		GuaranteedActorTypes: e1,engi
 	SpawnActorOnDeath@HUSK:
 		Actor: TMPL.Husk
@@ -3151,6 +3158,9 @@ AGUN:
 		LocalOffset: 520,0,450
 		MuzzleSequence: muzzle
         PauseOnCondition: !ammo
+		CasingWeapon: BrassDebris
+		CasingSpawnLocalOffset: 0,-225,200
+		CasingTargetOffset: 0, -600, 0
 	AmmoPool:
 		Name: primary
 		Armaments: primary

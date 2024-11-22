@@ -112,8 +112,8 @@ TurretGun:
         ContrailStartWidth: 30
         ContrailEndWidth: 15
 	Warhead@1Dam: SpreadDamage
-		Spread: 426 # 344
-		Damage: 10000
+		Spread: 426
+		Damage: 15000
 	Warhead@3Eff: CreateEffect
 		Explosions: poof
 		ImpactSounds: xplosml2.aud
@@ -128,6 +128,8 @@ ArtilleryGun:
 	ReloadDelay: 65
 	MinRange: 3c0
 	Report: turrfir5.aud
+	Warhead@1Dam: SpreadDamage
+		Damage: 25000
 
 Grenade:
 	ReloadDelay: 45
