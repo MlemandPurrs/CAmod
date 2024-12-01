@@ -1,0 +1,289 @@
+Metadata:
+	Title: OpenRA
+	Version: TD CA
+	WindowTitle: OpenRA
+
+PackageFormats: Mix
+
+Packages:
+	^EngineDir
+	^EngineDir|mods/common: common
+	$catd: catd
+    catd|bits\general.mix
+    catd|bits\temperat.mix
+    catd|bits\eva.mix
+    catd|bits\buildings.mix
+    catd|bits\units.mix
+    catd|bits\icons.mix
+    catd|bits\effects.mix
+    catd|bits\warfare.mix
+    catd|bits\sounds.mix
+    catd|bits\voices.mix
+    catd|bits\music.mix
+    catd|bits\dinosaurs.mix
+	catd|bits
+	catd|scripts
+	common|scripts
+    catd|uibits
+
+MapFolders:
+	catd|maps: System
+
+Rules:
+	catd|rules/misc.yaml
+	catd|rules/bridges.yaml
+	catd|rules/player.yaml
+	catd|rules/world.yaml
+	catd|rules/palettes.yaml
+	catd|rules/defaults.yaml
+	catd|rules/structures.yaml
+	catd|rules/fakes.yaml
+	catd|rules/infantry.yaml
+	catd|rules/vehicles.yaml
+	catd|rules/aircraft.yaml
+	catd|rules/naval.yaml
+	catd|rules/civilian.yaml
+	catd|rules/trees.yaml
+	catd|rules/decorations.yaml
+	catd|rules/dinosaurs.yaml
+	catd|rules/upgrades.yaml
+	catd|rules/ai.yaml
+
+Sequences:
+	catd|sequences/misc.yaml
+	catd|sequences/warfare.yaml
+	catd|sequences/structures.yaml
+	catd|sequences/infantry.yaml
+	catd|sequences/vehicles.yaml
+	catd|sequences/aircraft.yaml
+	catd|sequences/naval.yaml
+	catd|sequences/civilian.yaml
+	catd|sequences/trees.yaml
+	catd|sequences/decorations.yaml
+	catd|sequences/dinosaurs.yaml
+	catd|sequences/upgrades.yaml
+
+TileSets:
+	catd|tilesets/temperat.yaml
+
+Cursors:
+	catd|cursors.yaml
+
+Chrome:
+	catd|chrome.yaml
+
+Assemblies:
+	^BinDir|OpenRA.Mods.Common.dll
+	^BinDir|OpenRA.Mods.Cnc.dll
+	^BinDir|OpenRA.Mods.CA.dll
+
+ChromeLayout:
+	common|chrome/ingame.yaml
+	common|chrome/ingame-chat.yaml
+	catd|chrome/ingame-transients.yaml
+	common|chrome/ingame-fmvplayer.yaml
+	common|chrome/ingame-info.yaml
+	common|chrome/ingame-infoscripterror.yaml
+	common|chrome/ingame-infobriefing.yaml
+	common|chrome/ingame-infoobjectives.yaml
+	catd|chrome/ingame-infostats.yaml
+	common|chrome/ingame-info-lobby-options.yaml
+	catd|chrome/ingame-menu.yaml
+	catd|chrome/ingame-observer.yaml
+	catd|chrome/ingame-player.yaml
+	common|chrome/ingame-perf.yaml
+	common|chrome/ingame-debug.yaml
+	common|chrome/ingame-debuginfo.yaml
+	common|chrome/ingame-infochat.yaml
+	catd|chrome/mainmenu.yaml
+	common|chrome/settings.yaml
+	catd|chrome/settings-display.yaml
+	common|chrome/settings-audio.yaml
+	common|chrome/settings-input.yaml
+	common|chrome/settings-hotkeys.yaml
+	common|chrome/settings-advanced.yaml
+	common|chrome/credits.yaml
+	common|chrome/lobby.yaml
+	common|chrome/lobby-mappreview.yaml
+	common|chrome/lobby-players.yaml
+	catd|chrome/lobby-options.yaml
+	common|chrome/lobby-music.yaml
+	common|chrome/lobby-servers.yaml
+	common|chrome/lobby-kickdialogs.yaml
+	catd|chrome/color-picker.yaml
+	common|chrome/mainmenu-prompts.yaml
+	common|chrome/map-chooser.yaml
+	common|chrome/multiplayer-browser.yaml
+	common|chrome/multiplayer-browserpanels.yaml
+	common|chrome/multiplayer-createserver.yaml
+	common|chrome/multiplayer-directconnect.yaml
+	common|chrome/connection.yaml
+	common|chrome/replaybrowser.yaml
+	common|chrome/gamesave-browser.yaml
+	catd|chrome/gamesave-loading.yaml
+	common|chrome/dropdowns.yaml
+	common|chrome/musicplayer.yaml
+	catd|chrome/tooltips.yaml
+	common|chrome/assetbrowser.yaml
+	catd|chrome/missionbrowser.yaml
+	common|chrome/confirmation-dialogs.yaml
+	common|chrome/editor.yaml
+	common|chrome/playerprofile.yaml
+	common|chrome/text-notifications.yaml
+
+Weapons:
+	catd|weapons/explosions.yaml
+	catd|weapons/smallarms.yaml
+	catd|weapons/ballistics.yaml
+	catd|weapons/missiles.yaml
+	catd|weapons/incendiary.yaml
+	catd|weapons/energybeam.yaml
+	catd|weapons/superweapons.yaml
+	catd|weapons/miscellaneous.yaml
+    catd|weapons/dinosaurs.yaml
+
+Voices:
+	catd|audio/voices.yaml
+
+Notifications:
+	catd|audio/notifications.yaml
+
+Music:
+	catd|audio/music.yaml
+
+Translations:
+	common|languages/en.ftl
+	common|languages/rules/en.ftl
+	catd|languages/rules/en.ftl
+
+Hotkeys:
+	common|hotkeys/game.yaml
+	common|hotkeys/observer.yaml
+	common|hotkeys/production-common.yaml
+	common|hotkeys/production-peractor.yaml
+	common|hotkeys/supportpowers.yaml
+	common|hotkeys/viewport.yaml
+	common|hotkeys/chat.yaml
+	common|hotkeys/editor.yaml
+	common|hotkeys/control-groups.yaml
+	catd|hotkeys.yaml
+
+LoadScreen: ImageLoadScreen
+	Image: catd|uibits/ca-loading-artwork.png
+	Image2x: catd|uibits/ca-loading-artwork-2x.png
+	Image3x: catd|uibits/ca-loading-artwork-3x.png
+	Width: 1024
+	Height: 256
+	Text: Loading...
+
+ServerTraits:
+	LobbyCommands
+	PlayerPinger
+	MasterServerPinger
+	LobbySettingsNotification
+
+ChromeMetrics:
+	common|metrics.yaml
+	catd|metrics.yaml
+
+Fonts:
+	Tiny:
+		Font: common|FreeSans.ttf
+		Size: 10
+		Ascender: 8
+	TinyBold:
+		Font: common|FreeSansBold.ttf
+		Size: 10
+		Ascender: 8
+	Small:
+		Font: common|FreeSans.ttf
+		Size: 12
+		Ascender: 9
+	Regular:
+		Font: common|FreeSans.ttf
+		Size: 14
+		Ascender: 11
+	Medium:
+		Font: common|FreeSans.ttf
+		Size: 18
+		Ascender: 14
+	Bold:
+		Font: common|FreeSansBold.ttf
+		Size: 14
+		Ascender: 11
+	MediumBold:
+		Font: common|FreeSansBold.ttf
+		Size: 18
+		Ascender: 14
+	BigBold:
+		Font: common|FreeSansBold.ttf
+		Size: 24
+		Ascender: 18
+	Title:
+		Font: common|FreeSansBold.ttf
+		Size: 32
+		Ascender: 24
+
+Missions:
+	catd|missions.yaml
+
+MapGrid:
+	TileSize: 24,24
+	Type: Rectangular
+
+DefaultOrderGenerator: UnitOrderGenerator
+
+SupportsMapsFrom: catd
+
+SoundFormats: Aud, Wav, Mp3, Ogg
+
+SpriteFormats: ShpD2, R8, ShpTD, TmpRA, TmpTD, ShpTS
+
+SpriteSequenceFormat: ClassicTilesetSpecificSpriteSequence
+	TilesetCodes:
+		TEMPERAT: .tem
+	TilesetExtensions:
+		TEMPERAT: .tem
+
+ModelSequenceFormat: PlaceholderModelSequence
+
+VideoFormats: Vqa, Wsa
+
+TerrainFormat: DefaultTerrain
+
+AssetBrowser:
+	SpriteExtensions: .shp, .tmp, .tem, .win, .sno, .des, .int, .jun, .r8
+	AudioExtensions: .aud, .wav, .v00, .v01, .v02, .v03, .var
+	VideoExtensions: .vqa, .wsa
+
+GameSpeeds:
+	DefaultSpeed: default
+	Speeds:
+		slowest:
+			Name: options-game-speed.slowest
+			Timestep: 80
+			OrderLatency: 2
+		slower:
+			Name: options-game-speed.slower
+			Timestep: 50
+			OrderLatency: 3
+		default:
+			Name: options-game-speed.normal
+			Timestep: 40
+			OrderLatency: 3
+		fast:
+			Name: options-game-speed.fast
+			Timestep: 35
+			OrderLatency: 4
+		faster:
+			Name: options-game-speed.faster
+			Timestep: 30
+			OrderLatency: 4
+		fastest:
+			Name: options-game-speed.fastest
+			Timestep: 20
+			OrderLatency: 6
+
+ModCredits:
+	ModCreditsFile: catd|CREDITS
+	ModTabTitle: Tiberian Dawn
