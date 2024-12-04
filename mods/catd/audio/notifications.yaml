@@ -81,6 +81,7 @@ Speech:
         ReconDroneAvailable: rcndrnr1
         FieldRepairsReady: freprdy1
         FieldRepairsUse: frepcom1
+        SpyPlaneReady: spypln1
 
 Sounds:
 	Notifications:

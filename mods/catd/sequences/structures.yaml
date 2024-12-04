@@ -192,7 +192,7 @@ powrup:
 		Start: 19
 		Length: 1
 	icon:
-        Filename: apwricon.shp
+        Filename: pwr2icon.shp
 
 pwr2:
 	Defaults:
@@ -221,9 +221,9 @@ pwr2:
 			TEMPERAT: bib3.tem
 		Length: *
 	icon:
-		Filename: apwricon.shp
+		Filename: pwr2icon.shp
     fake-icon:
-		Filename: fapwicon.shp
+		Filename: fpw2icon.shp
 
 pwr2.husk:
 	Defaults:
@@ -265,9 +265,9 @@ npw2:
 			TEMPERAT: bib3.tem
 		Length: *
 	icon:
-		Filename: apwricon.shp
+		Filename: pwr2icon.shp
     fake-icon:
-		Filename: fapwicon.shp
+		Filename: fpw2icon.shp
 
 npw2.husk:
 	Defaults:
@@ -881,6 +881,71 @@ ndep.husk:
 		TilesetFilenames:
 			TEMPERAT: mbdept.tem
 		Length: *
+
+afld:
+	Defaults:
+		Filename: afld.shp
+	idle:
+		Length: 8
+		Tick: 160
+		ZOffset: -1023
+		Offset: 0,-4
+	damaged-idle:
+		Start: 8
+		Length: 8
+		Tick: 160
+		ZOffset: -1023
+		Offset: 0,-4
+	active:
+        Start: 16
+		Length: 8
+		Tick: 160
+		ZOffset: -1023
+		Offset: 0,-4
+	damaged-active:
+		Start: 24
+		Length: 8
+		Tick: 160
+		ZOffset: -1023
+		Offset: 0,-4
+    dead:
+        Start: 32
+        Length: 1
+        Tick: 800
+		ZOffset: -1023
+		Offset: 0,-4        
+	make: 
+        Filename: afldmake.shp
+		Length: *
+		Offset: 0,-4
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+		Length: *
+        ZOffset: -1022
+	icon:
+        Filename: afldicon.shp
+
+afld.husk:
+	idle:
+        Filename: afld.shp
+        Start: 32
+        Length: 1
+        Tick: 800
+		ZOffset: -1023
+		Offset: 0,-4
+    dead:
+        Filename: afld.shp
+        Start: 32
+        Length: 1
+        Tick: 800
+		ZOffset: -1023
+		Offset: 0,-4  
+	bib:
+		TilesetFilenames:
+			TEMPERAT: bib2.tem
+		Length: *
+        ZOffset: -1022
 
 hpad:
 	Defaults:

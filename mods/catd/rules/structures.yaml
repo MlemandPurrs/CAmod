@@ -307,6 +307,7 @@ POWRUPG:
 		BuildSounds: build5.aud
 		UndeploySounds: 
 	Buildable:
+        Queue: Bogus
 		Prerequisites: ~disabled
     WithMakeAnimation:
         Sequence: upgrade
@@ -325,6 +326,9 @@ PWR2UPG:
 	Building:
 		BuildSounds: 
 		UndeploySounds: 
+	Buildable:
+        Queue: Bogus
+		Prerequisites: ~disabled
     WithMakeAnimation:
         Sequence: upgrade
 	TransformOnCondition:
@@ -839,7 +843,7 @@ WEAP:
     	BuildDuration: 2000
         BuildDurationModifier: 100
 		BuildPaletteOrder: 50
-		Prerequisites: barr, ~structures.gdi, ~techlevel.low
+		Prerequisites: barr, refn, ~structures.gdi, ~techlevel.low
 		Queue: BuildingSQ, BuildingMQ
 		Description: Produces Vehicle units.
 	Building:
@@ -947,7 +951,7 @@ AIRS:
     	BuildDuration: 1500
         BuildDurationModifier: 100
 		BuildPaletteOrder: 50
-		Prerequisites: hand, ~structures.nod, ~techlevel.low
+		Prerequisites: hand, refn, ~structures.nod, ~techlevel.low
 		Queue: BuildingSQ, BuildingMQ
 		Description: Provides a dropzone\nfor Vehicle reinforcements.
 	Building:
@@ -1053,7 +1057,7 @@ DEPT:
     	BuildDuration: 1200
         BuildDurationModifier: 100
 		BuildPaletteOrder: 60
-		Prerequisites: factory, refn, ~techlevel.medium
+		Prerequisites: factory, ~techlevel.medium
 		Queue: BuildingSQ, BuildingMQ
 		Description: Repairs vehicles for credits.\nRetrofits upgraded units.\n\nUnlocks medium-tech units and buildings.
 	Building:
@@ -1122,10 +1126,131 @@ DEPT.Husk:
 		ForceHealthPercentage: 15
 		IntoActor: dept
 
+AFLD:
+	Inherits: ^BaseBuilding
+	Inherits@shape: ^3x2Shape
+	Inherits@Production: ^ProducesAircraft
+	Production@SQAIR:
+		Produces: AircraftSQ, Plane
+	Production@MQAIR:
+		Produces: AircraftMQ, Plane
+	HitShape:
+		UseTargetableCellsOffsets: false
+		TargetableOffsets: 0,0,0, 420,0,0, 420,-1024,0, 420,1024,0, -777,0,0, -777,-1024,0, -777,1024,0
+	Buildable:
+        BuildDuration: 600
+        BuildDurationModifier: 100
+		BuildPaletteOrder: 130
+		Prerequisites: ~disabled
+		Queue: BuildingSQ, BuildingMQ
+		Description: Produces and reloads aircraft.
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: Airfield
+    TooltipExtras:
+        Strengths: Produces Aircraft
+        Attributes: Resupplies combat aircraft
+        RequiresCondition: global-multiqueue
+    TooltipExtras@SQ:
+        Strengths: Produces Aircraft
+        Attributes: Production speeds up with multiple\nResupplies combat aircraft
+        RequiresCondition: !global-multiqueue
+	Selectable:
+		Class: afld
+		Bounds: 3072, 2048
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Health:
+		HP: 100000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5c0
+	Exit@1:
+		RequiresCondition: !being-captured
+		ExitCell: 1,1
+		Facing: 768
+	RallyPoint:
+		ForceSetType: Plane
+	CommandBarBlacklist:
+		DisableStop: false
+	ProvidesPrerequisite@buildingname:
+	ProvidesPrerequisite@gdi:
+		Factions: gdi
+		Prerequisite: aircraft.gdi
+	ProvidesPrerequisite@nod:
+		Factions: nod
+		Prerequisite: aircraft.nod
+	AirstrikePower@spyplane:
+		PauseOnCondition: lowpower
+		OrderName: SpyPlane
+		Prerequisites: hq
+		Icon: spyplane
+		ChargeInterval: 3750
+		Name: Spy Plane
+		Description: Reveals an area of the map.\nDetects cloaked units.
+		SelectTargetSpeechNotification: SelectTarget
+		SelectTargetTextNotification: Select target.
+		EndChargeSpeechNotification: SpyPlaneReady
+		EndChargeTextNotification: Spy plane ready.
+		CameraActor: camera.spyplane
+		CameraRemoveDelay: 150
+		UnitType: smig
+		QuantizedFacings: 8
+		DisplayBeacon: true
+		BeaconPoster: spyplane
+		BeaconPosterPalette: effect
+		ArrowSequence: arrow
+		ClockSequence: clock
+		CircleSequence: circles
+		UseDirectionalTarget: True
+		DirectionArrowAnimation: paradirection
+		SupportPowerPaletteOrder: 60
+	SupportPowerChargeBar:
+	Power:
+		Amount: -20
+		RequiresCondition: !build-incomplete
+	WithResupplyAnimation:
+		RequiresCondition: !build-incomplete
+	GrantConditionOnPowerState@LOWPOWER:
+		Condition: lowpower
+		ValidPowerStates: Low, Critical
+	ActorPreviewPlaceBuildingPreview:
+		Animated: false
+    WithBuildingBib:
+	SpawnActorOnDeath@Husk:
+		Actor: AFLD.Husk
+        OwnerType: Victim
+        EffectiveOwnerFromOwner: true
+        RequiresCondition: !being-demolished
+
+AFLD.Husk:
+	Inherits: ^BuildingHusk
+	Interactable:
+		Bounds: 3072, 2048
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Tooltip:
+		Name: Airfield (Destroyed)
+	Health:
+		HP: 20000
+	RenderSprites:
+		Image: afld.husk
+	TransformOnCapture:
+		ForceHealthPercentage: 15
+		IntoActor: afld
+
 HPAD:
 	Inherits: ^BaseBuilding
 	Inherits@shape: ^2x2Shape
 	Inherits@Production: ^ProducesAircraft
+	Production@SQAIR:
+		Produces: AircraftSQ, Helicopter
+	Production@MQAIR:
+		Produces: AircraftMQ, Helicopter
 	Selectable:
 		Bounds: 2048, 2048
 	HitShape:
@@ -1164,6 +1289,7 @@ HPAD:
 	WithResupplyAnimation:
 		RequiresCondition: !build-incomplete
 	RallyPoint:
+		ForceSetType: Helicopter
 	CommandBarBlacklist:
 		DisableStop: false
 	Power:
@@ -1444,7 +1570,7 @@ EYEUP:
         Prerequisites: tech, hq.socket, ~structures.gdi, ~techlevel.maximum
         Queue: BuildingSQ, BuildingMQ
 		BuildLimit: 1
-		Description: Maximum 1 can be built.\n\nUpgrade for the Headquarters.\nEnables 'Ion Cannon' super-weapon,\nDisruptor and Blackhawk.
+		Description: Maximum 1 can be built.\n\nUpgrade for the Headquarters.\nEnables 'Ion Cannon' super-weapon,\nRocket Launcher and Blackhawk.
 	Plug:
 		Type: eyeup
 	Power:
@@ -1569,6 +1695,7 @@ HQUPG:
 		BuildSounds: 
 		UndeploySounds: 
 	Buildable:
+        Queue: Bogus
 		Prerequisites: ~disabled
     WithMakeAnimation:
         Sequence: upgrade
@@ -1587,6 +1714,9 @@ EYEUPG:
 	Building:
 		BuildSounds: 
 		UndeploySounds: 
+	Buildable:
+        Queue: Bogus
+		Prerequisites: ~disabled
     WithMakeAnimation:
         Sequence: upgrade
 	TransformOnCondition:
@@ -2014,7 +2144,7 @@ DOME:
 		BuildPaletteOrder: 120
 		BuildLimit: 1
 		Prerequisites: hq, ~techlevel.high
-		Description: Maximum 1 can be built.\n\nAllows use of airborne support powers.\nRequires power to operate.
+		Description: Maximum 1 can be built.\n\nAllows use of airborne support powers.
 	Valued:
 		Cost: 1500
 	Tooltip:
@@ -2075,7 +2205,7 @@ DOME:
 		LocalCenterOffset: 0,-256,0
 	Targetable:
 		TargetTypes: GroundActor, Structure, Infiltrate, DetonateAttack
-	AirstrikePower@airstrikebase:
+	AirstrikePower@airstrike:
 		OrderName: AirStrike
         PauseOnCondition: disabled || jammed
 		Prerequisites: player.gdi, ~!airstrike.upgrade, ~techlevel.high
@@ -2656,7 +2786,7 @@ SPST:
 	Tooltip:
 		Name: Sattelite Uplink
     TooltipExtras:
-        Strengths: Reveals the whole map when ready
+        Strengths: Periodically reveals the whole map
 		Weaknesses: Requires power to operate
         Attributes: Automatically launches when ready
 	Buildable:

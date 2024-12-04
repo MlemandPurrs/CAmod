@@ -182,6 +182,17 @@ MicroWave:
 		Condition: emp-condition
 		ValidTargets: EMPApplicable
         InvalidTargets: Invulnerable
+	Warhead@DriverKill: ChangeOwnerToNeutral
+		ValidTargets: DriverKill
+		InvalidTargets: Infantry, Ship, Structure, Wall, Husk, Air, AirSmall
+		ValidRelationships: Enemy
+		CargoEffect: Kill
+		Range: 0c511
+	Warhead@highlight: GrantExternalConditionCA
+		Range: 0c511
+		Duration: 2
+		Condition: highlight
+		ValidTargets: DriverKill
 
 MicroWaveSound:
 	Inherits: MicroWave

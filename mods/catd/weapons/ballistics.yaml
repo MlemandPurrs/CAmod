@@ -56,7 +56,7 @@
 	Warhead@1Dam: SpreadDamage
 		Damage: 2500
 
-Dual75mmCannon:
+75mmCannonX2:
     Inherits: 75mmCannon
     ReloadDelay: 50
 	Burst: 2
@@ -72,9 +72,15 @@ Dual75mmCannon:
 	Warhead@1Dam: SpreadDamage
 		Damage: 5000
 
+105mmCannonX2:
+    Inherits: 105mmCannon
+    ReloadDelay: 70
+	Burst: 2
+	BurstDelays: 4
+
 120mmCannon:
     Inherits: ^ArmorPiercing
-	ReloadDelay: 70
+	ReloadDelay: 90
 	Range: 6c0
 	Report: cannon1.aud
 	Burst: 2
@@ -170,6 +176,14 @@ Grenade:
 		ValidTargets: Water
 		InvalidTargets: Bridge
 
+GrenadeLauncher:
+    Inherits: Grenade
+	ReloadDelay: 60
+    Range: 8c0
+    Burst: 2
+	BurstDelays: 4
+	Report: grenlnch.aud
+
 APCGunAG:
 	ReloadDelay: 15
 	Range: 6c0
@@ -226,6 +240,36 @@ APCGunAA:
 	Warhead@3Eff: CreateEffect
 		Explosions: med_frag
 
+8InchGun:
+    Inherits: ^HighExplosive
+	MinRange: 3c0
+	ReloadDelay: 250
+	Range: 20c0
+	Burst: 2
+    BurstDelays: 4
+	Report: turret1.aud
+	TargetActorCenter: true
+	Projectile: Bullet
+		Speed: 204
+		Image: 120MM
+		Blockable: false
+		Shadow: True
+		LaunchAngle: 62
+		Inaccuracy: 1c938
+        InaccuracyType: Maximum
+		ContrailLength: 30
+        ContrailStartWidth: 30
+        ContrailEndWidth: 15
+	Warhead@1Dam: SpreadDamage
+		Spread: 213
+		Damage: 2500
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+	Warhead@3Eff: CreateEffect
+		Explosions: poof
+		ImpactSounds: xplosml2.aud
+	Warhead@4EffWater: CreateEffect
+		Explosions: big_splash
+
 AAVGun:
 	ReloadDelay: 33
 	Range: 4c0
@@ -266,3 +310,68 @@ AAVGun:
 		ImpactSounds: splash9.aud
 		ValidTargets: Water
 		InvalidTargets: Bridge
+
+MortarShell:
+    Inherits: ^HighExplosive
+	ReloadDelay: 65
+	Range: 7c256
+	MinRange: 3c0
+	Report: grenlnch.aud
+	TargetActorCenter: true
+	Projectile: Bullet
+		Image: 50CAL
+		Speed: 204
+        Blockable: false
+		Shadow: true
+		LaunchAngle: 132
+		Inaccuracy: 1c256
+        InaccuracyType: Maximum
+		ContrailLength: 30
+        ContrailStartWidth: 16
+        ContrailEndWidth: 16
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+		Damage: 7500
+	Warhead@3Eff: CreateEffect
+		Explosions: sml_poof
+		ImpactSounds: xplosml2.aud
+
+DepthCharge:
+	ReloadDelay: 60
+	Range: 5c0
+	ValidTargets: Underwater
+	Projectile: Bullet
+		Speed: 125
+		Image: BOMB
+		Shadow: True
+		LaunchAngle: 56
+		Inaccuracy: 128
+        InaccuracyType: Maximum
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 6000
+		ValidTargets: Submarine
+        Versus:
+            None: 88
+            Wood: 75
+            Light: 56
+            Heavy: 25
+            Concrete: 100
+		DamageTypes: ExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: med_frag
+		ImpactSounds: kaboom15.aud
+		ValidTargets: Submarine
+		InvalidTargets: Underwater
+	Warhead@4EffWater: CreateEffect
+		Explosions: big_splash
+		ImpactSounds: splash9.aud
+		ValidTargets: Water, Underwater
+	Warhead@5EffSubmergedHitSound: CreateEffect
+		ImpactSounds: h2obomb2.aud
+		ValidTargets: Underwater
+
+DepthChargeX2:
+    Inherits: DepthCharge
+    Burst: 2
+    BurstDelays: 4

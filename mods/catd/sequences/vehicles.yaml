@@ -299,6 +299,36 @@ htnk.destroyed:
 		UseClassicFacings: True
 		ZOffset: -512
 
+htn2:
+	Defaults:
+		Filename: htn2.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+        Filename: cannmuz.shp
+		Length: 2
+		Facings: 16
+	icon:
+        Filename: htnkicon.shp
+
+htn2.destroyed:
+	idle:
+        Filename: htn2.shp
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -512
+	turret:
+        Filename: htn2.shp
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -512
+
 gtnk:
 	Defaults:
 		Filename: gtnk.shp
@@ -485,6 +515,23 @@ art2:
 		Tick: 30
 	icon:
 		Filename: art2icon.shp
+
+mrpg:
+	Defaults:
+		Filename: mrpg.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: smokeygun.shp
+		Length: *
+		Tick: 30
+	icon: 
+        Filename: mrpgicon.shp
 
 mlrs:
 	Defaults:
@@ -735,3 +782,29 @@ dtrk:
 		UseClassicFacings: True
 	icon:
         Filename: dtrkicon.shp
+
+xtnk:
+	Defaults:
+		Filename: xtnk.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+    turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+		Filename: xxicon.shp
+
+xtnk.destroyed:
+	idle:
+		Filename: xtnk.shp
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -512
+	turret:
+		Filename: xtnk.shp
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -512

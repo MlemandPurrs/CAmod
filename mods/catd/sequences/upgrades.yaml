@@ -53,3 +53,5 @@ upgicon:
         Filename: zoneupicon.shp
     barrup:
         Filename: barrupicon.shp
+    f18speed:
+        Filename: fpodicon.shp

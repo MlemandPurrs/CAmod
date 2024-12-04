@@ -1,4 +1,3 @@
-
 icon:
 	radarscan:
         Filename: scanicon.shp
@@ -32,6 +31,8 @@ icon:
 		Filename: ssaticon.shp
     fieldrepairs:
         Filename: frepicon.shp
+    spyplane:
+        Filename: smigicon.shp
 
 beacon:
 	Defaults:
@@ -68,6 +69,10 @@ beacon:
 		Offset: 0,-42
 	airdrop:
 		Filename: ptnkbcon.shp
+		Length: *
+		Offset: 0,-42
+    spyplane:
+		Filename: smigbcon.shp
 		Length: *
 		Offset: 0,-42
 
@@ -434,3 +439,9 @@ brass:
 		Filename: brass.shp
 	5:
 		Filename: brass.shp
+
+bubbles:
+	idle:
+		Filename: bubbles.shp
+		Length: *
+		Tick: 220

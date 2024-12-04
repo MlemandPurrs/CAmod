@@ -66,9 +66,10 @@ CHIN:
 	Buildable:
         BuildDuration: 900
         BuildDurationModifier: 100
+		Queue: AircraftSQ, AircraftMQ
+		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 10
 		Prerequisites: hpad, ~techlevel.medium
-		Queue: AircraftSQ, AircraftMQ
 		Description: Fast, flying troop transport.
 	Aircraft:
 		CruiseAltitude: 1c512
@@ -168,12 +169,12 @@ APCH:
 	Inherits: ^Helicopter
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@experience: ^GainsExperienceAircraft
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Inherits@UpgradeOverlay: ^UpgradeOverlay
 	Buildable:
         BuildDuration: 1200
         BuildDurationModifier: 100
 		Queue: AircraftSQ, AircraftMQ
+		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 20
 		Prerequisites: ~hpad, hq, ~aircraft.nod, ~!helipod.upgrade, ~techlevel.high
 		Description: Helicopter gunship armed,\nwith large calibre chainguns.
@@ -358,7 +359,6 @@ CMCH:
 	Inherits: ^Helicopter
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperienceAircraft
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Selectable:
 		DecorationBounds: 1280, 1024
 	Valued:
@@ -375,6 +375,7 @@ CMCH:
         BuildDuration: 1500
         BuildDurationModifier: 100
 		Queue: AircraftSQ, AircraftMQ
+		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 30
 		Prerequisites: ~hpad, tmpl, ~aircraft.nod, ~techlevel.maximum
 		Description: Light and fast helicopter,\narmed with anti-tank missiles,\nand a 20mm autocannon.
@@ -499,11 +500,11 @@ ORCA:
 	Inherits: ^Helicopter
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@experience: ^GainsExperienceAircraft
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Buildable:
         BuildDuration: 1200
         BuildDurationModifier: 100
 		Queue: AircraftSQ, AircraftMQ
+		BuildAtProductionType: Helicopter
 		BuildPaletteOrder: 20
 		Prerequisites: ~hpad, hq, ~aircraft.gdi, ~!gdib.doctrine, ~techlevel.high
 		Description: VTOL gunship armed\nwith multi-purpose missiles,\nand a 50.cal machinegun.
@@ -680,8 +681,9 @@ OCAR:
 	Buildable:
         BuildDuration: 800
         BuildDurationModifier: 100
-		BuildPaletteOrder: 30
-		Prerequisites: tech, ~aircraft.gdi, ~techlevel.maximum
+		BuildPaletteOrder: 40
+		BuildAtProductionType: Helicopter
+		Prerequisites: ~hpad, tech, ~aircraft.gdi, ~techlevel.maximum
 		Queue: AircraftSQ, AircraftMQ
 		Description: VTOL craft capable\nof airlifting vehicles.
 	Carryall:
@@ -829,18 +831,18 @@ MH60:
 	Inherits: ^Helicopter
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Buildable:
         BuildDuration: 1500
         BuildDurationModifier: 100
 		Queue: AircraftSQ, AircraftMQ
-		BuildPaletteOrder: 40
-		Prerequisites: eye, ~aircraft.gdi, ~techlevel.maximum
+		BuildAtProductionType: Helicopter
+		BuildPaletteOrder: 30
+		Prerequisites: ~hpad, eye, ~aircraft.gdi, ~techlevel.maximum
 		Description: Helicopter gunship armed\nwith dual chainguns.
 	Valued:
 		Cost: 1500
 	Tooltip:
-		Name: Blackhawk
+		Name: Blackhawk Gunship
 	TooltipExtras:
         Strengths: Strong vs Infantry, Light Armor
 		Weaknesses: Weak vs Heavy Armor, Defenses
@@ -923,7 +925,7 @@ MH60:
 MH60.Husk:
 	Inherits: ^HelicopterHusk
 	Tooltip:
-		Name: Black Hawk
+		Name: Blackhawk Gunship
 	Aircraft:
 		CruiseAltitude: 1c512
 		TurnSpeed: 8
@@ -1145,6 +1147,12 @@ F18:
 	GrantConditionOnDamageState@SmokeTrail:
 		Condition: enable-smoke
 	-MapEditorData:
+	GrantConditionOnPrerequisite@F18Speed:
+		Condition: f18speed-upgraded
+		Prerequisites: f18speed.upgrade
+	SpeedMultiplier@F18Speed:
+		Modifier: 130
+		RequiresCondition: f18speed-upgraded
 
 F18.Husk:
 	Inherits: ^PlaneHusk
@@ -1339,8 +1347,7 @@ OSPR:
 	SpawnActorOnDeath:
 		Actor: OSPR.Husk
 		RequiresCondition: airborne
-	MapEditorData:
-		Categories: Aircraft
+	-MapEditorData:
 
 OSPR.Husk:
 	Inherits: ^HelicopterHusk
@@ -1360,3 +1367,367 @@ OSPR.Husk:
 		StationaryInterval: 3
 	RenderSprites:
 		Image: ospr
+
+YAK:
+	Inherits: ^PlayerPlane
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Selectable:
+		DecorationBounds: 1280, 1194, 0, 85
+	Buildable:
+        BuildDuration: 800
+        BuildDurationModifier: 100
+		Queue: AircraftSQ, AircraftMQ
+		BuildAtProductionType: Plane
+		BuildPaletteOrder: 110
+		Prerequisites: ~afld, ~techlevel.medium
+		Description: Attack Plane armed with\ndual machine guns.
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Yak Attack Plane
+	TooltipExtras:
+        Strengths: Strong vs Infantry, Light Armor
+		Weaknesses: Weak vs Heavy Armor, Defenses
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 6000
+	RevealsShroud:
+		Range: 9c0
+		Type: GroundPosition
+	Armament@PRIMARY:
+		Weapon: ChainGun.Yak
+		LocalOffset: 256,-213,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: ChainGun.Yak
+		LocalOffset: 256,213,0
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo
+    WithMuzzleOverlay:
+	AttackAircraft:
+		FacingTolerance: 80
+		PersistentTargeting: false
+		OpportunityFire: False
+        ForceFireIgnoresActors: True
+        AttackType: Strafe
+        StrafeRunLength: 1c0
+	Aircraft:
+		CruiseAltitude: 2560
+		TurnSpeed: 16
+		Speed: 175
+		RepulsionSpeed: 40
+		MaximumPitch: 56
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	AmmoPool:
+		Ammo: 16
+		ReloadDelay: 11
+		AmmoCondition: ammo
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 4
+	Rearmable:
+		RearmActors: afld
+	Contrail:
+		Offset: -853,0,0
+		StartColorAlpha: 128
+        StartColorUsePlayerColor: false
+	LeavesTrails:
+		Offsets: -853,0,0
+		MovingInterval: 2
+		Image: smokey
+		SpawnAtLastPosition: False
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+	SpawnActorOnDeath:
+		Actor: YAK.Husk
+
+YAK.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: Yak Attack Plane (Destroyed)
+	Health:
+		HP: 3000
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 175
+	LeavesTrails:
+		Offsets: -853,0,171
+		MovingInterval: 2
+		Image: smokey
+		SpawnAtLastPosition: False
+		Type: CenterPosition
+	RenderSprites:
+		Image: yak
+
+MIG:
+	Inherits: ^PlayerPlane
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+        BuildDuration: 1600
+        BuildDurationModifier: 100
+		Queue: AircraftSQ, AircraftMQ
+		BuildAtProductionType: Plane
+		BuildPaletteOrder: 120
+		Prerequisites: ~afld, hq, ~techlevel.maximum
+		Description: Fast Ground-Attack Plane.
+	Valued:
+		Cost: 1600
+	Tooltip:
+		Name: MiG Attack Plane
+	TooltipExtras:
+        Strengths: Strong vs Infantry, Light Armor
+		Weaknesses: Weak vs Heavy Armor, Defenses
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 8000
+	RevealsShroud:
+        Range: 11c0
+		Type: GroundPosition
+	Armament:
+		Weapon: Maverick
+		LocalOffset: 0,-640,0, 0,640,0
+		LocalYaw: -40, 24
+		PauseOnCondition: !ammo
+	AttackAircraft:
+		FacingTolerance: 80
+		PersistentTargeting: false
+		OpportunityFire: False
+	Aircraft:
+		CruiseAltitude: 2560
+		TurnSpeed: 16
+		Speed: 225
+		RepulsionSpeed: 40
+		MaximumPitch: 56
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	AmmoPool:
+		Ammo: 8
+		AmmoCondition: ammo
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 4
+	Rearmable:
+		RearmActors: afld
+	Selectable:
+		Bounds: 1536, 1194, 0, 85
+		DecorationBounds: 1706, 1237, 0, 42
+	Contrail@1:
+		Offset: -598,-683,0
+		StartColorAlpha: 128
+        StartColorUsePlayerColor: false
+	Contrail@2:
+		Offset: -598,683,0
+		StartColorAlpha: 128
+        StartColorUsePlayerColor: false
+	SpawnActorOnDeath:
+		Actor: MIG.Husk
+	LeavesTrails:
+		Offsets: -853,0,171
+		MovingInterval: 2
+		Image: smokey
+		SpawnAtLastPosition: False
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+
+MIG.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: MiG Attack Plane (Destroyed)
+	Health:
+		HP: 4000
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 225
+	LeavesTrails:
+		Offsets: -853,0,171
+		MovingInterval: 2
+		Image: smokey
+		SpawnAtLastPosition: False
+		Type: CenterPosition
+	RenderSprites:
+		Image: mig
+
+SMIG:
+	Inherits: ^NeutralPlane
+	Health:
+		HP: 10000
+	Tooltip:
+		Name: MiG Spy Plane
+	Aircraft:
+		CruiseAltitude: 2560
+		TurnSpeed: 24
+		Speed: 350
+		Repulsable: False
+		MaximumPitch: 56
+	AttackBomber:
+		FacingTolerance: 8
+	-Targetable@AIRBORNE:
+	Contrail@1:
+		Offset: -725,683,0
+		StartColorAlpha: 128
+        StartColorUsePlayerColor: false
+	Contrail@2:
+		Offset: -725,-683,0
+		StartColorAlpha: 128
+        StartColorUsePlayerColor: false
+	SpawnActorOnDeath:
+		Actor: SMIG.Husk
+	LeavesTrails:
+		Offsets: -1c43,0,0
+		MovingInterval: 2
+		Image: smokey
+		SpawnAtLastPosition: False
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+	-MapEditorData:
+
+SMIG.Husk:
+	Inherits: ^PlaneHusk
+	Tooltip:
+		Name: MiG Spy Plane (Destroyed)
+	Health:
+		HP: 5000
+	Aircraft:
+		TurnSpeed: 16
+		Speed: 350
+	LeavesTrails:
+		Offsets: -853,0,171
+		MovingInterval: 2
+		Image: smokey
+		SpawnAtLastPosition: False
+		Type: CenterPosition
+	RenderSprites:
+		Image: smig
+
+HIND:
+	Inherits: ^Helicopter
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@experience: ^GainsExperience
+	Buildable:
+        BuildDuration: 1500
+        BuildDurationModifier: 100
+		Queue: AircraftSQ, AircraftMQ
+		BuildAtProductionType: Helicopter
+		BuildPaletteOrder: 130
+		Prerequisites: ~disabled
+		Description: Helicopter gunship armed\nwith dual chainguns.
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Hind Gunship
+	TooltipExtras:
+        Strengths: Strong vs Infantry, Light Armor
+		Weaknesses: Weak vs Heavy Armor, Defenses
+        Attributes: Invisible on enemy Radar
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 15000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 7c0
+		Type: GroundPosition
+	Armament@PRIMARY:
+		Weapon: ChainGunAG
+		LocalOffset: 85,-213,-85, 85,213,-85
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo || emp-condition
+		CasingWeapon: BrassDebrisAir
+		CasingSpawnLocalOffset: 400,-225,0
+		CasingTargetOffset: 400, -300, 0
+	Armament@SECONDARY:
+		Name: secondary
+		Weapon: ChainGunAG
+		LocalOffset: 85,318,-85, 85,-318,-85
+		MuzzleSequence: muzzle
+		PauseOnCondition: !ammo || emp-condition
+		CasingWeapon: BrassDebrisAir
+		CasingSpawnLocalOffset: 400,-225,0
+		CasingTargetOffset: 400, -300, 0
+	AttackAircraft:
+		FacingTolerance: 80
+		PersistentTargeting: false
+		AttackType: Hover
+	Aircraft:
+		CruiseAltitude: 1c512
+		TurnSpeed: 16
+		Speed: 110
+        PauseOnCondition: emp-condition
+	AutoTarget:
+		InitialStance: HoldFire
+		InitialStanceAI: HoldFire
+	WithIdleOverlay@ROTORAIR:
+		Sequence: rotor
+		RequiresCondition: airborne
+	WithIdleOverlay@ROTORGROUND:
+		Sequence: slow-rotor
+		RequiresCondition: !airborne
+	AmmoPool:
+		Ammo: 48
+		ReloadDelay: 5
+		AmmoCondition: ammo
+	WithMuzzleOverlay:
+	SpawnActorOnDeath:
+		Actor: HIND.Husk
+		RequiresCondition: airborne
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		SpawnAtLastPosition: False
+		Type: CenterPosition
+		RequiresCondition: enable-smoke
+		TrailWhileStationary: True
+		StationaryInterval: 3
+	Selectable:
+		DecorationBounds: 1621, 1365
+	Rearmable:
+		RearmActors: hpad
+	WithAmmoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		PipCount: 6
+	GrantConditionOnDamageState@SmokeTrail:
+		Condition: enable-smoke
+    AppearsOnRadar:
+        ValidRelationships: Ally
+
+HIND.Husk:
+	Inherits: ^HelicopterHusk
+	Tooltip:
+		Name: Hind Gunship
+	Aircraft:
+		CruiseAltitude: 1c512
+		TurnSpeed: 8
+		Speed: 120
+	WithIdleOverlay:
+		Sequence: rotor
+	LeavesTrails:
+		Offsets: -427,0,0
+		Image: smokey
+		MovingInterval: 3
+		SpawnAtLastPosition: False
+		Type: CenterPosition
+		TrailWhileStationary: True
+		StationaryInterval: 3
+	RenderSprites:
+		Image: HIND

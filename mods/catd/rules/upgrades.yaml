@@ -29,7 +29,7 @@ apb.upgrade:
         Icon: apb
 	TooltipExtras:
 		Strengths: + 10% more damage dealt
-        Attributes: Affects Rifle Soldier, GDI Jeep,\nNod Buggy and Guard Tower
+        Attributes: Affects Rifle Soldier, GDI Jeep,\nNod Buggy and Guard Tower.
 	Valued:
 		Cost: 1000
 	RenderSprites:
@@ -101,7 +101,7 @@ gdic.doctrine:
 		BuildPaletteOrder: 30
         BuildDurationModifier: 1
 		Prerequisites: ~player.gdi, !gdia.doctrine, !gdib.doctrine, !gdic.doctrine, player.level1, ~techlevel.minimum
-		Description: Specialize in mobility and tactics, required for:\n\n  Sniper (Infantry unit)\n  Veteran Soldiers\n  Recon Drone (support power)\n  SpecOps Training (upgrade)
+		Description: Specialize in mobility and tactics, required for:\n\n  Machinegunner (Infantry unit)\n  Mortar Soldier (Infantry unit)\n  Sniper (Infantry unit)\n  Veteran Soldiers\n  Recon Drone (support power)\n  SpecOps Training (upgrade)
         Icon: gdic
 	TooltipExtras:
         Strengths: + Infantry are less expensive to produce
@@ -290,6 +290,22 @@ barracks.upgrade:
 		Strengths: + Allows infantry to self-heal near Barracks
 	Valued:
 		Cost: 800
+	RenderSprites:
+		Image: upgicon
+
+f18speed.upgrade:
+	Inherits: ^Upgrade
+	Tooltip:
+		Name: Upgrade: Fuel Pods
+	Buildable:
+		BuildPaletteOrder: 120
+		Prerequisites: dome, ~player.gdi, ~techlevel.maximum
+		Description: Upgrades: Interceptors
+        Icon: f18speed
+	TooltipExtras:
+		Strengths: + 30% faster arrival speed
+	Valued:
+		Cost: 1000
 	RenderSprites:
 		Image: upgicon
 

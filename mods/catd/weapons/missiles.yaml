@@ -121,7 +121,7 @@ TOWLauncher:
 
 MammothTusk:
     Inherits: ^Rocket
-	ReloadDelay: 80
+	ReloadDelay: 70
 	Range: 5c512
 	MinRange: 0c512
 	Report: rocket1.aud
@@ -367,7 +367,7 @@ HellfireAA:
 		Speed: 492
 		Arm: 0
 		Image: ROCKET
-		Shadow: True
+		Shadow: true
 		HorizontalRateOfTurn: 80
         RangeLimit: 8c512
         CloseEnough: 0c600
@@ -473,3 +473,100 @@ BikeRocketsAA:
 	MinRange: 0c512
 	Projectile: Missile
 		RangeLimit: 7c0
+
+Maverick:
+    Inherits: ^Rocket
+	ReloadDelay: 50
+	Range: 9c0
+	MinRange: 2c0
+	Burst: 2
+	BurstDelays: 8
+	Report: missile7.aud
+	Projectile: Missile
+		Blockable: false
+		Inaccuracy: 316
+        RangeLimit: 14c512
+		CruiseAltitude: 2c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 6000
+		ValidTargets: GroundActor, WaterActor
+        Versus:
+            None: 25
+            Wood: 75
+            Light: 75
+            Heavy: 100
+            Concrete: 50
+		DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+
+TorpTube:
+	ReloadDelay: 100
+	Range: 9c0
+    MinRange: 2c0
+	Report: torpedo1.aud
+	ValidTargets: Water, WaterActor, Underwater, Bridge
+	Burst: 2
+	BurstDelays: 15
+	Projectile: Missile
+		Image: darkmis
+		Arm: 0
+		Speed: 85
+		TrailImage: bubbles
+		HorizontalRateOfTurn: 40
+		RangeLimit: 10c819
+		BoundToTerrainType: Water
+		Palette: shadow
+		MaximumLaunchAngle: 0
+		CruiseAltitude: 0
+		Jammable: False
+	Warhead@1Dam: SpreadDamage
+		Spread: 426
+		Damage: 18000
+		ValidTargets: WaterActor, Underwater, Bridge
+        Versus:
+            None: 25
+            Wood: 75
+            Light: 75
+            Heavy: 100
+            Concrete: 50
+        DamageTypes: Prone50Percent, TriggerProne, ExplosionDeath
+	Warhead@3Eff: CreateEffect
+		Explosions: poof
+		ImpactSounds: xplosml2.aud
+		ImpactActors: false
+        InvalidTargets: Water
+	Warhead@4EffWater: CreateEffect
+		Explosions: big_splash
+		ImpactSounds: splash9.aud
+		ValidTargets: Water, Underwater
+		InvalidTargets: Bridge
+
+Stinger:
+	Inherits: ^Rocket
+	ReloadDelay: 60
+	Range: 7c512
+	Burst: 2
+	BurstDelays: 4
+	InvalidTargets: Underwater
+	Projectile: Missile
+		Inaccuracy: 0
+		HorizontalRateOfTurn: 80
+		RangeLimit: 9c512
+		Speed: 255
+		CloseEnough: 149
+	Warhead@1Dam: SpreadDamage
+		Damage: 2000
+
+StingerAA:
+	Inherits: Stinger
+	ValidTargets: AirborneActor
+	Projectile: Missile
+		CloseEnough: 298
+        Blockable: false
+	Warhead@1Dam: SpreadDamage
+		ValidTargets: AirborneActor
+	Warhead@3Eff: CreateEffect
+		Explosions: sml_poof
+		ImpactSounds: kaboom25.aud
+		ImpactActors: false
+		ValidTargets: Air, AirborneActor

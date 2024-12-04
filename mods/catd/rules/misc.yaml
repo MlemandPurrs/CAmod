@@ -78,7 +78,7 @@ CAMERA.large:
 CAMERA.scan:
     Inherits: CAMERA
 	EditorOnlyTooltip:
-		Name: (reveals area to owner)
+		Name: (radar scan reveal)
 	RevealsShroud:
 		Range: 5c512
 		Type: CenterPosition
@@ -93,7 +93,7 @@ CAMERA.scan:
 CAMERA.frep:
     Inherits: CAMERA
 	EditorOnlyTooltip:
-		Name: (reveals area to owner)
+		Name: (field repair proxy)
 	ProximityExternalCondition@fieldrepair:
 		Condition: fieldrepair
 		ValidRelationships: Ally
@@ -103,6 +103,20 @@ CAMERA.frep:
         Visible: Always
         UsePlayerColor: false
         Color: FCFC54
+
+CAMERA.spyplane:
+    Inherits: CAMERA
+	EditorOnlyTooltip:
+		Name: (spy plane reveal)
+	RevealsShroud:
+		Range: 10c0
+		Type: CenterPosition
+	DetectCloaked:
+		Range: 10c0
+    WithRangeCircle:
+        Range: 10c0
+        Visible: Always
+        UsePlayerColor: true
 
 CAMERA.hacker:
 	Inherits: CAMERA

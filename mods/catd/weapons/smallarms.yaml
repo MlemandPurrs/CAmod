@@ -142,6 +142,41 @@ Heli50CalMG:
 	Projectile: InstantHit
 		Blockable: false
 
+LightMG:
+    Inherits: ^MachineGun
+    Burst: 1
+	Range: 4c0
+    ReloadDelay: 25
+    Report: mguninf1.aud
+	InvalidTargets: Wall
+	Warhead@1Dam: SpreadDamage
+		InvalidTargets: Wall
+	Warhead@2Dam: SpreadDamage
+		Spread: 128
+		Damage: 1500
+        Delay: 2
+		ValidTargets: GroundActor, WaterActor
+		InvalidTargets: Wall
+        Versus:
+            None: 100
+            Wood: 50
+            Light: 60
+            Heavy: 25
+            Concrete: 10
+		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
+	Warhead@4Eff: CreateEffect
+		Delay: 2
+		Explosions: piffs
+		ImpactActors: false
+		ValidTargets: Ground, GroundActor, WaterActor, Trees
+		Inaccuracy: 171
+	Warhead@4EffWater: CreateEffect
+		Delay: 2
+		ValidTargets: Water
+		InvalidTargets: Bridge
+		Explosions: water_piffs
+		Inaccuracy: 171
+
 20mmCannon:
     Inherits: Heli50CalMG
 	ReloadDelay: 18
@@ -215,6 +250,20 @@ ChainGunAA:
 	ValidTargets: AirborneActor
 	Warhead@1Dam: SpreadDamage
         ValidTargets: AirborneActor
+
+ChainGun.Yak:
+	Inherits: ^MachineGun
+	ReloadDelay: 30
+	Burst: 4
+	BurstDelays: 3
+	Range: 5c0
+	MinRange: 3c0
+	FirstBurstTargetOffset: -512,0,0
+	FollowingBurstTargetOffset: 512,0,0
+	Projectile: InstantHit
+		Blockable: false
+	Warhead@1Dam: SpreadDamage
+		Damage: 4000
 
 GattlingGun:
     Inherits: ^MachineGun

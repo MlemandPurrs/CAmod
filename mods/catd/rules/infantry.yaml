@@ -2,7 +2,6 @@ E1:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 100
 	Tooltip:
@@ -16,7 +15,7 @@ E1:
     	BuildDuration: 100
         BuildDurationModifier: 100
 		BuildPaletteOrder: 10
-		Prerequisites: barracks, ~!gdic.doctrine, ~techlevel.minimum
+		Prerequisites: barracks, ~techlevel.minimum
 		Queue: InfantrySQ, InfantryMQ
 		Description: General-purpose infantry.
 	Mobile:
@@ -27,6 +26,7 @@ E1:
 		ScanRadius: 4
 	Armament:
 		Weapon: M16Rifle
+		LocalOffset: 341,0,256
         FireDelay: 3
 	AttackFrontal:
 		Voice: Attack
@@ -62,7 +62,6 @@ E3:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 225
 	Tooltip:
@@ -130,7 +129,6 @@ E2:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 150
 	Tooltip:
@@ -191,7 +189,6 @@ E4:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 200
 	Tooltip:
@@ -342,7 +339,6 @@ CMDO:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -387,12 +383,14 @@ CMDO:
 	Armament@1:
         Name: primary
 		Weapon: Sniper
+		LocalOffset: 341,0,256
 		FireDelay: 4
 		ReloadingCondition: reload-primary
         PauseOnCondition: reload-secondary
     Armament@2:
         Name: secondary
         Weapon: DriverKill
+		LocalOffset: 341,0,256
 		FireDelay: 4
 		ReloadingCondition: reload-secondary
         PauseOnCondition: reload-primary || !ammo
@@ -455,7 +453,6 @@ MEGA:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -504,11 +501,13 @@ MEGA:
 	Armament@1:
         Name: primary
 		Weapon: Sniper
+		LocalOffset: 341,0,256
 		ReloadingCondition: reload-primary
         PauseOnCondition: reload-secondary
     Armament@2:
         Name: secondary
         Weapon: DriverKill
+		LocalOffset: 341,0,256
 		ReloadingCondition: reload-secondary
         PauseOnCondition: reload-primary && !ammo
         RequiresCondition: raufoss.on
@@ -709,7 +708,6 @@ INF:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Buildable:
         BuildDuration: 600
         BuildDurationModifier: 100
@@ -771,7 +769,6 @@ CHEM:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 350
 	Tooltip:
@@ -999,7 +996,6 @@ JUMP:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	HiddenUnderFog:
 		Type: GroundPosition
 	-TakeCover:
@@ -1175,11 +1171,130 @@ JUMP.Husk:
 		Offset: 43, 128, 0
 		ZOffset: 512
 
+LMG:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@experience: ^GainsExperience
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Machinegunner
+	TooltipExtras:
+		Strengths: Strong vs Infantry, Light Armor
+		Weaknesses: Weak vs Heavy Armor, Buildings, Defenses
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+    	BuildDuration: 300
+        BuildDurationModifier: 100
+		BuildPaletteOrder: 70
+		Prerequisites: hq, ~gdic.doctrine, ~infantry.gdi, ~techlevel.high
+		Queue: InfantrySQ, InfantryMQ
+		Description: Advanced general-purpose infantry.
+	Mobile:
+		Speed: 50
+	RevealsShroud:
+		Range: 2c512
+		RevealGeneratedShroud: False
+        MinRange: 2c0
+	RevealsShroud@GAPGenerator:
+		Range: 2c0
+        RevealGeneratedShroud: True
+	Health:
+		HP: 6000
+	AutoTarget:
+		ScanRadius: 5
+	Armament:
+		Weapon: LightMG
+		LocalOffset: 341,0,256
+        FireDelay: 3
+		CasingWeapon: BrassDebrisX3
+		CasingSpawnLocalOffset: 0,-125,200
+		CasingTargetOffset: 0, -500, 0
+	AttackFrontal:
+		Voice: Attack
+		FacingTolerance: 0
+	AttackMove:
+		Voice: Attack
+	WithInfantryBody:
+		IdleSequences: idle1,idle2
+		DefaultAttackSequence: shoot
+        RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+		Palette: player-noshadow
+		IsPlayerPalette: true
+	FirepowerMultiplier@apb:
+		Modifier: 110
+		RequiresCondition: apb.on
+	GrantConditionOnPrerequisite@apb:
+		Condition: apb.on
+		Prerequisites: apb.upgrade
+
+MORT:
+	Inherits: ^Soldier
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@experience: ^GainsExperience
+	Valued:
+		Cost: 450
+	Tooltip:
+		Name: Mortar Soldier
+	TooltipExtras:
+        Strengths: Strong vs Buildings, Slow units
+		Weaknesses: Weak vs Vehicles
+        Attributes: Can fire over Walls\nCan explode on death
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+        BuildDuration: 450
+        BuildDurationModifier: 100
+		BuildPaletteOrder: 80
+		Prerequisites: hq, ~gdic.doctrine, ~infantry.gdi, ~techlevel.high
+		Queue: InfantrySQ, InfantryMQ
+		Description: Slow artillery infantry.
+	Mobile:
+		Speed: 45
+	Health:
+		HP: 4500
+	AutoTarget:
+		ScanRadius: 8
+	Armament:
+		Weapon: MortarShell
+		LocalOffset: 300,-115,327
+		FireDelay: 15
+	AttackFrontal:
+		TargetFrozenActors: True
+		ForceFireIgnoresActors: True
+		Voice: Attack
+		FacingTolerance: 0
+	AttackMove:
+		Voice: Attack
+	TakeCover:
+		ProneOffset: 300,-115,-227
+	WithInfantryBody:
+        StandSequences: stand
+		DefaultAttackSequence: throw
+		AttackSequences:
+			primary: throw
+        RequiresCondition: !parachute
+	WithInfantryBody@PARACHUTE:
+		StandSequences: parachute
+		RequiresCondition: parachute
+		Palette: player-noshadow
+		IsPlayerPalette: true
+	Explodes:
+		Weapon: MortarShell
+		EmptyWeapon: MortarShell
+		DamageSource: Killer
+        DeathTypes: ExplosionDeath, SmallExplosionDeath, FireDeath, CrushingDeath
+		Chance: 50
+	RenderRangeCircle:
+
 SNIP:
 	Inherits: ^Soldier
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 950
 	Tooltip:
@@ -1194,8 +1309,8 @@ SNIP:
         BuildDuration: 950
         BuildDurationModifier: 100
 		Queue: InfantrySQ, InfantryMQ
-		BuildPaletteOrder: 70
-		Prerequisites: tech, ~gdic.doctrine, ~infantry.gdi, ~techlevel.maximum
+		BuildPaletteOrder: 90
+		Prerequisites: eye, ~gdic.doctrine, ~infantry.gdi, ~techlevel.maximum
 		Description: Elite sniper infantry unit.
 	Mobile:
 		Speed: 50
@@ -1212,6 +1327,7 @@ SNIP:
 		FacingTolerance: 0
 	Armament:
 		Weapon: Sniper
+		LocalOffset: 341,0,256
         FireDelay: 4
 	WithInfantryBody:
 		DefaultAttackSequence: shoot
@@ -1243,7 +1359,7 @@ JACK:
         BuildDurationModifier: 100
 		Queue: InfantrySQ, InfantryMQ
 		BuildLimit: 1
-		BuildPaletteOrder: 80
+		BuildPaletteOrder: 100
 		Prerequisites: techcenter, ~!nodc.doctrine, ~techlevel.maximum
 		Description: Maximum 1 can be trained.\n\nMercenary that can capture\nenemy vehicles and aircraft.
 	Valued:
@@ -1265,9 +1381,25 @@ JACK:
 	Voiced:
 		VoiceSet: ThiefVoice
 	-TakeCover:
+	Armament@AIHELPER2:
+		Weapon: hijack
+		Name: hijack
+		TargetRelationships: Enemy
+		RequiresCondition: botowner
+	GrantConditionOnAttack@AIHELPER:
+		Condition: removeunit
+		ArmamentNames: commandeer, hijack
+		RequiresCondition: botowner
+	AutoTargetPriority@AIHELPER2:
+		ValidTargets: Vehicle
+		RequiresCondition: botowner
+		Priority: 1
 	WithInfantryBody:
 		IdleSequences: idle
 		StandSequences: stand
+		AttackSequences:
+			commandeer: stand
+            hijack: stand
 		RequiresCondition: !parachute
 	WithInfantryBody@PARACHUTE:
 		RequiresCondition: parachute
@@ -1406,7 +1538,6 @@ A1:
 	Inherits: ^Android
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 150
 	Tooltip:
@@ -1434,7 +1565,8 @@ A1:
 		ScanRadius: 4
 	Armament:
 		Weapon: M16Rifle
-        FireDelay: 4
+		LocalOffset: 341,0,256
+        FireDelay: 3
 		PauseOnCondition: emp-condition
 	AttackFrontal:
 		Voice: Attack
@@ -1464,7 +1596,6 @@ A3:
 	Inherits: ^Android
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -1529,7 +1660,6 @@ A2:
 	Inherits: ^Android
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 200
 	Tooltip:
@@ -1595,7 +1725,6 @@ A4:
 	Inherits: ^Android
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 250
 	Tooltip:
@@ -1722,7 +1851,6 @@ CMDA:
 	Inherits: ^Android
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 1000
 	Tooltip:
@@ -1819,7 +1947,6 @@ CYP:
 	Inherits: ^Cyborg
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
     -Crushable:
     -GrantExternalConditionToCrusher@CRUSHSLOW:
 	Valued:

@@ -174,6 +174,12 @@
 		Margin: 5, 6
 		ValidRelationships: Ally, Enemy, Neutral
 		RequiresCondition: rank-veteran == 3
+	GainsExperienceMultiplier@ExpUpgrade:
+		Modifier: 150
+		RequiresCondition: training.on
+	GrantConditionOnPrerequisite@ExpUpgrade:
+		Condition: training.on
+		Prerequisites: training.upgrade
 
 ^GainsExperienceAircraft:
     Inherits: ^GainsExperience
@@ -619,6 +625,52 @@
         EmptyWeapon: UnitExplodeAir
 		RequiresCondition: airborne
 
+^PlayerPlane:
+	Inherits: ^NeutralPlane
+	Inherits@selection: ^SelectableCombatUnit
+    -RejectsOrders:
+    -Interactable:
+	Aircraft:
+		IdleBehavior: None
+	OwnerLostAction:
+		Action: Kill
+	Tooltip:
+		GenericName: Plane
+	UpdatesPlayerStatistics:
+	Selectable:
+		Bounds: 1024, 1024
+	Targetable@REPAIR:
+		RequiresCondition: !airborne && damaged
+		TargetTypes: Repair
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
+	Repairable:
+		RepairActors: dept
+	HiddenUnderFog:
+		Type: GroundPosition
+		AlwaysVisibleRelationships: Ally
+	Guard:
+	Guardable:
+	Huntable:
+	MustBeDestroyed:
+	Voiced:
+		VoiceSet: GenericVoice
+	SpawnActorOnDeath:
+		RequiresCondition: airborne
+	Explodes:
+		Weapon: UnitExplode
+		RequiresCondition: !airborne
+	CaptureManager:
+	Capturable:
+		Types: aircraft
+		RequiresCondition: !airborne
+	CaptureNotification:
+		Notification: UnitStolen
+		TextNotification: Unit stolen.
+		LoseNotification: UnitLost
+		LoseTextNotification: Unit lost.
+
 ^Helicopter:
 	Inherits: ^NeutralPlane
 	Inherits@selection: ^SelectableCombatUnit
@@ -638,7 +690,7 @@
 		WaitDistanceFromResupplyBase: 4c0
 		TakeOffOnResupply: true
 		VTOL: true
-		LandableTerrainTypes: Clear, Rough, Road, Ore, Beach, Gems, WaterFord
+		LandableTerrainTypes: Clear, Rough, Road, Tiberium, BlueTiberium, RedTiberium, Beach
 		Crushes: crate, mine, infantry
 		CanSlide: True
         AltitudeVelocity: 0c58
@@ -1587,6 +1639,30 @@
 	WithFacingSpriteBody:
 	HitShape:
 
+^Submarine:
+	Inherits: ^Ship
+	Targetable:
+		TargetTypes: WaterActor, Submarine
+		RequiresCondition: !underwater
+	Targetable@UNDERWATER:
+		TargetTypes: Underwater, Submarine
+		RequiresCondition: underwater
+	Cloak:
+		DetectionTypes: Underwater
+		InitialDelay: 0
+		CloakDelay: 51
+		CloakSound: subshow1.aud
+		UncloakSound: subshow1.aud
+		CloakedCondition: underwater
+		IsPlayerPalette: true
+		PauseOnCondition: cloak-force-disabled
+	GrantConditionOnDamageState@UNCLOAK:
+		Condition: cloak-force-disabled
+		ValidDamageStates: Critical
+	-MustBeDestroyed:
+	WithDamageOverlay:
+		MinimumDamageState: Critical
+
 ^PrimaryBuilding:
 	PrimaryBuilding:
 		PrimaryCondition: primary
@@ -1906,14 +1982,6 @@
 	GrantConditionOnPrerequisite@Upgrade:
 		Condition: armorup.on
 		Prerequisites: armorup.upgrade
-
-^AffectedBySpecialTraining:
-	GainsExperienceMultiplier@ExpUpgrade:
-		Modifier: 150
-		RequiresCondition: training.on
-	GrantConditionOnPrerequisite@ExpUpgrade:
-		Condition: training.on
-		Prerequisites: training.upgrade
 
 ^Rock:
 	Inherits@1: ^SpriteActor

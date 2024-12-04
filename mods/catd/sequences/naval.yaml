@@ -34,3 +34,86 @@ pbt:
 		Facings: 16
 	icon:
 		Filename: pbticon.shp
+
+tran:
+	Defaults:
+		Filename: tran.shp
+	idle:
+	open:
+		Start: 1
+		Length: 3
+		Tick: 150
+	close:
+		Frames: 3, 2, 1
+		Length: 3
+		Tick: 150
+	unload:
+		Start: 4
+		ZOffset: -511
+	icon:
+		Filename: tranicon.shp
+
+pt:
+	idle:
+		Filename: pt.shp
+		Facings: 16
+	turret:
+		Filename: ptturr.shp
+		Facings: 32
+	muzzle:
+		Filename: gunfire.shp
+		Length: 5
+	icon:
+		Filename: pticon.shp
+
+pt2:
+    Inherits: pt
+    Defaults: pt
+	idle:
+		Filename: pt2.shp
+		Facings: 16
+
+dd:
+	idle:
+		Filename: dd.shp
+		Facings: 16
+	turret:
+		Filename: ddturr.shp
+		Facings: 32
+	icon:
+		Filename: ddicon.shp
+
+dd2:
+    Inherits: dd
+    Defaults: dd
+	idle:
+		Filename: dd2.shp
+		Facings: 16
+
+ca:
+	idle:
+		Filename: ca.shp
+		Facings: 16
+	turret:
+		Filename: caturr.shp
+		Facings: 32
+	muzzle:
+		Filename: smokeygun.shp
+		Length: *
+		Tick: 30
+	icon:
+		Filename: caicon.shp
+
+ca2:
+    Inherits: ca
+    Defaults: ca
+	idle:
+		Filename: ca2.shp
+		Facings: 16
+
+ss:
+	idle:
+		Filename: ss.shp
+		Facings: 16
+	icon:
+		Filename: ssicon.shp

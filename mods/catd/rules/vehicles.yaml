@@ -193,7 +193,6 @@ JEEP:
 	Inherits: ^Vehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Inherits@UpgradeOverlay: ^UpgradeOverlay
 	Valued:
 		Cost: 400
@@ -296,7 +295,6 @@ BGGY:
 	Inherits: ^Vehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 350
 	Tooltip:
@@ -371,7 +369,6 @@ BIKE:
 	Inherits: ^Vehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -449,7 +446,6 @@ APC2:
 	Inherits: ^TrackedVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 500
 	Tooltip:
@@ -458,9 +454,8 @@ APC2:
         GenericName: APC
         GenericVisibility: Ally, Neutral, Enemy
 	TooltipExtras:
-		Strengths: Strong vs Infantry, Aircraft
+		Strengths: Strong vs Infantry
 		Weaknesses: Weak vs Vehicles, Defenses
-        Attributes: Can attack Aircraft
 	EditorOnlyTooltip:
 		Name: Old APC
 	UpdatesPlayerStatistics:
@@ -519,7 +514,6 @@ APC:
 	Inherits: ^TrackedVehicle
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 700
 	Tooltip:
@@ -623,7 +617,6 @@ NAPC:
 	Inherits: ^TrackedVehicle
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -728,7 +721,6 @@ LTNK:
 	Inherits: ^TrackedVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Inherits@UpgradeOverlay: ^UpgradeOverlay
 	Valued:
 		Cost: 600
@@ -871,7 +863,6 @@ MTNK:
 	Inherits: ^TrackedVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
     Inherits@armorupgrade: ^AffectedbyCompositeArmor
 	Inherits@UpgradeOverlay: ^UpgradeOverlay
 	Valued:
@@ -1015,11 +1006,90 @@ MTNK.Upg.Husk:
 	RenderSprites:
 		Image: mtnk.destroyed
 
+HTN2:
+	Inherits: ^TrackedVehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@experience: ^GainsExperience
+	Valued:
+		Cost: 1100
+	Tooltip:
+		Name: Heavy Tank
+	TooltipExtras:
+		Strengths: Strong vs Vehicles, Buildings
+		Weaknesses: Weak vs Infantry, Defenses
+	EditorOnlyTooltip:
+		Name: Old Heavy Tank
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+    	BuildDuration: 1100
+        BuildDurationModifier: 100
+		BuildPaletteOrder: 40
+		Prerequisites: ~disabled
+		Queue: VehicleSQ, VehicleMQ
+		Description: Soviet main battle tank.\nArmed with twin 105mm cannons.
+	Mobile:
+		TurnSpeed: 16
+		Speed: 70
+	Health:
+		HP: 55000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 5c0
+	Turreted:
+		TurnSpeed: 16
+	Armament:
+        Name: primary
+		Weapon: 105mmCannonX2
+		Recoil: 85
+		RecoilRecovery: 17
+		LocalOffset: 624,85,90, 624,-85,90
+		MuzzleSequence: muzzle
+        PauseOnCondition: emp-condition
+	AttackMove:
+		Voice: Attack
+	AttackTurreted:
+        Armaments: primary
+		Voice: Attack
+        PauseOnCondition: emp-condition
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	AutoTarget:
+		ScanRadius: 5
+	Explodes:
+		Weapon: UnitExplodeBig
+		EmptyWeapon: UnitExplodeBig
+	Selectable:
+		DecorationBounds: 1194, 1194
+	SpawnActorOnDeath@Husk:
+		Actor: HTN2.Husk
+        OwnerType: Victim
+        EffectiveOwnerFromOwner: true
+        RequiresCondition: !onref
+	ExternalCondition@NOREFBLOCK:
+		Condition: onref
+        TotalCap: 1
+
+HTN2.Husk:
+	Inherits: ^Husk
+	Health: 
+		HP: 27500
+	Tooltip:
+		Name: Heavy Tank (Destroyed)
+	ThrowsParticle@turret:
+		Anim: turret
+	TransformOnCapture:
+		IntoActor: htn2
+	InfiltrateForTransform:
+		IntoActor: htn2
+	RenderSprites:
+		Image: htn2.destroyed
+
 HTNK:
 	Inherits: ^TrackedVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Inherits@UpgradeOverlay: ^UpgradeOverlay
 	Valued:
 		Cost: 1100
@@ -1051,7 +1121,7 @@ HTNK:
         #   Offset: 24,0,0
 	Armament:
         Name: primary
-		Weapon: Dual75mmCannon
+		Weapon: 75mmCannonX2
 		Recoil: 85
 		RecoilRecovery: 17
 		LocalOffset: 624,85,90, 624,-85,90
@@ -1172,7 +1242,6 @@ GTNK:
 	Inherits: ^TrackedVehicle
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
     Inherits@armorupgrade: ^AffectedbyCompositeArmor
 	Valued:
 		Cost: 1600
@@ -1278,7 +1347,6 @@ FTNK:
 	Inherits: ^TrackedVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Inherits@UpgradeOverlay: ^UpgradeOverlay
 	Valued:
 		Cost: 800
@@ -1399,7 +1467,6 @@ STN2:
 	Inherits: ^Vehicle
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -1469,7 +1536,6 @@ STNK:
 	Inherits: ^Vehicle
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -1652,7 +1718,6 @@ AAV:
 	Inherits: ^TrackedVehicle
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 800
 	Tooltip:
@@ -1745,7 +1810,6 @@ ART2:
 	Inherits: ^TrackedVehicle
 	Inherits@EXPERIENCE: ^GainsExperience
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -1800,7 +1864,6 @@ ARTY:
 	Inherits: ^TrackedVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 750
 	Tooltip:
@@ -1854,11 +1917,63 @@ ARTY:
         Armaments: primary
 		Color: FFFF00
 
+MRPG:
+	Inherits: ^TrackedVehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@experience: ^GainsExperience
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Grenade Launcher
+	TooltipExtras:
+        Strengths: Strong vs Defenses, Infantry
+		Weaknesses: Weak vs Vehicles
+        Attributes: Can fire over Walls
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+    	BuildDuration: 700
+        BuildDurationModifier: 100
+		BuildPaletteOrder: 60
+		#   Prerequisites: hq, ~vehicles.gdi, ~techlevel.high
+        Prerequisites: ~disabled
+		Queue: VehicleSQ, VehicleMQ
+		Description: Fast mid-range fire support.\nArmed with a grenade launcher.
+	Mobile:
+		TurnSpeed: 12
+		Speed: 80
+	Health:
+		HP: 12500
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 5c0
+	Turreted:
+		TurnSpeed: 12
+	Armament:
+        Name: primary
+		Weapon: GrenadeLauncher
+		LocalOffset: 192,-100,176, 192,100,176
+		MuzzleSequence: muzzle
+        PauseOnCondition: emp-condition
+	AttackMove:
+		Voice: Attack
+	AttackTurreted:
+        Armaments: primary
+		Voice: Attack
+        PauseOnCondition: emp-condition
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	AutoTarget:
+		ScanRadius: 9
+	Explodes:
+		Weapon: UnitExplodeBig
+		EmptyWeapon: UnitExplodeBig
+
 MLRS:
 	Inherits: ^TrackedVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 900
 	Tooltip:
@@ -1873,7 +1988,7 @@ MLRS:
     	BuildDuration: 900
         BuildDurationModifier: 100
 		BuildPaletteOrder: 60
-		Prerequisites: hq, ~vehicles.gdi, ~techlevel.high
+		Prerequisites: eye, ~vehicles.gdi, ~techlevel.maximum
 		Queue: VehicleSQ, VehicleMQ
 		Description: Multiple launch rocket system.
 	Mobile:
@@ -1944,7 +2059,6 @@ SSML:
 	Inherits: ^Vehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Inherits@UpgradeOverlay: ^UpgradeOverlay
 	Valued:
 		Cost: 1200
@@ -2077,7 +2191,7 @@ MHQ:
         BuildDuration: 1000
         BuildDurationModifier: 100
 		BuildPaletteOrder: 90
-        Prerequisites: dept, ~!electron.upgrade, ~techlevel.medium
+        Prerequisites: techcenter, ~!electron.upgrade, ~techlevel.medium
 		Queue: VehicleSQ, VehicleMQ
 		Description: Lightly armored support vehicle.
 	Mobile:
@@ -2129,7 +2243,7 @@ MRJ:
         BuildDuration: 1000
         BuildDurationModifier: 100
 		BuildPaletteOrder: 90
-		Prerequisites: dept, ~electron.upgrade, ~techlevel.medium
+		Prerequisites: techcenter, ~electron.upgrade, ~techlevel.medium
 		Queue: VehicleSQ, VehicleMQ
 		Description: Lightly armored support vehicle.
 	Mobile:
@@ -2164,7 +2278,6 @@ MSAM:
 	Inherits: ^Vehicle
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@experience: ^GainsExperience
-    Inherits@expupgrade: ^AffectedBySpecialTraining
 	Valued:
 		Cost: 1200
 	Tooltip:
@@ -2224,7 +2337,8 @@ DISR:
         BuildDuration: 1350
         BuildDurationModifier: 100
 		BuildPaletteOrder: 130
-		Prerequisites: eye, ~vehicles.gdi, ~techlevel.maximum
+		#   Prerequisites: eye, ~vehicles.gdi, ~techlevel.maximum
+        Prerequisites: ~disabled
 		Queue: VehicleSQ, VehicleMQ
 		Description: High-tech weapons platform\nwith sonic armament.
 	Health:
@@ -2277,7 +2391,7 @@ WTNK:
 	TooltipExtras:
         Strengths: Strong versus Infantry, Vehicles
 		Weaknesses: Weak vs Defenses
-        Attributes: Attack disables Vehicles\nJams missiles at full ammo
+        Attributes: Attack disables Vehicles\nCan driver kill Vehicles\nJams missiles at full ammo
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Buildable:
@@ -2382,6 +2496,99 @@ WTNK.Husk:
 		IntoActor: wtnk
 	RenderSprites:
 		Image: wtnk.destroyed
+
+XTNK:
+	Inherits: ^TrackedVehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Valued:
+		Cost: 1600
+	Tooltip:
+		Name: Laser Tank
+	TooltipExtras:
+		Strengths: Strong vs all Ground units
+		Weaknesses: Requires power to operate
+        Attributes: Does not consume Power
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+    	BuildDuration: 1600
+        BuildDurationModifier: 100
+		BuildPaletteOrder: 800
+		Prerequisites: ~disabled
+		Queue: VehicleSQ, VehicleMQ
+		Description: Experimental vehicle with obelisk laser
+	Mobile:
+		Speed: 45
+		TurnSpeed: 12
+        PauseOnCondition: boarding || being-captured || emp-condition || driver-dead || lowpower
+	Health:
+		HP: 50000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 5c0
+	Turreted:
+		TurnSpeed: 12
+	Armament:
+		Weapon: LaserZap
+		LocalOffset: 385,0,160
+        PauseOnCondition: emp-condition || lowpower
+	AttackMove:
+		Voice: Attack
+    AttackTurretedCharged:
+        ChargeLevel: 50
+		ChargingCondition: charging
+		Voice: Attack
+        PauseOnCondition: emp-condition || lowpower
+        ShowSelectionBar: true
+        SelectionBarColor: A80000
+	AmbientSound:
+		RequiresCondition: charging
+		SoundFiles: obelpowr.aud
+		Interval: 30, 40
+	AutoTarget:
+		ScanRadius: 8
+    WithSpriteTurret:
+	Explodes:
+		Weapon: UnitExplodeBig
+		EmptyWeapon: UnitExplodeBig
+	Selectable:
+		DecorationBounds: 1194, 1194
+	SpawnActorOnDeath@Husk:
+		Actor: XTNK.Husk
+        OwnerType: Victim
+        EffectiveOwnerFromOwner: true
+        RequiresCondition: !onref
+	ExternalCondition@NOREFBLOCK:
+		Condition: onref
+        TotalCap: 1
+	RenderRangeCircle:
+	GrantConditionOnPowerState@LOWPOWER:
+		Condition: lowpower
+		ValidPowerStates: Low, Critical
+	WithColoredOverlay@IDISABLE:
+		RequiresCondition: lowpower
+		Color: 000000B4
+	RejectsOrders:
+		RequiresCondition: emp-condition || lowpower
+    RevealsShroudMultiplier@EMPulse:
+        Modifier: 0
+        RequiresCondition: emp-condition || lowpower
+
+XTNK.Husk:
+	Inherits: ^Husk
+	Health: 
+		HP: 25000
+	Tooltip:
+		Name: Laser Tank (Destroyed)
+	ThrowsParticle@turret:
+		Anim: turret
+	TransformOnCapture:
+		IntoActor: xtnk
+	InfiltrateForTransform:
+		IntoActor: xtnk
+	RenderSprites:
+		Image: xtnk.destroyed
 
 XO:
 	Inherits: ^Vehicle

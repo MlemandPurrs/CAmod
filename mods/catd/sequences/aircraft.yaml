@@ -212,3 +212,50 @@ ospr:
 		Filename: rrotorlg3.shp
         Start: 5
 		Length: 10
+
+yak:
+	idle:
+        Filename: yak.shp
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: mgun8.shp
+		Length: 6
+		Facings: 8
+	icon:
+        Filename: yakicon.shp
+
+mig:
+	idle:
+        Filename: mig.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+        Filename: migicon.shp
+
+smig:
+	idle:
+        Filename: smig.shp
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+        Filename: smigicon.shp
+
+hind:
+    idle:
+        Filename: hind.shp
+		Facings: 32
+		UseClassicFacings: True
+	rotor:
+		Filename: lrotorlg.shp
+		Length: 4
+	slow-rotor:
+		Filename: lrotorlg.shp
+		Start: 4
+		Length: 8
+	muzzle:
+		Filename: mgun8.shp
+		Length: 6
+		Facings: 8
+	icon:
+        Filename: hindicon.shp
