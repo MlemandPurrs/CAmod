@@ -164,6 +164,11 @@ CHIN.Husk2:
 		IntoActor: chin
 	RenderSprites:
 		Image: chin.destroyed
+    GrantConditionOnTerrain@fix:
+        Condition: badspawn
+        TerrainTypes: Water
+    KillsSelf:
+        RequiresCondition: badspawn
 
 APCH:
 	Inherits: ^Helicopter

@@ -706,6 +706,12 @@
 	Targetable@AIRBORNE:
 		TargetTypes: AirborneActor
 		RequiresCondition: airborne
+	Targetable@REPAIR:
+		RequiresCondition: !airborne && damaged
+		TargetTypes: Repair
+	GrantConditionOnDamageState@DAMAGED:
+		Condition: damaged
+		ValidDamageStates: Light, Medium, Heavy, Critical
 	Huntable:
     Guard:
     Guardable:
@@ -1600,12 +1606,15 @@
 	Inherits@handicaps: ^PlayerHandicaps
 	Inherits@productionboost: ^ProductionBoost
 	Inherits@bounty: ^GlobalBounty
+    Inherits@empulse: ^EMPApplicable
+    Inherits@fieldrepair: ^AffectedByFieldRepair
 	Huntable:
 	OwnerLostAction:
 		Action: Kill
 	UpdatesPlayerStatistics:
 	Mobile:
 		Locomotor: naval
+        PauseOnCondition: emp-condition
 	Selectable:
 		Bounds: 1024, 1024
 	Targetable:
@@ -1642,7 +1651,7 @@
 ^Submarine:
 	Inherits: ^Ship
 	Targetable:
-		TargetTypes: WaterActor, Submarine
+		TargetTypes: GroundActor, WaterActor, Submarine
 		RequiresCondition: !underwater
 	Targetable@UNDERWATER:
 		TargetTypes: Underwater, Submarine

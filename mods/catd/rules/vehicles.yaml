@@ -57,6 +57,8 @@ MCV:
 		Image: mcv
 		FactionImages:
             nod: nmcv
+	Passenger:
+		CustomPipType: blue
 
 MCV.Husk:
 	Inherits: ^Husk
@@ -175,6 +177,8 @@ HARV:
 		Image: harv
 		FactionImages:
             nod: nhrv
+	Passenger:
+		CustomPipType: green
 
 HARV.Husk:
 	Inherits: ^Husk
@@ -1213,7 +1217,7 @@ HTNK.Upg:
 	WithSpriteTurret:
         Sequence: turret2
     ReloadArmamentsBar:
-        Armaments: tertiary
+        Armaments: secondary
 		Color: FFFF00
 	SpawnActorOnDeath@Husk:
 		Actor: HTNK.Upg.Husk
@@ -1736,7 +1740,7 @@ AAV:
 	Buildable:
     	BuildDuration: 800
         BuildDurationModifier: 100
-		BuildPaletteOrder: 30
+		BuildPaletteOrder: 180
 		Prerequisites: ~syrd, ~techlevel.medium
 		Queue: VehicleSQ, VehicleMQ
 		Description: Amphibian fighting vehicle,\narmed with an grenadelauncher.
@@ -2694,6 +2698,8 @@ XO:
 		LocalOffset: 0,0,200
 	ProvidesPrerequisite@LIMITING:
 		Prerequisite: xo
+	Passenger:
+		CustomPipType: red
 
 T55H:
 	Inherits: ^TrackedVehicle
@@ -2824,6 +2830,8 @@ T55H:
 		CarriedCondition: oncarryall
 		LockedCondition: boarding
 		LocalOffset: 0,0,200
+	Passenger:
+		CustomPipType: red
 
 TRUK:
 	Inherits: ^Vehicle
@@ -2864,6 +2872,8 @@ TRUK:
 		CarriedCondition: oncarryall
 		LockedCondition: boarding
 		LocalOffset: 0,0,200
+	Passenger:
+		CustomPipType: gray
 
 TTRK:
 	Inherits: ^Vehicle
@@ -2967,6 +2977,8 @@ TRU2:
 		CarriedCondition: oncarryall
 		LockedCondition: boarding
 		LocalOffset: 0,0,200
+	Passenger:
+		CustomPipType: gray
 
 DTRK:
 	Inherits: ^Vehicle

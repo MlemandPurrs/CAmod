@@ -925,6 +925,8 @@ afld:
         ZOffset: -1022
 	icon:
         Filename: afldicon.shp
+    fake-icon:
+		Filename: ffldicon.shp
 
 afld.husk:
 	idle:

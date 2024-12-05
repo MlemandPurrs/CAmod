@@ -26,8 +26,9 @@
 	Warhead@3Eff: CreateEffect
 		Explosions: sml_frag
 		ImpactSounds: xplos.aud
-		ImpactActors: false
-        InvalidTargets: Water
+		#   ImpactActors: false
+		ValidTargets: Ground, GroundActor, WaterActor, Trees
+        InvalidTargets: Water, Underwater
 	Warhead@4EffWater: CreateEffect
 		Explosions: med_splash
 		ImpactSounds: splash9.aud
@@ -168,8 +169,9 @@ Grenade:
 	Warhead@3Eff: CreateEffect
 		Explosions: sml_poof
 		ImpactSounds: xplos.aud
-		ImpactActors: false
+		#   ImpactActors: false
 		ValidTargets: Ground, GroundActor, WaterActor, Trees
+        InvalidTargets: Water, Underwater
 	Warhead@4EffWater: CreateEffect
 		Explosions: sml_splash
 		ImpactSounds: splash9.aud
@@ -209,9 +211,9 @@ APCGunAG:
 		DamageTypes: Prone50Percent, TriggerProne, SmallExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: sml_frag
-		ImpactActors: false
+		#   ImpactActors: false
 		ValidTargets: Ground, GroundActor, WaterActor, Trees
-        InvalidTargets: Water
+        InvalidTargets: Water, Underwater
 	Warhead@3EffWater: CreateEffect
 		Explosions: sml_splash
 		ImpactSounds: splash9.aud
@@ -228,6 +230,7 @@ APCGunAA:
 		ValidTargets: AirborneActor
 	Warhead@2Eff: CreateEffect
 		Explosions: sml_flak
+        ImpactActors: false
         ValidTargets: Air, Ground, Water, Trees
 
 2InchGun:
@@ -242,9 +245,9 @@ APCGunAA:
 
 8InchGun:
     Inherits: ^HighExplosive
+	ReloadDelay: 240
+	Range: 18c0
 	MinRange: 3c0
-	ReloadDelay: 250
-	Range: 20c0
 	Burst: 2
     BurstDelays: 4
 	Report: turret1.aud
@@ -303,8 +306,9 @@ AAVGun:
 	Warhead@3Eff: CreateEffect
 		Explosions: sml_poof
 		ImpactSounds: xplos.aud
-		ImpactActors: false
+		#   ImpactActors: false
 		ValidTargets: Ground, GroundActor, WaterActor, Trees
+        InvalidTargets: Water, Underwater
 	Warhead@4EffWater: CreateEffect
 		Explosions: sml_splash
 		ImpactSounds: splash9.aud

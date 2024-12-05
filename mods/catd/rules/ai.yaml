@@ -399,6 +399,8 @@ Player:
 			heli: Aircraft, Infantry
             heli.upg: Aircraft, Infantry, Vehicle
 			orca: Aircraft, Vehicle
+        NavalProductionTypes: syrd
+        NavalUnitsTypes: pt, dd, ca, ss
 	UnitBuilderBotModuleCA:
 		RequiresCondition: enable-ai
         UnitQueues: InfantrySQ, InfantryMQ, VehicleSQ, VehicleMQ, AircraftSQ, AircraftMQ, ShipSQ, ShipMQ
@@ -461,6 +463,10 @@ Player:
             cyp: 1
             jack: 1
             jack.nod: 1
+			pt: 20
+            dd: 15
+            ca: 10
+            ss: 15
 		UnitLimits:
             harv: 8
 			jeep: 8
@@ -492,9 +498,13 @@ Player:
             mrj: 1
             jack: 1
             jack.nod: 1
+            pt: 4
+            dd: 3
+            ca: 2
+            ss: 2
     CaptureManagerBotModuleCA:
         CapturingActorTypes: engi
-        CapturableActorTypes: v19, v19.husk, hosp, hosp.husk, bio, bio.husk, aprt, aprt.husk, rpad, rpad.husk, wind, wind.husk, atur, atur.husk, mtnk.husk, mtnk.upg.husk, gtnk.husk, htnk.husk, htnk.upg.husk
+        CapturableActorTypes: v19, v19.husk, hosp, hosp.husk, bio, bio.husk, aprt, aprt.husk, syrd, syrd.husk, rpad, rpad.husk, wind, wind.husk, atur, atur.husk, mtnk.husk, mtnk.upg.husk, gtnk.husk, htnk.husk, htnk.upg.husk
         MaximumCaptureTargetOptions: 8
         CheckCaptureTargetsForVisibility: false
         EnemyAvoidanceRadius: 4c0

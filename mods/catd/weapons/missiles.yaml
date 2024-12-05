@@ -32,8 +32,9 @@
 	Warhead@3Eff: CreateEffect
 		Explosions: sml_frag
 		ImpactSounds: xplos.aud
-		ImpactActors: false
+		#   ImpactActors: false
 		ValidTargets: Ground, GroundActor, WaterActor, Trees
+        InvalidTargets: Water, Underwater
 	Warhead@4EffWater: CreateEffect
 		Explosions: sml_splash
 		ImpactSounds: splash9.aud
@@ -183,8 +184,8 @@ M269Missile:
 	Warhead@3Eff: CreateEffect
 		Explosions: med_frag
 		ImpactSounds: xplobig4.aud
-		ImpactActors: false
-		ValidTargets: Ground, Air, GroundActor, AirborneActor, WaterActor
+		#   ImpactActors: false
+		ValidTargets: Ground, GroundActor, WaterActor, Trees
 	Warhead@4EffWater: CreateEffect
 		Explosions: med_splash
 		ImpactSounds: splash9.aud
@@ -307,7 +308,6 @@ TowerMissile:
 		Explosions: big_frag
 		ImpactSounds: xplobig4.aud
 		ImpactActors: false
-		ValidTargets: Ground, GroundActor, Water, WaterActor
 	Warhead@4EffWater: CreateEffect
 		Explosions: big_splash
 		ImpactSounds: splash9.aud
@@ -353,7 +353,6 @@ HellfireAG:
 	Warhead@3Eff: CreateEffect
 		Explosions: sml_napalm
 		ImpactSounds: kaboom25.aud
-		ValidTargets: Ground, Air, GroundActor, AirborneActor, WaterActor, Trees
 	Warhead@4EffWater: CreateEffect
 		Explosions: med_splash
 		ImpactSounds: splash9.aud
@@ -392,7 +391,6 @@ HydraRocket:
 	Warhead@3Eff: CreateEffect
 		Explosions: sml_frag
 		ImpactSounds: kaboom25.aud
-		ValidTargets: Ground, Air, GroundActor, AirborneActor, WaterActor, Trees
 
 OrcaMissileAG:
     Inherits: HellfireAG
@@ -512,7 +510,7 @@ TorpTube:
 		Arm: 0
 		Speed: 85
 		TrailImage: bubbles
-		HorizontalRateOfTurn: 40
+		HorizontalRateOfTurn: 20
 		RangeLimit: 10c819
 		BoundToTerrainType: Water
 		Palette: shadow
@@ -521,7 +519,7 @@ TorpTube:
 		Jammable: False
 	Warhead@1Dam: SpreadDamage
 		Spread: 426
-		Damage: 18000
+		Damage: 9000
 		ValidTargets: WaterActor, Underwater, Bridge
         Versus:
             None: 25
@@ -534,6 +532,7 @@ TorpTube:
 		Explosions: poof
 		ImpactSounds: xplosml2.aud
 		ImpactActors: false
+        ValidTargets: Ground, WaterActor, Ship, Submarine
         InvalidTargets: Water
 	Warhead@4EffWater: CreateEffect
 		Explosions: big_splash

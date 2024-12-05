@@ -16,7 +16,8 @@ LST:
         BuildDurationModifier: 100
         BuildPaletteOrder: 10
 		Queue: ShipSQ, ShipMQ
-		Prerequisites: ~syrd, ~techlevel.minimum
+		#   Prerequisites: ~syrd, ~techlevel.minimum
+        Prerequisites: ~disabled
 		Description: Transports ground units across water.
 	Mobile:
 		Locomotor: landingcraft
@@ -62,7 +63,8 @@ GBT:
         BuildDurationModifier: 100
 		Queue: ShipSQ, ShipMQ
 		BuildPaletteOrder: 20
-		Prerequisites: ~syrd, ~ships.gdi, ~techlevel.low
+		#   Prerequisites: ~syrd, ~ships.gdi, ~techlevel.low
+        Prerequisites: ~disabled
 		Description: Light scout & support ship.
 	Valued:
 		Cost: 700
@@ -102,8 +104,9 @@ PBT:
         BuildDurationModifier: 100
 		Queue: ShipSQ, ShipMQ
 		BuildPaletteOrder: 20
-		Prerequisites: ~syrd, ~ships.nod, ~techlevel.low
-		Description: Light scout & support ship.
+        #   Prerequisites: ~syrd, ~ships.nod, ~techlevel.low
+        Prerequisites: ~disabled
+        Description: Light scout & support ship.
 	Valued:
 		Cost: 600
 	Tooltip:
@@ -114,7 +117,7 @@ PBT:
 	UpdatesPlayerStatistics:
 		AddToArmyValue: true
 	Health:
-		HP: 15000
+		HP: 25000
 	Armor:
 		Type: Heavy
 	Mobile:
@@ -141,8 +144,8 @@ TRAN:
         BuildDuration: 900
         BuildDurationModifier: 100
 		Queue: ShipSQ, ShipMQ
-		BuildPaletteOrder: 110
-		Prerequisites: ~disabled
+		BuildPaletteOrder: 130
+		Prerequisites: ~syrd, ~techlevel.minimum
 		Description: General-purpose naval transport.
 	Valued:
 		Cost: 900
@@ -160,7 +163,7 @@ TRAN:
 	Mobile:
 		Locomotor: landingcraft
 		Speed: 120
-		PauseOnCondition: notmobile
+		PauseOnCondition: notmobile || emp-condition
 	RevealsShroud:
 		Range: 5c0
 	WithLandingCraftAnimation:
@@ -200,8 +203,8 @@ PT:
         BuildDuration: 500
         BuildDurationModifier: 100
 		Queue: ShipSQ, ShipMQ
-		BuildPaletteOrder: 120
-		Prerequisites: ~disabled
+		BuildPaletteOrder: 100
+		Prerequisites: ~syrd, ~techlevel.low
 		Description: Light scout & support ship.
 	Valued:
 		Cost: 500
@@ -219,26 +222,31 @@ PT:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 24
-		Speed: 120
+		Speed: 90
 	RevealsShroud:
 		Range: 6c0
 	Turreted:
 		TurnSpeed: 24
-		Offset: 512,0,0
+		Offset: 536,0,-24
 	Armament@PRIMARY:
 		Weapon: 2InchGun
 		LocalOffset: 208,0,48
 		MuzzleSequence: muzzle
+        PauseOnCondition: emp-condition
 	Armament@SECONDARY:
 		Name: secondary
 		Weapon: DepthCharge
+		LocalOffset: 208,0,48
 		MuzzleSequence: muzzle
+        PauseOnCondition: emp-condition
 	AttackTurreted:
+        PauseOnCondition: emp-condition
 	WithMuzzleOverlay:
 	WithSpriteTurret:
 	DetectCloaked:
 		DetectionTypes: Underwater
 		Range: 4c0
+        RequiresCondition: !emp-condition
 	RenderDetectionCircle:
 	Selectable:
 		DecorationBounds: 1536, 1536
@@ -251,6 +259,8 @@ DD:
 	Inherits: ^Ship
 	Inherits@AUTOTARGET: ^AutoTargetAllAssaultMove
 	Inherits@experience: ^GainsExperience
+	Selectable:
+		DecorationBounds: 1621, 1621
 	HitShape:
 		TargetableOffsets: 448,0,0, -448,0,0
 		Type: Capsule
@@ -261,8 +271,8 @@ DD:
         BuildDuration: 1000
         BuildDurationModifier: 100
 		Queue: ShipSQ, ShipMQ
-		BuildPaletteOrder: 120
-		Prerequisites: ~disabled
+		BuildPaletteOrder: 110
+		Prerequisites: ~syrd, dept, ~techlevel.medium
 		Description: Fast multi-role ship.
 	Valued:
 		Cost: 1000
@@ -280,42 +290,44 @@ DD:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 24
-		Speed: 90
+		Speed: 70
 	RevealsShroud:
 		Range: 5c0
 	Turreted:
 		TurnSpeed: 24
-		Offset: 469,0,128
+		Offset: 542,0,104
 	Armament@1:
         Name: primary
 		Weapon: Stinger
 		LocalOffset: 0,-100,0, 0,100,0
 		LocalYaw: 64, -64
-		PauseOnCondition: reload-aa || reload-as
+		PauseOnCondition: reload-aa || reload-as || emp-condition
         ReloadingCondition: reload-ag
 	Armament@2:
         Name: secondary
 		Weapon: StingerAA
 		LocalOffset: 0,-100,0, 0,100,0
 		LocalYaw: 64, -64
-		PauseOnCondition: reload-ag || reload-as
+		PauseOnCondition: reload-ag || reload-as || emp-condition
         ReloadingCondition: reload-aa
 	Armament@3:
         Name: tertiary
 		Weapon: DepthChargeX2
 		LocalOffset: 0,-100,0, 0,100,0
 		LocalYaw: 80, -80
-		PauseOnCondition: reload-aa || reload-ag
+		PauseOnCondition: reload-aa || reload-ag || emp-condition
         ReloadingCondition: reload-as
 	AttackTurreted:
         Armaments: primary, secondary, tertiary
+        PauseOnCondition: emp-condition
 	WithSpriteTurret:
+	RenderRangeCircle:
+		RangeCircleType: aa
 	DetectCloaked:
 		DetectionTypes: Underwater
 		Range: 4c0
+        RequiresCondition: !emp-condition
 	RenderDetectionCircle:
-	Selectable:
-		DecorationBounds: 1621, 1621
 	RenderSprites:
 		Image: dd
 		FactionImages:
@@ -335,8 +347,8 @@ CA:
         BuildDuration: 2000
         BuildDurationModifier: 100
 		Queue: ShipSQ, ShipMQ
-		BuildPaletteOrder: 130
-		Prerequisites: ~disabled
+		BuildPaletteOrder: 120
+		Prerequisites: ~syrd, hq, ~techlevel.high
 		Description: Very slow long-range ship.
 	Valued:
 		Cost: 2000
@@ -353,7 +365,7 @@ CA:
 		Type: Heavy
 	Mobile:
 		TurnSpeed: 12
-		Speed: 44
+		Speed: 45
 	RevealsShroud:
 		Range: 7c0
 	Turreted@1:
@@ -370,21 +382,24 @@ CA:
         Name: primary
 		Weapon: 8InchGun
 		LocalOffset: 480,-100,40, 480,100,40
-		Recoil: 171
-		RecoilRecovery: 34
+		Recoil: 128
+		RecoilRecovery: 26
 		MuzzleSequence: muzzle
+        PauseOnCondition: emp-condition
 	Armament@2:
 		Name: secondary
 		Turret: secondary
 		Weapon: 8InchGun
 		LocalOffset: 480,-100,40, 480,100,40
-		Recoil: 171
-		RecoilRecovery: 34
+		Recoil: 128
+		RecoilRecovery: 26
 		MuzzleSequence: muzzle
+        PauseOnCondition: emp-condition
 	AttackTurreted:
 		Turrets: primary, secondary
 		TargetFrozenActors: True
 		ForceFireIgnoresActors: True
+        PauseOnCondition: emp-condition
 	WithMuzzleOverlay:
 	WithSpriteTurret@PRIMARY:
 		Turret: primary
@@ -412,8 +427,8 @@ SS:
         BuildDuration: 850
         BuildDurationModifier: 100
 		Queue: ShipSQ, ShipMQ
-		BuildPaletteOrder: 150
-		Prerequisites: ~disabled
+		BuildPaletteOrder: 140
+		Prerequisites: ~syrd, dept, ~techlevel.medium
 		Description: Submerged anti-ship unit.
 	Valued:
 		Cost: 850
@@ -438,9 +453,11 @@ SS:
 		Weapon: TorpTube
 		LocalOffset: 0,-171,0, 0,171,0
 		FireDelay: 2
+        PauseOnCondition: emp-condition
 	AttackFrontal:
         Armaments: primary
         FacingTolerance: 0
+        PauseOnCondition: emp-condition
     WithMuzzleOverlay:
 	AutoTargetPriority@DEFAULT:
 		ValidTargets: WaterActor, Underwater
@@ -450,6 +467,7 @@ SS:
 	DetectCloaked:
 		DetectionTypes: Underwater
 		Range: 4c0
+        RequiresCondition: !emp-condition
 	RenderDetectionCircle:
 	Explodes:
 		Weapon: UnitExplodeSubmarine

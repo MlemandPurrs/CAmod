@@ -61,8 +61,9 @@ pt:
 		Filename: ptturr.shp
 		Facings: 32
 	muzzle:
-		Filename: gunfire.shp
-		Length: 5
+        Filename: cannmuz.shp
+		Length: 2
+		Facings: 16
 	icon:
 		Filename: pticon.shp
 

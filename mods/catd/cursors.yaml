@@ -1,5 +1,5 @@
 Cursors:
-	mouse2.shp: cursor
+	cursor.shp: cursor
 		default:
 			Start: 0
 			X: -16
@@ -9,300 +9,256 @@ Cursors:
 			Length: 1
 			X: -16
 			Y: -12
+    cursorscroll.shp: cursor
 		scroll-t:
-			Start: 2
+			Start: 0
 			Y: -12
 		scroll-tr:
-			Start: 3
+			Start: 1
 			X: 14
 			Y: -12
 		scroll-r:
-			Start: 4
+			Start: 2
 			X: 14
 		scroll-br:
-			Start: 5
+			Start: 3
 			X: 14
 			Y: 11
 		scroll-b:
-			Start: 6
+			Start: 4
 			Y: 11
 		scroll-bl:
-			Start: 7
+			Start: 5
 			X: -15
 			Y: 11
 		scroll-l:
-			Start: 8
+			Start: 6
 			X: -15
 		scroll-tl:
-			Start: 9
+			Start: 7
 			X: -15
 			Y: -12
 		scroll-t-blocked:
-			Start: 10
+			Start: 8
 			Y: -12
 		scroll-tr-blocked:
-			Start: 11
+			Start: 9
 			X: 14
 			Y: -12
 		scroll-r-blocked:
-			Start: 12
+			Start: 10
 			X: 14
 		scroll-br-blocked:
-			Start: 13
+			Start: 11
 			X: 14
 			Y: 11
 		scroll-b-blocked:
-			Start: 14
+			Start: 12
 			Y: 11
 		scroll-bl-blocked:
-			Start: 15
+			Start: 13
 			X: -15
 			Y: 11
 		scroll-l-blocked:
-			Start: 16
+			Start: 14
 			X: -15
 		scroll-tl-blocked:
-			Start: 17
+			Start: 16
 			X: -15
 			Y: -12
-		joystick-all:
-			Start: 0
-			X: -16
-			Y: -12
-		joystick-t-blocked:
-			Start: 10
-		joystick-tr-blocked:
-			Start: 11
-		joystick-r-blocked:
-			Start: 12
-		joystick-br-blocked:
-			Start: 13
-		joystick-b-blocked:
-			Start: 14
-		joystick-bl-blocked:
-			Start: 15
-		joystick-l-blocked:
-			Start: 16
-		joystick-tl-blocked:
-			Start: 17
+    cursorselect.shp: cursor
 		select:
-			Start: 27
+			Start: 0
 			Length: 6
+    cursorattack.shp: cursor
 		attack:
-			Start: 33
+			Start: 0
 			Length: 8
 		attack-minimap:
-			Start: 41
+			Start: 8
 			Length: 8
 		attackoutsiderange:
-			Start: 49
+			Start: 16
 			Length: 8
 		attackoutsiderange-minimap:
-			Start: 57
+			Start: 24
             Length: 8
+    cursormove.shp: cursor
 		move:
-			Start: 65
-			Length: 8
-		move-rough:
-			Start: 65
+			Start: 0
 			Length: 8
 		move-blocked:
-			Start: 73
+			Start: 8
 			Length: 1
 		move-minimap:
-			Start: 74
+			Start: 9
 			Length: 4
 		move-blocked-minimap:
-			Start: 78
+			Start: 13
 			Length: 1
 		attackmove:
-			Start: 79
+			Start: 14
 			Length: 8
 		attackmove-blocked:
-			Start: 87
+			Start: 22
 			Length: 1
 		attackmove-minimap:
-			Start: 88
+			Start: 23
 			Length: 4
 		attackmove-blocked-minimap:
-			Start: 92
+			Start: 27
 			Length: 1
         assaultmove:
-			Start: 93
+			Start: 28
 			Length: 8
 		assaultmove-blocked:
-			Start: 101
+			Start: 36
 			Length: 1
 		assaultmove-minimap:
-			Start: 102
+			Start: 37
 			Length: 4
 		assaultmove-blocked-minimap:
-			Start: 106
+			Start: 41
 			Length: 1
+    cursorguard.shp: cursor
 		guard:
-			Start: 107
+			Start: 0
 			Length: 8
 		guard-minimap:
-			Start: 115
+			Start: 8
 			Length: 8
+    cursordeploy.shp: cursor
 		deploy:
-			Start: 123
+			Start: 0
 			Length: 9
 		deploy-blocked:
-			Start: 132
+			Start: 9
 			Length: 1
+    cursorrepair.shp: cursor
 		repair:
-			Start: 133
+			Start: 0
 			Length: 24
 		repair-blocked:
-			Start: 157
+			Start: 24
 			Length: 1
 		goldwrench:
-			Start: 158
+			Start: 25
 			Length: 24
 		goldwrench-blocked:
-			Start: 182
+			Start: 49
 			Length: 1
+    cursorsell.shp: cursor
 		sell:
-			Start: 183
+			Start: 0
 			Length: 24
 		sell-blocked:
-			Start: 207
+			Start: 24
 			Length: 1
 		sell-unit:
-			Start: 208
+			Start: 25
 			Length: 24
+    cursorpower.shp: cursor
 		powerdown-blocked:
-			Start: 232
+			Start: 0
 			Length: 1
 		powerdown:
-			Start: 233
+			Start: 1
 			Length: 3
         powerup:
-            Start: 236
+            Start: 5
             Length: 3
 		powerup-blocked:
-			Start: 240
+			Start: 8
 			Length: 1
+    cursorenter.shp: cursor
 		enter:
-			Start: 241
+			Start: 0
 			Length: 3
 		enter-blocked:
-			Start: 244
+			Start: 3
 			Length: 1
 		enter-minimap:
-			Start: 245
+			Start: 4
 			Length: 3
 		enter-blocked-minimap:
-			Start: 248
+			Start: 7
 			Length: 1
 		enter-yellow:
-			Start: 249
+			Start: 8
 			Length: 3
 		enter-yellow-blocked:
-			Start: 252
+			Start: 11
 			Length: 1
 		enter-yellow-minimap:
-			Start: 253
+			Start: 12
 			Length: 3
 		enter-yellow-blocked-minimap:
-			Start: 256
+			Start: 15
 			Length: 1
 		capture:
-			Start: 257
+			Start: 16
 			Length: 3
 		capture-blocked:
-			Start: 260
+			Start: 19
 			Length: 1
 		capture-minimap:
-			Start: 261
+			Start: 20
 			Length: 3
 		capture-blocked-minimap:
-			Start: 264
+			Start: 23
 			Length: 1
+    cursorc4.shp: cursor
 		c4:
-			Start: 265
+			Start: 0
 			Length: 3
 		c4-minimap:
-			Start: 268
+			Start: 3
 			Length: 3
+    cursorability.shp: cursor
         ability:
-			Start: 271
+			Start: 0
 			Length: 8
         ability-minimap:
-            Start: 279
+            Start: 8
             Length: 8
-        para:
-			Start: 287
-			Length: 8
-        para-minimap:
-            Start: 279
-            Length: 8          
+    cursorairstrike.shp: cursor
         airstrike:
-			Start: 295
+			Start: 0
 			Length: 4
             Tick: 90
         airstrike-minimap:
-            Start: 299
+            Start: 4
             Length: 4
             Tick: 90
+    cursornuke.shp: cursor
 		nuke:
-			Start: 303
+			Start: 0
 			Length: 7
         nuke-minimap:
-            Start: 310
+            Start: 7
             Length: 7
+    cursorion.shp: cursor
 		ioncannon:
-			Start: 317
+			Start: 0
 			Length: 16
         ioncannon-minimap:
-            Start: 333
+            Start: 16
             Length: 8
-		chrono-select:
-			Start: 341
-			Length: 8
-        chrono-select-minimap:
-            Start: 349
-            Length: 8
-		chrono-target:
-			Start: 357
-			Length: 8
-        chrono-target-minimap:
- 			Start: 365
-			Length: 8           
-		sonar:
-			Start: 373
-			Length: 8
-			Tick: 90
-        sonar-minimap:
- 			Start: 381
-			Length: 8
-            Tick: 90
-		empstrike:
-			Start: 389
-			Length: 13
-        empstrike-minimap:
-            Start: 402
-            Length: 2
+    cursorheal.shp: cursor 
 		heal:
-			Start: 404
+			Start: 0
 			Length: 4
 		heal-minimap:
-			Start: 408
+			Start: 4
 			Length: 1
-		fix:
-			Start: 409
-			Length: 4
-		fix-minimap:
-			Start: 413
-			Length: 1
+    cursorharvest.shp: cursor
 		harvest:
-			Start: 414
+			Start: 0
 			Length: 8
 		harvest-minimap:
-			Start: 422
+			Start: 8
 			Length: 8
-	upgradecursor.shp: cursor
+	cursorupgrade.shp: cursor
 		upgrade:
 			Start: 0
 			Length: 3

@@ -17,7 +17,7 @@
 		DamageTypes: Prone50Percent, TriggerProne, BulletDeath
 	Warhead@2Eff: CreateEffect
 		Explosions: piff
-		ImpactActors: false
+		#   ImpactActors: false
 		ValidTargets: Ground, GroundActor, WaterActor, Trees
 	Warhead@3EffWater: CreateEffect
 		ValidTargets: Water
@@ -99,7 +99,7 @@ DriverKill:
             Concrete: 50
 	Warhead@DriverKill: ChangeOwnerToNeutral
 		ValidTargets: DriverKill
-		InvalidTargets: Infantry, Ship, Structure, Wall, Husk, Air, AirSmall
+		InvalidTargets: Infantry, Ship, Submarine, Structure, Wall, Husk, Air, AirSmall
 		ValidRelationships: Enemy
 		CargoEffect: Block
 		Range: 0c511
@@ -260,6 +260,7 @@ ChainGun.Yak:
 	MinRange: 3c0
 	FirstBurstTargetOffset: -512,0,0
 	FollowingBurstTargetOffset: 512,0,0
+	Report: gun13.aud
 	Projectile: InstantHit
 		Blockable: false
 	Warhead@1Dam: SpreadDamage

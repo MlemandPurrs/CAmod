@@ -2753,6 +2753,10 @@ SYRD:
     -Demolishable:
 	Targetable:
 		TargetTypes: WaterActor, Structure, NoAutoTarget
+	DetectCloaked:
+		DetectionTypes: Underwater
+		Range: 8c0
+	RenderDetectionCircle:
 
 SYRD.Husk:
 	Inherits: ^TechBuildingHusk
