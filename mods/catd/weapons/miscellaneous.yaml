@@ -66,6 +66,17 @@ TargeterforWTNK:
 		Damage: 0
         ValidTargets: GroundActor, WaterActor, Trees
 
+TargeterforV2RL:
+	ReloadDelay: 3
+	Range: 11c256
+    MinRange: 3c128
+    ValidTargets: Ground, GroundActor, Water, WaterActor, Trees
+	Projectile: InstantHit
+        Blockable: false
+	Warhead@1Dam: SpreadDamage
+		Damage: 0
+        ValidTargets: Ground, GroundActor, Water, WaterActor, Trees
+
 Hack:
 	Range: 11c0
 	ReloadDelay: 50

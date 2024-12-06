@@ -446,6 +446,71 @@ BIKE:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
 
+R4WD:
+	Inherits: ^Vehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Buildable:
+        BuildDuration: 450
+        BuildDurationModifier: 100
+		Queue: VehicleSQ, VehicleMQ
+		BuildPaletteOrder: 120
+		Prerequisites: ~disabled
+		Description: Fast scout & anti-infantry vehicle.
+	Valued:
+		Cost: 450
+	Tooltip:
+		Name: Ranger Jeep
+	TooltipExtras:
+		Strengths: Strong vs Infantry
+		Weaknesses: Weak vs Vehicles, Defenses
+        Attributes: Can carry 1 infantry
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 15000
+	Armor:
+		Type: Light
+	Mobile:
+		TurnSpeed: 20
+		Speed: 160
+        PauseOnCondition: notmobile || boarding || being-captured || emp-condition || driver-dead
+	RevealsShroud:
+        Range: 6c0
+	Turreted:
+		TurnSpeed: 20
+		Offset: 0,0,128
+	Armament:
+		Weapon: 50CalibreMG
+		LocalOffset: 128,0,43
+		MuzzleSequence: muzzle
+        PauseOnCondition: emp-condition
+		CasingWeapon: BrassDebris
+		CasingSpawnLocalOffset: 0,-125,200
+		CasingTargetOffset: 0, -500, 0
+	AttackTurreted:
+	WithMuzzleOverlay:
+	WithSpriteTurret:
+	Cargo:
+		Types: Infantry
+		MaxWeight: 1
+		LoadingCondition: notmobile
+        LoadedCondition: loaded
+	WithCargoPipsDecoration:
+		Position: BottomLeft
+		Margin: 4, 3
+		RequiresSelection: true
+		CustomPipSequences:
+			gray: pip-gray
+            green: pip-green
+			yellow: pip-yellow
+			red: pip-red
+            blue: pip-blue
+	DetectCloaked:
+		DetectionTypes: Cloak
+		Range: 2c512
+        RequiresCondition: loaded
+
 APC2:
 	Inherits: ^TrackedVehicle
 	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
@@ -460,6 +525,7 @@ APC2:
 	TooltipExtras:
 		Strengths: Strong vs Infantry
 		Weaknesses: Weak vs Vehicles, Defenses
+        Attributes: Can carry 4 infantry
 	EditorOnlyTooltip:
 		Name: Old APC
 	UpdatesPlayerStatistics:
@@ -2174,6 +2240,65 @@ SSMB:
 	Explodes:
 		Weapon: HonestJohnChem
         EmptyWeapon: HonestJohnChem
+
+V2RL:
+	Inherits: ^Vehicle
+	Inherits@GAINSEXPERIENCE: ^GainsExperience
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Selectable:
+		DecorationBounds: 1194, 1194
+	Buildable:
+        BuildDuration: 900
+        BuildDurationModifier: 100
+		Queue: VehicleSQ, VehicleMQ
+		BuildPaletteOrder: 230
+		Prerequisites: ~disabled
+		Description: Long-range rocket artillery.
+	Valued:
+		Cost: 900
+	Tooltip:
+		Name: V2 Rocket Launcher
+	TooltipExtras:
+        Strengths: Strong vs Buildings, Infantry
+		Weaknesses: Weak vs Heavy Armor, Defenses
+        Attributes: Can fire over walls
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Health:
+		HP: 20000
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 70
+	RevealsShroud:
+		Range: 5c0
+	Armament:
+		Weapon: V2Missile
+		ReloadingCondition: reloading
+    Armament@AIHelper:
+        Name: secondary
+        Weapon: TargeterforV2RL
+        PauseOnCondition: !reloading
+	AutoTarget:
+		ScanRadius: 10
+	AttackFrontal:
+		TargetFrozenActors: True
+		ForceFireIgnoresActors: True
+		FacingTolerance: 0
+	WithFacingSpriteBody:
+		RequiresCondition: !reloading
+		Name: loaded
+	WithFacingSpriteBody@EMPTY:
+		RequiresCondition: reloading
+		Sequence: empty-idle
+		Name: reloading
+	Explodes:
+		Weapon: V2Missile
+        EmptyWeapon: V2Missile
+	RenderRangeCircle:
+    ReloadArmamentsBar:
+        Armaments: primary
+		Color: FFFF00
 
 MHQ:
 	Inherits: ^Vehicle

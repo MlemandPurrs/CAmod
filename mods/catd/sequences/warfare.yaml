@@ -262,3 +262,9 @@ mine:
 	idle:
 		Filename: mine.shp
 		ZOffset: -512
+
+v2:
+    idle:
+        Filename: v2.shp
+		Facings: 32
+		ZOffset: 1023

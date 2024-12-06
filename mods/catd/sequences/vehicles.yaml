@@ -98,6 +98,23 @@ bike:
 	icon:
 		Filename: bikeicon.shp
 
+r4wd:
+	Defaults:
+		Filename: r4wd.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Filename: mgun8.shp
+		Length: 6
+		Facings: 8
+	icon:
+		Filename: r4wdicon.shp
+
 apc:
 	Defaults:
 		Filename: apc.shp
@@ -591,6 +608,19 @@ ssmb:
 		UseClassicFacings: True
 	icon:
         Filename: ssmbicon.shp
+
+v2rl:
+	Defaults:
+		Filename: v2rl.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	empty-idle:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	icon:
+        Filename: v2rlicon.shp
 
 stnk:
     Defaults:
