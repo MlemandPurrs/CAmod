@@ -1,29 +1,29 @@
 Background@COLOR_CHOOSER:
 	Logic: ColorPickerLogic
-		PaletteColumns: 8
+		PaletteColumns: 10
 		PalettePresetRows: 3
 		PaletteCustomRows: 1
 	Background: dialog2
-	Width: 326
+	Width: 384 # 326
 	Height: 183
 	Children:
 		Button@RANDOM_BUTTON:
 			Key: tab
-			X: 245
-			Y: 124
+			X: 165
+			Y: PARENT_BOTTOM - 30
 			Width: 76
 			Height: 25
 			Text: Random
 			Font: Bold
 		Button@STORE_BUTTON:
-			X: 245
-			Y: 153
-			Width: 76
+			X: 241
+			Y: PARENT_BOTTOM - 30
+			Width: 58
 			Height: 25
 			Text: Store
 			Font: Bold
 		ActorPreview@PREVIEW:
-			X: 245
+			X: 305
 			Y: 13
 			Width: 76
 			Height: 73

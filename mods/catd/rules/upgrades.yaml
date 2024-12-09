@@ -25,7 +25,7 @@ apb.upgrade:
 	Buildable:
 		BuildPaletteOrder: 40
 		Prerequisites: dept, ~techlevel.medium
-		Description: Upgrades: Smallcalibre damage
+		Description: Upgrades: Smallcalibre weapons
         Icon: apb
 	TooltipExtras:
 		Strengths: + 10% more damage dealt

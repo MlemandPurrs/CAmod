@@ -63,7 +63,7 @@ Cursors:
 			Start: 14
 			X: -15
 		scroll-tl-blocked:
-			Start: 16
+			Start: 15
 			X: -15
 			Y: -12
     cursorselect.shp: cursor

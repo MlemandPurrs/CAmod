@@ -39,7 +39,7 @@ beacon:
 		ZOffset: 2535
 	arrow:
 		Filename: cursorscroll.shp
-		Start: 5
+		Start: 4
 		Offset: 1,-12
 	circles:
 		Filename: fpls.shp
@@ -328,35 +328,35 @@ parachl-shadow:
 paradirection:
 	arrow-t:
 		Filename: cursorscroll.shp
-		Start: 1
+		Start: 0
 		Offset: 0, -15, 0
 	arrow-tr:
 		Filename: cursorscroll.shp
-		Start: 2
+		Start: 1
 		Offset: 7, -7, 0
 	arrow-r:
 		Filename: cursorscroll.shp
-		Start: 3
+		Start: 2
 		Offset: 12, 0, 0
 	arrow-br:
 		Filename: cursorscroll.shp
-		Start: 4
+		Start: 3
 		Offset: 7, 7, 0
 	arrow-b:
 		Filename: cursorscroll.shp
-		Start: 5
+		Start: 4
 		Offset: 0, 15, 0
 	arrow-bl:
 		Filename: cursorscroll.shp
-		Start: 6
+		Start: 5
 		Offset: -7, 7, 0
 	arrow-l:
 		Filename: cursorscroll.shp
-		Start: 7
+		Start: 6
 		Offset: -12, 0, 0
 	arrow-tl:
 		Filename: cursorscroll.shp
-		Start: 8
+		Start: 7
 		Offset: -7, -7, 0
 
 empfx:

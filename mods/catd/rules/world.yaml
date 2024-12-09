@@ -295,7 +295,7 @@ World:
 		PreviewActor: cnst.colorpicker
         FactionPreviewActors:
             nod: cnst.colorpicker.nod
-		PresetColors: FCFC54, A4A4BC, F40000, 54FC54, D47810, 007070, D0C4AC, A8704C, C4B060, 4494E4, EC0000, 00C400, FC8800, 707070, 44907C, 702C24
+		PresetColors: FCFC54, A4A4BC, F40000, 54FC54, D47810, 007070, D0C4AC, A8704C, FC9494, A800A8, C4B060, 4494E4, EC0000, 00C400, FC8800, 707070, 44907C, 702C24, 885060, 840084, FFDF5E, 273CB3, DE0000, 0C960C, FF9100, BEBEBE, 14FF9F, FFA44B, FF5EC7, B914FF
         SimilarityThreshold: 20
 	OrderEffects:
 		TerrainFlashImage: moveflsh
