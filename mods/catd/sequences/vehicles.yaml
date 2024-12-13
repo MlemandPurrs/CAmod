@@ -477,6 +477,130 @@ ctnk.destroyed:
 		UseClassicFacings: True
 		ZOffset: -512
 
+hftk:
+	Defaults:
+		Filename: hftk.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Combine:
+			0:
+				Filename: flame-n.shp
+				Length: *
+				Offset: 3,6
+			1:
+				Filename: flame-nw.shp
+				Length: *
+				Offset: 8,7
+			2:
+				Filename: flame-w.shp
+				Length: *
+				Offset: 8,2
+			3:
+				Filename: flame-sw.shp
+				Length: *
+				Offset: 7,-2
+			4:
+				Filename: flame-s.shp
+				Length: *
+				Offset: 3,-2
+			5:
+				Filename: flame-se.shp
+				Length: *
+				Offset: -5,-2
+			6:
+				Filename: flame-e.shp
+				Length: *
+				Offset: -7,2
+			7:
+				Filename: flame-ne.shp
+				Length: *
+				Offset: -7,8
+		Facings: 8
+		Length: 13
+	icon:
+        Filename: hftkicon.shp
+
+hftk.destroyed:
+	idle:
+		Filename: hftk.shp
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -512
+	turret:
+		Filename: hftk.shp
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -512
+
+hctk:
+	Defaults:
+		Filename: hctk.shp
+	idle:
+		Facings: 32
+		UseClassicFacings: True
+	turret:
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+	muzzle:
+		Combine:
+			0:
+				Filename: chem-n.shp
+				Length: *
+				Offset: 3,6
+			1:
+				Filename: chem-nw.shp
+				Length: *
+				Offset: 8,7
+			2:
+				Filename: chem-w.shp
+				Length: *
+				Offset: 8,2
+			3:
+				Filename: chem-sw.shp
+				Length: *
+				Offset: 7,-2
+			4:
+				Filename: chem-s.shp
+				Length: *
+				Offset: 3,-2
+			5:
+				Filename: chem-se.shp
+				Length: *
+				Offset: -5,-2
+			6:
+				Filename: chem-e.shp
+				Length: *
+				Offset: -7,2
+			7:
+				Filename: chem-ne.shp
+				Length: *
+				Offset: -7,8
+		Facings: 8
+		Length: 13
+	icon:
+        Filename: hftkicon.shp
+
+hctk.destroyed:
+	idle:
+		Filename: hctk.shp
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -512
+	turret:
+		Filename: hctk.shp
+		Start: 32
+		Facings: 32
+		UseClassicFacings: True
+		ZOffset: -512
+
 mnly:
 	idle:
 		Filename: mnly.shp

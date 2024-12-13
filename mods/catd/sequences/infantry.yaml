@@ -1624,6 +1624,8 @@ mort:
 snip:
 	Defaults:
 		Filename: snip.tem
+		TilesetFilenames:
+            DESERT: snip.des
 	stand:
 		Facings: 8
 	stand2:
@@ -1694,11 +1696,13 @@ snip:
 		Tick: 80
 	die6:
         Filename: e1.shp
+		TilesetFilenames:
 		Start: 366
 		Length: 11
 		Tick: 80
 	die-crushed:
 		Filename: e1rot.shp
+		TilesetFilenames:
 		Start: 16
 		Length: 4
 		Tick: 1600
@@ -1707,6 +1711,7 @@ snip:
         Start: 352
 	icon:
 		Filename: snipicon.shp
+		TilesetFilenames:
 
 jack:
 	Defaults:

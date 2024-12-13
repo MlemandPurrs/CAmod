@@ -426,6 +426,8 @@ Player:
             chem: 15
             medi: 10
             mech: 10
+            lmg: 5
+            mort: 5
             snip: 5
             jump: 5
 			harv: 15
@@ -478,6 +480,8 @@ Player:
             medi: 3
             mech: 3
             snip: 2
+            lmg: 2
+            mort: 2
             jump: 2
             apc: 4
             napc: 4

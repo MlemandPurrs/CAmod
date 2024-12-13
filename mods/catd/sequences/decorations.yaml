@@ -4,21 +4,27 @@ scorches:
 	sc1:
 		TilesetFilenames:
 			TEMPERAT: sc1.tem
+            DESERT: sc1.des
 	sc2:
 		TilesetFilenames:
 			TEMPERAT: sc2.tem
+            DESERT: sc2.des
 	sc3:
 		TilesetFilenames:
 			TEMPERAT: sc3.tem
+            DESERT: sc3.des
 	sc4:
 		TilesetFilenames:
 			TEMPERAT: sc4.tem
+            DESERT: sc4.des
 	sc5:
 		TilesetFilenames:
 			TEMPERAT: sc5.tem
+            DESERT: sc5.des
 	sc6:
 		TilesetFilenames:
 			TEMPERAT: sc6.tem
+            DESERT: sc6.des
 
 craters:
 	Defaults:
@@ -26,21 +32,27 @@ craters:
 	cr1:
 		TilesetFilenames:
 			TEMPERAT: cr1.tem
+            DESERT: cr1.des
 	cr2:
 		TilesetFilenames:
 			TEMPERAT: cr2.tem
+            DESERT: cr2.des
 	cr3:
 		TilesetFilenames:
 			TEMPERAT: cr3.tem
+            DESERT: cr3.des
 	cr4:
 		TilesetFilenames:
 			TEMPERAT: cr4.tem
+            DESERT: cr4.des
 	cr5:
 		TilesetFilenames:
 			TEMPERAT: cr5.tem
+            DESERT: cr5.des
 	cr6:
 		TilesetFilenames:
 			TEMPERAT: cr6.tem
+            DESERT: cr6.des
 
 brl1:
 	idle:
@@ -61,6 +73,34 @@ tanktrap1:
 tanktrap2:
 	idle:
 		Filename: tanktrap2.shp
+
+rock1:
+	idle:
+		Filename: rock1.des
+
+rock2:
+	idle:
+		Filename: rock2.des
+
+rock3:
+	idle:
+		Filename: rock3.des
+
+rock4:
+	idle:
+		Filename: rock4.des
+
+rock5:
+	idle:
+		Filename: rock5.des
+
+rock6:
+	idle:
+		Filename: rock6.des
+
+rock7:
+	idle:
+		Filename: rock7.des
 
 lhus:
 	Defaults:

@@ -4,6 +4,11 @@
 		Tileset: TEMPERAT
 		Filename: temperat.pal
 		ShadowIndex: 3, 4
+	PaletteFromFile@terrain-desert:
+		Name: terrain
+		Tileset: DESERT
+		Filename: desert.pal
+		ShadowIndex: 3, 4
 	PaletteFromFile@chrome:
 		Name: chrome
 		Filename: temperat.pal
@@ -73,7 +78,7 @@
 		ExcludePalettes: effect, chrome
 		RotationBase: 32
 	LightPaletteRotator:
-		ExcludePalettes: terrain, effect, desert
+		ExcludePalettes: terrain, effect, chrome
         ModifyIndex: 8
         RotationIndices: 127, 126, 125, 124, 123, 122, 121, 120, 121, 122, 123, 124, 125, 126
     # Green

@@ -95,7 +95,7 @@
 TurretGun:
     Inherits: ^ArmorPiercing
 	ReloadDelay: 35
-	Range: 6c0
+	Range: 6c256
 	Report: turret1.aud
 	Warhead@1Dam: SpreadDamage
 		Damage: 6000

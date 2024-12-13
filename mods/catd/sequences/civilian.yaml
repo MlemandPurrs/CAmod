@@ -157,163 +157,139 @@ car:
 
 v01:
 	Defaults:
-		TilesetFilenames:
-            TEMPERAT: v01.tem
+        Filename: v01.tem
 	idle:
 	damaged-idle:
 		Start: 1
 
 v01.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v01.tem
+        Filename: v01.tem
 		Start: 2
 
 v02:
 	Defaults:
-		TilesetFilenames:
-            TEMPERAT: v02.tem
+        Filename: v02.tem
 	idle:
 	damaged-idle:
 		Start: 1
 
 v02.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v02.tem
+        Filename: v02.tem
 		Start: 2
 
 v03:
 	Defaults:
-		TilesetFilenames:
-            TEMPERAT: v03.tem
+        Filename: v03.tem
 	idle:
 	damaged-idle:
 		Start: 1
 
 v03.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v03.tem
+        Filename: v03.tem
 		Start: 2
 
 v04:
 	Defaults:
-		TilesetFilenames:
-            TEMPERAT: v04.tem
+        Filename: v04.tem
 	idle:
 	damaged-idle:
 		Start: 1
 
 v04.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v04.tem
+        Filename: v04.tem
 		Start: 2
 
 v05:
 	Defaults:
-		TilesetFilenames:
-            TEMPERAT: v05.tem
+        Filename: v05.tem
 	idle:
 	damaged-idle:
 		Start: 1
 
 v05.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v05.tem
+        Filename: v05.tem
 		Start: 2
 
 v06:
 	Defaults:
 		Filename: v06.tem
-		TilesetFilenames:
-            TEMPERAT: v06.tem
 	idle:
 	damaged-idle:
 		Start: 1
 
 v06.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v06.tem
+        Filename: v06.tem
 		Start: 2
 
 v07:
 	Defaults:
-		TilesetFilenames:
-            TEMPERAT: v07.tem
+        Filename: v07.tem
 	idle:
 	damaged-idle:
 		Start: 2
 
 v07.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v07.tem
+        Filename: v07.tem
 		Start: 2
 
 v08:
 	Defaults:
-		TilesetFilenames:
-            TEMPERAT: v08.tem
+        Filename: v08.tem
 	idle:
 	damaged-idle:
 		Start: 1
 
 v08.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v08.tem
+        Filename: v08.tem
 		Start: 2
 
 v09:
 	Defaults:
-		TilesetFilenames:
-            TEMPERAT: v09.tem
+        Filename: v09.tem
 	idle:
 	damaged-idle:
 		Start: 1
 
 v09.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v09.tem
+        Filename: v09.tem
 		Start: 2
 
 v10:
 	Defaults:
-		TilesetFilenames:
-            TEMPERAT: v10.tem
+        Filename: v10.tem
 	idle:
 	damaged-idle:
 		Start: 1
 
 v10.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v10.tem
+        Filename: v10.tem
 		Start: 2
 
 v11:
 	Defaults:
-		TilesetFilenames:
-            TEMPERAT: v11.tem
+        Filename: v11.tem
 	idle:
 	damaged-idle:
 		Start: 1
 
 v11.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v11.tem
+        Filename: v11.tem
 		Start: 2
 
 v12:
 	Defaults:
-		TilesetFilenames:
-            TEMPERAT: v12.tem
+        Filename: v12.tem
 	idle:
 		ZOffset: -2c512
 	damaged-idle:
@@ -322,15 +298,13 @@ v12:
 
 v12.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v12.tem
+        Filename: v12.tem
 		Start: 2
 		ZOffset: -2c512
 
 v13:
 	Defaults:
-		TilesetFilenames:
-            TEMPERAT: v13.tem
+        Filename: v13.tem
 	idle:
 		ZOffset: -2c512
 	damaged-idle:
@@ -339,15 +313,13 @@ v13:
 
 v13.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v13.tem
+        Filename: v13.tem
 		Start: 2
 		ZOffset: -2c512
 
 v14:
 	Defaults:
-		TilesetFilenames:
-            TEMPERAT: v14.tem
+        Filename: v14.tem
 	idle:
 		ZOffset: -2c512
 	damaged-idle:
@@ -356,15 +328,13 @@ v14:
 
 v14.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v14.tem
+        Filename: v14.tem
 		Start: 2
 		ZOffset: -2c512
 
 v15:
 	Defaults:
-		TilesetFilenames:
-            TEMPERAT: v15.tem
+        Filename: v15.tem
 	idle:
 		ZOffset: -2c512
 	damaged-idle:
@@ -373,15 +343,13 @@ v15:
 
 v15.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v15.tem
+        Filename: v15.tem
 		Start: 2
 		ZOffset: -2c512
 
 v16:
 	Defaults:
-		TilesetFilenames:
-            TEMPERAT: v16.tem
+        Filename: v16.tem
 	idle:
 		ZOffset: -2c512
 	damaged-idle:
@@ -390,15 +358,13 @@ v16:
 
 v16.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v16.tem
+        Filename: v16.tem
 		Start: 2
 		ZOffset: -2c512
 
 v17:
 	Defaults:
-		TilesetFilenames:
-            TEMPERAT: v17.tem
+        Filename: v17.tem
 	idle:
 		ZOffset: -2c512
 	damaged-idle:
@@ -407,15 +373,13 @@ v17:
 
 v17.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v17.tem
+        Filename: v17.tem
 		Start: 2
 		ZOffset: -2c512
 
 v18:
 	Defaults:
-		TilesetFilenames:
-            TEMPERAT: v18.tem
+        Filename: v18.tem
 	idle:
 		ZOffset: -2c512
 	damaged-idle:
@@ -424,8 +388,7 @@ v18:
 
 v18.husk:
 	idle:
-		TilesetFilenames:
-            TEMPERAT: v18.tem
+        Filename: v18.tem
 		Start: 2
 		ZOffset: -2c512
 
@@ -455,6 +418,239 @@ v19.husk:
 		Length: *
 		Offset: 7,-15
 		ZOffset: 1
+
+
+v20:
+    Defaults:
+        Filename: v20.des
+	idle:
+		Length: 3
+		Tick: 120
+	damaged-idle:
+		Start: 3
+		Length: 3
+		Tick: 120
+
+v20.husk:
+	idle:
+		Filename: v20.des
+		Start: 6
+
+v21:
+    Defaults:
+        Filename: v21.des
+	idle:
+		Length: 3
+		Tick: 120
+	damaged-idle:
+		Start: 3
+		Length: 3
+		Tick: 120
+
+v21.husk:
+	idle:
+		Filename: v21.des
+		Start: 6
+
+v22:
+    Defaults:
+        Filename: v22.des
+	idle:
+		Length: 3
+		Tick: 120
+	damaged-idle:
+		Start: 3
+		Length: 3
+		Tick: 120
+
+v22.husk:
+	idle:
+		Filename: v22.des
+		Start: 6
+
+v23:
+    Defaults:
+        Filename: v23.des
+	idle:
+		Length: 3
+		Tick: 120
+	damaged-idle:
+		Start: 3
+		Length: 3
+		Tick: 120
+
+v23.husk:
+	idle:
+		Filename: v23.des
+		Start: 6
+
+v24:
+    Defaults:
+        Filename: v24.des
+	idle:
+	damaged-idle:
+		Start: 1
+
+v24.husk:
+	idle:
+		Filename: v24.des
+		Start: 2
+
+v25:
+    Defaults:
+        Filename: v25.des
+	idle:
+	damaged-idle:
+		Start: 1
+
+v25.husk:
+	idle:
+		Filename: v25.des
+		Start: 2
+
+v26:
+    Defaults:
+        Filename: v26.des
+	idle:
+	damaged-idle:
+		Start: 1
+
+v26.husk:
+	idle:
+		Filename: v26.des
+		Start: 2
+
+v27:
+    Defaults:
+        Filename: v27.des
+	idle:
+	damaged-idle:
+		Start: 1
+
+v27.husk:
+	idle:
+		Filename: v27.des
+		Start: 2
+
+v28:
+    Defaults:
+        Filename: v28.des
+	idle:
+	damaged-idle:
+		Start: 1
+
+v28.husk:
+	idle:
+		Filename: v28.des
+		Start: 2
+
+v29:
+    Defaults:
+        Filename: v29.des
+	idle:
+	damaged-idle:
+		Start: 1
+
+v29.husk:
+	idle:
+		Filename: v29.des
+		Start: 2
+
+v30:
+    Defaults:
+        Filename: v30.des
+	idle:
+	damaged-idle:
+		Start: 2
+
+v30.husk:
+	idle:
+		Filename: v30.des
+		Start: 2
+
+v31:
+    Defaults:
+        Filename: v31.des
+	idle:
+	damaged-idle:
+		Start: 1
+
+v31.husk:
+	idle:
+		Filename: v31.des
+		Start: 2
+
+v32:
+    Defaults:
+        Filename: v32.des
+	idle:
+	damaged-idle:
+		Start: 1
+
+v32.husk:
+	idle:
+		Filename: v32.des
+		Start: 2
+
+v33:
+    Defaults:
+        Filename: v33.des
+	idle:
+	damaged-idle:
+		Start: 1
+
+v33.husk:
+	idle:
+		Filename: v33.des
+		Start: 2
+
+v34:
+    Defaults:
+        Filename: v34.des
+	idle:
+	damaged-idle:
+		Start: 1
+
+v34.husk:
+	idle:
+		Filename: v34.des
+		Start: 2
+
+v35:
+    Defaults:
+        Filename: v35.des
+	idle:
+	damaged-idle:
+		Start: 1
+
+v35.husk:
+	idle:
+		Filename: v35.des
+		Start: 2
+
+v36:
+    Defaults:
+        Filename: v36.des
+	idle:
+	damaged-idle:
+		Start: 1
+
+v36.husk:
+	idle:
+		Filename: v36.des
+		Start: 2
+
+v37:
+    Defaults:
+        Filename: v37.des
+	idle:
+	damaged-idle:
+		Start: 1
+
+v37.husk:
+	idle:
+		Filename: v37.des
+		Start: 2
 
 wood:
 	Defaults:
@@ -506,6 +702,7 @@ aprt:
 	bib:
 		TilesetFilenames:
 			TEMPERAT: bib2.tem
+            DESERT: bib2.des
 		Length: *
         ZOffset: -1022
     dead:
@@ -531,6 +728,7 @@ aprt.husk:
 	bib:
 		TilesetFilenames:
 			TEMPERAT: bib2.tem
+            DESERT: bib2.des
 		Length: *
         ZOffset: -1022
 
@@ -552,6 +750,7 @@ wind:
 	bib:
 		TilesetFilenames:
 			TEMPERAT: mbgtwr.tem
+			DESERT: mbgtwr.des
 		Length: *
 		Offset: -3,-6
 
@@ -569,6 +768,7 @@ wind.husk:
 	bib:
 		TilesetFilenames:
 			TEMPERAT: mbgtwr.tem
+			DESERT: mbgtwr.des
 		Length: *
 		Offset: -3,-6
 
@@ -591,6 +791,7 @@ outp:
 	bib:
 		TilesetFilenames:
 			TEMPERAT: mbobel.tem
+			DESERT: mbobel.des
 		Length: *
 		Offset: 0,0
     icon:
@@ -610,5 +811,6 @@ outp.husk:
 	bib:
 		TilesetFilenames:
 			TEMPERAT: mbobel.tem
+			DESERT: mbobel.des
 		Length: *
 		Offset: 0,0

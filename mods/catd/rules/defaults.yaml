@@ -1664,10 +1664,13 @@
 		UncloakSound: subshow1.aud
 		CloakedCondition: underwater
 		IsPlayerPalette: true
-		PauseOnCondition: cloak-force-disabled
+		PauseOnCondition: cloak-force-disabled || crossing-ford
 	GrantConditionOnDamageState@UNCLOAK:
 		Condition: cloak-force-disabled
 		ValidDamageStates: Critical
+	GrantConditionOnTerrain@CROSSINGFORD:
+		Condition: crossing-ford
+		TerrainTypes: Shallow
 	-MustBeDestroyed:
 	WithDamageOverlay:
 		MinimumDamageState: Critical

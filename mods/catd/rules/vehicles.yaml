@@ -1434,7 +1434,7 @@ FTNK:
 		BuildPaletteOrder: 50
 		Prerequisites: hq, ~vehicles.nod, ~!chemical.upgrade, ~techlevel.high
 		Queue: VehicleSQ, VehicleMQ
-		Description: Heavy armored and slow,\nflame-throwing vehicle.
+		Description: Heavy armored and fast,\nflame-throwing vehicle.
 	Mobile:
 		TurnSpeed: 16
 		Speed: 90
@@ -1472,7 +1472,7 @@ FTNK:
 	Upgradeable@CHEM:
 		Type: chemical.upgrade
 		UpgradingCondition: upgrading
-		Actor: chem
+		Actor: ctnk
 		UpgradeAtActors: dept
 		BuildDuration: 100
 	ProducibleWithLevel:
@@ -1508,7 +1508,7 @@ CTNK:
         Attributes: Explodes in a chemball
 	Buildable:
 		Prerequisites: nuke, ~vehicles.nod, ~chemical.upgrade, ~techlevel.high
-		Description: Heavy armored and slow,\nchemical-spraying vehicle.
+		Description: Heavy armored and fast,\nchemical-spraying vehicle.
 	Armament:
 		Weapon: BigChemSpray
 		LocalOffset: 512,128,42, 512,-128,42
@@ -1532,6 +1532,123 @@ CTNK.Husk:
 		IntoActor: ctnk
 	RenderSprites:
 		Image: ctnk.destroyed
+
+HFTK:
+	Inherits: ^TrackedVehicle
+	Inherits@AUTOTARGET: ^AutoTargetGroundAssaultMove
+	Inherits@experience: ^GainsExperience
+	Inherits@UpgradeOverlay: ^UpgradeOverlay
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Heavy Flame Tank
+	TooltipExtras:
+		Strengths: Strong vs Buildings, Infantry
+		Weaknesses: Weak vs Defenses, Vehicles
+        Attributes: Explodes in a fireball
+	UpdatesPlayerStatistics:
+		AddToArmyValue: true
+	Buildable:
+    	BuildDuration: 800
+        BuildDurationModifier: 100
+		BuildPaletteOrder: 50
+		Prerequisites: ~disabled
+		Queue: VehicleSQ, VehicleMQ
+		Description: Heavy armored and slow,\nflame-throwing vehicle.
+	Mobile:
+		TurnSpeed: 16
+		Speed: 70
+	Health:
+		HP: 55000
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 5c0
+	Turreted:
+		TurnSpeed: 16
+	Armament:
+		Weapon: BigFlamer
+		LocalOffset: 512,128,42, 512,-128,42
+		MuzzleSequence: muzzle
+        PauseOnCondition: emp-condition
+	AttackTurreted:
+		Voice: Attack
+		FacingTolerance: 0
+        PauseOnCondition: emp-condition
+	AttackMove:
+		Voice: Attack
+	WithMuzzleOverlay:
+    WithSpriteTurret:
+	Explodes:
+		Weapon: FlametankExplode
+		EmptyWeapon: FlametankExplode
+	SpawnActorOnDeath@Husk:
+		Actor: HFTK.Husk
+        OwnerType: Victim
+        EffectiveOwnerFromOwner: true
+        RequiresCondition: !onref
+	ExternalCondition@NOREFBLOCK:
+		Condition: onref
+        TotalCap: 1
+	ReplacedInQueue:
+		Actors: hctk
+	Upgradeable@CHEM:
+		Type: chemical.upgrade
+		UpgradingCondition: upgrading
+		Actor: hctk
+		UpgradeAtActors: dept
+		BuildDuration: 100
+
+HFTK.Husk:
+	Inherits: ^Husk
+	Health: 
+		HP: 27500
+	Tooltip:
+		Name: Heavy Flame Tank (Destroyed)
+	TransformOnCapture:
+		IntoActor: hftk
+	InfiltrateForTransform:
+		IntoActor: hftk
+	RenderSprites:
+		Image: hftk.destroyed
+
+HCTK:
+    Inherits: HFTK
+    -Upgradeable@CHEM:
+    -ReplacedInQueue:
+    -WithDecoration@UpgradeOverlay:
+    Tooltip:
+		Name: Heavy Chem Tank
+	TooltipExtras:
+		Strengths: Strong vs Buildings, Infantry
+		Weaknesses: Weak vs Defenses, Vehicles
+        Attributes: Explodes in a chemball
+	Buildable:
+		Prerequisites: ~disabled
+		Description: Heavy armored and slow,\nchemical-spraying vehicle.
+	Armament:
+		Weapon: BigChemSpray
+		LocalOffset: 512,128,42, 512,-128,42
+		MuzzleSequence: muzzle
+        PauseOnCondition: emp-condition
+	Explodes:
+		Weapon: ChemtankExplode
+		EmptyWeapon: ChemtankExplode
+	SpawnActorOnDeath@Husk:
+		Actor: HCTK.Husk
+
+HCTK.Husk:
+	Inherits: ^Husk
+	Health: 
+		HP: 27500
+	Tooltip:
+		Name: Heavy Chem Tank (Destroyed)
+	TransformOnCapture:
+		IntoActor: hctk
+	InfiltrateForTransform:
+		IntoActor: hctk
+	RenderSprites:
+		Image: hctk.destroyed
 
 STN2:
 	Inherits: ^Vehicle

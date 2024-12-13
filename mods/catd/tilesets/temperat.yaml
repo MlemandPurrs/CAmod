@@ -69,6 +69,10 @@ Terrain:
 		Type: Stone
 		TargetTypes: Ground
 		Color: 44443C
+	TerrainType@Shallow:
+		Type: Shallow
+		TargetTypes: Ground
+		Color: 587474
 
 Templates:
 	Template@0:
@@ -2172,6 +2176,20 @@ Templates:
             5: Road
             6: Wall
             7: River
+	Template@169:
+		Id: 169
+		Images: bridge1h.tem
+		Size: 4,2
+		Categories: Bridge
+		Tiles:
+            0: River
+            1: Wall
+            2: Road
+            3: Wall
+            4: Wall
+            5: Road
+            6: Wall
+            7: River
 	Template@166:
 		Id: 166
 		Images: bridge1d.tem
@@ -2186,9 +2204,36 @@ Templates:
             5: Rock
             6: Rock
             7: River
+	Template@170:
+		Id: 170
+		Images: bridge1x.tem
+		Size: 4,4
+		Categories: Bridge
+		Tiles:
+            1: Clear
+            2: Clear
+            3: Road
+            12: Road
+            13: Clear
+            14: River
+            15: River
 	Template@167:
 		Id: 167
 		Images: bridge2.tem
+		Size: 4,2
+		Categories: Bridge
+		Tiles:
+            0: Wall
+            1: Road
+            2: Wall
+            3: River
+            4: River
+            5: Wall
+            6: Road
+            7: Wall
+	Template@171:
+		Id: 171
+		Images: bridge2h.tem
 		Size: 4,2
 		Categories: Bridge
 		Tiles:
@@ -2213,47 +2258,6 @@ Templates:
             4: River
             5: Wall
             6: Rock
-            7: Wall
-	Template@169:
-		Id: 169
-		Images: bridge1h.tem
-		Size: 4,2
-		Categories: Bridge
-		Tiles:
-            0: River
-            1: Wall
-            2: Road
-            3: Wall
-            4: Wall
-            5: Road
-            6: Wall
-            7: River
-	Template@170:
-		Id: 170
-		Images: bridge1x.tem
-		Size: 4,4
-		Categories: Bridge
-		Tiles:
-            1: Clear
-            2: Clear
-            3: Road
-            12: Road
-            13: Clear
-            14: River
-            15: River
-	Template@171:
-		Id: 171
-		Images: bridge2h.tem
-		Size: 4,2
-		Categories: Bridge
-		Tiles:
-            0: Wall
-            1: Road
-            2: Wall
-            3: River
-            4: River
-            5: Wall
-            6: Road
             7: Wall
 	Template@172:
 		Id: 172
@@ -2284,6 +2288,18 @@ Templates:
             3: Road
             4: Wall
             5: Wall
+	Template@177:
+		Id: 177
+		Images: bridgehh.tem
+		Size: 2,3
+		Categories: Bridge
+		Tiles:
+            0: Wall
+            1: Wall
+            2: Road
+            3: Road
+            4: Wall
+            5: Wall
 	Template@174:
 		Id: 174
 		Images: bridgehd.tem
@@ -2296,9 +2312,37 @@ Templates:
             3: Rock
             4: Wall
             5: Wall
+	Template@178:
+		Id: 178
+		Images: bridgehx.tem
+		Size: 4,4
+		Categories: Bridge
+		Tiles:
+            0: Wall
+            3: Wall
+            4: Road
+            7: Road
+            8: Wall
+            11: Wall
+            12: Clear
+            13: River
+            14: River
+            15: Clear
 	Template@175:
 		Id: 175
 		Images: bridgev.tem
+		Size: 3,2
+		Categories: Bridge
+		Tiles:
+			0: Wall
+            1: Road
+            2: Wall
+            3: Wall
+            4: Road
+            5: Wall
+	Template@179:
+		Id: 179
+		Images: bridgevh.tem
 		Size: 3,2
 		Categories: Bridge
 		Tiles:
@@ -2319,46 +2363,6 @@ Templates:
             2: Wall
             3: Wall
             4: Rock
-            5: Wall
-	Template@177:
-		Id: 177
-		Images: bridgehh.tem
-		Size: 2,3
-		Categories: Bridge
-		Tiles:
-            0: Wall
-            1: Wall
-            2: Road
-            3: Road
-            4: Wall
-            5: Wall
-	Template@178:
-		Id: 178
-		Images: bridgehx.tem
-		Size: 4,4
-		Categories: Bridge
-		Tiles:
-            0: Wall
-            3: Wall
-            4: Road
-            7: Road
-            8: Wall
-            11: Wall
-            12: Clear
-            13: River
-            14: River
-            15: Clear
-	Template@179:
-		Id: 179
-		Images: bridgevh.tem
-		Size: 3,2
-		Categories: Bridge
-		Tiles:
-			0: Wall
-            1: Road
-            2: Wall
-            3: Wall
-            4: Road
             5: Wall
 	Template@180:
 		Id: 180
@@ -2388,6 +2392,22 @@ Templates:
             8: Wall
             9: River
             12: Wall
+	Template@384:
+		Id: 384
+		Images: bridgew1h.tem
+		Size: 5,3
+		Categories: Bridge
+		Tiles:
+            1: Wall
+            2: Road
+            3: Road
+            4: Wall
+            5: Wall
+            6: Road
+            7: Road
+            8: Wall
+            9: River
+            12: Wall
 	Template@381:
 		Id: 381
 		Images: bridgew1d.tem
@@ -2404,9 +2424,39 @@ Templates:
             8: Wall
             9: River
             12: Wall
+	Template@385:
+		Id: 385
+		Images: bridgew1x.tem
+		Size: 5,4
+		Categories: Bridge
+		Tiles:
+            1: Clear
+            2: Rough
+            3: Road
+            4: Road
+            5: River
+            15: Road
+            16: Road
+            18: Rock
+            19: River
 	Template@382:
 		Id: 382
 		Images: bridgew2.tem
+		Size: 5,2
+		Categories: Bridge
+		Tiles:
+            0: Wall
+            1: Road
+            2: Road
+            3: Wall
+            5: River
+            6: Wall
+            7: Road
+            8: Road
+            9: Wall
+	Template@386:
+		Id: 386
+		Images: bridgew2h.tem
 		Size: 5,2
 		Categories: Bridge
 		Tiles:
@@ -2433,52 +2483,6 @@ Templates:
             6: Wall
             7: Rock
             8: Rock
-            9: Wall
-	Template@384:
-		Id: 384
-		Images: bridgew1h.tem
-		Size: 5,3
-		Categories: Bridge
-		Tiles:
-            1: Wall
-            2: Road
-            3: Road
-            4: Wall
-            5: Wall
-            6: Road
-            7: Road
-            8: Wall
-            9: River
-            12: Wall
-	Template@385:
-		Id: 385
-		Images: bridgew1x.tem
-		Size: 5,4
-		Categories: Bridge
-		Tiles:
-            1: Clear
-            2: Rough
-            3: Road
-            4: Road
-            5: River
-            15: Road
-            16: Road
-            18: Rock
-            19: River
-	Template@386:
-		Id: 386
-		Images: bridgew2h.tem
-		Size: 5,2
-		Categories: Bridge
-		Tiles:
-            0: Wall
-            1: Road
-            2: Road
-            3: Wall
-            5: River
-            6: Wall
-            7: Road
-            8: Road
             9: Wall
 	Template@387:
 		Id: 387
@@ -4430,3 +4434,93 @@ Templates:
             0: Rock
             1: Rock
             2: Rock
+	Template@650:
+		Id: 650
+		Images: f01.tem
+		Size: 3,3
+		Categories: Bridge
+		Tiles:
+			0: Rough
+			1: Road
+			2: Rough
+			3: Beach
+			4: Shallow
+			5: Beach
+			6: Shallow
+			7: Shallow
+			8: Shallow
+	Template@651:
+		Id: 651
+		Images: f02.tem
+		Size: 3,3
+		Categories: Bridge
+		Tiles:
+			0: Shallow
+			1: Shallow
+			2: Shallow
+			3: Shallow
+			4: Shallow
+			5: Shallow
+			6: Shallow
+			7: Shallow
+			8: Shallow
+	Template@652:
+		Id: 652
+		Images: f03.tem
+		Size: 3,3
+		Categories: Bridge
+		Tiles:
+			0: Shallow
+			1: Shallow
+			2: Shallow
+			3: Beach
+			4: Shallow
+			5: Beach
+			6: Rough
+			7: Road
+			8: Rough
+	Template@653:
+		Id: 653
+		Images: f04.tem
+		Size: 3,3
+		Categories: Bridge
+		Tiles:
+			0: Rough
+			1: Beach
+			2: Shallow
+			3: Road
+			4: Shallow
+			5: Shallow
+			6: Rough
+			7: Beach
+			8: Shallow
+	Template@654:
+		Id: 654
+		Images: f05.tem
+		Size: 3,3
+		Categories: Bridge
+		Tiles:
+			0: Shallow
+			1: Shallow
+			2: Shallow
+			3: Shallow
+			4: Shallow
+			5: Shallow
+			6: Shallow
+			7: Shallow
+			8: Shallow
+	Template@655:
+		Id: 655
+		Images: f06.tem
+		Size: 3,3
+		Categories: Bridge
+		Tiles:
+			0: Shallow
+			1: Beach
+			2: Rough
+			3: Shallow
+			4: Shallow
+			5: Road
+			6: Shallow
+			7: Beach
+			8: Rough

@@ -11,6 +11,7 @@ Packages:
 	$catd: catd
     catd|bits\general.mix
     catd|bits\temperat.mix
+    catd|bits\desert.mix
     catd|bits\eva.mix
     catd|bits\buildings.mix
     catd|bits\units.mix
@@ -28,6 +29,7 @@ Packages:
 
 MapFolders:
 	catd|maps: System
+	catd|maps-desert: System
 
 Rules:
 	catd|rules/misc.yaml
@@ -65,6 +67,7 @@ Sequences:
 
 TileSets:
 	catd|tilesets/temperat.yaml
+	catd|tilesets/desert.yaml
 
 Cursors:
 	catd|cursors.yaml
@@ -242,8 +245,10 @@ SpriteFormats: ShpD2, R8, ShpTD, TmpRA, TmpTD, ShpTS
 SpriteSequenceFormat: ClassicTilesetSpecificSpriteSequence
 	TilesetCodes:
 		TEMPERAT: .tem
+		DESERT: .des
 	TilesetExtensions:
 		TEMPERAT: .tem
+		DESERT: .des
 
 ModelSequenceFormat: PlaceholderModelSequence
 

@@ -215,28 +215,52 @@ resources:
 		Length: *
 	ti1:
 		Filename: rtib1.tem
+		TilesetFilenames:
+			DESERT: rtib1.des
 	ti2:
 		Filename: rtib2.tem
+		TilesetFilenames:
+			DESERT: rtib2.des
 	ti3:
 		Filename: rtib3.tem
+		TilesetFilenames:
+			DESERT: rtib3.des
 	ti4:
 		Filename: rtib4.tem
+		TilesetFilenames:
+			DESERT: rtib4.des
 	ti5:
 		Filename: rtib5.tem
+		TilesetFilenames:
+			DESERT: rtib5.des
 	ti6:
 		Filename: rtib6.tem
+		TilesetFilenames:
+			DESERT: rtib6.des
 	ti7:
 		Filename: rtib7.tem
+		TilesetFilenames:
+			DESERT: rtib7.des
 	ti8:
 		Filename: rtib8.tem
+		TilesetFilenames:
+			DESERT: rtib8.des
 	ti9:
 		Filename: rtib9.tem
+		TilesetFilenames:
+			DESERT: rtib9.des
 	ti10:
 		Filename: rtib10.tem
+		TilesetFilenames:
+			DESERT: rtib10.des
 	ti11:
 		Filename: rtib11.tem
+		TilesetFilenames:
+			DESERT: rtib11.des
 	ti12:
 		Filename: rtib12.tem
+		TilesetFilenames:
+			DESERT: rtib12.des
 
 shroud:
 	Defaults:

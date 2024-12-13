@@ -16,7 +16,7 @@
 		Speed: 298
 		RangeLimit: 6c0
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
+		Spread: 256
 		Damage: 1000
 		ValidTargets: GroundActor, WaterActor
         Versus:
@@ -110,7 +110,6 @@ TOWLauncher:
 	Projectile: Missile
 		RangeLimit: 9c0
 	Warhead@1Dam: SpreadDamage
-		Spread: 128
 		Damage: 3000
 		ValidTargets: GroundActor, WaterActor
         Versus:

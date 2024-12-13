@@ -32,6 +32,7 @@
 			RedTiberium: 90
 				PathingCost: 300
 			Beach: 90
+            Shallow: 90
             Stone: 90
 	Locomotor@FOOTCHEM:
 		Name: foot-chem
@@ -46,6 +47,7 @@
 			BlueTiberium: 90
 			RedTiberium: 90
 			Beach: 90
+            Shallow: 90
 	Locomotor@WHEELED:
 		Name: wheeled
 		Crushes: crate, mine
@@ -58,6 +60,7 @@
 			BlueTiberium: 90
 			RedTiberium: 90
 			Beach: 50
+            Shallow: 50
 	Locomotor@HEAVYWHEELED:
 		Name: heavywheeled
 		Crushes: crate, mine, infantry, bike
@@ -71,6 +74,7 @@
 			BlueTiberium: 90
 			RedTiberium: 90
 			Beach: 50
+            Shallow: 50
 	Locomotor@TRACKED:
 		Name: tracked
 		Crushes: wall, crate, mine, infantry
@@ -84,6 +88,7 @@
 			BlueTiberium: 90
 			RedTiberium: 90
 			Beach: 90
+            Shallow: 90
 	Locomotor@HEAVYTRACKED:
 		Name: heavytracked
 		Crushes: wall, heavywall, crate, mine, infantry, bike
@@ -97,6 +102,7 @@
 			BlueTiberium: 90
 			RedTiberium: 90
 			Beach: 90
+            Shallow: 90
 	Locomotor@CRITTER:
 		Name: critter
         Crushes: crate, mine
@@ -109,16 +115,19 @@
 			BlueTiberium: 90
 			RedTiberium: 90
 			Beach: 90
+            Shallow: 90
 	Locomotor@NAVAL:
 		Name: naval
 		Crushes: crate, mine
 		TerrainSpeeds:
 			Water: 100
+            Shallow: 80
 	Locomotor@LANDINGCRAFT:
 		Name: landingcraft
 		Crushes: crate, mine
 		TerrainSpeeds:
 			Water: 100
+            Shallow: 80
 			Beach: 70
 	Locomotor@TRACKEDAMPHIBIAN:
 		Name: tracked-amphibious
@@ -133,6 +142,7 @@
 			BlueTiberium: 90
 			RedTiberium: 90
 			Beach: 90
+            Shallow: 90
             Water: 80
 	Faction@Random:
 		Name: Any
@@ -295,7 +305,7 @@ World:
 		PreviewActor: cnst.colorpicker
         FactionPreviewActors:
             nod: cnst.colorpicker.nod
-		PresetColors: FCFC54, A4A4BC, F40000, 54FC54, D47810, 007070, D0C4AC, A8704C, FC9494, A800A8, C4B060, 4494E4, EC0000, 00C400, FC8800, 707070, 44907C, 702C24, 885060, 840084, FFDF5E, 273CB3, DE0000, 0C960C, FF9100, BEBEBE, 14FF9F, FFA44B, FF5EC7, B914FF
+		PresetColors: FFE67F, FF5F5F, 7387FF, 14FF9F, FFB85A, DCDCDC, B9E8FF, C19B6A, D05FFF, FF87D4, FEFF5F, FF1414, 3754FF, 4AC84A, FF9000, BEBEBE, 5FC9FF, B87940, BA14FF, FF5FC5, FFD014, 960000, 263AB3, 0B960B, FF5114, 787878, 14AFFF, B85600, 7C0DAA, FF14AA
         SimilarityThreshold: 20
 	OrderEffects:
 		TerrainFlashImage: moveflsh

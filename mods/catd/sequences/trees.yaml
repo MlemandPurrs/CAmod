@@ -1,6 +1,8 @@
 split2:
 	Defaults:
 		Filename: split2.tem
+		TilesetFilenames:
+            DESERT: split2.des
 		Offset: 11, -15
 	make:
 		Length: 30
@@ -14,6 +16,8 @@ split2:
 split3:
 	Defaults:
         Filename: split3.tem
+		TilesetFilenames:
+            DESERT: split3.des
 		Offset: 7, -13
 	make:
 		Length: 30
@@ -27,6 +31,8 @@ split3:
 tc04:
 	Defaults:
 		Filename: tc04.tem
+		TilesetFilenames:
+            DESERT: tc04.des
 	idle:
 	damaged-idle:
 		Start: 1
@@ -34,12 +40,16 @@ tc04:
 tc04.husk:
 	Defaults:
 		Filename: tc04.tem
+		TilesetFilenames:
+            DESERT: tc04.des
 	idle:
 		Start: 2
 
 tc05:
 	Defaults:
 		Filename: tc05.tem
+		TilesetFilenames:
+            DESERT: tc05.des
 	idle:
 	damaged-idle:
 		Start: 1
@@ -47,203 +57,313 @@ tc05:
 tc05.husk:
 	Defaults:
 		Filename: tc05.tem
+		TilesetFilenames:
+            DESERT: tc05.des
 	idle:
 		Start: 2
 
 tc03:
 	Defaults:
 		Filename: tc03.tem
+		TilesetFilenames:
+            DESERT: tc03.des
 	idle:
 
 tc03.husk:
 	Defaults:
 		Filename: tc03.tem
+		TilesetFilenames:
+            DESERT: tc03.des
 	idle:
 		Start: 1
 
 tc02:
 	Defaults:
 		Filename: tc02.tem
+		TilesetFilenames:
+            DESERT: tc02.des
 	idle:
 
 tc02.husk:
 	Defaults:
 		Filename: tc02.tem
+		TilesetFilenames:
+            DESERT: tc02.des
 	idle:
 		Start: 1
 
 tc01:
 	Defaults:
 		Filename: tc01.tem
+		TilesetFilenames:
+            DESERT: tc01.des
 	idle:
 
 tc01.husk:
 	Defaults:
 		Filename: tc01.tem
+		TilesetFilenames:
+            DESERT: tc01.des
 	idle:
+		Start: 1
+
+t18:
+	idle:
+		Filename: t18.des
+
+t18.husk:
+	idle:
+		Filename: t18.des
+		Start: 1
+
+t19:
+    idle:
+        Filename: t19.des
+
+t19.husk:
+	idle:
+		Filename: t19.des
 		Start: 1
 
 t17:
 	Defaults:
 		Filename: t17.tem
+		TilesetFilenames:
+            DESERT: t17.des
 	idle:
 
 t17.husk:
 	Defaults:
 		Filename: t17.tem
+		TilesetFilenames:
+            DESERT: t17.des
 	idle:
 		Start: 1
 
 t16:
 	Defaults:
 		Filename: t16.tem
+		TilesetFilenames:
+            DESERT: t16.des
 	idle:
 
 t16.husk:
 	Defaults:
 		Filename: t16.tem
+		TilesetFilenames:
+            DESERT: t16.des
 	idle:
 		Start: 1
 
 t15:
 	Defaults:
 		Filename: t15.tem
+		TilesetFilenames:
+            DESERT: t15.des
 	idle:
 
 t15.husk:
 	Defaults:
 		Filename: t15.tem
+		TilesetFilenames:
+            DESERT: t15.des
 	idle:
 		Start: 1
 
 t14:
 	Defaults:
 		Filename: t14.tem
+		TilesetFilenames:
+            DESERT: t14.des
 	idle:
 
 t14.husk:
 	Defaults:
 		Filename: t14.tem
+		TilesetFilenames:
+            DESERT: t14.des
 	idle:
 		Start: 1
 
 t13:
 	Defaults:
 		Filename: t13.tem
+		TilesetFilenames:
+            DESERT: t13.des
 	idle:
 
 t13.husk:
 	Defaults:
 		Filename: t13.tem
+		TilesetFilenames:
+            DESERT: t13.des
 	idle:
 		Start: 1
 
 t12:
 	Defaults:
 		Filename: t12.tem
+		TilesetFilenames:
+            DESERT: t12.des
 	idle:
 
 t12.husk:
 	Defaults:
 		Filename: t12.tem
+		TilesetFilenames:
+            DESERT: t12.des
 	idle:
 		Start: 1
 
 t11:
 	Defaults:
 		Filename: t11.tem
+		TilesetFilenames:
+            DESERT: t11.des
 	idle:
 
 t11.husk:
 	Defaults:
 		Filename: t11.tem
+		TilesetFilenames:
+            DESERT: t11.des
 	idle:
 		Start: 1
 
 t10:
 	Defaults:
 		Filename: t10.tem
+		TilesetFilenames:
+            DESERT: t10.des
 	idle:
 
 t10.husk:
 	Defaults:
 		Filename: t10.tem
+		TilesetFilenames:
+            DESERT: t10.des
 	idle:
+		Start: 1
+
+t09:
+	idle:
+		Filename: t09.des
+
+t09.husk:
+	idle:
+		Filename: t09.des
 		Start: 1
 
 t08:
 	Defaults:
         Filename: t08.tem
+		TilesetFilenames:
+            DESERT: t08.des
 	idle:
 
 t08.husk:
 	Defaults:
         Filename: t08.tem
+		TilesetFilenames:
+            DESERT: t08.des
 	idle:
 		Start: 1
 
 t07:
 	Defaults:
 		Filename: t07.tem
+		TilesetFilenames:
+            DESERT: t07.des
 	idle:
 
 t07.husk:
 	Defaults:
 		Filename: t07.tem
+		TilesetFilenames:
+            DESERT: t07.des
 	idle:
 		Start: 1
 
 t06:
 	Defaults:
 		Filename: t06.tem
+		TilesetFilenames:
+            DESERT: t06.des
 	idle:
 
 t06.husk:
 	Defaults:
 		Filename: t06.tem
+		TilesetFilenames:
+            DESERT: t06.des
 	idle:
 		Start: 1
 
 t05:
 	Defaults:
 		Filename: t05.tem
+		TilesetFilenames:
+            DESERT: t05.des
 	idle:
 
 t05.husk:
 	Defaults:
 		Filename: t05.tem
+		TilesetFilenames:
+            DESERT: t05.des
 	idle:
+		Start: 1
+
+t04:
+	idle:
+		Filename: t04.des
+
+t04.husk:
+	idle:
+		Filename: t04.des
 		Start: 1
 
 t03:
 	Defaults:
 		Filename: t03.tem
+		TilesetFilenames:
+            DESERT: t03.des
 	idle:
 
 t03.husk:
 	Defaults:
 		Filename: t03.tem
+		TilesetFilenames:
+            DESERT: t03.des
 	idle:
 		Start: 1
 
 t02:
 	Defaults:
 		Filename: t02.tem
+		TilesetFilenames:
+            DESERT: t02.des
 	idle:
 
 t02.husk:
 	Defaults:
 		Filename: t02.tem
+		TilesetFilenames:
+            DESERT: t02.des
 	idle:
 		Start: 1
 
 t01:
 	Defaults:
 		Filename: t01.tem
+		TilesetFilenames:
+            DESERT: t01.des
 	idle:
 
 t01.husk:
 	Defaults:
 		Filename: t01.tem
+		TilesetFilenames:
+            DESERT: t01.des
 	idle:
 		Start: 1
