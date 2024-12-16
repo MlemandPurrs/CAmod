@@ -1558,6 +1558,7 @@ HFTK:
 	Mobile:
 		TurnSpeed: 16
 		Speed: 70
+        PauseOnCondition: boarding || being-captured || emp-condition || driver-dead || dont-move
 	Health:
 		HP: 55000
 	Armor:
@@ -1573,12 +1574,16 @@ HFTK:
         PauseOnCondition: emp-condition
 	AttackTurreted:
 		Voice: Attack
-		FacingTolerance: 0
         PauseOnCondition: emp-condition
 	AttackMove:
 		Voice: Attack
 	WithMuzzleOverlay:
     WithSpriteTurret:
+	GrantConditionOnAttack:
+		Condition: dont-move
+		RevokeDelay: 16
+		RevokeOnNewTarget: False
+		RevokeAll: True
 	Explodes:
 		Weapon: FlametankExplode
 		EmptyWeapon: FlametankExplode

@@ -567,50 +567,6 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
-	Template@53:
-		Id: 53
-		Images: sh20.des
-		Size: 4,1
-		Categories: Beach
-		Tiles:
-			0: River
-			1: Rock
-			2: Rock
-			3: River
-	Template@54:
-		Id: 54
-		Images: sh21.des
-		Size: 3,1
-		Categories: Beach
-		Tiles:
-			0: Rock
-			1: Clear
-			2: River
-	Template@55:
-		Id: 55
-		Images: sh22.des
-		Size: 6,2
-		Categories: Beach
-		Tiles:
-			1: Rock
-			2: Rock
-			3: Clear
-			6: River
-			7: Water
-			8: Water
-			9: Rock
-			10: River
-			11: River
-	Template@56:
-		Id: 56
-		Images: sh23.des
-		Size: 2,2
-		Categories: Beach
-		Tiles:
-			0: Clear
-			1: Clear
-			2: River
-			3: River
 	Template@57:
 		Id: 57
 		Images: br1.des
@@ -1807,10 +1763,10 @@ Templates:
 			3: Rock
 			4: River
 			5: River
-	Template@165:
-		Id: 165
+	Template@265:
+		Id: 265
 		Images: bridge3.des
-		Size: 4,2
+		Size: 4,3
 		Categories: Bridge
 		Tiles:
             0: Rock
@@ -1821,10 +1777,14 @@ Templates:
             5: Road
             6: Wall
             7: River
-	Template@169:
-		Id: 169
+            8: Road
+            9: Wall
+            10: Rock
+            11: River
+	Template@269:
+		Id: 269
 		Images: bridge3h.des
-		Size: 4,2
+		Size: 4,3
 		Categories: Bridge
 		Tiles:
             0: Rock
@@ -1835,10 +1795,14 @@ Templates:
             5: Road
             6: Wall
             7: River
-	Template@166:
-		Id: 166
+            8: Road
+            9: Wall
+            10: Rock
+            11: River
+	Template@266:
+		Id: 266
 		Images: bridge3d.des
-		Size: 4,2
+		Size: 4,3
 		Categories: Bridge
 		Tiles:
             0: Rock
@@ -1849,8 +1813,12 @@ Templates:
             5: Rock
             6: Wall
             7: River
-	Template@170:
-		Id: 170
+            8: Road
+            9: Wall
+            10: Rock
+            11: River
+	Template@270:
+		Id: 270
 		Images: bridge3x.des
 		Size: 6,5
 		Categories: Bridge
@@ -1865,8 +1833,8 @@ Templates:
             23: River
             24: Road
             25: Road
-	Template@167:
-		Id: 167
+	Template@267:
+		Id: 267
 		Images: bridge4.des
 		Size: 4,2
 		Categories: Bridge
@@ -1879,8 +1847,8 @@ Templates:
             5: Wall
             6: Road
             7: Wall
-	Template@168:
-		Id: 168
+	Template@268:
+		Id: 268
 		Images: bridge4d.des
 		Size: 4,2
 		Categories: Bridge
@@ -1893,8 +1861,8 @@ Templates:
             5: Wall
             6: Rock
             7: Wall
-	Template@171:
-		Id: 171
+	Template@271:
+		Id: 271
 		Images: bridge4h.des
 		Size: 4,2
 		Categories: Bridge
@@ -1907,8 +1875,8 @@ Templates:
             5: Wall
             6: Road
             7: Wall
-	Template@172:
-		Id: 172
+	Template@272:
+		Id: 272
 		Images: bridge4x.des
 		Size: 6,4
 		Categories: Bridge
@@ -1919,16 +1887,184 @@ Templates:
             4: Rock
             5: Rock
             6: Rough
-            10: River
             11: River
             12: Rock
-            16: River
             17: Rock
             18: River
             19: River
             20: Rock
             21: Road
             22: Road
+	Template@273:
+		Id: 273
+		Images: bridge3w.des
+		Size: 4,2
+		Categories: Bridge
+		Tiles:
+            0: Wall
+            1: Road
+            2: Road
+            3: Wall
+            4: Road
+            5: Road
+            6: Wall
+            7: River
+	Template@274:
+		Id: 274
+		Images: bridge3wd.des
+		Size: 4,2
+		Categories: Bridge
+		Tiles:
+            0: Wall
+            1: Road
+            2: Road
+            3: Wall
+            4: Road
+            5: Road
+            6: Wall
+            7: River
+	Template@275:
+		Id: 275
+		Images: bridge3wh.des
+		Size: 4,2
+		Categories: Bridge
+		Tiles:
+            0: Wall
+            1: Rock
+            2: Rock
+            3: Wall
+            4: Rock
+            5: Rock
+            6: Wall
+            7: River
+	Template@276:
+		Id: 276
+		Images: bridge3wx.des
+		Size: 6,4
+		Categories: Bridge
+		Tiles:
+            0: Rock
+            1: Rock
+            2: Wall
+            3: Road
+            4: Road
+            6: River
+            11: Rock
+            12: Wall
+            17: Rock
+            18: Road
+            19: Road
+            20: Wall
+            21: River
+            22: River
+            23: River
+	Template@277:
+		Id: 277
+		Images: bridge4w.des
+		Size: 4,2
+		Categories: Bridge
+		Tiles:
+            0: Wall
+            1: Road
+            2: Road
+            3: Wall
+            4: River
+            5: Wall
+            6: Road
+            7: Road
+	Template@278:
+		Id: 278
+		Images: bridge4wd.des
+		Size: 4,2
+		Categories: Bridge
+		Tiles:
+            0: Wall
+            1: Road
+            2: Road
+            3: Wall
+            4: River
+            5: Wall
+            6: Road
+            7: Road
+	Template@279:
+		Id: 279
+		Images: bridge4wh.des
+		Size: 4,2
+		Categories: Bridge
+		Tiles:
+            0: Wall
+            1: Rock
+            2: Rock
+            3: Wall
+            4: River
+            5: Wall
+            6: Rock
+            7: Rock
+	Template@280:
+		Id: 280
+		Images: bridge4wx.des
+		Size: 6,4
+		Categories: Bridge
+		Tiles:
+            1: Road
+            2: Road
+            3: Wall
+            4: Rock
+            5: Rock
+            6: Rock
+            11: River
+            12: Rock
+            17: Wall
+            18: River
+            19: River
+            20: Rock
+            21: Wall
+            22: Road
+            23: Road
+	Template@53:
+		Id: 53
+		Images: sh20.des
+		Size: 4,1
+		Categories: Beach
+		Tiles:
+			0: River
+			1: Rock
+			2: Rock
+			3: River
+	Template@54:
+		Id: 54
+		Images: sh21.des
+		Size: 3,1
+		Categories: Beach
+		Tiles:
+			0: Rock
+			1: Clear
+			2: River
+	Template@55:
+		Id: 55
+		Images: sh22.des
+		Size: 6,2
+		Categories: Beach
+		Tiles:
+			1: Rock
+			2: Rock
+			3: Clear
+			6: River
+			7: Water
+			8: Water
+			9: Rock
+			10: River
+			11: River
+	Template@56:
+		Id: 56
+		Images: sh23.des
+		Size: 2,2
+		Categories: Beach
+		Tiles:
+			0: Clear
+			1: Clear
+			2: River
+			3: River
 	Template@78:
 		Id: 78
 		Images: sh19.des

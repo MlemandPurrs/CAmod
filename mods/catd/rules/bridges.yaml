@@ -34,6 +34,42 @@ BRIDGE2:
 	Interactable:
 		Bounds: 4096, 2048
 
+BRIDGE3:
+	Inherits: ^Bridge
+	Bridge:
+		Template: 265
+        DamagedTemplate: 269
+		DestroyedTemplate: 266
+	Building:
+		Footprint: ____ ____ ____
+		Dimensions: 4,3
+	FreeActor@north:
+		Actor: bridgehut
+		SpawnOffset: 2,-1
+	FreeActor@south:
+		Actor: bridgehut
+		SpawnOffset: 0,1
+	Interactable:
+		Bounds: 4096, 3072
+
+BRIDGE4:
+	Inherits: ^Bridge
+	Bridge:
+		Template: 267
+        DamagedTemplate: 271
+		DestroyedTemplate: 268
+	Building:
+		Footprint: ____ ____
+		Dimensions: 4,2
+	FreeActor@north:
+		Actor: bridgehut
+		SpawnOffset: 0,-1
+	FreeActor@south:
+		Actor: bridgehut
+		SpawnOffset: 2,1
+	Interactable:
+		Bounds: 4096, 2048
+
 BRIDGEHUT:
 	AlwaysVisible:
 	Building:
@@ -129,6 +165,46 @@ BRIDGEW2:
 		SpawnOffset: 2,1
 	Interactable:
 		Bounds: 5120, 2048
+
+BRIDGEW3:
+	Inherits: ^Bridge
+	Health:
+		HP: 80000
+	Bridge:
+		Template: 273
+        DamagedTemplate: 275
+		DestroyedTemplate: 274
+	Building:
+		Footprint: ____ ____
+		Dimensions: 4,2
+	FreeActor@north:
+		Actor: bridgehut2
+		SpawnOffset: 2,-2
+	FreeActor@south:
+		Actor: bridgehut
+		SpawnOffset: 0,1
+	Interactable:
+		Bounds: 4096, 2048
+
+BRIDGEW4:
+	Inherits: ^Bridge
+	Health:
+		HP: 80000
+	Bridge:
+		Template: 277
+        DamagedTemplate: 279
+		DestroyedTemplate: 278
+	Building:
+		Footprint: ____ ____
+		Dimensions: 4,2
+	FreeActor@north:
+		Actor: bridgehut2
+		SpawnOffset: 0,-2
+	FreeActor@south:
+		Actor: bridgehut
+		SpawnOffset: 2,1
+	Interactable:
+		Bounds: 4096, 2048
 
 BRIDGEHUT2:
     Inherits: BRIDGEHUT
